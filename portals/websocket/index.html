@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="remote-procedure-call-over-websocket">Remote Procedure Call over WebSocket</h1>
+<h2 id="websocket-protocol">WebSocket Protocol</h2>
+<p>The WebSocket protocol provides a mean to establish a connection to One Platform and send multiple RPC requests in the same session. It matches the calls defined in the JSON RPC API <a href="../portals/rpc/README.md">RPC</a> with the addition of <a href="#subscribe">subscribe</a> and <a href="#unsubscribe">unsubscribe</a> which are detailed here. </p>
+<p>Also authentication differs from the JSON RPC API <a href="../portals/rpc/README.md">RPC</a>. In the WebSocket implementation, we do authentication only once per session, but can issue multiple RPC calls asynchronous during the session.</p>
+<h2 id="first-step-establishing-a-connection">First Step: Establishing a Connection</h2>
+<p>You have to establish WebSocket connection to <code>wss://m2.exosite.com/ws</code>.  The first step is to do authentication with One Platform where you have to send an authentication JSON object <a href="../portals/rpc/README.md#authentication">authentication</a>.  Here&#39;s an example:</p>
+<pre><code>{
+  &quot;auth&quot;: {
+    &quot;cik&quot;: &quot;bef3c7f91ac3562e6a2212345678901234567890&quot;
+  }
+}
+</code></pre><p>If the authentication is successful, One Platform&#39;s response is as follows:</p>
+<pre><code>{
+  &quot;status&quot;: &quot;ok&quot;
+}
+</code></pre><h2 id="second-step-issuing-rpc-calls">Second Step: Issuing RPC Calls</h2>
+<p>Once a client pass the authentication, she can start sending requests to One Platform.  All the requests to One Platform via WebSocket are asynchronous.  A response corresponding to a request is bound to the given <code>id</code>.  The client has to pair the request and response by providing an unique <code>id</code> per request.  These requests will only include the <code>calls</code> part of the JSON RPC call as the following - skipping the <code>auth</code> part as authentication is already done.</p>
+<pre><code>{&quot;calls&quot;: 
+  [{
+    &quot;id&quot;: 1, 
+      &quot;procedure&quot;: &quot;read&quot;, 
+      &quot;arguments&quot;: [
+        &lt;ResourceID&gt;,
+        {
+          &quot;starttime&quot;: 1376709504,
+          &quot;endtime&quot;: 1376709527,
+          &quot;limit&quot;: 1,
+          &quot;sort&quot;: &quot;desc&quot;,
+          &quot;selection&quot;: &quot;all&quot;
+        }
+      ]
+  }]
+}
+</code></pre><p>Response:</p>
+<pre><code>[{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;result&quot;: [[1376709527, 64.2]],
+  &quot;id&quot;: 1
+}]
+</code></pre><h2 id="subscribe">Subscribe</h2>
+<p><code>subscribe</code> allows a client to listen to new incoming data on a data resource. It is only available on the WebSocket API. Unlike other RPC procedures, one subscribe call may result in multiple asynchronous responses.</p>
+<p>The request body is defined as follows:</p>
+<pre><code>{
+  &quot;calls&quot;:
+  [{
+    &quot;id&quot;: &lt;id&gt;, 
+    &quot;procedure&quot;: &quot;subscribe&quot;, 
+    &quot;arguments&quot;: [
+      &lt;RID/Alias&gt;,
+      {
+        &quot;since&quot;: &lt;timestamp&gt;,
+        &quot;timeout&quot;: &lt;milliseconds&gt;,
+        (&quot;subs_id&quot;: &lt;subs_id&gt;)
+      }
+    ]
+  }]
+}
+</code></pre><p>Response:</p>
+<pre><code>[{
+  &quot;id&quot;: &lt;id&gt;,
+  &quot;status&quot;: &quot;ok&quot;
+}]
+</code></pre><p>This response acknowledges the successful creation of a subscription.</p>
+<ul>
+<li><code>&lt;RID/Alias&gt;</code> specifies which resource to subscribe to: an RID string or alias in the form <code>{&quot;alias&quot;: &lt;alias&gt;}</code></li>
+<li><p><code>since</code> indicates that data received after <code>&lt;timestamp&gt;</code> should be returned first. After that it will continuously receive new data as it is updated.</p>
+</li>
+<li><p><code>timeout</code> is a duration after which the client will not receive new data. The default value is <code>never</code>.</p>
+</li>
+<li><p>All updated values will be sent to the client with the same <code>id</code> as the one in the <code>subscribe</code> request. The <code>subs_id</code> is optional to specify a subscription id different from the calls <code>id</code>.</p>
+</li>
+</ul>
+<p>Asynchronous data update:</p>
+<pre><code>[{
+  &quot;id&quot;: &lt;id|subs_id&gt;,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;result&quot;: [[&lt;timestamp&gt;, &lt;value&gt;]]
+}]
+</code></pre><p>These data updates can happen anytime while the subscription is active. If a <code>subs_id</code> has been provided in the initial subscribe call the <code>id</code> value will correspond to the <code>subs_id</code>, otherwise it will correspond to the <code>id</code> of the initial subscribe call.</p>
+<h2 id="unsubscribe">Unsubscribe</h2>
+<p><code>unsubscribe</code> cancels subscription created by <code>subscribe</code>. The request body is defined as follows:</p>
+<pre><code>[{
+    &quot;id&quot;: &lt;id&gt;
+    &quot;procedure&quot;: &quot;unsubscribe&quot;, 
+    &quot;arguments&quot;: [
+        &lt;RID/Alias&gt;,
+        {&quot;subs_id&quot;: &lt;id|subs_id&gt;}
+    ]
+}]
+</code></pre><ul>
+<li><p><code>&lt;RID/Alias&gt;</code> is used to specify the unsubscribing resource: an RID string or alias in the form <code>{&quot;alias&quot;: &lt;alias&gt;}</code>.  If a client doesn&#39;t give this field, <code>unsubscribe</code> call will unsubscribe all resources subscribed to <code>&lt;subs_id&gt;</code>. </p>
+</li>
+<li><p><code>&lt;id|subs_id&gt;</code> is the subscription <code>id</code> that is to be cancelled. If the initial <code>subscribe</code> call specified a <code>subs_id</code> this value is to be used. If not, the initial <code>id</code> value should be referenced here.</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="solution-quickstart">Solution Quickstart</h1>
+<p>In this quickstart, you will build, deploy, and use an example IoT application with the following features:</p>
+<ul>
+<li>User Login</li>
+<li>User Profiles</li>
+<li>Device Provisioning</li>
+<li>Real Time Device Data</li>
+<li>Device Control</li>
+</ul>
+<p>If you do not already have a Murano account,
+<a class="btn orange" href="https://exosite.com/business/signup">Sign Up for Beta Access to Murano</a></p>
+<h1 id="requirements">Requirements</h1>
+<h2 id="hardware-setup">Hardware Setup</h2>
+<p>No hardware is required to complete this guide.</p>
+<h2 id="software-setup">Software Setup</h2>
+<p>In order to complete this tutorial, you will need Git, node.js &amp; npm, and Python &amp; pip installed on your system. </p>
+<p><strong>NOTE:</strong> This is a technical tutorial. You will need some familiarity with your operating system’s terminal. </p>
+<h1 id="getting-started">Getting Started</h1>
+<p>Create a solution using the home automation example as a starting point here:
+<a href="https://www.exosite.io/business/solutions" target="_blank">https://www.exosite.io/business/solutions</a></p>
+<p><strong>NOTE:</strong> You may have to delete your previous solution if you are on a free account.</p>
+<p><img src="exampleapp_1.png" alt="image alt text"></p>
+<p>Notice, the Home Automation Example will pull in a public GitHub repository. If you are using your own GitHub repository in the future, it will not be linked to your solution (e.g., push to your GitHub repository and see changes on your solution). It consumes the repository when creating the solution, and you can push changes using the <a href="/development/tools/exosite-cli/" target="_blank">Murano CLI</a>.</p>
+<p><img src="exampleapp_2.png" alt="image alt text"></p>
+<p>To verify the Template File worked, click the <em>ROUTES</em> menu item—you should see something like this: 
+<img src="exampleapp_3.png" alt="image alt text"></p>
+<p>You have now created a custom API, owner and guest roles with device-level permissions, a responsive web app (which you will make changes to later), and an empty user database.</p>
+<h1 id="link-your-product-with-your-solution">LINK YOUR PRODUCT WITH YOUR SOLUTION</h1>
+<p><strong>NOTE:</strong> If you have not created a product yet, create one here:
+<a href="https://exosite.io/business/products" target="_blank">https://exosite.io/business/products</a></p>
+<p>You can plug all types of services into your solution. Products are linked to your solution as a &quot;service,&quot; similar to the way you can integrate Twilio. You will continue to add services that you can plug in and save development time.</p>
+<p>1) In your solution, click on the <em>SERVICES</em> tab <br />
+2) Select <em>Product</em> <br />
+3) Select the settings icon <br />
+4) Select the products you want to include in the solution <br />
+5) Click &quot;APPLY&quot; <br /></p>
+<p><img src="exampleapp_4.png" alt="image alt text"></p>
+<p>Your product is now linked to your solution and can be added as a device.</p>
+<h1 id="sign-up-for-a-new-account-on-the-web-app">SIGN UP FOR A NEW ACCOUNT ON THE WEB APP</h1>
+<ol>
+<li><p>Open your solution URL.
+<img src="exampleapp_5.png" alt="image alt text"></p>
+</li>
+<li><p>Sign up for an account on your new example app. <div style="background-color: #00BCD6; display: inline-block;"><strong>NOTE:</strong> You will not be able to login with your Exosite Murano credentials.</div> This is a totally separate application that you just deployed on the Murano platform, with a separate user database.</p>
+<p>If you used the Home Automation Example, it should look like this:
+<img src="exampleapp_6.png" alt="image alt text"></p>
+</li>
+<li><p>After signing up, click on the email verification link, then log in.</p>
+</li>
+<li><p>In the new web app, add a lightbulb using the identity of the device you added earlier (e.g., if you <a href="/quickstarts/lightbulb/" target="_blank">simulated a lightbulb using a Python script</a>, your device identity would most likely be &quot;000001&quot;). Click &quot;ADD.&quot; </p>
+<p><strong>NOTE:</strong> If you have not added a device yet, it will throw an error.</p>
+<p><img src="exampleapp_A.png" alt="image alt text"></p>
+<p><img src="exampleapp_B.png" alt="image alt text"></p>
+</li>
+<li><p>Click to open your device. You should see data from the lightbulb—current humidity, temperature, and whether it is on or off. </p>
+<p><strong>NOTE:</strong> If you simulated a device using the Python Script, keep the script running so data will continue to flow into the application. It should look like this:
+<img src="exampleapp_7.png" alt="image alt text"></p>
+</li>
+</ol>
+<p>Congratulations—you have connected a device to your web app and are seeing live data.</p>
+<h1 id="advanced-deploy-changes-to-the-example-solution">ADVANCED: DEPLOY CHANGES TO THE EXAMPLE SOLUTION</h1>
+<ol>
+<li><p>Clone this GitHub repo: </p>
+<pre><code>git clone https://github.com/exosite/home-automation-example
+</code></pre></li>
+<li><p>CD to the directory:</p>
+<pre><code>cd home-automation-example
+</code></pre></li>
+<li><p>Install the Exosite CLI:</p>
+<pre><code>sudo pip install exosite
+</code></pre></li>
+<li><p>To confirm the Exosite CLI was installed correctly, type in: </p>
+<pre><code>exosite -h
+</code></pre><p>If it returns “command not found,” you may need to install pip with brew on your specific OS. </p>
+<p><strong>NOTE:</strong> There is a known issue in OS X—if you have upgraded to El Capitan, you may need to go around the built-in system dependencies on “six” by running:</p>
+<pre><code>sudo pip install --upgrade exosite --ignore-installed six --ignore-installed prompt-toolkit --ignore-installed requests
+</code></pre></li>
+<li><p>Once you have confirmed the Exosite CLI was successfully installed, run the following three commands: </p>
+<pre><code>npm install
+</code></pre><pre><code>npm run compile
+</code></pre><pre><code>exosite --init
+</code></pre></li>
+<li><p>Log in with your Exosite credentials, and enter your product and solution IDs (hint: try the typeahead).
+<img src="exampleapp_8.png" alt="image alt text"></p>
+</li>
+<li><p>Make a change to <em>home-automation-example &gt; app &gt; components &gt; Login.js</em>. Change the text from “Login” to “Login HERE” to make sure changes are deployed.
+<img src="exampleapp_9.png" alt="image alt text"></p>
+</li>
+<li><p>Compile your code:</p>
+<pre><code>npm run compile
+</code></pre></li>
+<li><p>Deploy your solution from the top-level directory (you may need to CD back up to <em>home-automation-example</em> directory):</p>
+<pre><code>exosite --deploy
+</code></pre></li>
+<li><p>Open the URL (cmd/ctrl + click to open in default browser, or copy paste the link):
+<img src="exampleapp_10.png" alt="image alt text"></p>
+</li>
+</ol>
+<p>Your changes have now been deployed: </p>
+<p><img src="exampleapp_11.png" alt="image alt text"></p>
+<h1 id="setting-up-local-development">SETTING UP LOCAL DEVELOPMENT</h1>
+<ol>
+<li><p>To run the web application static assets locally, create an .env file in the root of the project with your solution URL, like this (name it anything):</p>
+<p>API_BASE_URL=https://<solution-name>.apps.exosite-dev.io</p>
+<p><strong>NOTE:</strong> The Chrome plugin in the next step may change the appearance of certain websites (e.g., GitHub.com) until you     disable it. You can easily disable the plugin by going to <em>Chrome &gt; Preferences &gt; Extensions &gt; Disable ModHeader</em>.</p>
+</li>
+<li><p>Install this <a href="https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj/related?hl=en" target="_blank">Google Chrome plugin</a> and import this configuration: </p>
+<pre><code>{&quot;title&quot;:&quot;Local Debugging&quot;,&quot;hideComment&quot;:true,&quot;headers&quot;:  [{&quot;enabled&quot;:true,&quot;name&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;,&quot;comment&quot;:&quot;&quot;}],&quot;respHeaders&quot;:[{&quot;enabled&quot;:true,&quot;name&quot;:&quot;Access-Control-Allow- Origin&quot;,&quot;value&quot;:&quot;http://localhost:8080&quot;,&quot;comment&quot;:&quot;&quot;},{&quot;enabled&quot;:true,&quot;name&quot;:&quot;Access-Control-Allow- Credentials&quot;,&quot;value&quot;:&quot;true&quot;,&quot;comment&quot;:&quot;&quot;}],&quot;filters&quot;:[],&quot;appendMode&quot;:&quot;&quot;}
+</code></pre><p><img src="exampleapp_12.png" alt="image alt text"></p>
+<p><img src="exampleapp_13.png" alt="image alt text"></p>
+</li>
+</ol>
+<p>In your terminal:</p>
+<ol>
+<li><p>CD to the <em>home-automation-example</em> directory and paste this command:</p>
+<pre><code>npm run start:dev
+</code></pre></li>
+<li><p>Go to <a href="http://localhost:8080" target="_blank">http://localhost:8080</a> in your browser.</p>
+</li>
+<li><p>To push your solution changes to Exosite, simply run: </p>
+<pre><code>npm run compile
+</code></pre></li>
+<li>Deploy your solution changes to Exosite:<pre><code>exosite --deploy
+</code></pre><div style="padding-bottom: 30px"></div>
+
+</li>
+</ol>
+<p>You can now develop locally, compile your app, and push to the cloud.</p>
+<!-- Weaver's suggestion to add a link to learn more is valid and needed, but we don't talk about these things in the docs yet-->
+<!--For more information about the powerful capabilities of Routes and Services (not to mention Hosting, Users, Roles and more, please check out <a href="../../">our getting started documentation</a>. -->
+<div style="padding-bottom: 50px"></div>
+
+
+
+<p>Next up (if you have not already):
+<a class="btn orange" href="http://docs.exosite.com/murano/get-started/">CREATE A PRODUCT &gt;&gt;</a></p>
+<div style="padding-bottom: 300px"></div>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

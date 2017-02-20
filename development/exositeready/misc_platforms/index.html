@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="miscellaneous-hardware-platform-support">Miscellaneous Hardware Platform Support</h1>
+<p><a href="/exositeready">&lt; Back to ExositeReady Device Software Support Page</a></p>
+<ul>
+<li><a href="#multitech-exositeready-platforms">MultiTech</a></li>
+<li><a href="#qualcomm-exositeready-platforms">Qualcomm</a></li>
+<li><a href="#synapse-wireless-exositeready-platforms">Synapse Wireless</a></li>
+<li><a href="#gainspan-exositeready-platforms">Gainspan</a></li>
+<li><a href="#broadcom-exositeready-platforms">Broadcom</a></li>
+</ul>
+<h1 id="multitech-exositeready-platforms">MultiTech ExositeReady™ Platforms</h1>
+<h1 id="-multitech-assets-multitech_logo-png-"><img src="../assets/multitech_logo.png" alt="MultiTech"></h1>
+<h2 id="conduit-gateway">Conduit Gateway</h2>
+<p>Information Coming Soon</p>
+<h3 id="downloads-and-links">Downloads and Links</h3>
+<ul>
+<li><a href="https://support.exosite.com/hc/en-us/requests/new">Code and Information - Please Contact support@exosite.com</a></li>
+</ul>
+<h1 id="qualcomm-exositeready-platforms">Qualcomm ExositeReady™ Platforms</h1>
+<h1 id="-qualcomm-assets-qualcomm_logo-png-"><img src="../assets/qualcomm_logo.png" alt="Qualcomm"></h1>
+<p>Qualcomm and Exosite have partnered to build IoT connectivity directly into the module.  Contact us for more information.</p>
+<h2 id="qca401x">QCA401x</h2>
+<p>Information Coming Soon</p>
+<h3 id="downloads-and-links">Downloads and Links</h3>
+<ul>
+<li><a href="https://support.exosite.com/hc/en-us/requests/new">Code and Information - Please contact support@exosite.com</a></li>
+</ul>
+<h1 id="synapse-wireless-exositeready-platforms">Synapse Wireless ExositeReady™ Platforms</h1>
+<h1 id="-synapse-wireless-assets-synapse-wireless_logo-png-"><img src="../assets/synapse-wireless_logo.png" alt="Synapse Wireless"></h1>
+<p>Synapse Wireless enabled development kits and reference designs.</p>
+<h2 id="e10-and-e20-snap-gateway-support">E10 and E20 SNAP Gateway Support</h2>
+<p>Exosite has worked with Synapse Wireless to create an evaluation kit based on Synapse&#39;s SNAP Connect E10 Gateway.  This E10 Gateway has an Ethernet connection and runs Linux in addition to internally having a SNAP RF Engine embedded in it so it acts as a gateway for a SNAP network to the Internet.</p>
+<p>The evaluation kit is made up of a Synapse SNAPConnect E10 Gateway and two Synapse RF Engines running on protoboards in addition to some external sensors and LEDs.  The software for this evaluation kit can be used for any makeup of devices and is meant as an evaluation tool and reference code for your specific M2M and Internet of Things projects.  </p>
+<p><img src="assets/exo_gw_synapse_eval_kit_graphics1.png" alt="Synapse Eval"></p>
+<h3 id="downloads-and-links">Downloads and Links</h3>
+<ul>
+<li><a href="https://github.com/exosite-garage/synapse_m2m_evaluation_kit">Quick Start Guide and Source Code</a></li>
+<li><a href="https://https://synapse.exosite.com/login">Exosite&#39;s Synapse Wireless Portal</a></li>
+</ul>
+<h1 id="gainspan-exositeready-platforms">Gainspan ExositeReady™ Platforms</h1>
+<h1 id="-gainspan-assets-gainspan_logo-png-"><img src="../assets/gainspan_logo.png" alt="Gainspan"></h1>
+<p>GainSpan and Exosite partner to bring cloud connectivity to the Internet of Things. By connecting to the cloud, devices can be monitored, managed, and controlled remotely from computers, smartphones, and tablets, allowing users to graphically interact with their devices and data through a web portal and set alerts to receive emails or SMS when a condition occurs. Each of the cloud enabled products below allow you to seamlessly connect to the cloud with minimal effort. Learn more about how these Wi-Fi modules enable your Renesas RL78G13 development kit below.</p>
+<h2 id="wab-gw-gs1500m">WAB-GW-GS1500M</h2>
+<p>The GainSpan WAB-GW-GS1500M low-power Wi-Fi module enables development kits such as the Renesas RL78G13 RDK to connect wirelessly to Exosite&#39;s data platform. Support for cloud connectivity can be easily configured, and authentication of the kit is done by using the Wi-Fi module&#39;s MAC address.</p>
+<p><img src="assets/pic_GS1500M.jpg" alt="pic_GS1500M.jpg"></p>
+<h2 id="wab-gw-gs1011m">WAB-GW-GS1011M</h2>
+<p>The GainSpan WAB-GW-GS1011M low-power Wi-Fi module enables development kits such as the Renesas RL78G13 RDK to connect wirelessly to Exosite&#39;s data platform. Support for cloud connectivity can be easily configured, and authentication of the kit is done by using the Wi-Fi module&#39;s MAC address.</p>
+<p><img src="assets/GS1011M.jpg" alt="GS1011M.jpg"></p>
+<h3 id="downloads-and-links">Downloads and Links</h3>
+<ul>
+<li><a href="https://support.exosite.com/hc/en-us/requests/new">Code and Information - Please contact support@exosite.com</a></li>
+</ul>
+<h1 id="broadcom-exositeready-platforms">Broadcom ExositeReady™ Platforms</h1>
+<h1 id="-broadcom-assets-broadcom_logo-png-"><img src="../assets/broadcom_logo.png" alt="Broadcom"></h1>
+<h2 id="wiced-bcm9wcd1eval1-evaluation-board">WICED - BCM9WCD1EVAL1 Evaluation Board</h2>
+<p>Broadcom provides a full-featured WICED Development Kit and is working with partners to deliver turnkey hardware solutions to readily enable Wi-Fi connectivity in system design. The development kit enables the user to quickly and easily connect to a cloud-based service such as Exosite&#39;s OnePlatform. The kit includes the BCM9WCD1EVAL1 evaluation board utilizing a Broadcom BCM943362WCD4 Wi-Fi Module and an STM32F205RGT6 application microcontroller.</p>
+<p>The Wi-Fi Client Module Development Kit 1 is available from <a href="http://community.broadcom.com/community/wiced-wifi/wiced-wifi-partners">WICED WI-FI</a> Partners and other distributors.</p>
+<p><img src="assets/BCM943362WCD4_EVB.jpg" alt="BCM943362WCD4_EVB.jpg"></p>
+<h3 id="downloads-and-links">Downloads and Links</h3>
+<ul>
+<li><a href="https://support.exosite.com/hc/en-us/requests/new">Code and Information - Please contact support@exosite.com</a></li>
+</ul>
+<h1 id="getting-help">Getting Help</h1>
+<ul>
+<li><a href="https://community.exosite.com/c/hardware-platforms">Exosite&#39;s Developer Forum</a></li>
+</ul>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

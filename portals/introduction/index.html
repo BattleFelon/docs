@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Portals and One Platform Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+            <li>One Platform Reference</li>
+            <li><a class="level-1" href="/portals/oneplatform">One Platform Guide</a></li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/articles/200308457" target="_blank">Provisioning Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="scripting/">Scripting Reference</a></li>
+            <li>One Platform API</li>
+            <li><a class="level-1" href="/portals/http">API - HTTP Device</a></li>
+            <li><a class="level-1" href="/portals/coap">API - CoAP Device</a></li>
+            <li><a class="level-1" href="/portals/rpc">API - Remote Procedure Call / RPC</a></li>
+            <li><a class="level-1" href="/portals/websocket">API - Websocket RPC</a></li>
+            <li><a class="level-1" href="/portals/provision">API - Provision Management</a></li>
+            <li><a class="level-1" href="https://github.com/exosite-labs" target="_blank">Libraries <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="/development/exositeready">Device Software - ExositeReady</a></li>
+            <li>Portals Reference</li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/sections/200072708">Portals User Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/sections/200054894">Portals Admin & Config Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="/portals/portalsapi">API - Portals</a></li>
+            <li><a class="level-1" href="/portals/widget">API - Custom Widgets</a></li>
+            <li>One Platform / Portals Tutorials</li>
+            <li><a class="level-1" href="/portals/introduction">Intro to One Platform Device Connectivity</a></li>
+            <li><a class="level-1" href="/portals/tutorials/get-started">Getting Started Portals</a></li>
+            <li><a class="level-1" href="/portals/tutorials/get-started-arduinoyun">Getting Started Arduino Yún</a></li>
+            <li><a class"level-1" href="/portals/videos">Portals and One Platform Videos</a></li>
+            <li>OneP/Portals Developer Tools</li>
+            <li><a class="level-0" href="https://github.com/exosite/exoline/" target="_blank">Exoline - Command Line Interface <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano</p>
+                <li><a class="level-1" href="/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="introduction-to-device-connectivity">Introduction to Device Connectivity</h1>
+<p>Exosite&#39;s most basic concept is to make internet connected physical things useful to people and businesses.  Exosite&#39;s products help developers, companies, and organizations build IoT (Internet of Things) product solutions - providing pieces of the IoT system including device code, a device connectivity / application platform, and hosted applications and services.</p>
+<p><a href="../exositeready">Exosite Device Software - Libraries, Examples, SDKs</a></p>
+<h2 id="basic-device-communication">Basic Device Communication</h2>
+<p>The first goal of device connectivity is to have the device interact with Exosite&#39;s <a href="/oneplatform">One Platform</a>, which provides a virtual representation of that thing in the cloud.  The most common way for devices to interact is via Exosite&#39;s <a href="/portals/http">HTTP Device API</a> (Application Programming Interface).  Using this API, a standard message would like the following, which is in <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank">HTTP</a> format.  We will pick it a part here to help give some context to the Exosite <a href="/oneplatform">One Platform</a> which it is communicating to.</p>
+<ul>
+<li><a href="/oneplatform">One Platform Reference</a></li>
+<li><a href="/portals/http">HTTP Device API</a></li>
+</ul>
+<pre><code>POST /onep:v1/stack/alias HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: af027fe792f0fc74cedbe3777f5a22961e7b8384
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: 14
+
+temperature=44
+</code></pre><p>Most of this syntax from this message is standard to the HTTP format.  There are a couple of key parts here to analyze.</p>
+<pre><code>Host: m2.exosite.com
+</code></pre><p>The device is communicating with Exosite&#39;s <a href="/portals/http">HTTP Data API</a>, which can be found at this address: m2.exosite.com.  (Note: This is an API, you can not ping this address).  Want to quick try out the API - the current unix timestamp is hosted (without auth) at this address: <a href="https://m2.exosite.com/timestamp">https://m2.exosite.com/timestamp</a></p>
+<pre><code>/onep:v1/stack/alias
+</code></pre><p>This is the URL for the Exosite <a href="/portals/http">HTTP Data API</a>.  In this case, we are writing data to an alias that represents the piece of data in the platform, otherwise known as a dataport.</p>
+<pre><code>X-EXOSITE-CIK: af027fe792f0fc74cedbe3777f5a22961e7b8384
+</code></pre><p>This long 40 character hexadecimal number is a Client Interface Key or CIK.  This is the authorization for this HTTP message to be accepted.  Each device in the platform has an associated CIK.  This CIK typically comes the the Provisioning activation call, where the Platform sends the CIK down to the device after the proper provision steps have occurred and the device has made it&#39;s activate request.  For getting started though, the Portals evaluation tool (<a href="https://portals.exosite.com">https://portals.exosite.com</a>) allows you to create <code>generic</code> devices with a activated CIK to copy over to your device.  </p>
+<ul>
+<li><a href="/tutorials/get-started">Getting Started using Portals</a></li>
+</ul>
+<pre><code>temperature=44
+</code></pre><p>Finally, the body of the message is temperature=44.  This will write a value of 44 to dataport in the One Platform.  Dataports store historical values, each with a unix timestamp.  </p>
+<p>To learn more about the Exosite One Platform, check out the <a href="/oneplatform">One Platform Guide</a>.</p>
+<h2 id="standard-questions-about-device-communication">Standard Questions about device communication</h2>
+<h4 id="can-i-read-data-or-send-data-to-the-device-">Can I read data or send data to the device?</h4>
+<p>Yes, the platform allows for reading data.  In regards to sending data (push), there are a few methods of doing this but the most common is to use <code>long-polling</code> method for HTTP Data API, the <code>wait</code> RPC, or the <code>observe</code> method for CoAP API.  These methods are covered under each API&#39;s documentation.</p>
+<p>Here is an example of reading data.</p>
+<pre><code>GET /onep:v1/stack/alias?command HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: af027fe792f0fc74cedbe3777f5a22961e7b8384
+Accept: application/x-www-form-urlencoded; charset=utf-8
+&lt;blank line&gt;
+</code></pre><p>Note that instead of a POST, this is a GET request.</p>
+<pre><code>/onep:v1/stack/alias?command
+</code></pre><p>Adding this query parameter <code>?command</code> to the URL will look to retrieve the value of the dataport with alias <code>command</code>.
+The response will look something like this.</p>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Close
+Content-Length: 14
+
+command=dothis
+</code></pre><p>Here would be an example of making a long-poll request with the HTTP Data API</p>
+<pre><code>GET /onep:v1/stack/alias?command HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: af027fe792f0fc74cedbe3777f5a22961e7b8384
+Accept: application/x-www-form-urlencoded; charset=utf-8
+Request-Timeout: 300
+&lt;blank line&gt;
+</code></pre><p>This call would not return immediately.  The server will respond with a value when there is a new value written or the 300 second timeout occurs.  This gives the device immediate updates when new data is available.</p>
+<h4 id="why-are-there-multiple-apis-">Why are there multiple APIs?</h4>
+<p>Devices can very in the resources they have available, including memory, IP socket, Operating System (or none), etc.   Exosite wants to provide the best possible solution to allow embedded developers a path that fits their product.  HTTP is well established.  <a href="https://en.wikipedia.org/wiki/Constrained_Application_Protocol">CoAP</a> has a much lower resource constraint on devices, but is not supported out of the box yet with many modules and software packages.  The JSON RPC uses HTTP to transmit large JSON formatted data sets and gives more features than the standard HTTP Data API, but may not be appropriate for a small embedded device.  JSON RPC makes perfect sense to use on a Linux based device though, for example using our Python library.</p>
+<h2 id="libraries">Libraries</h2>
+<p>Code libraries can make life much easier for the different code languages.  Exosite supports a large number of libraries as open source code for use on on gateways, embedded devices, and custom applications like web apps and mobile applications.</p>
+<ul>
+<li><a href="https://github.com/exosite-labs">https://github.com/exosite-labs</a></li>
+</ul>
+<p>For devices, there are a number of embedded development kits that are supported with <a href="../exositeready">ExositeReady™</a> or have had reference code ported to them.  </p>
+<ul>
+<li><a href="../exositeready">ExositeReady™ Embedded Device SDK</a> - Links to supported hardware platforms</li>
+<li><a href="https://support.exosite.com/hc/en-us/categories/200011008-Hardware-Platform" target="_blank">Other Reference Hardware Platform Support</a></li>
+</ul>
+<p>If you have a question about a specific embedded module, microcontroller, gateway, or development kit - please feel free to ask us through support.  </p>
+<h1 id="help">Help</h1>
+<p>Looking for answers you may have yet?  Check out the Exosite support site <a href="https://support.exosite.com/hc/en-us/sections/200072527">knowledge base articles on the One Platform</a>.</p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

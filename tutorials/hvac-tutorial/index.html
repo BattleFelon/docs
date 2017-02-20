@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="hvac-reference-application-tutorial">HVAC Reference Application Tutorial</h1>
+<p>This HVAC Reference Application is an interactive tutorial that allows users to learn the core features of Murano from both a hardware and software perspective. You will have the option to prototype or simulate the implementation of an HVAC monitoring system with simple controls using the Murano platform.</p>
+<h1 id="requirements">Requirements</h1>
+<p>This tutorial is designed to be flexible based the hardware, software, and tools you have available. If you have one of the supported hardware items, you will be able to create a full IoT solution with working hardware. If you do not have any of the supported hardware available, we have created a Python based simulator that will help you get started.</p>
+<h2 id="supported-hardware">Supported Hardware</h2>
+<h3 id="seeedstudio-beaglebone-green-wireless">SeeedStudio BeagleBone Green Wireless</h3>
+<p>SeeedStudio BeagleBone Green (BBG) is a low-cost, open-source, community-supported development platform for developers and hobbyists. It is a joint effort by BeagleBoard.org and Seeed Studio. It is based on the classical open-source hardware design of BeagleBone Black and has been developed into this differentiated version. The BBG includes two Grove connectors, making it easier to connect to the large family of Grove sensors. The onboard HDMI is removed to make room for these Grove connectors.</p>
+<p><a href="https://beagleboard.org/green-wireless">https://beagleboard.org/green-wireless</a></p>
+<p><a href="http://wiki.seeed.cc/BeagleBone_Green/">http://wiki.seeed.cc/BeagleBone_Green/</a> </p>
+<h3 id="ti-cc3200-simplelink-wi-fi-and-internet-of-things-solution">TI CC3200 SimpleLink™ Wi-Fi® and Internet-of-Things solution</h3>
+<p>The CC3200 device is a complete platform solution including software, sample applications, tools, user and programming guides, reference designs, and the TI E2E™ support community. The device is available in a QFN package that is easy to layout.</p>
+<p><a href="http://www.ti.com/product/CC3200">http://www.ti.com/product/CC3200</a></p>
+<h2 id="software">Software</h2>
+<h3 id="murano-cli">Murano CLI</h3>
+<p>Murano CLI is a command-line utility for working with Murano. Think of it as a way to simplify and automate repetitious tasks for those who are comfortable with the command-line interface. </p>
+<p><a href="https://github.com/exosite/MrMurano#mrmurano">https://github.com/exosite/MrMurano#mrmurano</a></p>
+<h3 id="python">Python</h3>
+<p>All code written for the simulator in this tutorial has been designed to work with Python 2 and 3, which can be downloaded from the <a href="https://www.python.org/">Python website</a>.</p>
+<h3 id="web-browser">Web Browser</h3>
+<p>You will need a web browser for the initial steps in this tutorial.</p>
+<h1 id="getting-started">Getting Started</h1>
+<p>In this section you will walk through the process of setting up your account with Murano and preparing to run the simulator or actual hardware. </p>
+<h2 id="create-an-account">Create an Account</h2>
+<p>To get started with this tutorial, you will need to create an Exosite account using your web browser of choice. </p>
+<ol>
+<li><p>If you do not have an Exosite account, you can sign up here (<a href="https://exosite.com/signup/">https://exosite.com/signup/</a>).</p>
+<p><img src="assets/exosite_signup.png" alt="signup"></p>
+</li>
+<li><p>Once you have signed up, an email confirmation of your new Murano account will be sent to you. Follow the instructions provided in the email, and you will be all set.</p>
+<p><img src="assets/business_welcome.png" alt="welcome"></p>
+</li>
+</ol>
+<h2 id="manage-your-business">Manage Your Business</h2>
+<ol>
+<li><p>Once you have an active account and have logged in, you can navigate to the following URL to see your newly created business <a href="https://www.exosite.io/business/memberships">https://www.exosite.io/business/memberships</a>.</p>
+<p><img src="assets/new_business.png" alt="new business"></p>
+</li>
+<li><p>Click on your business to access your business page. </p>
+</li>
+<li><p>Or, click the &quot;+ NEW BUSINESS&quot; button to create a new business.</p>
+</li>
+</ol>
+<h2 id="install-murano-cli">Install Murano CLI</h2>
+<p>Exosite offers a command-line tool that allows you to efficiently work with the project in this tutorial. Even though everything in this tutorial can be accomplished using a Web UI, feel free to install the Murano CLI.</p>
+<pre><code>Murano CLI is the command-line tool that interacts with Murano and makes tasks easier. Murano CLI makes it simple to deploy code to a solution, import many product definitions at once, set up endpoints and APIs, and more.
+</code></pre><p>Murano CLI is a Ruby-based command-line interface. Murano CLI will be used for most actions throughout the rest of this tutorial.</p>
+<p>Check to see if Ruby is installed first by opening up a terminal window and typing the following command:  </p>
+<p><strong>Note:</strong> Always copy and paste what comes after the $.</p>
+<pre><code class="lang-sh">$ which gem
+</code></pre>
+<p>If you see something like <code>/usr/bin/gem</code>, then Ruby is already installed. </p>
+<pre><code>If you do not have Ruby installed, the official Ruby docs will help you get it installed:
+[https://www.ruby-lang.org/en/documentation/installation/](https://www.ruby-lang.org/en/documentation/installation/)
+</code></pre><p>Once Ruby is installed, install Murano CLI by running this command:</p>
+<pre><code class="lang-sh">$ sudo gem install ExositeMurano
+</code></pre>
+<p>If prompted, please enter your local computer password.</p>
+<h2 id="download-the-hvac-code">Download the HVAC code</h2>
+<p>This tutorial uses a common codebase that includes a web application and specifications for the hardware. The code has been written to be flexible and works with multiple hardware platforms or the Python simulator.</p>
+<p><a href="https://github.com/exosite/hvac-reference-application/archive/v0.1.zip">https://github.com/exosite/hvac-reference-application/archive/v0.1.zip</a></p>
+<h2 id="create-a-solution">Create a Solution</h2>
+<p>You will need a place to deploy the HVAC solution code. </p>
+<h3 id="web-ui">Web UI</h3>
+<p>To create a solution using the Web UI:</p>
+<ol>
+<li><p>From the <em>Solutions</em> tab (<a href="https://www.exosite.io/business/solutions">https://www.exosite.io/business/solutions</a>), click &quot;+ NEW SOLUTION.&quot; </p>
+<p><img src="assets/new_solution.png" alt="new solution"></p>
+</li>
+<li><p>Select <em>Start from scratch</em> and click the &quot;ADD&quot; button.</p>
+<p><img src="assets/new_solution_popup.png" alt="new solution"></p>
+</li>
+</ol>
+<p>Once you have created a solution, you will need to find the Solution ID.</p>
+<ol>
+<li><p>In Murano select <em>Solutions</em>.</p>
+</li>
+<li><p>Select the solution you just created.</p>
+</li>
+<li><p>Copy the Solution ID on this page.</p>
+<p><img src="assets/solutions_tab.png" alt="solutions tab"></p>
+</li>
+</ol>
+<h3 id="murano-cli">Murano CLI</h3>
+<p>To create a solution using the Murano CLI:</p>
+<pre><code class="lang-sh">$ murano solution create &lt;name&gt;
+</code></pre>
+<p>This command will return the ID of your solution for the next step.</p>
+<h3 id="configure-your-solution">Configure Your Solution</h3>
+<p>To configure Murano CLI to work with your newly created solution, use the config command of the Murano CLI tool.</p>
+<pre><code class="lang-sh">$ murano config solution.id &lt;solutionid&gt;
+</code></pre>
+<h2 id="create-a-product">Create a Product</h2>
+<p>Next, you will need to create a product. The product you create is the virtual representation of the BBG’s physical hardware and sensors that will send data to the Murano platform. </p>
+<h3 id="web-ui">Web UI</h3>
+<p>To create a new product using the Web UI:</p>
+<ol>
+<li><p>Navigate to the following URL: 
+<a href="https://www.exosite.io/business/products">https://www.exosite.io/business/products</a></p>
+<p><img src="assets/new_product.png" alt="new product"></p>
+</li>
+<li><p>Click on &quot;+ NEW PRODUCT.&quot; </p>
+</li>
+<li><p>Name your product. Note: your product name cannot contain any capital letters. </p>
+</li>
+<li><p>Open the <em>Choose starting point</em> dropdown, select <em>Start from scratch</em>, and click the &quot;ADD&quot; button. In the next step you can use code to configure your product.</p>
+<p><img src="assets/new_product_popup.png" alt="new product"></p>
+</li>
+</ol>
+<p>Before continuing, you will need to find the ID of the product you created.</p>
+<ol>
+<li><p>In Murano select <em>Products</em>.</p>
+</li>
+<li><p>Select the product you just created.</p>
+</li>
+<li><p>Copy the Product ID on this page.</p>
+<p><img src="assets/product_id.png" alt="product id"></p>
+</li>
+</ol>
+<h3 id="murano-cli">Murano CLI</h3>
+<p>To create a new product using the Murano CLI:</p>
+<pre><code class="lang-sh">$ murano product create &lt;name&gt;
+</code></pre>
+<p>This command will return the ID of your product for the next step.</p>
+<h2 id="configure-your-product">Configure Your Product</h2>
+<p>To configure your product, you may use the config command of the Murano CLI tool. This command tells Murano CLI which product to use. </p>
+<pre><code class="lang-sh">$ murano config product.id &lt;productid&gt;
+</code></pre>
+<p>Executing the command below will set the product definition for this example as defined in the <code>specs/resources.yaml</code> file. </p>
+<pre><code>$ murano syncup --specs
+</code></pre><p>This command sets up all of the data aliases used in this example. You can now see them by going to <a href="https://www.exosite.io/business/products">https://www.exosite.io/business/products</a> and clicking the <em>DEFINITION</em> tab. Many of the aliases are used by Gateway Engine. Notice, the aliases like &quot;ambient_temperature&quot;, &quot;desired_temperature&quot;, and &quot;heat_on&quot;. These are all the different resources used for this HVAC tutorial. </p>
+<h2 id="connect-product-to-solution">Connect Product to Solution</h2>
+<p>You will need to link your product with your solution. Linking allows your solution and product to communicate with one another.</p>
+<h3 id="web-ui">Web UI</h3>
+<ol>
+<li><p>In your Murano solution, click on the <em>SERVICES</em> tab. </p>
+</li>
+<li><p>Select <em>Product</em>.</p>
+</li>
+<li><p>Select the settings icon. </p>
+</li>
+<li><p>Select the product(s) you want to include in the solution. </p>
+</li>
+<li><p>Click &quot;APPLY&quot;.</p>
+<p><img src="assets/solutions_services.png" alt="solutions services"></p>
+</li>
+</ol>
+<h3 id="murano-cli">Murano CLI</h3>
+<p>To connect a product with a solution using the Murano CLI:</p>
+<pre><code class="lang-sh">$ murano assign set &lt;product&gt;
+</code></pre>
+<h2 id="sync-your-solution">Sync Your Solution</h2>
+<p>Before moving on to hardware, all of the configuration needs to be synced up to Murano.</p>
+<pre><code class="lang-sh">$ murano syncup --all
+</code></pre>
+<pre><code>What is happening when you sync code?
+
+Murano CLI looks at the directory structure of your local repository and syncs the appropriate files and configurations directly to your solution in Murano. Endpoints, event handles, static files, and modules are synced. If you make changes locally, a syncup command will ensure Murano matches your local changes. If you make changes using the Murano interface, a syncdown will ensure your local repository matches Murano.
+</code></pre><p>At this point your product and solution are configured and ready to start receiving data from your hardware of choice or the simulator. You can see the solution interface at this point by clicking the <em>DOMAIN</em> link on the Solutions page.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>If you have hardware available, you can walk through installing required software on your hardware, connecting the hardware and its sensors to the Murano platform, and connecting the sensor data to a Murano solution.</p>
+<p><a href="./beaglebone/">BeagleBone Green Wireless</a></p>
+<p><a href="./cc3200/">TI CC3200</a></p>
+<p>If you do not have hardware available, you can walk through running the simulator. This should provide you with an easy starting point for connecting devices and creating solutions to visualize and interpret your device&#39;s data.</p>
+<p><a href="./simulator/">Python Simulator</a></p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

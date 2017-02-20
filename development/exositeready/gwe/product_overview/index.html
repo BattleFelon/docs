@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="product-overview">Product Overview</h1>
+<p>This product overview takes a deeper look at ExositeReady™ Gateway Engine (GWE) as a
+developer tool and application hosting platform.</p>
+<h1 id="features">Features</h1>
+<p>Internet gateways often run some flavor of Linux and, as such, have a
+Python environment. Leveraging this fact, GWE is a framework
+written (mainly) in Python for developing and hosting Custom Gateway
+Applications—in any language—on Linux gateways. IoT gateway softwares
+often perform the same functions, regardless of the use case, because the
+needs are so often the same.</p>
+<p>The features of GWE are included below and described in more detail in 
+the following sections:</p>
+<ul>
+<li>Over the Air Updating (OTAU)</li>
+<li>Application Version Control</li>
+<li>Process Management</li>
+<li>Logfile Management</li>
+<li>Exosite API Libraries</li>
+<li>Gateway Telemetrics</li>
+<li>Power Failure Tolerance</li>
+<li>Gateway Fleet Management</li>
+</ul>
+<h2 id="over-the-air-updating-otau-">Over the Air Updating (OTAU)</h2>
+<p>At some point or another, a software requirement changes, a bug is
+discovered, or a new feature is added. When any of these things happen,
+there needs to be a way for the new executable code or binary to make
+its way onto the gateway and/or sensors attached to the
+gateway. GWE is the vehicle for these changes from your
+development or staging environment down to the gateway in a secure and
+scalable manner.</p>
+<p>By design, the OTAU feature of GWE installs updates and new
+programs the same way it installs and updates itself and its
+complementary components. For general design information and
+instructions on how to create OTAU and new program installation
+packages, please refer to the <a href="/development/exositeready/gwe/otau/">Over the Air Updates</a> section.</p>
+<h2 id="application-version-control">Application Version Control</h2>
+<p>GWE employs a light-weight version tracking system. It uses
+the Custom Gateway Application tarball name and version to help you keep
+track of the latest version of the application deployed to a gateway.
+Incrementing or changing the version designator in the tarball name
+changes the version in the next GWE report for that app in
+the <code>engine_report</code> dataport.</p>
+<h2 id="process-and-logfile-management">Process and Logfile Management</h2>
+<p>Process management in GWE is implemented with the
+<code>supervisord</code> process management tool. It is light-weight, portable, and
+extensible. The core features of <a href="http://supervisord.org">Supervisor</a>
+that GWE utilizes are logfile rotation and process restarting
+in case of bugs that can cause crashes. GWE uses supervisor
+to restart itself as well as all other managed processes.</p>
+<h2 id="exosite-api-libraries">Exosite API Libraries</h2>
+<p>GWE uses and depends on the <code>device-client</code> python library
+for all Exosite <a href="http://docs.exosite.com/reference/products/device-api/http/">Provision and
+HTTP</a> API
+calls. Additional documentation as well as source code documentation can
+be found on the
+<a href="/development/exositeready/gwe/device-client">Device Client - Docs</a> page.</p>
+<h2 id="gateway-telemetrics">Gateway Telemetrics</h2>
+<p>As any devops professional can tell you, diagnosing issues on any
+computer system, either post-mortem or predictively, requires basic system
+information. GWE provides both filesystem and OS metadata as
+well as modem bandwidth usage (beta). These data are reported to
+the separate dataports <code>device_info</code> and <code>usage_report</code>, respectively.</p>
+<h2 id="network-outage-and-power-failure-tolerance">Network Outage and Power Failure Tolerance</h2>
+<p>When gateways are deployed into production environments, they are subject
+to the whims of their environments.</p>
+<h3 id="application-start-on-reboot-behavior">Application Start-on-reboot Behavior</h3>
+<p>Power interruptions are bound to occur, and gateways must be resilient to
+them. Should a power failure occur, <code>supervisord</code> will restart all
+managed processes once power is restored.</p>
+<h3 id="non-volatile-data-queuing">Non-volatile Data Queuing</h3>
+<p>If your IoT solution can tolerate dataloss, then this section will not
+apply to your gateway solution. If data originating at sensors, nodes, or
+the gateway itself must terminate at Exosite Murano (or
+on-premise solutions), then the <a href="/development/exositeready/gwe/gmq/">Gateway Message
+Queuing</a> is an option
+you can leverage for a powerful, tunable store-and-forward non-volatile
+queue designed specifically for network and power outages.</p>
+<h2 id="gateway-fleet-management">Gateway Fleet Management</h2>
+<p>Murano Solutions can easily be designed and employed to manage small
+(&lt;100) to medium (&lt;10,000) gateway fleets. As your fleet of
+gateway devices grows, so likely will the complexity and customization
+of your IoT solution. Development of custom webapps and APIs is the
+solution most often adopted when scaling IoT solutions, and Exosite makes
+this easy with <a href="https://exosite.com/murano/">Murano</a> and <a href="https://exosite.com/services/professional-services/">Professional
+Services</a>.</p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

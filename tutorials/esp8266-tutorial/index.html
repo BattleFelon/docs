@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="connected-lightbulb-using-an-esp8266-thing-dev-board-tutorial">Connected Lightbulb Using an ESP8266 Thing Dev Board Tutorial</h1>
+<p>In this tutorial, you will set up an ESP8266 Thing Dev Board to act as a connected lightbulb. You will then create a development dashboard within Murano, where you can see temperature and humidity data from the device and have the ability to remotely turn the lightbulb on and off.</p>
+<p><strong>NOTE:</strong> The ESP8266 Thing Dev Board has a known issue when using Arduino on a Windows machine. Please make sure digital pin 0 is grounded, or use a Linux machine to complete this tutorial.</p>
+<h1 id="requirements">Requirements</h1>
+<h2 id="hardware-setup">Hardware Setup</h2>
+<p>To complete this tutorial, you will need the following hardware: </p>
+<ul>
+<li><p><a href="https://www.sparkfun.com/products/13711">SparkFun ESP8266 Thing Dev Board</a></p>
+</li>
+<li><p><a href="https://www.sparkfun.com/products/10167">RHT03 humidity and temperature sensor </a></p>
+</li>
+<li><p>10K ohm resistor (for digital pin pull-up)</p>
+</li>
+<li><p>330 ohm resistor</p>
+</li>
+<li><p>LED (suggest green or yellow)</p>
+</li>
+<li><p>Micro-USB B cable</p>
+</li>
+</ul>
+<p>To begin, connect the components as shown in the image below.</p>
+<p>  <img src="thingdev_0.png" alt="image alt text"></p>
+<h2 id="software-setup">Software Setup</h2>
+<p>To complete this tutorial, you will need to set up the Arduino IDE as well as the board support for the ESP8266.</p>
+<p>New to Arduino? Below are a few links to get an understanding of Arduino since this tutorial does not cover every concept of the Arduino IDE and hardware (in this case, the SparkFun ESP8266 Thing Dev Board). Note that Arduino supports a number of hardware platforms, not just Arduino-branded boards themselves, like the ESP8266 Thing Dev Board.</p>
+<ul>
+<li><p><a href="https://www.sparkfun.com/products/13711">SparkFun ESP8266 Thing Dev Board</a></p>
+</li>
+<li><p><a href="https://www.arduino.cc/en/Guide/HomePage">Arduino Getting Started</a></p>
+</li>
+</ul>
+<p>Install tools and libraries:</p>
+<ol>
+<li><p>First download and install the Arduino IDE from the <a href="https://www.arduino.cc/en/Main/Software">Arduino website</a>. </p>
+</li>
+<li><p>Open the Arduino IDE, then install the ESP8266 Thing Dev Board board support: </p>
+<ol>
+<li><p>Select <em>Arduino</em> &gt; <em>Preferences...</em>. </p>
+</li>
+<li><p>In the <em>Preferences</em> popup that appears, paste this link into the <em>Additional Boards Manager URLs</em> field: <code>http://arduino.esp8266.com/stable/package_esp8266com_index.json</code></p>
+<p><img src="thingdev_1.png" alt="image alt text"></p>
+</li>
+<li><p>Click &quot;OK.&quot;</p>
+</li>
+</ol>
+</li>
+<li><p>Install the Exosite Arduino library, Adafruit DHT Unified library, and DHT Sensor library: </p>
+<ol>
+<li><p>Select <em>Sketch</em> &gt; <em>Include Library</em> &gt; <em>Manage Libraries...</em> </p>
+<p><img src="thingdev_2.png" alt="image alt text"></p>
+</li>
+<li><p>In the <em>Library Manager</em> popup that appears, search for &quot;Exosite.&quot; </p>
+</li>
+<li><p>Select version 2.4.1 or greater and click &quot;Install.&quot; </p>
+<p><img src="thingdev_3.png" alt="image alt text"></p>
+</li>
+<li><p>Search for &quot;DHT&quot;. Install both the Adafruit DHT Unified and DHT sensor library.</p>
+<p><img src="thingdev_4.png" alt="image alt text"> </p>
+</li>
+<li><p>When complete, click &quot;Close.&quot;</p>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="create-a-product-in-murano">Create a Product in Murano</h2>
+<p>In this section, you will create a new Product in Murano.</p>
+<ol>
+<li><p>In Murano, navigate to the <a href="http://exosite.io/business/products">Products tab</a>.</p>
+</li>
+<li><p>To add a Product, click &quot;NEW PRODUCT.&quot;</p>
+<p><img src="thingdev_5.png" alt="image alt text"></p>
+</li>
+<li><p>In the <em>New Product</em> popup: </p>
+<ol>
+<li><p>Enter a name for the Product in the <em>Name</em> field. </p>
+</li>
+<li><p>Select <em>Start from scratch</em> in the <em>Choose starting point</em> drop-down menu.</p>
+</li>
+<li><p>Copy and paste the following URL into the <em>Link to your product template</em> field: </p>
+<p><code>https://raw.githubusercontent.com/exosite-garage/arduino_exosite_library/master/examples/Murano-SmartLightBulb-ThingDevBoard/product_spec_smart_lightbulb_example.yaml</code></p>
+<p>This will allow you to use a product template spec file to set up the product definition. </p>
+</li>
+<li><p>Click &quot;ADD.&quot; </p>
+</li>
+</ol>
+<p><img src="thingdev_6.png" alt="image alt text"></p>
+</li>
+<li><p>Once the Product has been created, navigate to the <em>DEFINITION</em> tab.</p>
+</li>
+</ol>
+<p>These are the resources your device will interact with. They were created automatically from the product template you selected in the previous step. In this example, the device will generally write data to the temperature, humidity, and uptime aliases, while watching the state alias for changes.</p>
+<p>  <img src="thingdev_7.png" alt="image alt text"></p>
+<p><strong>NOTE</strong>: If you did not use the template URL in the previous step, you can manually configure your product definition. From the <em>DEFINITION</em> tab, configure your dataport resources as specified below. Also, set the default value for <em>state</em> to 0 so the device has a default value it reads to know to turn the LED on or off. Click on the <em>state</em> resource in the <em>DEFINITION</em> tab and write a 0 to the value.</p>
+<pre><code>* alias: _temperature_, format: _float_
+* alias: _humidity_, format: _float_
+* alias: _uptime_, format: _integer_
+* alias: _state_, format: _integer_
+
+![default state](assets/set_light_status_default_value.png)
+</code></pre><h2 id="flash-and-run-the-example-application">Flash and Run the Example Application</h2>
+<p>In this section, you will flash and run an example application for a connected lightbulb in Arduino. </p>
+<ol>
+<li><p>In Arduino, create a new sketch by selecting <em>File</em> &gt; <em>New</em>.</p>
+</li>
+<li><p>Load the Exosite connected lightbulb example sketch with device application code by selecting <em>File</em> &gt; <em>Examples</em> &gt; <em>Exosite</em> &gt; <em>Murano-SmartLightBulb-ThingDevBoard</em>. </p>
+<p><img src="thingdev_8.png" alt="image alt text"></p>
+</li>
+<li><p>In your sketch, edit the Wi-Fi configuration parameters for your local Wi-Fi network (SSID and password) and the Murano Product ID parameters for your product. </p>
+<p><img src="thingdev_9.png" alt="image alt text"></p>
+<p>To find your Product ID:</p>
+<ol>
+<li><p>In Murano, navigate to the <em>Products</em> tab and select the product you just created. </p>
+</li>
+<li><p>On the <em>INFO</em> tab, locate the Product ID and copy it.</p>
+<p><img src="thingdev_10.png" alt="image alt text"></p>
+</li>
+</ol>
+</li>
+<li><p>Make sure the Thing Dev Board is connected to your computer via a micro-USB cable and select your device’s serial port with <em>Tools</em> &gt; <em>Port</em> &gt; <em>&quot;your_port&quot;</em>. </p>
+<p><strong>NOTE:</strong> Your device will likely be the only one. If it is not, you can figure out which is correct by unplugging your device and finding which device disappears.</p>
+<p> <img src="thingdev_11.png" alt="image alt text"></p>
+</li>
+<li><p>Click the arrow icon to upload. This will first compile and then download the firmware image to the selected board.</p>
+<p><img src="thingdev_12.png" alt="image alt text"></p>
+</li>
+<li><p>Open the <em>Serial Monitor</em> and set it to <em>115200 baud</em>.  </p>
+<p><img src="thingdev_13.png" alt="image alt text"></p>
+</li>
+<li><p>Locate the MAC address in the serial monitor output; this will serve as the device identifier that will enable you to add a unique device to your Product in Murano. The device identifier or serial number is device-specific. In this situation, the Exosite Arduino library uses the device&#39;s pre-programmed MAC address.</p>
+<p><img src="thingdev_14.png" alt="image alt text"></p>
+<p><strong>NOTE:</strong> Deselect the &quot;Autoscroll&quot; checkbox if the log window goes past the top.</p>
+</li>
+</ol>
+<h2 id="add-a-device-in-murano">Add a Device in Murano</h2>
+<p>In this section, you will create a device under your Product in Murano.</p>
+<ol>
+<li><p>In Murano, navigate to the <em>Products</em> tab and select the product you just created.  </p>
+</li>
+<li><p>Navigate to the <em>DEVICES</em> tab and click &quot;New Device.&quot; </p>
+<p><img src="thingdev_15.png" alt="image alt text"></p>
+</li>
+<li><p>In the <em>New Device</em> popup: </p>
+<ol>
+<li><p>Enter a name for the device in the <em>Name</em> field. This will only be used to help you distinguish between devices. </p>
+</li>
+<li><p>Enter the device identifier (MAC address) you identified in the previous section in the <em>Identity</em> field.</p>
+</li>
+<li><p>Click &quot;CREATE.&quot;</p>
+</li>
+</ol>
+<p><img src="thingdev_16.png" alt="image alt text"></p>
+</li>
+<li><p>Back in Arduino, click the arrow icon again to upload to flash the sketch to the board one last time.</p>
+</li>
+<li><p>Open the <em>Serial Monitor</em> and verify that your device activated and provisioned successfully using the serial output.</p>
+<p><img src="thingdev_17.png" alt="image alt text"></p>
+</li>
+<li><p>In Murano, navigate to the <em>DEVICES</em> tab for this Product, select your device, and ensure data is showing up on the <em>RESOURCES</em> tab.</p>
+<p><img src="thingdev_18.png" alt="image alt text"></p>
+</li>
+</ol>
+<h2 id="create-a-dashboard-in-murano">Create a Dashboard in Murano</h2>
+<p>In this section, you will create a dashboard to view the data from the connected lightbulb and turn it on and off remotely. </p>
+<ol>
+<li><p>From the <em>RESOURCES</em> tab for your device, open the <em>DASHBOARD</em> tab. </p>
+<p><img src="thingdev_19.png" alt="image alt text"></p>
+</li>
+<li><p>Click &quot;ADD PANE&quot; to house the widgets you will create.</p>
+<p><img src="thingdev_20.png" alt="image alt text"></p>
+</li>
+<li><p>In the pane that appears, click the plus sign &quot;+&quot; to add a widget.  </p>
+<p><img src="thingdev_21.png" alt="image alt text"></p>
+</li>
+<li><p>In the <em>WIDGET</em> popup that appears, select <em>Text</em> from the <em>TYPE</em> drop-down menu and complete the remaining fields (<em>TITLE</em>: &quot;Temperature&quot;; <em>VALUE</em>: &quot;resources[&quot;temperature&quot;]&quot;; <em>UNITS</em>: &quot;F&quot;). Click &quot;SAVE.&quot;</p>
+<p><img src="temperature.png" alt="image alt text"></p>
+</li>
+<li><p>Create another pane and text widget for humidity and complete the remaining fields (<em>TITLE:</em> &quot;Humidity&quot;; <em>VALUE:</em> &quot;resources[&quot;humidity&quot;]&quot;; <em>UNITS:</em> &quot;%&quot;). Click &quot;SAVE.&quot;</p>
+<p><img src="humidity.png" alt="image alt text"></p>
+</li>
+<li><p>Add a third pane and widget. In the <em>WIDGET</em> popup that appears, select <em>Toggle Switch</em> from the <em>TYPE</em> drop-down menu and complete the remaining fields (<em>TITLE</em>: &quot;On / Off&quot;; <em>VALUE</em>: &quot;resources[&quot;state&quot;]&quot;; <em>ON VALUE</em>: &quot;1&quot;; <em>OFF VALUE</em>: &quot;0&quot;). Click &quot;SAVE.&quot;</p>
+<p><img src="toggle.png" alt="image alt text"></p>
+</li>
+<li><p>Refresh your browser if you do not see data coming through in the Humidity and Temperature widgets. Now turn the light on and off using the toggle switch on your dashboard. You should see the LED turn on and off on the Thing Dev Board accordingly. </p>
+<p><img src="thingdev_25.png" alt="image alt text"></p>
+</li>
+</ol>
+<p>Congratulations—you just remotely turned a light on and off.</p>
+<p><a href="/quickstarts/solutions/exampleapp/">UP NEXT: CREATE A SOLUTION &gt;&gt;</a></p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Portals and One Platform Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+            <li>One Platform Reference</li>
+            <li><a class="level-1" href="/portals/oneplatform">One Platform Guide</a></li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/articles/200308457" target="_blank">Provisioning Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="scripting/">Scripting Reference</a></li>
+            <li>One Platform API</li>
+            <li><a class="level-1" href="/portals/http">API - HTTP Device</a></li>
+            <li><a class="level-1" href="/portals/coap">API - CoAP Device</a></li>
+            <li><a class="level-1" href="/portals/rpc">API - Remote Procedure Call / RPC</a></li>
+            <li><a class="level-1" href="/portals/websocket">API - Websocket RPC</a></li>
+            <li><a class="level-1" href="/portals/provision">API - Provision Management</a></li>
+            <li><a class="level-1" href="https://github.com/exosite-labs" target="_blank">Libraries <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="/development/exositeready">Device Software - ExositeReady</a></li>
+            <li>Portals Reference</li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/sections/200072708">Portals User Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/sections/200054894">Portals Admin & Config Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="/portals/portalsapi">API - Portals</a></li>
+            <li><a class="level-1" href="/portals/widget">API - Custom Widgets</a></li>
+            <li>One Platform / Portals Tutorials</li>
+            <li><a class="level-1" href="/portals/introduction">Intro to One Platform Device Connectivity</a></li>
+            <li><a class="level-1" href="/portals/tutorials/get-started">Getting Started Portals</a></li>
+            <li><a class="level-1" href="/portals/tutorials/get-started-arduinoyun">Getting Started Arduino Yún</a></li>
+            <li><a class"level-1" href="/portals/videos">Portals and One Platform Videos</a></li>
+            <li>OneP/Portals Developer Tools</li>
+            <li><a class="level-0" href="https://github.com/exosite/exoline/" target="_blank">Exoline - Command Line Interface <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano</p>
+                <li><a class="level-1" href="/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="get-started-with-arduino-y-n-and-exosite">Get Started with Arduino Yún and Exosite</h1>
+<p>This tutorial will explain how to set up a free Portals™ account, program an Arduino Yún using a &#39;Sketch&#39; app using Exosite&#39;s Arduino libray, connect the Yún to Exosite and visualize it within the Portals tool.</p>
+<p>The Arduino Yún is an open hardware platform that combines an Arduino with a mini Linux computer that handles the WiFi / Ethernet Networking interfaces.  More information can be found here: <a href="https://www.arduino.cc/en/Main/ArduinoBoardYun">Arduino Yún</a>.  </p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Computer with an Internet connection</li>
+<li>Active email address</li>
+<li>Arduino Yún</li>
+<li>Ethernet Cable (or WiFi to connect Arduino)</li>
+<li>USB Cable for the Arduino Yún</li>
+<li>Check out more details on the <a href="https://github.com/exosite-garage/arduino_exosite_library">Exosite Arduino Libary located here</a></li>
+</ul>
+<h1 id="exosite-arduino-y-n-tutorial">Exosite Arduino Yún Tutorial</h1>
+<p><img src="extras/YunParts.png" alt="image"></p>
+<h2 id="instructions">Instructions</h2>
+<h3 id="installing-arduino-ide-exosite-library">Installing Arduino IDE / Exosite Library</h3>
+<ol>
+<li><p>Download the Arduino toolchain and development environment</p>
+<ul>
+<li><a href="http://arduino.cc/en/Main/Software">http://arduino.cc/en/Main/Software</a></li>
+</ul>
+</li>
+<li><p>Install the Exosite Arduino Library from the Arduino Library Manager (Sketch-&gt;Include Library-&gt;Manage Libraries-&gt;Search for &quot;Exosite&quot;)</p>
+<p>The <a href="https://github.com/exosite-garage/arduino_exosite_library">Exosite Arduino Library</a> is provided to help developers quickly evaluate Exosite technologies and build useful connected things.</p>
+<p> <img src="extras/LibraryManager_1.png" alt="image"></p>
+<p> <img src="extras/LibraryManager_Exosite.png" alt="image"></p>
+</li>
+</ol>
+<h3 id="configure-your-y-n-s-networking">Configure your Yún&#39;s networking</h3>
+<ol>
+<li><p>Power your Arduino Yún using the USB cable connected to your computer or using a power adapter and follow the Yún instructions for connecting to your network WiFi or connect an Ethernet cable.  <a href="https://www.arduino.cc/en/Guide/ArduinoYun#toc14">Arduino Yún Getting Started -- WiFi Configuration</a></p>
+<ul>
+<li>Note: The Yun, if connected by Ethernet can be found by going to <a href="arduino.local">arduino.local</a> in your web browser - although recommend using the <a href="https://www.arduino.cc/en/Guide/ArduinoYun#toc14">Arduino Yun WiFi Configuration Guide</a>.</li>
+</ul>
+<p><img src="extras/finding_arduino_on_network.png" alt="image">
+<img src="extras/setting-yun-wifi-config.png" alt="image"></p>
+</li>
+</ol>
+<h3 id="set-up-your-y-n-on-exosite-s-portals-visualization-tool">Set up your Yún on Exosite&#39;s Portals Visualization Tool</h3>
+<ol>
+<li>Sign up for a free account at <a href="https://portals.exosite.com">https://portals.exosite.com</a>.  This will include an email verification process.
+<img src="extras/sign-up.png" alt="image"></li>
+</ol>
+<ol>
+<li><p>Once logged in, Go to the Devices page (<a href="https://portals.exosite.com/manage/devices">https://portals.exosite.com/manage/devices</a>) and add a device</p>
+<ol>
+<li><p>Click on &quot;+ Add Device&quot;</p>
+<p><img src="extras/add-device.png" alt="image"></p>
+</li>
+<li><p>Select &quot;Select a supported device below.&quot;</p>
+</li>
+<li><p>Select &quot;Arduino Yún Compatible&quot; device type from drop down list</p>
+</li>
+<li><p>Click &#39;Continue&#39; button.</p>
+<p><img src="extras/add-device-yun-type.png" alt="image"></p>
+</li>
+<li><p><strong>IMPORTANT</strong>: Enter your WiFi MAC Address.  You can get this either from the Yún&#39;s web server page (&#39;Set up your Yun&#39; above) or if you run this sketch, it will print it out at boot time.  It should be in the format 00:11:AA:BB:22:CC (capital letters and use colons).  Note: If you use something other than your Yún&#39;s WiFi MAC Address, the device won&#39;t activate.</p>
+</li>
+<li>Name your device, anything you want.  Leave the device location field empty, it is optional.</li>
+<li><p>Hit &#39;Continue&#39; button.</p>
+<p><img src="extras/add-dev-yun-mac.png" alt="image"></p>
+</li>
+<li><p>Hit the &#39;Quit&#39; button on the final window that says &quot;Your Arduino Yún Compatible Device was successfully enabled with the CIK...&quot;</p>
+<p><img src="extras/add-device-done.png" alt="image"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="program-the-yun">Program the Yun</h3>
+<ol>
+<li><p>Open &quot;File-&gt;Examples-&gt;arduino_exosite_library-&gt;ExoYunGettingStarted&quot;</p>
+<p> <img src="extras/open_example_sketch.png" alt="image"></p>
+</li>
+<li><p>Power your Arduino Yún using the USB cable connected to your computer or using a power adapter.</p>
+</li>
+<li><p>Go to &quot;Tools-&gt;Serial&quot; to select the serial port or networking port your Arduino Yún board is connected to (both serial or over the network options work for the Yun)
+<img src="extras/choose-board.png" alt="image"></p>
+</li>
+<li><p>Go to &quot;Tools-&gt;Board&quot; to select the corresponding Arduino Yún board type
+<img src="extras/choose-port.png" alt="image"></p>
+</li>
+<li><p>In the Arduino software, compile and verify there are no errors</p>
+</li>
+<li><p>Upload the program to your board.</p>
+<p><img src="extras/download.png" alt="image"></p>
+</li>
+<li><p>Check the serial output to verify activation and communication with Exosite.  Also check your MAC Address.</p>
+<p><img src="extras/serial_output.png" alt="image"></p>
+</li>
+<li><p>When &quot;Done uploading&quot; is displayed, go to <a href="https://portals.exosite.com">https://portals.exosite.com</a> to see your data in the cloud!  Click on your device on the &#39;Devicest List&#39; on the start page.  This will bring you to a product dashboard.  You can now create your own custom dashboards, add other data ports, data rules, alerts, and scripts.</p>
+<p><img src="extras/click-device.png" alt="image">
+<img src="extras/yun-dashboard.png" alt="image"></p>
+</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<h4 id="help">Help</h4>
+<p>If you are running into problems, please feel free to check out our <a href="https://community.exosite.com/c/hardware-platforms">developer community forum</a> or use our <a href="https://support.exosite.com">support site</a>.</p>
+<h4 id="using-the-y-n-compared-to-arduino-with-ethernet-shield-with-exosite">Using the Yún compared to Arduino with Ethernet Shield with Exosite</h4>
+<p>Exosite has created a separate reference Yún device type for a couple of reasons.
+The Yún actually has MAC Adddresses programmed into the device, so this can be used
+for activation instead of the Arduino Compatible Ethernet example that generates a random unique identifier and you need to put this into your sketch.  For the Yún, you do not need to do this, it just uses it&#39;s WiFi MAC Address to activate.  The second reasons is the Yún has slightly different hardware available, most notably the Yún has D13 available to control the board LED.  When you use a regular Arduino with Ethernet shield, you lose D13 so providing an option to control the LED wouldn&#39;t make sense.</p>
+<h4 id="security">Security</h4>
+<p>The Arduino Networking Client Libraries such as the <a href="https://www.arduino.cc/en/Reference/Ethernet">Ethernet Library</a> and <a href="https://www.arduino.cc/en/Reference/YunBridgeLibrary">Yun Client Class</a> do not have built in support for Encrypted HTTP communication.  Exosite always recommends using encrypted communication and is working on ways to use encryption on Arduino devices in the future.  </p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

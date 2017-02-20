@@ -1,0 +1,485 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="http-api-overview">HTTP API Overview</h1>
+<p>This is a lightweight HTTP-based API for writing to and reading from the Exosite One Platform. It is intended for bandwidth-constrained applications. It provides the ability to write new data points or read the latest data point.</p>
+<p>If you&#39;re completely new to Exosite&#39;s APIs, you may want to read the <a href="../README.md">API overview</a> first.</p>
+<h2 id="procedures">Procedures</h2>
+<h3 id="timeseries-data-procedures">Timeseries Data Procedures</h3>
+<p><a href="#write">Write</a> - write new data to a set of dataports</p>
+<p><a href="#read">Read</a> - read the latest data from a set of dataports</p>
+<p><a href="#hybrid-writeread">Hybrid Write/Read</a> - write a set of dataports, then read a set of dataports</p>
+<p><a href="#long-polling">Long-Polling</a> - be notified immediately when a dataport is updated</p>
+<p><a href="#record">Record</a> - write data to historical timestamps</p>
+<h3 id="provisioning-procedures">Provisioning Procedures</h3>
+<p><a href="#activate">Activate</a> - activate device and get device&#39;s CIK</p>
+<p><a href="#list-available-content">List Available Content</a> - get a list of content available to device</p>
+<p><a href="#get-content-info">Get Content Info</a> - get meta information about content file</p>
+<p><a href="#download-content">Download Content</a> - get content file</p>
+<h3 id="utility-procedures">Utility Procedures</h3>
+<p><a href="#timestamp">Timestamp</a> - get the current unix timestamp</p>
+<h2 id="libraries-and-sample-code">Libraries and Sample Code</h2>
+<p>Sample code is available that uses this API.</p>
+<ul>
+<li><a href="https://github.com/exosite-garage/python_helloworld">Python hello world</a></li>
+<li><a href="https://github.com/exosite-garage/arduino_http_post">Arduino POST</a></li>
+<li><a href="https://github.com/exosite-garage/fluid_simple_cloud">Arduino-compatible devices (Using Arduino Library)</a> - for, e.g., 8-bit micros running C/C++ code</li>
+<li><a href="https://github.com/exosite-garage/utility_scripts/blob/master/http_https_data_interface_read_write_socket_example.py">Python read and write example with socket</a>, <a href="https://github.com/exosite-garage/utility_scripts/blob/master/http_https_data_interface_get_ip_socket_example.py">Python - Get IP Address Example</a> - socket level code intended as a reference for implementation in other languages</li>
+<li><a href="https://github.com/exosite-garage/utility_scripts/blob/master/http_https_data_interface_read_write_example.py">Python read and write example with httplib</a></li>
+</ul>
+<h2 id="notational-conventions">Notational Conventions</h2>
+<p>This document uses a few notational conventions:</p>
+<ul>
+<li>JSON is pretty printed for clarity. The extra whitespace is not included in the RPC JSON.</li>
+<li>Comments (<code>//</code>) are occasionally included in JSON to give hints or provide detail. These comments are not included in actual requests or responses.</li>
+<li>A name in angle brackets, e.g. <code>&lt;myvar&gt;</code>, is a placeholder that will be defined elsewhere.</li>
+<li><code>number</code> indicates a number, e.g. 42</li>
+<li><code>string</code> represents a string, e.g. &quot;MySensor&quot;</li>
+<li><code>|</code> represents multiple choice</li>
+<li><code>=</code> represents default value</li>
+<li><code>...</code> represents one or more of the previous item</li>
+</ul>
+<h2 id="http-responses">HTTP Responses</h2>
+<p>Typical HTTP response codes include:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th style="text-align:left">Response</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td style="text-align:left">OK</td>
+<td style="text-align:left">Successful request, returning requested values</td>
+</tr>
+<tr>
+<td>204</td>
+<td style="text-align:left">No Content</td>
+<td style="text-align:left">Successful request, nothing will be returned</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td style="text-align:left">Client Error</td>
+<td style="text-align:left">There was an error* with the request by the client</td>
+</tr>
+<tr>
+<td>401</td>
+<td style="text-align:left">Unauthorized</td>
+<td style="text-align:left">No or invalid CIK</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td style="text-align:left">Server Error</td>
+<td style="text-align:left">There way an error with the request on the server</td>
+</tr>
+</tbody>
+</table>
+<p><em>* Note: aliases that are not found are not considered errors in the request. See the documentation for <a href="#read">read</a>, and <a href="#write">write</a> and <a href="#hybrid-writeread">Hybrid write/read</a> for details.</em></p>
+<h1 id="data-procedures">Data Procedures</h1>
+<h2 id="write">Write</h2>
+<p>Write one or more dataports of alias <code>&lt;alias&gt;</code> with given <code>&lt;value&gt;</code>. The client (e.g. device, portal) is identified by <code>&lt;CIK&gt;</code>. Data is written with the server timestamp as of the time the data was received by the server. Data cannot be written faster than a rate of once per second, doing so results in undefined behavior. If multiple aliases are specified, they are written at the same timestamp.</p>
+<h3 id="request">request</h3>
+<pre><code>POST /onep:v1/stack/alias HTTP/1.1 
+Host: m2.exosite.com 
+X-Exosite-CIK: &lt;CIK&gt; 
+Content-Type: application/x-www-form-urlencoded; charset=utf-8 
+Content-Length: &lt;length&gt; 
+&lt;blank line&gt;
+&lt;alias 1&gt;=&lt;value 1&gt;&amp;&lt;alias 2...&gt;=&lt;value 2...&gt;&amp;&lt;alias n&gt;=&lt;value n&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 204 No Content 
+Date: &lt;date&gt; 
+Server: &lt;server&gt; 
+Connection: Close 
+Content-Length: 0 
+&lt;blank line&gt;
+</code></pre><ul>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses.</li>
+</ul>
+<h3 id="example">example</h3>
+<pre><code>$ curl http://m2.exosite.com/onep:v1/stack/alias \
+    -H &#39;X-Exosite-CIK: &lt;CIK&gt;&#39; \
+    -H &#39;Accept: application/x-www-form-urlencoded; charset=utf-8&#39; \
+    -d &#39;&lt;alias&gt;=&lt;value&gt;&#39;
+</code></pre><h2 id="read">Read</h2>
+<p>Read the most recent value from one or more dataports with alias <code>&lt;alias&gt;</code>. The client (e.g. device or portal) to read from is identified by <code>&lt;CIK&gt;</code>. If at least one <code>&lt;alias&gt;</code> is found and has data, data will be returned.</p>
+<h3 id="request">request</h3>
+<pre><code>GET /onep:v1/stack/alias?&lt;alias 1&gt;&amp;&lt;alias 2...&gt;&amp;&lt;alias n&gt; HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+Accept: application/x-www-form-urlencoded; charset=utf-8
+&lt;blank line&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Close
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+&lt;alias 1&gt;=&lt;value 1&gt;&amp;&lt;alias 2...&gt;=&lt;value 2...&gt;&amp;&lt;alias n&gt;=&lt;value n&gt;
+</code></pre><ul>
+<li>Response may also be <code>HTTP/1.1 204 No Content</code> if either none of the aliases are found or they are all empty of data</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+<h3 id="example">example</h3>
+<pre><code>$ curl http://m2.exosite.com/onep:v1/stack/alias?&lt;dataport-alias&gt; \
+    -H &#39;X-Exosite-CIK: &lt;CIK&gt;&#39; \
+    -H &#39;Accept: application/x-www-form-urlencoded; charset=utf-8&#39;
+</code></pre><h2 id="hybrid-write-read">Hybrid write/read</h2>
+<p>Write one or more dataports of alias <code>&lt;alias w&gt;</code> with given <code>&lt;value&gt;</code> and then read the most recent value from one or more dataports with alias <code>&lt;alias r&gt;</code>. The client (e.g. device, portal) to write to and read from is identified by <code>&lt;CIK&gt;</code>. All writes occur before all reads.</p>
+<h3 id="request">request</h3>
+<pre><code>POST /onep:v1/stack/alias?&lt;alias r1&gt;&amp;&lt;alias r2...&gt;&amp;&lt;alias rn&gt; HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+Accept: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+&lt;alias w1&gt;=&lt;value 1&gt;&amp;&lt;alias w2...&gt;=&lt;value 2...&gt;&amp;&lt;alias wn&gt;=&lt;value n&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Close
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+&lt;alias r1&gt;=&lt;value 1&gt;&amp;&lt;alias r2...&gt;=&lt;value 2...&gt;&amp;&lt;alias rn&gt;=&lt;value n&gt;
+</code></pre><ul>
+<li>Response may also be <code>HTTP/1.1 204 No Content</code> if either none of the aliases are found or they are all empty of data</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses.</li>
+</ul>
+<h3 id="example">example</h3>
+<pre><code>$ curl http://m2.exosite.com/onep:v1/stack/alias?&lt;alias_to_read&gt; \
+    -H &#39;X-Exosite-CIK: &lt;CIK&gt;&#39; \
+    -H &#39;Accept: application/x-www-form-urlencoded; charset=utf-8&#39; \
+    -d &#39;&lt;alias_to_write&gt;=&lt;value&gt;&#39;
+</code></pre><h2 id="long-polling">Long Polling</h2>
+<p>The <a href="#read">read</a> procedure now supports long polling. Long polling is a method of getting a server push without the complexities of setting up publicly accessible HTTP server endpoints on your device. As the name suggests, long polling is similar to normal polling of an HTTP resource, but instead of requiring the client to make a new request to the server constantly, the server will wait to return until it has new information to return to the client (or a timeout has been reached).</p>
+<p>To perform a request with long polling simply add the header <code>Request-Timeout: &lt;miliseconds&gt;</code> to your request. The server will then wait until a new datapoint is written to the given dataport and will then immediately return the value. If no datapoint is written before that time a <code>304 Not Modified</code> is returned and the client may make another long poling request to continue monitoring that dataport.</p>
+<p>You may also optionally add an <code>If-Modified-Since</code> header to specify a start time to wait. This is exactly the same as the <code>alias.last</code> semantics in scripting. You will want to use this if it&#39;s important that you receive all updates to a given dataport, otherwise it is possible to miss points that get written between long polling requests.</p>
+<p>Note: Only one dataport may be read at a time when using long polling.</p>
+<h3 id="request">request</h3>
+<pre><code>GET /onep:v1/stack/alias?&lt;alias 1&gt; HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+Accept: application/x-www-form-urlencoded; charset=utf-8
+Request-Timeout: &lt;timeout&gt;
+If-Modified-Since: &lt;timestamp&gt;
+&lt;blank line&gt;
+</code></pre><ul>
+<li><code>&lt;alias&gt;</code> is the alias you monitor for new datapoints.</li>
+<li><code>Request-Timeout</code> specifies the how long to wait on changes.  <code>&lt;timeout&gt;</code> is a millisecond value and cannot be more than 300 seconds (300000 ms).</li>
+<li><code>If-Modified-Since</code> specifies waiting on aliases since the <code>&lt;timestamp&gt;</code>.  <code>&lt;timestamp&gt;</code> can be timestamp seconds since 1970-01-01 00:00:00 UTC or standard <a href=http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html>HTTP-Date</a> format. If this is not specified it defaults to &quot;now&quot;.</li>
+</ul>
+<h3 id="response">response</h3>
+<p>When the dataport is updated:</p>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Close
+Content-Length: &lt;length&gt;
+Last-Modified: &lt;datapoint-modification-date&gt;
+&lt;blank line&gt;
+&lt;alias&gt;=&lt;value&gt;
+</code></pre><p>If the dataport is not updated before timeout:</p>
+<pre><code>HTTP/1.1 304 Not Modified
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Close
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+</code></pre><p>When the dataport is updated and a value is returned, a <code>Last-Modified</code> header is included. When it is vital for your application to receive all updates to a dataport, you can pass the <code>Last-Modified</code> header value back to the <code>If-Not-Modified-Since</code> header in your next request to make sure that you don&#39;t miss any points that may have been written since the last request returned.</p>
+<h3 id="example">example</h3>
+<pre><code>$ curl http://m2.exosite.com/onep:v1/stack/alias?&lt;dataport-alias&gt; \
+    -H &#39;X-Exosite-CIK: &lt;CIK&gt;&#39; \
+    -H &#39;Accept: application/x-www-form-urlencoded; charset=utf-8&#39;
+    -H &#39;Request-Timeout: 30000&#39;
+    -H &#39;If-Modified-Since: 1408088308&#39;
+</code></pre><h2 id="record">record</h2>
+<p>Write data to one or more historical timestamps of one or more aliases. The client (e.g. device, portal) is identified by <code>&lt;CIK&gt;</code>. Timestamps to the same alias cannot have less than 1 second differences between each other, doing so results in error in response.</p>
+<h3 id="request">request</h3>
+<p>This example records to <code>&lt;alias 1&gt;</code> in <code>&lt;timestamp 1&gt;</code> and <code>&lt;timestamp 2&gt;</code>, while records to <code>&lt;alias 2&gt;</code> in <code>&lt;timestamp 3&gt;</code> and <code>&lt;timestamp 4&gt;</code>.</p>
+<pre><code>POST /onep:v1/stack/record HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+alias=&lt;alias 1&gt;&amp;&lt;timestamp 1&gt;=&lt;value 1&gt;&amp;&lt;timestamp 2&gt;=&lt;value 2&gt;&amp;alias=&lt;alias 2&gt;&amp;&lt;timestamp 3&gt;=&lt;value 3&gt;&amp;&lt;timestamp 4&gt;=&lt;value 4&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 204 No Content 
+Date: &lt;date&gt; 
+Server: &lt;server&gt; 
+Connection: Close 
+Content-Length: 0 
+&lt;blank line&gt;
+</code></pre><ul>
+<li><p>See <a href="#http-responses">HTTP Responses</a> for a full list of responses.</p>
+</li>
+<li><p>If <code>&lt;timestamp 1&gt;</code> and <code>&lt;timestamp 2&gt;</code>, <code>&lt;timestamp 3&gt;</code> and <code>&lt;timestamp 4&gt;</code> have less than 1 second difference:</p>
+</li>
+</ul>
+<pre><code>HTTP/1.1 409 Conflict
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Close
+Content-Length: &lt;length&gt;
+&lt;alias 1&gt;=&lt;timestamp 1&gt;&amp;&lt;alias 2&gt;=&lt;timestamp 3&gt;
+</code></pre><h3 id="example">example</h3>
+<pre><code>$ curl https://m2.exosite.com/onep:v1/stack/alias/&lt;alias&gt; \
+    -H &#39;X-Exosite-CIK: &lt;CIK&gt;&#39; \
+    -H &#39;Content-Type: application/x-www-form-urlencoded; charset=utf-8&#39; \
+    -d &#39;&lt;timestamp 1&gt;=&lt;value 1&gt;&amp;&lt;timestamp 2&gt;=&lt;value 2&gt;&#39;
+</code></pre><h1 id="provisioning-procedures">Provisioning Procedures</h1>
+<h2 id="activate">Activate</h2>
+<p>Activates and returns <code>&lt;cik&gt;</code> of client administrated by Vendor <code>&lt;vendor&gt;</code>,
+identified my the model ID <code>&lt;model&gt;</code> associated with Serial Number <code>&lt;sn&gt;</code>.
+Client must be enabled via <code>/provision/manage/model/&lt;model&gt;/&lt;sn&gt;</code>, the enabled
+state must not have expired, and the client must not have already been
+activated.</p>
+<pre><code>POST /provision/activate HTTP/1.1
+Host: m2.exosite.com
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: &lt;length&gt;
+
+vendor=&lt;vendor&gt;&amp;model=&lt;model&gt;&amp;sn=&lt;sn&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Keep-Alive
+Content-Length: &lt;length&gt;
+Content-Type: text/plain; charset=utf-8
+
+&lt;cik&gt;
+</code></pre><p>Response may also be:</p>
+<ul>
+<li><code>HTTP/1.1 404 Not Found</code> if the client described by <code>&lt;vendor&gt;</code>, <code>&lt;model&gt;</code>, <code>&lt;sn&gt;</code> is not found on the system.</li>
+<li><code>HTTP/1.1 409 Conflict</code> if the serial number is not enabled for activation.</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+<h3 id="example">example</h3>
+<p>This command activates a device with serial number 12345678 and returns its CIK.</p>
+<pre><code>$ curl http://m2.exosite.com/provision/activate \
+    -H &quot;Content-Type: application/x-www-form-urlencoded; charset=utf-8&quot; \
+    -d &quot;vendor=mysubdomain&amp;model=myclientmodel&amp;sn=12345678&quot;
+</code></pre><h2 id="list-available-content">List Available Content</h2>
+<p>List content <code>&lt;id&gt;</code>s. Caller with <code>&lt;DeviceCIK&gt;</code> must have an activated
+serial number in given <code>&lt;vendor&gt;</code> <code>&lt;model&gt;</code> name space.</p>
+<pre><code>GET /provision/download?vendor=&lt;vendor&gt;&amp;model=&lt;model&gt; HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Keep-Alive
+Content-Length: &lt;length&gt;
+Content-Type: text/csv; charset=utf-8
+
+&lt;id 1&gt;
+&lt;id 2...&gt;
+&lt;id n&gt;
+</code></pre><p>Response may also be:</p>
+<ul>
+<li><code>HTTP/1.1 403 Forbidden</code> if the <code>&lt;vendor&gt;</code> and <code>&lt;model&gt;</code> pair is invalid.</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+<h2 id="download-content">Download Content</h2>
+<p>If caller with <code>&lt;CIK&gt;</code> has an activated SN in given <code>&lt;vendor&gt;</code> <code>&lt;model&gt;</code> name
+space, and is authorized for the content, then the <code>&lt;id&gt;</code> content blob, or its
+requested range, is returned. The header <code>Range: bytes=&lt;range-specifier&gt;</code>, if
+specified, allows the caller to request a chunk of bytes at a time.
+<code>&lt;range-specifier&gt;</code> takes the form of <code>X-Y</code> where both <code>X</code> and <code>Y</code> are
+optional but at least one of them must be present. <code>X</code> is the start byte
+position to return, <code>Y</code> is the end position. Both are 0 based. If <code>X</code> is
+omitted, <code>Y</code> will request the last <code>Y</code> count of bytes of the content. If <code>Y</code>
+is omitted, it will default to the end of the content. Note that <code>Content-Type</code>
+of <code>&lt;blob&gt;</code> is based on the type set in the <code>POST</code> to
+<code>/provision/manage/content/&lt;model&gt;/&lt;id&gt;</code>.</p>
+<pre><code>GET /provision/download?vendor=&lt;vendor&gt;&amp;model=&lt;model&gt;&amp;id=&lt;id&gt; HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+{Range: bytes=&lt;range-specifier&gt;}
+&lt;blank line&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Keep-Alive
+{Accept-Ranges: bytes}
+Content-Length: &lt;number of bytes being returned&gt;
+{Content-Range: bytes &lt;first position&gt;-&lt;last position&gt;/&lt;total length&gt;}
+Content-Type: &lt;content-type&gt;
+
+&lt;blob&gt;
+</code></pre><p>Response may also be:</p>
+<ul>
+<li><code>HTTP/1.1 206 Partial Content</code> if the response is partial.</li>
+<li><code>HTTP/1.1 403 Forbidden</code> if the <code>&lt;vendor&gt;</code> and <code>&lt;model&gt;</code> pair is invalid.</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+<h2 id="get-content-info">Get Content Info</h2>
+<p>If caller with <code>&lt;CIK&gt;</code> has an activated SN in given <code>&lt;vendor&gt;</code> <code>&lt;model&gt;</code> name
+space, and is authorized for the content, then the <code>&lt;id&gt;</code> content information
+is returned.</p>
+<pre><code>GET /provision/download?vendor=&lt;vendor&gt;&amp;model=&lt;model&gt;&amp;id=&lt;id&gt;&amp;info=true HTTP/1.1
+Host: m2.exosite.com
+X-Exosite-CIK: &lt;CIK&gt;
+Content-Length: &lt;length&gt;
+&lt;blank line&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Keep-Alive
+Content-Length: &lt;length&gt;
+Content-Type: text/csv; charset=utf-8
+
+&lt;content-type&gt;,&lt;byte-size&gt;,&lt;updated-timestamp&gt;,&lt;meta&gt;
+</code></pre><p>Response may also be:</p>
+<ul>
+<li><code>HTTP/1.1 400 Bad Request</code> if the <code>&lt;vendor&gt;</code> and <code>&lt;model&gt;</code> pair is invalid.</li>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+<h1 id="utility-procedures">Utility Procedures</h1>
+<h2 id="timestamp">Timestamp</h2>
+<p>Get the current time according to the server.</p>
+<h3 id="request">request</h3>
+<pre><code>GET /timestamp HTTP/1.1
+Host: m2.exosite.com
+&lt;blank line&gt;
+</code></pre><h3 id="response">response</h3>
+<pre><code>HTTP/1.1 200 OK
+Date: &lt;date&gt;
+Server: &lt;server&gt;
+Connection: Keep-Alive
+Content-Length: &lt;length&gt;
+Content-Type: text/plain; charset=utf-8
+
+&lt;timestamp&gt;
+</code></pre><ul>
+<li>See <a href="#http-responses">HTTP Responses</a> for a full list of responses</li>
+</ul>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

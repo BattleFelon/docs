@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="/development/exositeready/gwe/getting_started">Getting Started</a></li>
+<li><a href="/development/exositeready/gwe/product_overview">Product Overview</a> </li>
+<li><a href="/development/exositeready/gwe/release_packages">Release Packages</a></li>
+<li><a href="/development/exositeready/gwe/custom_gateway_applications">Custom Gateway Applications</a></li>
+<li><a href="/development/exositeready/gwe/otau">Over the Air Updates</a></li>
+<li><a href="/development/exositeready/gwe/solution-app">GWE Solution App</a></li>
+<li><a href="/development/exositeready/gwe/device-client">Device Client - Docs</a></li>
+<li><a href="/development/exositeready/gwe/gateway-engine">GWE - Docs</a></li>
+<li><a href="/development/exositeready/gwe/gmq">Gateway Message Queuing - Docs</a></li>
+</ul>
+<h1 id="release-packages">Release Packages</h1>
+<p>This section contains links and downloadable files that are referenced throughout the ExositeReady™ Gateway Engine (GWE) documentation. Below are sections outlining the various options when choosing a copy of GWE. The packages all contain the same version of GWE, but with specific Custom Gateway Applications packaged into it. Each option also contains an additional option of the git branch its build is based—<code>master</code> or <code>dev</code>. Release packages based on the <code>dev</code> branch are for development purposes and come with no guarantee or warranty. Releases based on the <code>master</code> branch are stable and undergo a comprehensive QA process.</p>
+<h1 id="gwe-downloads">GWE Downloads</h1>
+<p>The download options below contain GWE release packages.</p>
+<h2 id="listing-of-releases">Listing of Releases</h2>
+<p>To download the latest version of Gateway Engine...</p>
+<p><a href="https://s3-us-west-2.amazonaws.com/exosite-client-downloads/gateway-engine-release-area/gmq-master/list.html"><strong>CLICK HERE</strong></a></p>
+<p>...to view a listing of downloadable releases. </p>
+<h2 id="shell-command">Shell Command</h2>
+<p>The shell command, below works on most Linux and OSX machines to download and echo the name of the downloaded file to the terminal.</p>
+<pre><code>basename $(curl -v -k --remote-name $(curl --silent -k https://s3-us-west-2.amazonaws.com/exosite-client-downloads/gateway-engine-release-area/gmq-master/latest.lnk) 2&gt;&amp;1 | awk &#39;/GET/{print $(NF-1)}&#39;)
+</code></pre><h1 id="release-package-overview">Release Package Overview</h1>
+<p>A release package comes in the form of a compressed tar file. Unpacking
+this tar file and running the included installer will install GWE and all its dependencies. The GWE software will not
+start/execute until the machine has been rebooted. Most public releases
+of GWE come with an example program that other sections
+(otau, custom_gateway_applications) in this documentation refer to.</p>
+<p>Here is what a typical release package of GWE looks like:</p>
+<pre><code>$ tar tvf GatewayEngine.v1-0-6.tar.gz 
+drwxr-xr-x  0 jenkins jenkins     0 Aug 25 17:14 gateway-engine/
+-rw-r--r--  0 jenkins jenkins     1 Aug 25 17:14 gateway-engine/requirements.txt
+-rw-r--r--  0 jenkins jenkins  4198 Aug 25 17:14 gateway-engine/setup.py
+-rwxr-xr-x  0 jenkins jenkins  6579 Aug 25 17:14 gateway-engine/packager.sh
+drwxr-xr-x  0 jenkins jenkins     0 Aug 25 17:14 gateway-engine/apps_to_install/
+-rw-r--r--  0 jenkins jenkins 35701 Aug 25 17:14 gateway-engine/apps_to_install/meld3.v102.tar.gz
+-rw-r--r--  0 jenkins jenkins 42227 Aug 25 17:14 gateway-engine/apps_to_install/elementtree.v126-20050316.tar.gz
+-rw-r--r--  0 jenkins jenkins  2526 Aug 25 17:14 gateway-engine/apps_to_install/gmq.v10_0ca92e7.tar.gz
+-rw-r--r--  0 jenkins jenkins 461249 Aug 25 17:14 gateway-engine/apps_to_install/supervisor.v30.tar.gz
+-rw-r--r--  0 jenkins jenkins   6712 Aug 25 17:14 gateway-engine/gwe.build
+-rwxr-xr-x  0 jenkins jenkins   3106 Aug 25 17:14 gateway-engine/install.sh
+drwxr-xr-x  0 jenkins jenkins      0 Aug 25 17:14 gateway-engine/init/
+-rwxr-xr-x  0 jenkins jenkins   1297 Aug 25 17:14 gateway-engine/init/init.sh
+-rwxr-xr-x  0 jenkins jenkins    520 Aug 25 17:14 gateway-engine/init/S80ftdi
+-rw-r--r--  0 jenkins jenkins   8540 Aug 25 17:14 gateway-engine/init/supervisord.conf
+-rwxr-xr-x  0 jenkins jenkins   4849 Aug 25 17:14 gateway-engine/init/supervisor
+-rw-r--r--  0 jenkins jenkins    177 Aug 25 17:14 gateway-engine/init/gwe.conf
+-rwxr-xr-x  0 jenkins jenkins    500 Aug 25 17:14 gateway-engine/init/S90supervisord
+-rw-r--r--  0 jenkins jenkins     11 Aug 25 17:14 gateway-engine/init/pre_install_commands.sh
+-rw-r--r--  0 jenkins jenkins     11 Aug 25 17:14 gateway-engine/init/post_install_commands.sh
+drwxr-xr-x  0 jenkins jenkins      0 Aug 25 17:14 gateway-engine/GatewayEngine/
+-rwxr-xr-x  0 jenkins jenkins  13230 Aug 25 17:14 gateway-engine/GatewayEngine/installer.py
+-rwxr-xr-x  0 jenkins jenkins    506 Aug 25 17:14 gateway-engine/GatewayEngine/constants.py
+-rw-r--r--  0 jenkins jenkins     87 Aug 25 17:14 gateway-engine/GatewayEngine/__version__.py
+-rw-r--r--  0 jenkins jenkins     63 Aug 25 17:14 gateway-engine/GatewayEngine/Gateway.cfg
+-rwxr-xr-x  0 jenkins jenkins  19766 Aug 25 17:14 gateway-engine/GatewayEngine/utils.py
+-rw-r--r--  0 jenkins jenkins   6083 Aug 25 17:14 gateway-engine/GatewayEngine/tarball.py
+-rwxr-xr-x  0 jenkins jenkins     37 Aug 25 17:14 gateway-engine/GatewayEngine/__init__.py
+-rw-r--r--  0 jenkins jenkins    125 Aug 25 17:14 gateway-engine/GatewayEngine/__build_id__.py
+-rw-r--r--  0 jenkins jenkins     74 Aug 25 17:14 gateway-engine/GatewayEngine/Engine.config
+-rwxr-xr-x  0 jenkins jenkins  49984 Aug 25 17:14 gateway-engine/GatewayEngine/GatewayEngine.py
+-rw-r--r--  0 jenkins jenkins   2557 Aug 25 17:14 gateway-engine/GatewayEngine/README.md
+-rw-r--r--  0 jenkins jenkins  21884 Aug 25 17:14 gateway-engine/README.md
+-rw-r--r--  0 jenkins jenkins 451156 Aug 25 17:14 gateway-engine/device-client.v1-4-13.tar.gz
+-rw-r--r--  0 jenkins jenkins     17 Aug 25 17:14 gateway-engine/requirements-osx.txt
+drwxr-xr-x  0 jenkins jenkins      0 Aug 25 17:14 gateway-engine/test/
+-rw-r--r--  0 jenkins jenkins   4696 Aug 25 17:14 gateway-engine/test/test_gwe.py
+-rwxr-xr-x  0 jenkins jenkins  13412 Aug 25 17:14 gateway-engine/test/test_gateway_engine.py
+-rw-r--r--  0 jenkins jenkins      0 Aug 25 17:14 gateway-engine/test/__init__.py
+-rwxr-xr-x  0 jenkins jenkins   4821 Aug 25 17:14 gateway-engine/test/test_engine.py
+</code></pre><p>Notice, the various sections of the release tarball from the above
+listing. There is typically only one section at the top level of the
+tarball, and that is the <code>gateway-engine/</code> directory.</p>
+<p>At the <code>gateway-engine/</code> directory level, there is</p>
+<pre><code>install.sh
+setup.py
+LICENSE.txt
+GatewayEngine/
+apps_to_install/
+init/
+</code></pre><p>The <code>install.sh</code> script (roughly) does the following in this order:</p>
+<ul>
+<li>Run the <code>init/init.sh</code> script.</li>
+<li>Run the <code>pre_install_commands.sh</code> script.</li>
+<li>Install all tarballs in <code>apps_to_install/</code>.</li>
+<li>Install <code>GatewayEngine</code> with <code>setup.py</code>.</li>
+<li>Run the <code>post_install_commands.sh</code> script.</li>
+</ul>
+<p>If you want to simply install everything needed to get your gateway data
+to Exosite promptly, we recommend executing <code>install.sh</code>. This will
+ensure all dependencies and programs get installed. Once complete, the
+gateway will need to be rebooted so all initializations can be executed.
+After a reboot, <code>supervisord</code> will be started by the Linux <code>init.d</code>
+subsystem. Once <code>supervisord</code> is running, it will start <code>GatewayEngine</code>
+as well as any other program it installed from the
+<code>apps_to_install</code> directory.</p>
+<p><strong>NOTE:</strong> If you want to manually start <code>GatewayEngine</code>, you can use the same
+command that <code>supervisord</code> uses: <code>gwe</code>. If Supervisor is installed on
+the gateway prior to running the <code>install.sh</code> installer, then gateway
+engine installer overwrites it.</p>
+<h1 id="release-notes">Release Notes</h1>
+<p>This section contains release notes for each release of GWE.
+The subsections are broken down by release and contain notes about known
+bugs that were fixed and new features added.</p>
+<h2 id="version-1-3-x">Version 1.3.x</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<h3 id="new-features">New Features</h3>
+<ul>
+<li>Custom Gateway Application build command --build-app added.</li>
+<li>Build file linter --check-buildfile added.</li>
+<li>Custom Gateway Application tarball test command --check-tarfile added.</li>
+<li>Unkown exceptions during <code>gwe</code> runtime are logged to the <code>fetch_status</code> dataport.</li>
+</ul>
+<h2 id="version-1-1-4">Version 1.1.4</h2>
+<p>An early, stable developer preview version.</p>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Logging improvements.</li>
+<li>Some Jenkins CI fixes to packaging and naming releases.</li>
+<li>Fixed &#39;environment&#39; option in <code>gwe.conf</code> so the system runtime env
+propagates to forked processes.</li>
+<li>Better documented exec_install_dot_sh and demystified
+return codes.</li>
+<li>Fixed <code>gwe</code> post-OTAU behavior to do <code>supervisorctl reload</code> instead
+of just restarting <code>gwe</code>.</li>
+<li>Removed commented/dead code.</li>
+<li>Re-enabled the <code>usage_report</code> feature (beta) to show new,
+re-worked behavior.</li>
+<li>Fixed upgrade path to remove old <code>device_client</code> library with known
+import issue.</li>
+</ul>
+<h3 id="new-features">New Features</h3>
+<ul>
+<li>Gateway Engine now fully supported on Murano.</li>
+<li>Added <code>gwe --set-product-id &lt;PRODUCT_ID&gt;</code> cli to configure Gateway
+Engine for use with Murano.</li>
+<li>Added <code>gwe --gateway-cik</code> cli to retrieve Gateway Engine&#39;s
+current CIK.</li>
+<li>Rewrote READMEs and docs for Murano support.</li>
+<li>Added <code>fetch_status</code> alias to Gateway Engine model. Gateway Engine
+will write the STDOUT/STDERR of any OTAU <code>install.sh</code> script to this
+new alias.</li>
+<li>Improved upgrade and OTAU for <code>gwe</code>. Upgrades retain configurations
+from previous installation. Upgrading from a previous release with a
+newer Release Package can be done by adding touch file
+<code>touch gateway-engine/THIS_IS_AN_OTAU.txt</code> before executing
+<code>install.sh</code>.</li>
+<li>User agent now defaults to &#39;GatewayEngine-v&lt;VERSION&gt;&#39;.
+Overrides to this default are supported via the
+<code>gwe --set-user-agent &lt;USER_AGENT&gt;</code> cli and can be viewed with the
+<code>gwe --engine-conf</code> command. Reverting to default User-Agent can be
+done with <code>gwe --set-user-agent \&#39;\&#39;</code>.</li>
+<li>Added beginnings of developer guide, standards, gitflow, CI
+automation, etc. docs to <code>gateway-engine/docs</code>.</li>
+<li>Added old spec file to <code>gateway-engine/model/</code> directory.</li>
+<li>The &#39;.&#39; character is no longer illegal to use in the version string
+of an OTAU app.</li>
+<li>OTAU packages are now created (though not published yet) for every
+Release Package of Gateway Engine.</li>
+<li>Gateway Engine now installs <code>pip</code> and <code>setuptools</code> during Release
+Package installation.</li>
+<li>Improved automated unit test coverage.</li>
+<li>Added framework for Docker-based, virtualized automated
+test environment.</li>
+<li>Added some OSX support for developer environment.</li>
+<li>Removed <code>gwe --build-id</code> as this feature is no longer supported.
+Version information still available with <code>gwe --version</code>.</li>
+<li>Any time Gateway Engine is configured with the cli, the new
+configuration is printed/echoed to console.</li>
+<li>Added <code>localhost:8090/reread</code> endpoint to <code>gmq</code> to support runtime
+logging and tunable parameter changes without the need for
+restarting the server.</li>
+</ul>
+<h2 id="version-1-0-6">Version 1.0.6</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Now copying the existing config instead of creating a new one. This
+addresses the case where the user updated GWE but wanted to keep
+their existing config.</li>
+<li>Exceptions are now properly caught while running checking install
+packages (e.g. <code>gwe -z</code>)</li>
+<li>General code cleanup - duplicate code, comments, logging messages.</li>
+<li>User agent for GWE is now dynamically built by the build sytem.
+Because of this, Gateway Engine: Gateway constructor no longer
+needs user_agent. User-Agent for Gateway Engine HTTP requests now
+use current version.</li>
+<li>Added test for checking Gateway Engine User-Agent against the
+current version.</li>
+<li>Versioning changed to custom semantic versioning scheme where
+version reflects MAJOR.MINOR.BUILD designators. Only MAJOR and MINOR
+are tracked in git. BUILD designator tracked in Jenkins and appended
+to Gateway Engine:__version__:__version__ after
+successful build.</li>
+<li>User configured interface is validated against the existing system
+interfaces and a warning is issued if it is found invalid.</li>
+</ul>
+<h3 id="changing-a-gateway-serial-number-or-interface">Changing a Gateway Serial Number or Interface</h3>
+<p>Changing a gateway&#39;s <code>uuid</code> or <code>iface</code> configuration has been supported
+by GWE since the <code>iface</code> option was added but has been error
+prone and subject to confusion.</p>
+<p>If ever during development of a gateway IoT solution you change the
+serial number scheme of the device fleet moving forward, you may need
+to change the serial number of a given gateway. GWE can be
+configured to use an interface (e.g., eth0, wlan0, ppp0, etc.) MAC
+address as the serial number with the iface option, or it can be configured to use
+a custom serial number with the uuid option.</p>
+<p>When GWE starts up, it checks for a <code>uuid</code> option. If one is
+not set (i.e., it is an empty string) it checks for an <code>iface</code> option. If
+neither are set, GWE refuses to run and exits <code>-1</code>.</p>
+<p>In order to change the serial number of a gateway, the gateway
+administrator has to first ensure the uuid field is empty.</p>
+<p>To check the current serial number setting, checking the <code>uuid</code> option
+in the GWE config file can be done with the following
+command.</p>
+<pre><code>$ gwe --gateway-cfg
+[device]
+cik = f1d4f10f3ca413caa08bba34c91d095d010bcd32
+model = GatewayEngine_V1
+vendor = gateway-engine-demo
+uuid = 00:2F:AC:43:55:A0
+iface = eth0
+</code></pre><p>The following command will clear the current serial number from the
+GWE config file.</p>
+<pre><code>gwe --set-uuid \&#39;\&#39;
+</code></pre><p>Check the config file again to confirm it has been set to an empty
+string.</p>
+<pre><code>$ gwe --gateway-cfg
+[device]
+cik = f1d4f10f3ca413caa08bba34c91d095d010bcd32
+model = GatewayEngine_V1
+vendor = gateway-engine-demo
+uuid = &#39;&#39;
+iface = eth0
+</code></pre><p>Now that the serial number has been cleared, the gateway administrator
+can either choose to use a different interface&#39;s MAC address by
+changing the <code>iface</code> option with the following command.</p>
+<pre><code>$ gwe --set-iface wlan0
+$
+</code></pre><p>Or, if a custom serial number is desired, one can be configured with the
+following command.</p>
+<pre><code>$ gwe --set-uuid anyserial!@#$%^&amp;*()number
+$
+</code></pre></div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

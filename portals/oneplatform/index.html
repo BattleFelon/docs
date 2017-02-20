@@ -1,0 +1,449 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Portals and One Platform Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+            <li>One Platform Reference</li>
+            <li><a class="level-1" href="/portals/oneplatform">One Platform Guide</a></li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/articles/200308457" target="_blank">Provisioning Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="scripting/">Scripting Reference</a></li>
+            <li>One Platform API</li>
+            <li><a class="level-1" href="/portals/http">API - HTTP Device</a></li>
+            <li><a class="level-1" href="/portals/coap">API - CoAP Device</a></li>
+            <li><a class="level-1" href="/portals/rpc">API - Remote Procedure Call / RPC</a></li>
+            <li><a class="level-1" href="/portals/websocket">API - Websocket RPC</a></li>
+            <li><a class="level-1" href="/portals/provision">API - Provision Management</a></li>
+            <li><a class="level-1" href="https://github.com/exosite-labs" target="_blank">Libraries <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="/development/exositeready">Device Software - ExositeReady</a></li>
+            <li>Portals Reference</li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/sections/200072708">Portals User Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/sections/200054894">Portals Admin & Config Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="/portals/portalsapi">API - Portals</a></li>
+            <li><a class="level-1" href="/portals/widget">API - Custom Widgets</a></li>
+            <li>One Platform / Portals Tutorials</li>
+            <li><a class="level-1" href="/portals/introduction">Intro to One Platform Device Connectivity</a></li>
+            <li><a class="level-1" href="/portals/tutorials/get-started">Getting Started Portals</a></li>
+            <li><a class="level-1" href="/portals/tutorials/get-started-arduinoyun">Getting Started Arduino Yún</a></li>
+            <li><a class"level-1" href="/portals/videos">Portals and One Platform Videos</a></li>
+            <li>OneP/Portals Developer Tools</li>
+            <li><a class="level-0" href="https://github.com/exosite/exoline/" target="_blank">Exoline - Command Line Interface <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano</p>
+                <li><a class="level-1" href="/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="one-platform-guide">One Platform Guide</h1>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#hosting">Hosting</a></li>
+<li><a href="#core-resources-and-hierarchy">Core Resources and Hierarchy</a></li>
+<li><a href="#provision-system">Provision System</a></li>
+</ul>
+<h1 id="tutorials">Tutorials</h1>
+<ul>
+<li><a href="/portals/introduction">Introduction To Device Connectivity and One Platform </a> - Start at the basics of device connectivity to Exosite&#39;s Platform</li>
+<li><a href="../portals/tutorials/get-started">Getting Started with Portals Evaluation Web Dashboard Tool</a> - Using a free account, get a device added and start sending data</li>
+<li><a href="../portals/tutorials/get-started-arduinoyun/">Getting Started using an Arduino YÚN</a> - Get a device added and start sending data</li>
+<li><a href="../videos">Videos</a> - Video tutorials covering various topics</li>
+</ul>
+<h1 id="one-platform">One Platform</h1>
+<p>Exosite&#39;s IoT Platform for Connected Products</p>
+<ul>
+<li><a class="level-0" href="https://support.exosite.com/hc/en-us/articles/200308457" target="_blank">Provisioning Articles</a></li>
+<li><a href="../scripting/">Lua Scripting Reference and API</a> - the One Platform Lua scripting environment<h2 id="api">API</h2>
+</li>
+<li><a href="../http/">HTTP Device API</a> - easy API for reading from and writing to One Platform dataport resources via HTTPS</li>
+<li><a href="../coap/">CoAP Device API</a> - small, low bandwidth protocol for low-power devices and lossy networks</li>
+<li><a href="../rpc/">Remote Procedure Call (JSON RPC) API</a> - full featured API for device management and data visualization via HTTPS</li>
+<li><a href="../websocket/">Remote Procedure Call API via WebSocket</a> - RPC API over websocket with support for subscriptions</li>
+<li><a href="../provision/">Provision Management API</a> - API for working with product device models and device provisioning via applications<h2 id="sdk-libraries">SDK &amp; Libraries</h2>
+</li>
+<li><a href="../exositeready/">ExositeReady™ Device Support</a> - Production quality device software and device libraries</li>
+<li><a href="https://github.com/exosite-labs">One Platform Libraries</a> - Python, Java, .NET, Cocoa, C++, ...<h2 id="developer-tools">Developer Tools</h2>
+</li>
+<li><a href="https://github.com/exosite/exoline/">Exoline</a> - Command Line Interface (CLI) / Utility for the Exosite API</li>
+</ul>
+<h1 id="portals-web-application">Portals Web Application</h1>
+<p>Portals is a whitelabel dashboard based web application framework that is used for building production applications, proof of concepts, and evaluations of Exosite&#39;s platform.  Portals has a concept of user identity and permissions and strictly uses the One Platform hierarchy for device ownership control.</p>
+<ul>
+<li><a href="https://support.exosite.com/hc/en-us/sections/200072708">Portals Web Application User Reference Articles (link)</a></li>
+<li><a href="https://support.exosite.com/hc/en-us/sections/200054894">Portals Whitelabel Domain Solution Administration Reference Articles (link)</a><h2 id="api">API</h2>
+</li>
+<li><a href="../widget/">Portals Custom Widget API</a> - a Javascript API for creating custom Portals dashboard widgets</li>
+<li><a href="../portals/portalsapi/">Portals API</a> - an API for interacting with the Portals application</li>
+</ul>
+<h1 id="overview">Overview</h1>
+<p>The One Platform is Exosite&#39;s core IoT building block.  The platform allows for virtualizing and digitizing physical things and their data.  It gives an identity in the &#39;cloud&#39; to devices and becomes a central node for data to and from the device, to and from user applications, and to any other service you want to connect with.</p>
+<p>The interaction with the platform is via a set of web service APIs (<a href="https://en.wikipedia.org/wiki/Application_programming_interface">Application Programming Interface</a> ).  These APIs allow developers to both connect devices and build applications with.  All data is stored in reference to each individual client (device) and is accessible using the APIs.</p>
+<p>The platform allows for storage of time-stamped data, triggering rules on incoming data, triggering dispatches such as HTTP, SMS, and Email, and stream processing of the data using Lua scripts to perform advanced automated functions.  In addition - the platform has a provisioning system that allows vendors to deploy fleets of devices with an approach for activation, defining ownership, and providing content such as new firmware to groups of specific products.</p>
+<p><strong>Key Services</strong></p>
+<ul>
+<li><a href="#clients">Device / Node representation</a></li>
+<li>Device Modeling</li>
+<li><a href="#dataports">Time Series Data</a></li>
+<li><a href="#dispatches">Email/SMS/HTTP message dispatching</a></li>
+<li>Device Provisioning</li>
+<li>Device Firmware  / Content hosting for in field Updates</li>
+<li><a href="#scripts">Lua Scripting</a> - Data stream processing and management</li>
+</ul>
+<h1 id="hosting">Hosting</h1>
+<p>The One Platform is accessible by default to users as a multi-tenant hosted system.  Options for single-tenant hosted instances or self hosting are available, please contact us for more information.</p>
+<h1 id="core-resources-and-hierarchy">Core Resources and Hierarchy</h1>
+<h2 id="clients">Clients</h2>
+<p>The core node or object in the platform is a &#39;client&#39;.  A client typically represents a virtual device, but clients are also used for other purposes - such as for an account, a container of some kind, or a user.  These types of uses of clients generally are in regards to the ownership hierarchy.  A client can own or be owned by other clients.<br><img src="assets/onep_hierarchy_overview1.png" alt="image"></p>
+<p>A client is identified in the platform by it&#39;s RID (Resource Identifier) which never changes. Any authorized ancestor owner of a client can access a child client using it&#39;s RID. Each client also has a CIK (Client Interface Key) that is generated and is used by API calls as the authorization for accessing that clients data and attributes.  A CIK is comparable to a private key, where-as the RID is comparable to a public key.</p>
+<p><img src="assets/onep_client_attributes1.png" alt="image"></p>
+<p>A Client&#39;s attributes include the following:</p>
+<ul>
+<li><code>RID</code> - Resource Identifier</li>
+<li><code>CIK</code> - Client Interface Key</li>
+<li><code>name</code> - A string for application-specific purposes (it has no relation to identity in the platform)</li>
+<li><code>meta</code> - A string field for meta data to be used for application-specific purposes</li>
+<li><code>locked</code> - if set to true - will prevent any use of the CIK to make API calls</li>
+<li><code>public</code> - If set to true, allows any other resource in the platform to read from it.  If false, only it&#39;s ancestors.</li>
+<li><code>limits</code> - Is an object containing limits for various entities and consumables.</li>
+<li><code>resources</code> - Any resources such as dataports, datarules, dispatches, and other clients owned by this client.</li>
+</ul>
+<p>In addition - by asking for &#39;info&#39; about a client, you can receive the following information:</p>
+<ul>
+<li><code>aliases</code></li>
+<li><code>modified time</code>, <code>status</code>, <code>subscribers</code>, <code>type</code></li>
+<li><code>counts</code></li>
+<li><code>usage</code></li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p>Each client has functional resources that allow for storing, processing, and taking action on data.  There are no limits to how many of each resource are used, although applications should optimize based on performance for things like user applications.</p>
+<ul>
+<li><a href="#dataports">Dataports</a> - Time series data stores</li>
+<li><a href="#datarules">Datarules</a> - Logical data rules on published data</li>
+<li><a href="#dispatches">Dispatches</a> - Triggered messaging</li>
+<li><a href="#lua-scripts">Scripts</a> - Lua scripts interacting with the other resources</li>
+</ul>
+<h3 id="resource-attributes">Resource Attributes</h3>
+<p>Each resource has similiar attributes as clients.  Each resource has a name, a meta field, and public field.  In addition, all resources have the following that are unique to resources.  Each type of resource also has it&#39;s own set of attributes specific to that resource.</p>
+<p><strong>Attributes across all resources</strong></p>
+<ul>
+<li><a href="#alias-/-rid"><code>Resource Identifier / RID</code></a></li>
+<li><a href="#alias-/-rid"><code>Alias</code></a></li>
+<li><code>name</code></li>
+<li><code>Meta</code></li>
+<li><code>public</code></li>
+<li><code>format</code> - Format of stored data -&#39;integer&#39;, &#39;float&#39;, &#39;string&#39;</li>
+<li><a href="#preprocess"><code>preprocess</code></a></li>
+<li><a href="#retention"><code>retention</code></a></li>
+<li><a href="#subscriptions"><code>subscribe</code></a></li>
+</ul>
+<h4 id="alias-rid">Alias / RID</h4>
+<p>Each resource has a Resource ID (RID) that may be used with the RPC API.  To simplify interactions with the API, resources may also use Aliases, which can be used with the APIs.   An Alias is a simple string that is mapped to a RID.  Each alias is unique to that client.  For example, a dataport that is storing sensor data like temperature, may use an alias of &#39;temp&#39; or &#39;temperature&#39;.  </p>
+<p>Note that owned clients may also have aliases since clients are also resources.</p>
+<h4 id="preprocess">Preprocess</h4>
+<p>The preporcess function for resources allows a value that is written to the resource to be manipulated before storing the value.  In general, it is a list of <code>[&lt;operation&gt;, &lt;value&gt; | &lt;ResourceID&gt;]</code> pairs describing operations to be performed on incoming data.  The operations may be <code>&quot;add&quot;</code>, <code>&quot;sub&quot;</code>, <code>&quot;mul&quot;</code>, <code>&quot;div&quot;</code>, <code>&quot;mod&quot;</code>, <code>&quot;gt&quot;</code>, <code>&quot;geq&quot;</code>, <code>&quot;lt&quot;</code>, <code>&quot;leq&quot;</code>, <code>&quot;eq&quot;</code>, <code>&quot;neq&quot;</code>, or <code>&quot;value&quot;</code>.  The operations are performed in order as listed in the list and may use a constant value or another resource&#39;s current value.</p>
+<p><em>Note that the preprocess operations will only be performed when new values are written to this specific resource.  New values for resources that some of the operations are using will not trigger the preprocess operation.</em></p>
+<h4 id="retention">Retention</h4>
+<p>The dataport, datarule, and dispatch resources each store values in a historical data store with timestamps.  Each resource can set it&#39;s own unique retention settings, which are &#39;count&#39; and &#39;duration&#39;.  These retention settings allow developers to control the amount of data stored for each resource.  Any values that our outside of these retention settings will be removed at some point by the platform.  Note that values outside the retention windows may not be immediately removed.  </p>
+<p>  <code>&quot;count&quot;</code> is the maximum number of entries this resource will retain.</p>
+<p>  <code>&quot;duration&quot;</code> is the maximum number of hours this resource will retain its data.</p>
+<p><em>Note: A count of &#39;0&#39; will never store the value.</em></p>
+<h4 id="subscriptions">Subscriptions</h4>
+<p>A resource may be subscribed to one other resource.  When used, the <code>&quot;subscribe&quot;</code> field is set to an RID to which this resource is subscribed, or null if it is not subscribed to another resource. If set to an RID, this resource will receive a publication whenever a value is written to the specified RID.  </p>
+<p>Subscriptions are the most common way a dispatch or datarule is used.  For example, a simplified use case is a that there is a dataport with sensor data being written to it.  A datarule could be created that is subscribed to this dataport and a dispatch is subscribed to the datarule.  The datarule receives the new value from the dataport, runs through it&#39;s rule logic and it&#39;s stored value is a 1 or 0.  The dispatch receives this value in which it also uses a preprocess value to evaluate if equal to 1 - if yes, it will fire off it&#39;s dispatch, like an email to a user.</p>
+<h2 id="dataports">Dataports</h2>
+<p>Dataports are a simple data store of time stamped values that can be written and read from.  Data written to a dataport (Write function) is stored with a platform provided unix timestamp. Data written with the Record function uses a timestamp provided with the value.  </p>
+<p>Dataports have type &#39;integer&#39;, &#39;float&#39; or &#39;string&#39;.  When using string types, the maximum size of a value that can be written is 64KB.  Formatted data, such as JSON can be stored as string type, with the JSON object written as a string.</p>
+<p>An example of a dataport use is a device with a temperature sensor, the type being float.  Writing a value of 24.2 will result in the platform storing this value the timestamp in which it was received.  A user application with a graph may call the read API and request the last 5 minutes of data values.</p>
+<p>Dataports can publish data to other dataports, datarules, and dispatches.  Scripts can read, write, and wait on dataports.  </p>
+<h2 id="datarules">Datarules</h2>
+<p>Datarules perform a logical function on an incoming value with the stored outcome as either a 0 (false) or 1 (true).  These logical functions are described as it&#39;s <code>&quot;rule&quot;</code> attribute, which is unique to datarules.  Datarules are otherwise the same as a dataport, they have all of the other attributes such as preprocessing, subscription, and retention.</p>
+<p>Reading from a datarule will provide 0 and 1 values with timestamps in which the datarule ran.</p>
+<p>The logical <code>&quot;rules&quot;</code> that may be performed are as follows:</p>
+<table><tr><th>Rule</th><th>Description</th></tr>
+<tr><td>
+<pre><code>
+{
+    &quot;simple&quot;: {
+        &quot;comparison&quot;: &quot;gt&quot; | &quot;lt&quot; |
+                      &quot;eq&quot; | &quot;geq&quot; |
+                      &quot;leq&quot; | &quot;neq&quot;,
+        &quot;constant&quot;: number,
+        &quot;repeat&quot;: boolean
+    }
+}
+</code></pre>
+</td><td>
+<p>Values received by this rule are compared to a numerical constant and the result is the boolean result of that comparison.
+<ul>
+<li><code>&quot;constant&quot;</code> is a numerical constant used by comparison</li>
+<li><code>&quot;comparison&quot;</code> is the comparison to perform.</li>
+<li><code>&quot;repeat&quot;</code> specifies whether new inputs that would not change
+the output should be written to the output data stack anyway. If set to
+<code>true</code>, the output of this rule is always written to the rule&#39;s
+data stack. If set to <code>false</code>, a output is only written if it&#39;s
+different from the previous value.</li>
+</td></tr>
+<tr><td>
+<pre><code>
+{
+    &quot;timeout&quot;: {
+        &quot;timeout&quot;: number,
+        &quot;repeat&quot;: boolean
+    }
+}
+</code></pre>
+</td><td>
+<p>Output <code>true</code> if no input value is received within a timeout period. If an input value is received within the period, output <code>false</code>. The timer is restarted when an input value is received, when the timeout elapses and when the script is first started. A timeout value of 0 indicates that the timeout shall not repeat.
+
+<ul>
+<li><code>&quot;timeout&quot;</code> is a timeout in seconds</li>
+<li><code>&quot;repeat&quot;</code> specifies whether new inputs that would not change
+the output should be written to the output data stack anyway. If set to
+<code>true</code>, the output of this rule is always written to the rule&#39;s
+data stack. If set to <code>false</code>, a output is only written if it&#39;s
+different from the previous value.</li>
+</ul>
+
+</td></tr>
+<tr><td>
+<pre><code>
+{
+    &quot;interval&quot;: {
+        &quot;comparison&quot;: &quot;gt&quot; | &quot;lt&quot; |
+                      &quot;eq&quot; | &quot;geq&quot; |
+                      &quot;leq&quot; | &quot;neq&quot;,
+        &quot;constant&quot;: number,
+        &quot;timeout&quot;: number,
+        &quot;repeat&quot;: boolean
+    }
+}
+</code></pre>
+</td><td>
+<p>This rule outputs the result of the comparison any time an input value is received.
+Additionally, if the comparison result is <code>true</code>, a timer is
+started. If the timer elapses, the rule output becomes <code>true</code>,
+and the timer is restarted. If a input value is received that makes the comparison
+<code>false</code>, <code>false</code> is output and the timer is canceled.</p>
+
+<ul>
+<li><code>&quot;comparison&quot;</code> is the comparison to do</li>
+<li><code>&quot;constant&quot;</code> is a numerical constant used by comparison</li>
+<li><code>&quot;timeout&quot;</code> is a timeout in seconds</li>
+<li><code>&quot;repeat&quot;</code> specifies whether new inputs that would not change
+the output should be written to the output data stack anyway. If set to
+<code>true</code>, the output of this rule is always written to the rule&#39;s
+data stack. If set to <code>false</code>, a output is only written if it&#39;s
+different from the previous value.</li>
+</ul>
+</td></tr>
+<tr><td>
+<pre><code>
+{
+    &quot;duration&quot;: {
+        &quot;comparison&quot;: &quot;gt&quot; | &quot;lt&quot; |
+                      &quot;eq&quot; | &quot;geq&quot; |
+                      &quot;leq&quot; | &quot;neq&quot;,
+        &quot;constant&quot;: number,
+        &quot;timeout&quot;: number,
+        &quot;repeat&quot;: boolean
+    }
+}
+</code></pre>
+</td><td>
+<p>When a value is received, it is immediately used in the configured
+comparison.  If the comparison result is <code>true</code>, the rule waits for
+the specified timeout period before setting its output to <code>true</code>.
+If instead the comparison result is <code>false</code>, then
+<code>false</code> becomes the output of the rule immediately, cancelling
+any existing timeout.</p>
+<ul>
+<li><code>&quot;comparison&quot;</code> is the comparison to do</li>
+<li><code>&quot;constant&quot;</code> is a numerical constant used by comparison</li>
+<li><code>&quot;timeout&quot;</code> is a timeout in seconds</li>
+<li><code>&quot;repeat&quot;</code> specifies whether output from this rule should
+be written to its data stack if it is the same as the latest
+value already on the data stack. If set to <code>true</code>, the output of
+this rule is always written to the rule&#39;s data stack. If set to
+<code>false</code>, a output is only written if it is different from the
+previous value.</li>
+</ul>
+</td></tr>
+
+<tr><td>
+<pre><code>
+{
+    &quot;count&quot;: {
+        &quot;comparison&quot;: &quot;gt&quot; | &quot;lt&quot; |
+                      &quot;eq&quot; | &quot;geq&quot; |
+                      &quot;leq&quot; | &quot;neq&quot;,
+        &quot;constant&quot;: number,
+        &quot;count&quot;: number,
+        &quot;timeout&quot;: number,
+        &quot;repeat&quot;: boolean
+    }
+}
+</code></pre>
+</td><td>
+<p>
+When a value is received it is used in the comparison. If the comparison
+result is <code>true</code> and there is no existing timeout then a timeout
+is started and an internal counter is set to <code>1</code>. If a timeout
+already exists then the internal counter is incremented. If the internal
+counter matches the count configuration parameter, then the timeout is
+restarted, the internal counter is set to <code>0</code> and the condition
+evaluates to <code>true</code>. If the timeout elapses, the counter is set
+to <code>0</code>, the timeout is cancelled and the rule outputs
+<code>false</code>.
+</p>
+<ul>
+<li><code>&quot;comparison&quot;</code> is the comparison to do</li>
+<li><code>&quot;constant&quot;</code> is a numerical constant used by comparison</li>
+<li><code>&quot;count&quot;</code> is the number of data points accumulated that satisfy the comparison</li>
+<li><code>&quot;timeout&quot;</code> is a timeout in seconds</li>
+<li><code>&quot;repeat&quot;</code> specifies whether output from this rule should
+be written to its data stack if it is the same as the latest
+value already on the data stack. If set to <code>true</code>, the output of
+this rule is always written to the rule&#39;s data stack. If set to
+<code>false</code>, a output is only written if it is different from the
+previous value.</li>
+</ul>
+</td></tr>
+<tr><td>
+<pre><code>
+{
+    &quot;script&quot;: string
+}
+</code></pre>
+</td><td>
+<code>&quot;script&quot;</code> is a string containing Lua source code to run on the server.  Yes, scripts are actually a version of a datarule.
+</td></tr>
+</table>
+
+
+<p>Although the type for a datarule can be integer, float, or string, the most common type is as an integer.  </p>
+<h2 id="dispatches">Dispatches</h2>
+<p>A dispatch resource allows for triggered messages and communications from the platform to an external destination.  The available dispatch methods are SMS, Email, HTTP POST, HTTP PUT, HTTP GET, and XMPP.  In addition to the standard resource attributes, a dispath also includes the fields for <code>&quot;method&quot;</code>, <code>&quot;recipient&quot;</code>, <code>&quot;message&quot;</code>, and <code>&quot;subject&quot;</code>.</p>
+<ul>
+<li><code>&quot;method&quot;</code> is the method to be used to deliver messages by this dispatch resource. Current methods are: &quot;email&quot;, &quot;http_get&quot;, &quot;http_post&quot;, &quot;http_put&quot;, &quot;sms&quot;, &quot;xmpp&quot;</li>
+<li><code>&quot;recipient&quot;</code> is the intended recipient for messages from this dispatch resources. It must be a valid email address, phone number, URL, or xmpp address, depending on the configured delivery method.</li>
+<li><code>&quot;message&quot;</code> is the message to dispatch. If this string is empty, the value output from the preprocessing stage will be output instead.</li>
+<li><code>&quot;subject&quot;</code> is the subject string for delivery methods that support a subject line.  Only used with email method.</li>
+</ul>
+<p>Dispatches store a string value the specifies if a message was successfully sent.  A read from a dispatch resource would return the status and timestamp of each message attempt.  </p>
+<h3 id="message-substitutions">Message Substitutions</h3>
+<p>The messages for dispatches may either take the value passed into the dispatch (after preprocessing stage) or may use a defined string.  Values may still be passed into the message when using a defined string, using substitutions.  The available string substitutions are as follows:</p>
+<ul>
+<li><code>[[value]]</code> - The value passed into this dispatch</li>
+<li><code>[[subscribe.cid]]</code> - The RID of the client of this resource.</li>
+</ul>
+<h2 id="lua-scripts">Lua Scripts</h2>
+<p>The most powerful of the resources available in the platform clients are <a href="http://www.lua.org/manual/5.2/">Lua</a> Scripts.  The scripts have access to all of the other resources for that client, including any child clients.  This allows developers to processing incoming data into the dataports, trigger actions or alerts, and manage resources based on the state of different data and time.  </p>
+<p><a href="/portals/scripting">One Platform Lua Scripting Reference Guide</a></p>
+<pre><code class="lang-lua">local input = alias[&#39;input&#39;]
+local output = alias[&#39;output&#39;]
+
+local constant = 23.456
+local last_value = nil
+
+local function process(var1, var2, var3)
+  if var1 &gt; var2 then --compare values
+    output.value = var1 * var3 -- save data to output dataport
+  end
+end
+
+while true do -- loop forever
+  local timestamp = input.wait()
+  local new_value = input[timestamp]
+  if new_value ~= nil and new_value &gt; 10 then
+    process(new_value,last_value, constant)
+  else
+    debug(&#39;not useful, ignore&#39;)
+  end
+  last_value = new_value
+end
+</code></pre>
+<p><img src="assets/onep_script_lua_overview1.png" alt="image"></p>
+<p><strong>A few use cases are:</strong></p>
+<ul>
+<li>Advanced data analytics using math functions and multiple dataports</li>
+<li>Parse raw data packets and split into individual dataports</li>
+<li>Perform conversion of data as it comes in</li>
+<li>Send out dispatches (Email, SMS, XMPP, HTTP,Twitter)</li>
+<li>Send data to other systems</li>
+<li>Perform initialization functions</li>
+</ul>
+<h1 id="provision-system">Provision System</h1>
+<p>The Provision system reference is contained in knowledge base articles found here.</p>
+<p><a href="https://support.exosite.com/hc/en-us/articles/200308457-Provisioning-Overview">Provisioning Articles</a></p>
+<h1 id="help">Help</h1>
+<p>Looking for answers you may have yet?  Check out the Exosite support site <a href="https://support.exosite.com/hc/en-us/sections/200072527">knowledge base articles on the One Platform</a>.</p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

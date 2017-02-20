@@ -1,0 +1,413 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="getting-started-guide-install-and-run-exositeready-gateway-engine-on-a-gateway-device">Getting-started Guide: Install and Run ExositeReady™ Gateway Engine on a Gateway Device</h1>
+<p>In this guide, you will be able to quickly download ExositeReady™ Gateway Engine (GWE),
+install it onto your gateway, and start using it. Once you have completed this section you will have GWE installed and running on a gateway. If you encounter any issues, please raise a topic on the dedicated <a href="https://community.exosite.com/c/GWE">GWE Support Forum</a> or comment on an existing one.</p>
+<h1 id="requirements">Requirements</h1>
+<p>Before beginning, you should first verify that your
+gateway has the minimum requirements for running GWE:</p>
+<ul>
+<li>Linux OS</li>
+<li>Python 2.7.9+</li>
+<li>Network interface (<code>eth0</code>, <code>wlan0</code>, <code>ppp0</code>, etc.)</li>
+<li>GNU shell</li>
+<li>128 MB Flash</li>
+<li>64 MB RAM</li>
+</ul>
+<p><strong>NOTE:</strong> Some testing has been done on Python 2.7.3, but it has not been tested extensively and is not recommended.</p>
+<h2 id="partner-platforms">Partner Platforms</h2>
+<p><strong>MultiTech MultiConnect® Conduit™</strong> - In order to use MultiTech’s Conduit with GWE, end users must install the custom image fixes linked below. Download instructions for these images can be found <a href="http://www.multitech.net/developer/software/mlinux/using-mlinux/flashing-mlinux-firmware-for-conduit/">here</a>.</p>
+<p><a href="https://s3-us-west-2.amazonaws.com/exosite-client-downloads/gecko-conduit/latest/rootfs.jffs2">MultiTech GWE Image 1</a></p>
+<p><a href="https://s3-us-west-2.amazonaws.com/exosite-client-downloads/gecko-conduit/latest/uImage.bin">MultiTech GWE Image 2</a></p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="/development/exositeready/gwe/getting_started">Getting Started</a></li>
+<li><a href="/development/exositeready/gwe/product_overview">Product Overview</a> </li>
+<li><a href="/development/exositeready/gwe/release_packages">Release Packages</a></li>
+<li><a href="/development/exositeready/gwe/custom_gateway_applications">Custom Gateway Applications</a></li>
+<li><a href="/development/exositeready/gwe/otau">Over the Air Updates</a></li>
+<li><a href="/development/exositeready/gwe/solution-app">GWE Solution App</a></li>
+<li><a href="/development/exositeready/gwe/device-client">Device Client - Docs</a></li>
+<li><a href="/development/exositeready/gwe/gateway-engine">GWE - Docs</a></li>
+<li><a href="/development/exositeready/gwe/gmq">Gateway Message Queuing - Docs</a></li>
+</ul>
+<h1 id="getting-started">Getting Started</h1>
+<p>This getting-started guide will take you through the various steps to start using Murano and GWE, such as creating and configuring a Murano account, downloading GWE, configuring tools, and installing GWE onto a gateway.</p>
+<h2 id="download-and-unpack-gwe">Download and Unpack GWE</h2>
+<p>To download the latest version of the public release of GWE, navigate to the <a href="/development/exositeready/gwe/release_packages/">GWE Release Packages</a> page and choose a method for downloading GWE. </p>
+<p>  <strong>NOTE</strong>: The shell command, below works on most Linux and OSX machines to download and echo the name of the downloaded file to the terminal.</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>basename $(curl -v -k --remote-name $(curl --silent -k https://s3-us-west-2.amazonaws.com/exosite-client-downloads/gateway-engine-release-area/gmq-master/latest.lnk) 2&gt;&amp;1 | awk &#39;/GET/{print $(NF-1)}&#39;)
+</code></pre><p>Once downloaded, copy/move it to a directory on the filesystem of your development machine so its resources can be referenced later on.</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>mkdir ~/code
+cp ~/Downloads/GatewayEngine.v*.tar.gz ~/code
+</code></pre><p>The GWE download contains useful resources and tools you can use outside the context of a gateway. To make these resources available on your development machine, decompress the tarball:</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>cd ~/code
+tar zxvf GatewayEngine.v*.tar.gz
+</code></pre><p>You will be doing more with this download and the newly unpacked directory <code>~/code/gateway-engine</code>, but for now you can move on to the next step.</p>
+<h2 id="create-an-account">Create an Account</h2>
+<p><a href="https://exosite.com/signup/" target="_blank">Sign up for a Murano Account.</a></p>
+<p><strong>NOTE:</strong> When signing up for a new account, there will be emails you will need to
+take action on in order to activate your account and log in.</p>
+<h2 id="create-and-configure-a-product">Create and Configure a Product</h2>
+<p>Once your account is set up, add a Product and name it (e.g. &quot;gateway-engine&quot;, &quot;my-product&quot;, etc). </p>
+<p>Once you have a product, you must configure it with resources either using <strong>MrMurano</strong> (<em>recommended</em>) or manually by using the Murano web UI.</p>
+<h3 id="configure-a-product-using-mrmurano">Configure a Product Using MrMurano</h3>
+<p>The <a href="https://github.com/exosite/MrMurano">MrMurano tool</a> is a command-line tool you can configure and use with your Murano solutions and products. </p>
+<h4 id="quick-configuration">Quick Configuration</h4>
+<p>Below are some of the steps needed to configure MrMurano for using GWE. </p>
+<p><strong>Note:</strong> There will be more configuration commands for MrMurano, but information for these commands is not yet available at this step of our getting-started guide.</p>
+<h5 id="configure-user-name">Configure User Name</h5>
+<p>This is the username or email address with which you use to login to Murano.</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>cd ~/code
+mr config user.name &lt;USER_NAME&gt;
+</code></pre><h5 id="select-and-configure-your-business-account">Select and Configure your Business Account</h5>
+<p>If it is your first time logging into your Murano account with MrMurano on the command line, you will be prompted for your password. Once you have successfully logged in, the following command will show you a listing of all the business accounts you have access to. </p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>mr account --business
+</code></pre><p><strong>NOTE</strong>: The <code>mr config</code> dialog stores configuration entries in <code>.mrmuranorc</code> files but treats passwords differently. The first time you log in to an account and are prompted for your password, MrMurano stashes the password in the file <code>~/.mrmurano/passwords</code>. If you do not want this stored in a local file, run <code>rm ~/.mrmurano/passwords</code> after each session.</p>
+<p>Once you have logged in, choose the right <strong>Biz ID</strong> and use it in the command below in place of &quot;&lt;BUSINESS_ID&gt;&quot;:</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>cd ~/code
+mr config business.id &lt;BUSINESS_ID&gt;
+</code></pre><h5 id="configure-product-id">Configure Product ID</h5>
+<p>In your Murano account, navigate to your product and click on the <em>INFO</em> tab. Copy the Product ID (sometimes referred to in this context as the <strong>PID</strong>) and use it in the commands below in place of &quot;&lt;PRODUCT_ID&gt;&quot;.</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>cd ~/code
+mr config product.id &lt;PRODUCT_ID&gt;
+</code></pre><p>You can also find the Product ID using the following MrMurano command:</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>mr product list
+</code></pre><h5 id="tell-mrmurano-where-to-find-the-spec-file">Tell MrMurano Where to Find the Spec File</h5>
+<p>A &quot;spec&quot; file is a YAML file that describes the resources of a Murano Product. The GWE spec file is available in the release tarball and, now that you have unpacked it on your development machine, can be found at <code>~/code/gateway-engine/specs</code>. The contents of the file are shown, below.</p>
+<h3 id="example">example</h3>
+<pre><code>$ cat gateway-engine/specs/gwe.spec
+---
+resources:
+- alias: usage_report
+  format: string
+- alias: engine_report
+  format: string
+- alias: engine_fetch
+  format: string
+- alias: device_info
+  format: string
+- alias: update_interval
+  format: string
+- alias: fetch_status
+  format: string
+</code></pre><p>The default location MrMurano uses for spec files is <code>$PWD/specs</code> for project directories. The following commands will set up <code>~/code/gateway-engine</code> directory as a project directory.  </p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>cd ~/code/gateway-engine
+mr config location.specs specs
+mr config product.spec gwe.spec
+# Verify the path &lt;location.base/location.specs/product.spec&gt;
+mr config --dump
+</code></pre><h4 id="create-the-resources">Create the Resources</h4>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>mr syncup -V --specs
+</code></pre><h3 id="configure-a-product-manually">Configure a Product Manually</h3>
+<p>If you have not configured MrMurano, you can create the GWE resources manually using the Murano web UI. </p>
+<p>The table, below, shows the resources you must add to the Product Definition, what to name them, and which format to choose for them.</p>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>usage_report</td>
+<td>string</td>
+<td>Gateway Engine sends a report of all processes using its resources (<code>gmq</code>, <code>device-client</code>) to send data to Murano. This report contains information about how much network bandwidth is being consumed as well as other meta data about network requests.</td>
+</tr>
+<tr>
+<td>engine_report</td>
+<td>string</td>
+<td>Gateway Engine reports information about what applications are installed and other meta data like uptime, exit codes, and versions.</td>
+</tr>
+<tr>
+<td>device_info</td>
+<td>string</td>
+<td>Gateway Engine reports filesystem and OS data like OS and kernel version as well as free memory and disk space usage.</td>
+</tr>
+<tr>
+<td>engine_fetch</td>
+<td>string</td>
+<td>Gateway Engine regularly checks this dataport for formatted messages containing instructions on new apps and updates to install.</td>
+</tr>
+<tr>
+<td>fetch_status</td>
+<td>string</td>
+<td>Once an app is installed over-the-air or an update to an app is executed, Gateway Engine reports the STDOUT and STDERR from the app installer. This dataport is also used for uncaught exception logging.</td>
+</tr>
+<tr>
+<td>update_interval</td>
+<td>string</td>
+<td>This value, in seconds, is the delay between each series of Gateway Engine reports and OTAU checkins.</td>
+</tr>
+</tbody>
+</table>
+<p>Once you have finished configuring your Product, you can confirm it has the correct definition either by using the Murano web UI or with MrMurano:</p>
+<h3 id="example">example</h3>
+<pre><code>$ mr product spec pull
++-----------------+--------+------------------------------------------+
+| Alias           | Format | RID                                      |
++-----------------+--------+------------------------------------------+
+| engine_fetch    | string | 584375baa68eb9e3d3c342caa5cf783a24965029 |
+| engine_report   | string | d1cdfece4e080c723e7b2d57e0c508f6e4c96c20 |
+| device_info     | string | 875c312cf0532a17556a05118374d215cbbfb4ee |
+| update_interval | string | ab3885bc85c68fc0290ee1adbf7264671651e816 |
+| usage_report    | string | b8405345023bb5dc72488ed072e96a5dc5f3424a |
+| fetch_status    | string | 4c237e449a6fdff9e2ca72b3832c89902413eb6b |
++-----------------+--------+------------------------------------------+
+</code></pre><h2 id="install-gwe-onto-your-gateway">Install GWE Onto Your Gateway</h2>
+<p>If you&#39;re working directly from a gateway, use the following commands to get Gateway Engine onto your gateway.</p>
+<h3 id="command-gateway-">command (<em>gateway</em>)</h3>
+<pre><code>mkdir /opt
+cd /opt
+basename $(curl -v -k --remote-name $(curl --silent -k https://s3-us-west-2.amazonaws.com/exosite-client-downloads/gateway-engine-release-area/gmq-master/latest.lnk) 2&gt;&amp;1 | awk &#39;/GET/{print $(NF-1)}&#39;)
+</code></pre><h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>ssh &lt;USER&gt;@&lt;GATEWAY_IP&gt; &quot;mkdir /opt&quot;
+scp ~/code/GatewayEngine.v*.tar.gz &lt;USER&gt;@&lt;GATEWAY_IP&gt;:/opt
+</code></pre><p>At this point, you have downloaded the latest release of GWE and copied it to your gateway.</p>
+<p>Run the following command to untar the release package and install GWE onto your gateway:</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>ssh &lt;USER&gt;@&lt;GATEWAY_IP&gt; &quot;cd /opt
+  tar zxvf GatewayEngine.v*.tar.gz
+  cd gateway-engine
+  ./install.sh&quot;
+</code></pre><h3 id="command-gateway-">command (<em>gateway</em>)</h3>
+<pre><code>cd /opt
+tar zxvf GatewayEngine.v*.tar.gz
+cd gateway-engine
+./install.sh
+</code></pre><p>  <strong>NOTE:</strong> In some Linux environments, you will need to use Super-User permissions to run the installer. If the type of Linux you are using has both <code>root</code> and non-<code>root</code> users, you will likely need to install GWE as <code>root</code> in order to use it. In this case, replace the <code>./install.sh</code> from the command, above with <code>sudo ./install.sh</code>.</p>
+<h3 id="the-installation-log-file">The Installation Log File</h3>
+<p>The installation script generates a lot of logging output. In addition to showing the log output on the console&#39;s STDOUT, it is captured to a file named <code>gwe_install_${DATE_TIME}.log</code> in the <code>gateway-engine</code> directory. Take note of the Installation Summary and Self Test at the end of the log. If you see any test failures or exceptions, please visit <a href="https://community.exosite.com/c/GWE">the Gateway Engine forum</a> and create a new topic with information about your experience.</p>
+<h2 id="configure-the-gwe-serial-number-on-your-gateway">Configure the GWE Serial Number On Your Gateway</h2>
+<p>Once the installation is complete, you will need to configure GWE for your IoT solution and Exosite account. This will require the PID (<em>Product ID</em>) from your Murano account and the serial number of your gateway.</p>
+<p>You can determine the serial number of your gateway in two ways:</p>
+<ul>
+<li>The MAC address</li>
+<li>Any Custom Serial Number</li>
+</ul>
+<p>For the purpose of this Getting Started guide, the Custom Serial Number method will not be covered, but can be used via the <code>gwe --set-uuid &lt;UUID&gt;</code> command.</p>
+<h3 id="use-the-mac-address-of-an-internet-interface">Use the MAC Address of an Internet Interface</h3>
+<p>GWE can be configured to use the MAC address of the Internet interface of your choosing (e.g., <code>eth0</code>, <code>wlan0</code>, <code>ppp0</code>, etc.). Using the MAC address of a piece of hardware like an ethernet port, a Wi-Fi port, or a cellular modem is a great option for deconflicting serial numbers and offers a standard way of identifying hardware between customers, vendors, manufacturers, and most others in the chain of IoT goods and services.</p>
+<p>When configured this way, GWE uses the MAC address of the Internet interface (i.e., iface) you specify with ALL CAPS and &#39;:&#39; formatted. To view a list of the available Internet interfaces on your gateway, use the <code>ifconfig</code> command.</p>
+<p>The example, below, shows the command for configuring GWE to use the MAC address of iface <code>eth0</code> as its serial number (a.k.a., <em>uuid</em>). After configuring GWE, it prints the new configuration to the console. GWE doesn&#39;t fill in the <code>uuid</code> value until after it starts for the first time.</p>
+<h3 id="example-gateway-">example (<em>gateway</em>)</h3>
+<pre><code>$ gwe --set-iface eth0 -d DEBUG
+Found interface &#39;eth0&#39; with MAC address (serial/uuid): FF:10:C2:9B:A8:46
+[device]
+cik = &#39;&#39;
+model = &#39;&#39;
+vendor = &#39;&#39;
+uuid = &#39;&#39;
+iface = eth0
+</code></pre><p>To see what the MAC address of any interface is, you can use the following command as a convenience function.</p>
+<h3 id="command-gateway-">command (<em>gateway</em>)</h3>
+<pre><code>gwe --mac-address &lt;IFACE&gt;
+</code></pre><h2 id="configure-the-gwe-product-id-on-your-gateway">Configure the GWE Product ID on Your Gateway</h2>
+<p>Using the PID from a previous step, use the following command to configure GWE for your Murano account:</p>
+<pre><code>gwe --set-product-id &lt;PRODUCT_ID&gt;
+</code></pre><p>Due to legacy reasons, GWE uses the PRODUCT_ID as both the <em>vendor</em> and <em>model</em> entries in the GWE configuration. See the example below:</p>
+<h3 id="example-gateway-">example (<em>gateway</em>)</h3>
+<pre><code>$ gwe --set-product-id dubhxzv0r4e1m7vj
+[device]
+cik = &#39;&#39;
+model = dubhxzv0r4e1m7vj
+vendor = dubhxzv0r4e1m7vj
+uuid = &#39;&#39;
+iface = eth0
+</code></pre><h2 id="add-a-device">Add a Device</h2>
+<p>Navigate to the <em>Products</em> tab of the Murano web UI, select the GWE product (whatever you named it), and click on the <em>DEVICES</em> tab. When you click the &quot;NEW DEVICE&quot; button, use the serial number GWE is configured for as the serial number for your new Murano GWE device and name it.</p>
+<p>You will see this new device appear in the list of available devices in the GWE product of your Murano account. If you are following this getting-started guide in order, the new device should be showing a <em>STATUS</em> of <code>notactivated</code>.</p>
+<h2 id="reboot">Reboot</h2>
+<p>To complete the installation, you will need to reboot the gateway. </p>
+<p>The installation is incomplete until a gateway reboot because it is the last step in determining whether or not GWE will start on boot. If after rebooting the gateway GWE is not running, then something went wrong with the installation (if this happens, please visit <a href="https://community.exosite.com/c/GWE">the community forum</a>). </p>
+<p>To reboot, you can toggle the power or use the following command.</p>
+<h3 id="command-gateway-">command (<em>gateway</em>)</h3>
+<pre><code>reboot
+</code></pre><p><strong>NOTE:</strong> GWE uses <code>supervisord</code> to start itself on boot, and once it starts, it will start GWE as well as all other installed default and custom gateway applications.</p>
+<h2 id="verify">Verify</h2>
+<p>Watch for new data in your new Murano GWE device.</p>
+<p>Once the reboot has completed, you will notice that <code>supervisord</code> and <code>gwe</code> processes are running in the output of the <code>ps -ef</code> command. Sometimes there are a lot of processes and the <code>ps -ef</code> command can be too much to read through. You can filter the output with <code>grep</code> (e.g., <code>ps -ef | grep &#39;super\|gwe\|gmq&#39;</code>). You can also use the <code>supervisorctl status</code> command to view the status of the GWE applications.</p>
+<h3 id="example-gateway-">example (<em>gateway</em>)</h3>
+<pre><code>$ supervisorctl status
+gmq                           RUNNING    pid 621, 00:01:38
+gwe                           RUNNING    pid 620, 00:01:38
+</code></pre><p>A few seconds after rebooting the gateway you should see two things change on the GWE device in your Murano account.</p>
+<ul>
+<li>The device&#39;s STATUS should be showing <code>activated</code></li>
+<li>Data appears in the aliases/resources of your GWE device</li>
+</ul>
+<p>You can also check to see if the gateway has successfully activated by checking for the existence of a CIK in the GWE configuration with the following command:</p>
+<h3 id="command-gateway-">command (<em>gateway</em>)</h3>
+<pre><code>gwe --gateway-cik
+</code></pre><h3 id="example-gateway-">example (<em>gateway</em>)</h3>
+<p>A non-activated GWE.</p>
+<pre><code>$ gwe --gateway-cik
+&#39;&#39;
+</code></pre><h3 id="example-gateway-">example (<em>gateway</em>)</h3>
+<p>An activated GWE.</p>
+<pre><code>$ gwe --gateway-cik
+3803226073f6f2feb51a9010bd1d3e53143214a7
+</code></pre><p>For additional functionality of Exosite products available on your gateway, take a look at the output of the commands in the next section.</p>
+<h3 id="the-supervisorctl-cli">The supervisorctl cli</h3>
+<p>The <code>supervisorctl</code> command-line interface is extremely powerful and incredibly useful. It is highly recommended that you run this command (<em><code>supervisorctl</code> using <code>sudo</code> if necessary</em>) and then type <code>help</code> when you have entered the interactive cli.</p>
+<h3 id="example-gateway-">example (<em>gateway</em>)</h3>
+<pre><code>$ supervisorctl
+gmq                                RUNNING      pid 1184, uptime 1:02:51
+gwe                                RUNNING      pid 1184, uptime 1:02:51
+supervisor&gt; help
+
+default commands (type help &lt;topic&gt;):
+=====================================
+add     clear    fg        open   quit     remove    restart    start   update
+avail   exit     maintail  pid    reload   reread    shutdown   stop    version
+
+supervisor&gt;
+</code></pre><h3 id="the-device-client-cli">The Device Client cli</h3>
+<p>The device-client library has a lightweight command-line interface accessible with the callable <code>gdc</code>.</p>
+<h3 id="command-gateway-">command (<em>gateway</em>)</h3>
+<pre><code>gdc --help
+</code></pre><h3 id="the-gwe-cli">The GWE cli</h3>
+<p>The <code>gwe</code> process seen in <code>ps -ef</code> and <code>supervisorctl status</code> output has a robust command-line interface.</p>
+<h3 id="command-gateway-">command (<em>gateway</em>)</h3>
+<pre><code>gwe --help
+</code></pre><h3 id="the-gateway-message-queue-cli">The Gateway Message Queue cli</h3>
+<p>The <code>gmq</code> process has a command-line interface that helps configure some runtime behavior like timers and logging.</p>
+<h3 id="command-gateway-">command (<em>gateway</em>)</h3>
+<pre><code>gmq --help
+</code></pre><h1 id="summary">Summary</h1>
+<p>The steps in this guide were designed to get you moving as quickly as possible with GWE and Exosite. If you have questions, concerns, or suggestions on how to make this documentation better, please contact <a href="mailto:gwesupport@exosite.com">gwesupport@exosite.com</a> with a detailed message.</p>
+<p>At this point you are probably ready to start using GWE to host your Custom Applications. Next, take a look at the following sections:</p>
+<ul>
+<li><a href="/development/exositeready/gwe/custom_gateway_applications/">Custom Gateway Applications</a></li>
+<li><a href="/development/exositeready/gwe/otau/">Over the Air Updates</a></li>
+</ul>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

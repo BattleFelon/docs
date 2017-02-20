@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="guide-record-product-metrics">Guide: Record Product Metrics</h1>
+<p>A common need when managing a fleet of devices is to track metrics and error logs. This guide demonstrates how to use Murano&#39;s <a href="../../services/keystore#">Keystore service</a> to <a href="#collect-metrics">collect metrics</a> and <a href="#expose-metrics">expose those metrics</a> from a custom API endpoint.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A Murano account with a solution is required. To create a solution, you can follow the <a href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a>.</li>
+</ul>
+<h2 id="collect-metrics">Collect Metrics</h2>
+<p>A first step for monitoring your device fleet is to collect information from devices. To keep things simple, you can collect two types of data about incoming messages from devices.</p>
+<ul>
+<li>The number of messages per day</li>
+<li>The contents of the last 10 messages</li>
+</ul>
+<p>Murano solutions provide a <a href="/reference/services/device/#datapoint">datapoint event</a> that gives you an opportunity to respond to incoming device data. When handling datapoints you may perform data conversion, store data, or send alerts. You may modify the way your solution responds to data by editing the handler for the datapoint event in Murano&#39;s web-based code editor or by uploading code using the command line tool. </p>
+<p>For the purpose of this guide, you can use the web-based editor. To modify the datapoint event handler, click on the <em>SERVICES</em> tab of your solution, select <em>Products</em>, and select the code tab. The code found here is executed when any devices with product types associated with the solution send data. You can now add code to store metrics to the Keystore service.</p>
+<p><img src="../assets/point-event.png" alt="web-based-editor"></p>
+<h3 id="increasing-a-daily-metric-counter">Increasing a Daily Metric Counter</h3>
+<p>To make a daily counter, you can use <code>incrby</code> command. This command adds one to the <code>&quot;dailyCount&quot;</code> key, setting it to 1 if the key does not already exist. It does so atomically, so you will not miss any incoming data points.</p>
+<pre><code class="lang-lua">Keystore.command({ command = &quot;incrby&quot;, key = &quot;dailyCount&quot;, args = {1}})
+</code></pre>
+<p>To only keep the count for the current day, you can take advantage of the expire command which will automatically handle the value expiration at the given time.</p>
+<pre><code class="lang-lua">-- Tomorrow midnight timestamp in seconds
+local expiration = math.floor(1 + os.time()/86400) * 86400
+
+-- Set the expiration time for next day midnight
+Keystore.command({ command = &quot;expireat&quot;, key = &quot;dailyCount&quot;, args = {expiration} })
+</code></pre>
+<h3 id="log-the-last-10-messages-from-the-device">Log the Last 10 Messages from the Device</h3>
+<p>To log message content from your devices, you can use the <a href="../../services/device/#datapoint">data.value event argument</a> provided to the datapoint event handler. The first value found in data.value is the message timestamp, and the second is the message itself. (Note that in most cases, you would want to also filter on <code>data.alias</code> rather than log all messages.)</p>
+<pre><code class="lang-lua">local message = data.value[2]
+</code></pre>
+<p>Next you will push the message to a list in the <code>Keystore</code> service using the <code>lpush</code> command. This will allow you to see the last few device messages, which can be useful for debugging.</p>
+<pre><code class="lang-lua">Keystore.command({ command = &quot;lpush&quot;, key = &quot;logs&quot;, args = {message}})
+</code></pre>
+<p>Keep only the last log items with the trimming command by specifying a range of data to keep. Note that the list index starts at 0.
+Therefore, in order to keep the last 10 logs, the target list range index is 0 to 9.</p>
+<pre><code class="lang-lua">Keystore.command({ command = &quot;ltrim&quot;, key = &quot;logs&quot;, args = {0, 9}})
+</code></pre>
+<h3 id="all-together">All Together</h3>
+<p>Here is the point event code in its entirety.</p>
+<pre><code class="lang-lua">
+local message = data.value[2]
+
+-- Increment the counter
+Keystore.command({ command = &quot;incrby&quot;, key = &quot;dailyCount&quot;, args = {1}})
+
+-- Tomorrow midnight timestamp in seconds
+local expiration = math.floor(1 + os.time()/86400) * 86400
+
+-- Set the expiration time for next day midnight
+Keystore.command({ command = &quot;expireat&quot;, key = &quot;dailyCount&quot;, args = {expiration} })
+
+-- Push the new message to the logs list, not in lua the first element start at index 1
+Keystore.command({ command = &quot;lpush&quot;, key = &quot;logs&quot;, args = {message}})
+
+-- Only keep the last 10 logs, the trim command requires a range of index to keep (starting with 0).
+Keystore.command({ command = &quot;ltrim&quot;, key = &quot;logs&quot;, args = {0, 9}})
+</code></pre>
+<h2 id="expose-metrics">Expose Metrics</h2>
+<p>The easiest way to expose our collected data is to create an API route endpoint. Endpoints can be created with the &quot;+&quot; button on the <em>ROUTES</em> tab of your solution. When you create a new route, you will be prompted to specify the path and HTTP method for the route. Create a new route in your solution with the Method <code>GET</code> and the Path <code>/metrics</code>.</p>
+<p>Once the route is created, you can write an endpoint script which runs when your API route endpoint is called. You can learn more about endpoint scripts on the <a href="../../services/webservice">Webservice reference page</a>.</p>
+<p>Exposing the count only requires you get the counter value store in the <code>Keystore</code> service with the <code>get</code> operation.</p>
+<pre><code class="lang-lua">  local dailyCount = Keystore.get({ key = &quot;dailyCount&quot; })
+</code></pre>
+<p>Logs can use the <code>lrange</code> command which return a range of elements from the list. Note that <code>{0, -1}</code> indicates you want everything from the most recent log entry (<code>0</code>) to the oldest log entry (<code>-1</code>).</p>
+<pre><code class="lang-lua">  local logs = Keystore.command({ command = &quot;lrange&quot;, key = &quot;logs&quot;, args = {0, -1}})
+</code></pre>
+<p>To make the endpoint return the values of <code>dailyCount</code> and <code>logs</code>, you can simply return them in a Lua table. </p>
+<pre><code class="lang-lua">return { dailyCount = dailyCount.value, logs = logs.value }
+</code></pre>
+<p>This works because endpoint scripts return a 200 HTTP status code by default, and Lua tables are automatically transformed into JSON response bodies. However, you could also set these manually by setting <code>response.code</code> and <code>response.body</code> instead.</p>
+<h3 id="all-together">All Together</h3>
+<p>Here is the API route endpoint code in its entirety:</p>
+<pre><code class="lang-lua">
+-- Get the dailyCount value
+local dailyCount = Keystore.get({ key = &quot;dailyCount&quot; })
+
+-- Get the last n logs, -1 means all items
+local logs = Keystore.command({ command = &quot;lrange&quot;, key = &quot;logs&quot;, args = {0, -1}})
+
+-- Reponse a 200 HTTP response with a JSON body object
+return { dailyCount = dailyCount.value, logs = logs.value }
+</code></pre>
+<h2 id="generate-some-product-data">Generate Some Product Data</h2>
+<p>To test your scripts, you need to send data from your device to Murano. Here is how to do that:</p>
+<ol>
+<li>Create a Product or use an existing one from the Murano portal and note its product ID.</li>
+<li>If you create a new Product, be sure to add it to the Products configuration under the SERVICES tab of the solution.</li>
+<li>Add a resource under the DEFINITION tab. For example, you could create a resource with the Alias &quot;message&quot; and Data format &quot;string&quot;.</li>
+<li>Create a device on the DEVICES panel and note its identity.</li>
+<li>Activate the device to get the device key (CIK). A simple HTTP request on the provisioning API will do. Normally this step is done by a device, but here is how to do that using curl. (Be sure to substitute the items in brackets with your values.)</li>
+</ol>
+<pre><code>curl https://&lt;product_id&gt;.m2.exosite.com/provision/activate \
+-H &quot;Content-Type: application/x-www-form-urlencoded; charset=utf-8&quot; \
+-d &quot;vendor=&lt;product_id&gt;&amp;model=&lt;product_id&gt;&amp;sn=&lt;identity&gt;&quot;
+</code></pre><p>The CIK for the device is returned. See the <a href="/reference/products/device-api/http/#activate">activate API</a> documentation for more about the activation step.</p>
+<p>With the CIK in hand you are ready to write data. If you do not have a physical device, you can simulate one by sending data using the <a href="../../products/device_api/http#write">write API</a>. Here is how to do that using curl. Again, be sure to substitute the items in brackets with your values.</p>
+<pre><code>curl https://&lt;product_id&gt;.m2.exosite.com/onep:v1/stack/alias \
+-H &quot;X-Exosite-CIK: &lt;CIK&gt;&quot; \
+-H &quot;Content-Type: application/x-www-form-urlencoded; charset=utf-8&quot; \
+-d &quot;&lt;resource_alias&gt;=&lt;value&gt;&quot;
+</code></pre><p>Here is an example, assuming a product ID of m0a6fwvjl7x8ncdi and device ID of 001.</p>
+<pre><code>$ curl https://m0a6fwvjl7x8ncdi.m2.exosite.com/provision/activate -H &quot;Content-Type: application/x-www-form-urlencoded; charset=utf-8&quot; -d &quot;vendor=m0a6fwvjl7x8ncdi&amp;model=m0a6fwvjl7x8ncdi&amp;sn=001&quot;
+029c56108afffc2507e3ffb0aeed105dd6c39922
+
+$ curl https://m0a6fwvjl7x8ncdi.m2.exosite.com/onep:v1/stack/alias -H &quot;X-Exosite-CIK: 029c56108afffc2507e3ffb0aeed105dd6c39922&quot; -H &quot;Content-Type: application/x-www-form-urlencoded; charset=utf-8&quot; -d &quot;message=hello world&quot;
+</code></pre><h2 id="test">Test</h2>
+<p>You can now retrieve your metrics data by opening the <code>/metrics</code> endpoint you defined in your web browser. For example, if your solution name was <code>my-iot-solution</code>, then you would go to this address:</p>
+<pre><code>https://my-iot-solution.apps.exosite.io/metrics
+</code></pre><p>Your metrics data looks like this:</p>
+<pre><code class="lang-JSON">{
+  &quot;dailyCount&quot;: &quot;1&quot;,
+  &quot;logs&quot;: [ &quot;hello world&quot; ]
+}
+</code></pre>
+<p>You should now be able to use the Murano Keystore service to track product metrics for your connected devices.</p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

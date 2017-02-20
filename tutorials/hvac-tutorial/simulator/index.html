@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="python-simulator-setup">Python Simulator Setup</h1>
+<p>This portion of the tutorial will help you run the Python simulator and connect the data to the solution you have already deployed.</p>
+<h1 id="requirements">Requirements</h1>
+<h2 id="hardware-setup">Hardware Setup</h2>
+<p>No hardware is required to complete this portion of the tutorial. </p>
+<h2 id="software-setup">Software Setup</h2>
+<h3 id="python">Python</h3>
+<p>All code written for the simulator in this tutorial has been written to work with Python, which can be downloaded from the <a href="https://www.python.org/">Python website</a>.</p>
+<h1 id="simulator-setup">Simulator Setup</h1>
+<p>The simulator requires Python. You can ensure Python is available on your system by executing the following command.</p>
+<pre><code class="lang-sh">$ which python
+</code></pre>
+<p>If Python is not available, please follow the official documentation to get started:
+<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
+<p>In the <code>hvac-reference-application</code> folder, install requirements. The only requirement for this simulator is <code>requests</code>. The requests library is used for executing HTTP requests to Exosite and the Weather Underground API.</p>
+<pre><code class="lang-sh">$ cd hvac-reference-application
+$ pip install -r requirements.txt
+</code></pre>
+<p>Next you will need to obtain an API key from Weather Underground and configure the product scripts.</p>
+<p>Navigate to Weather Underground and log in or sign up for an API key. All plans are free for development use, as such it makes sense to sign up for the ANVIL plan.</p>
+<p><a href="https://www.wunderground.com/weather/api/">https://www.wunderground.com/weather/api/</a></p>
+<p>Once you obtain your API, add it to the <code>config.ini</code> file in the <code>product</code> folder.</p>
+<pre><code>[main]
+cik =
+wuapi = aen23n5215a235jkjh
+</code></pre><p>The CIK value will be automatically added during the activation step below.</p>
+<h2 id="add-a-device">Add a Device</h2>
+<p>Now you will add your device to your product in Murano</p>
+<ol>
+<li><p>In Murano select <em>Products</em>.</p>
+<p><img src="../assets/products_tab.png" alt="image alt text"></p>
+</li>
+<li><p>Select your product.</p>
+</li>
+<li><p>Select <em>DEVICES</em>.</p>
+<p><img src="../assets/devices_tab.png" alt="image alt text"></p>
+</li>
+<li><p>Click &quot;+ NEW DEVICE.&quot;</p>
+<p><img src="../assets/new_device_popup.png" alt="image alt text"></p>
+</li>
+<li><p>Add a device with a <em>Name</em> and <em>Identity</em>. The name can be any string to help remember which device it is. The identity can be <code>00001</code> for the purpose of testing with the Python simulator.</p>
+</li>
+</ol>
+<h3 id="simulator-activation-and-execution">Simulator Activation and Execution</h3>
+<p>At this point, you will need to activate your device by running the simulator code.</p>
+<pre><code>$ cd product
+$ python3 ./hvac-simulator.py &lt;product_id&gt; &lt;device_id&gt;
+</code></pre><p>The script will now pull historical data from the Weather Underground API to simulate weather. The &quot;building&quot; will heat and cool relative to the ambient temperature. After the temperature reaches a certain level, either the AC or HEAT will be activated. Adjustments to the temperature settings can be made from the solution interface.</p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

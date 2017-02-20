@@ -1,0 +1,626 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="timer-service-api">Timer Service API</h1>
+<blockquote>
+<p>Set up timers which will fire events once, on an interval, or on a schedule.</p>
+</blockquote>
+<h3 id="operations">Operations</h3>
+<ul>
+<li><a href="#cancel">Timer.cancel()</a>  - cancel an active timer</li>
+<li><a href="#cancelall">Timer.cancelAll()</a>  - cancel all active timers for a given solution</li>
+<li><a href="#schedule">Timer.schedule()</a>  - create a scheduled timer</li>
+<li><a href="#sendafter">Timer.sendAfter()</a>  - create a one-shot timer</li>
+<li><a href="#sendinterval">Timer.sendInterval()</a>  - create an interval timer</li>
+</ul>
+<h3 id="events">Events</h3>
+<ul>
+<li><a href="#timer">timer</a>  - timer trigger</li>
+</ul>
+<h2 id="operations">Operations</h2>
+<hr>
+<h4 id="cancel">cancel</h4>
+<blockquote>
+<p>This operation will cancel an active timer.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>timer_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the timer to cancel</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="operation-successful-object-">Operation successful  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Okay if successful</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-information-object-">Operation error information  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error type</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error description</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="cancelall">cancelAll</h4>
+<blockquote>
+<p>This operation will cancel all active timers in the given solution.</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="operation-successful-object-">Operation successful  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Okay if successful</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-information-object-">Operation error information  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error type</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error description</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="schedule">schedule</h4>
+<blockquote>
+<p>Sets up a timer which will fire on a schedule which is based
+on the date and time on which the schedule is created.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timer_spec</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The timer specification</td>
+</tr>
+<tr>
+<td>timer_spec.message</td>
+<td style="text-align:center"><em>string</em>, <em>object</em></td>
+<td>The message to send when the timer is hit</td>
+</tr>
+<tr>
+<td>timer_spec.duration</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The duration of the timer in milliseconds.<br />Required for send_after and send_interval,<br />ignored for scheduled tasks.</td>
+</tr>
+<tr>
+<td>timer_spec.schedule</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The task schedule definition</td>
+</tr>
+<tr>
+<td>timer_spec.daily</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur daily</td>
+</tr>
+<tr>
+<td>timer_spec.hourly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur hourly</td>
+</tr>
+<tr>
+<td>timer_spec.weekly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur weekly</td>
+</tr>
+<tr>
+<td>timer_spec.yearly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur yearly</td>
+</tr>
+<tr>
+<td>timer_spec.monthly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur monthly</td>
+</tr>
+<tr>
+<td>timer_spec.timer_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the timer. If null, it will be generated for you.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="new-timer-task-information-object-">New timer task information  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A message describing the result of the operation</td>
+</tr>
+<tr>
+<td>timer_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the timer</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-information-object-">Operation error information  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error type</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error description</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="sendafter">sendAfter</h4>
+<blockquote>
+<p>Sets up a timer which will fire once after <code>duration</code> has passed.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timer_spec</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The timer specification</td>
+</tr>
+<tr>
+<td>timer_spec.message</td>
+<td style="text-align:center"><em>string</em>, <em>object</em></td>
+<td>The message to send when the timer is hit</td>
+</tr>
+<tr>
+<td>timer_spec.duration</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The duration of the timer in milliseconds.<br />Required for send_after and send_interval,<br />ignored for scheduled tasks.</td>
+</tr>
+<tr>
+<td>timer_spec.schedule</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The task schedule definition</td>
+</tr>
+<tr>
+<td>timer_spec.daily</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur daily</td>
+</tr>
+<tr>
+<td>timer_spec.hourly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur hourly</td>
+</tr>
+<tr>
+<td>timer_spec.weekly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur weekly</td>
+</tr>
+<tr>
+<td>timer_spec.yearly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur yearly</td>
+</tr>
+<tr>
+<td>timer_spec.monthly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur monthly</td>
+</tr>
+<tr>
+<td>timer_spec.timer_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the timer. If null, it will be generated for you.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="new-timer-task-information-object-">New timer task information  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A message describing the result of the operation</td>
+</tr>
+<tr>
+<td>timer_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the timer</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-information-object-">Operation error information  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error type</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error description</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="sendinterval">sendInterval</h4>
+<blockquote>
+<p>Sets up a timer which will fire once every <code>duration</code>.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timer_spec</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The timer specification</td>
+</tr>
+<tr>
+<td>timer_spec.message</td>
+<td style="text-align:center"><em>string</em>, <em>object</em></td>
+<td>The message to send when the timer is hit</td>
+</tr>
+<tr>
+<td>timer_spec.duration</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The duration of the timer in milliseconds.<br />Required for send_after and send_interval,<br />ignored for scheduled tasks.</td>
+</tr>
+<tr>
+<td>timer_spec.schedule</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The task schedule definition</td>
+</tr>
+<tr>
+<td>timer_spec.daily</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur daily</td>
+</tr>
+<tr>
+<td>timer_spec.hourly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur hourly</td>
+</tr>
+<tr>
+<td>timer_spec.weekly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur weekly</td>
+</tr>
+<tr>
+<td>timer_spec.yearly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur yearly</td>
+</tr>
+<tr>
+<td>timer_spec.monthly</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>This task should occur monthly</td>
+</tr>
+<tr>
+<td>timer_spec.timer_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the timer. If null, it will be generated for you.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="new-timer-task-information-object-">New timer task information  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A message describing the result of the operation</td>
+</tr>
+<tr>
+<td>timer_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the timer</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-information-object-">Operation error information  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error type</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error description</td>
+</tr>
+</tbody>
+</table>
+<h2 id="events">Events</h2>
+<hr>
+<h4 id="timer">timer</h4>
+<blockquote>
+<p>A scheduled timer is occurring. And timer task data is transmitted.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="request-object-the-timer-task-data-">request  -  <em>object</em>  -  <em>The timer task data</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The message to send when the timer is hit</td>
+</tr>
+<tr>
+<td>timer_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the timer. If null, it will be generated for you.</td>
+</tr>
+<tr>
+<td>solution_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the solution this timer is associated with.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">function handle_timer_timer (request)
+
+ ... 
+
+end
+</code></pre>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

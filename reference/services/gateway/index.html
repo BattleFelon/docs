@@ -1,0 +1,1377 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="device-gateway-public-api">Device Gateway public API</h1>
+<blockquote>
+<p>Device Gateway public API</p>
+</blockquote>
+<h3 id="operations">Operations</h3>
+<ul>
+<li><a href="#configure">Gateway.configure()</a> </li>
+<li><a href="#get">Gateway.get()</a> </li>
+<li><a href="#info">Gateway.info()</a> </li>
+<li><a href="#list">Gateway.list()</a> </li>
+<li><a href="#remove">Gateway.remove()</a> </li>
+<li><a href="#set">Gateway.set()</a> </li>
+<li><a href="#settings">Gateway.settings()</a> </li>
+<li><a href="#update">Gateway.update()</a> </li>
+<li><a href="#whitelist">Gateway.whitelist()</a> </li>
+</ul>
+<h3 id="events">Events</h3>
+<ul>
+<li><a href="#connect">connect</a>  - Device connected</li>
+<li><a href="#data_in">data_in</a>  - Device data in</li>
+<li><a href="#disconnect">disconnect</a>  - Device disconnected</li>
+</ul>
+<h2 id="operations">Operations</h2>
+<hr>
+<h4 id="configure">configure</h4>
+<blockquote>
+<p>Updates a product identified by {pid}</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center">^[a-zA-Z0-9_]+$</td>
+<td>Product ID</td>
+</tr>
+<tr>
+<td><strong>product</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>The product object to patch</td>
+</tr>
+<tr>
+<td>product.name</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The name of this product</td>
+</tr>
+<tr>
+<td>product.protocol</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Protocols allowed for this product</td>
+</tr>
+<tr>
+<td>product.<strong>name</strong></td>
+<td style="text-align:center">&quot;cbor&quot;, &quot;mqtt&quot;, &quot;onep&quot;</td>
+<td>The name of the protocol</td>
+</tr>
+<tr>
+<td>product.dev_mode</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Is this in dev mode</td>
+</tr>
+<tr>
+<td>product.<strong>auth_type</strong></td>
+<td style="text-align:center">&quot;certificate&quot;, &quot;keypair&quot;, &quot;password&quot;, &quot;secret&quot;, &quot;cik&quot;</td>
+<td>Authentication type</td>
+</tr>
+<tr>
+<td>product.resources</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The resources of this product</td>
+</tr>
+<tr>
+<td>product.description</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The description of this product</td>
+</tr>
+<tr>
+<td>product.provisioning</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Provisioning means creating a device identity and/or providing authentication objects to devices.</td>
+</tr>
+<tr>
+<td>product.enabled</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Is provisioning enabled for this product. If it is disabled then the device can only communicate if Murano already knows about this device and it has authentication objects.</td>
+</tr>
+<tr>
+<td>product.ip_whitelisting</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The whitelist IP settings</td>
+</tr>
+<tr>
+<td>product.allowed</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>An array of IP addresses</td>
+</tr>
+<tr>
+<td>product.enabled</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Is whitelist IPs enabled</td>
+</tr>
+<tr>
+<td>product.generate_identity</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Should the server generate identity for a device of this product. If a connected device does not have a name the server can generate one.</td>
+</tr>
+<tr>
+<td>product.presenter_identity</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Should the server accept identities presented by the device</td>
+</tr>
+<tr>
+<td>product.identity_format</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Describes the format of the identities (e.g) devices that can be added for a product. The identity format will be checked when the device communicates with murano; if it does not match the product&#39;s identity format it will be rejected. When a device is generated, the name will be generated using this format</td>
+</tr>
+<tr>
+<td>product.type</td>
+<td style="text-align:center">&quot;mac:48&quot;, &quot;mac-48&quot;, &quot;mac.48&quot;, &quot;uuid&quot;, &quot;uuidv4&quot;, &quot;base10&quot;, &quot;base16&quot;, &quot;opaque&quot;</td>
+<td>The identity type that can be selected from the options below</td>
+</tr>
+<tr>
+<td>product.prefix</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A prefix for the identity name</td>
+</tr>
+<tr>
+<td>product.options</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Options for identity format</td>
+</tr>
+<tr>
+<td>product.casing</td>
+<td style="text-align:center">&quot;lower&quot;, &quot;upper&quot;, &quot;mixed&quot;</td>
+<td>Describes whether the identity should be lower or upper case</td>
+</tr>
+<tr>
+<td>product.length</td>
+<td style="text-align:center"><em>number</em></td>
+<td>The length of the identity in bytes (base10 and base16 only)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="product-updated-successfully-nil-">Product updated successfully.  -  <em>nil</em></h6>
+<p>Product updated successfully.</p>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="get">get</h4>
+<blockquote>
+<p>Reads a device state from Murano by pid and did</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center">^[a-zA-Z0-9_]+$</td>
+<td>Product ID</td>
+</tr>
+<tr>
+<td><strong>did</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="device-data-object-">Device data  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="info">info</h4>
+<blockquote>
+<p>Reads a device from the Murano by pid and did</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center">^[a-zA-Z0-9_]+$</td>
+<td>Product ID</td>
+</tr>
+<tr>
+<td><strong>did</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="every-physical-device-is-represented-by-a-device-object-this-will-store-crucial-information-like-how-the-device-can-authenticate-what-are-the-authentication-details-object-">Every physical device is represented by a device object. This will store crucial information like how the device can authenticate; what are the authentication details.  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The device authentication object</td>
+</tr>
+<tr>
+<td>auth.key</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The authentication defined by type</td>
+</tr>
+<tr>
+<td>auth.expire</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>When does this expire</td>
+</tr>
+<tr>
+<td>state</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The device state</td>
+</tr>
+<tr>
+<td>lastip</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The timestamp when this device was last seen</td>
+</tr>
+<tr>
+<td>locked</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Is this device locked. Only not locked devices can communicate with Murano.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center">&quot;provisioned&quot;, &quot;whitelisted&quot;</td>
+<td>The device status; this is an aggregate field&quot;</td>
+</tr>
+<tr>
+<td>devmode</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Allow streaming of low level logs</td>
+</tr>
+<tr>
+<td>identity</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The identity of this device</td>
+</tr>
+<tr>
+<td>lastseen</td>
+<td style="text-align:center"><em>number</em></td>
+<td>The timestamp when this device was last seen</td>
+</tr>
+<tr>
+<td>context_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The pegasus context id</td>
+</tr>
+<tr>
+<td>reprovision</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Does this device need to be reprovisioned</td>
+</tr>
+</tbody>
+</table>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="list">list</h4>
+<blockquote>
+<p>Returns a list of devices</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center">^[a-zA-Z0-9_]+$</td>
+<td>Product ID</td>
+</tr>
+<tr>
+<td>limit</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Return maximum {limit} devices</td>
+</tr>
+<tr>
+<td>before</td>
+<td style="text-align:center"><em>number</em></td>
+<td>Return devices modified before this date, used to go through several pages of devices</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A comma separated value list of status to return any of [whitelisted, provisioned, locked, devmode, reprovision]</td>
+</tr>
+<tr>
+<td>identity</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A pattern match string for device names describing the which devices should be returned</td>
+</tr>
+<tr>
+<td>ipaddress</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A pattern match string for the IP</td>
+</tr>
+<tr>
+<td>version</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A pattern match string for the version</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="the-device-array-that-matches-the-query-object-">The device array that matches the query  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>devices</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of devices</td>
+</tr>
+<tr>
+<td>devices[].auth</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The device authentication object</td>
+</tr>
+<tr>
+<td>devices[].key</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The authentication defined by type</td>
+</tr>
+<tr>
+<td>devices[].expire</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>When does this expire</td>
+</tr>
+<tr>
+<td>devices[].state</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The device state</td>
+</tr>
+<tr>
+<td>devices[].lastip</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The timestamp when this device was last seen</td>
+</tr>
+<tr>
+<td>devices[].locked</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Is this device locked. Only not locked devices can communicate with Murano.</td>
+</tr>
+<tr>
+<td>devices[].status</td>
+<td style="text-align:center">&quot;provisioned&quot;, &quot;whitelisted&quot;</td>
+<td>The device status; this is an aggregate field&quot;</td>
+</tr>
+<tr>
+<td>devices[].devmode</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Allow streaming of low level logs</td>
+</tr>
+<tr>
+<td>devices[].identity</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The identity of this device</td>
+</tr>
+<tr>
+<td>devices[].lastseen</td>
+<td style="text-align:center"><em>number</em></td>
+<td>The timestamp when this device was last seen</td>
+</tr>
+<tr>
+<td>devices[].context_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The pegasus context id</td>
+</tr>
+<tr>
+<td>devices[].reprovision</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Does this device need to be reprovisioned</td>
+</tr>
+<tr>
+<td>mayLoadMore</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Indicate the list is not complete.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="remove">remove</h4>
+<blockquote>
+<p>Deletes a device</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Product ID</td>
+</tr>
+<tr>
+<td><strong>did</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="device-deleted-nil-">Device deleted  -  <em>nil</em></h6>
+<p>Device deleted</p>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="set">set</h4>
+<blockquote>
+<p>Writes a device state</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center">^[a-zA-Z0-9_]+$</td>
+<td>Product ID</td>
+</tr>
+<tr>
+<td><strong>did</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device ID</td>
+</tr>
+<tr>
+<td>state</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Device object</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="state-has-been-written-nil-">State has been written  -  <em>nil</em></h6>
+<p>State has been written</p>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="settings">settings</h4>
+<blockquote>
+<p>Retrieves a product identified by {pid} from Murano</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center">^[a-zA-Z0-9_]+$</td>
+<td>Product ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="the-product-object-object-">The product object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fqdn</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The fqdn of this product</td>
+</tr>
+<tr>
+<td>name</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The name of this product</td>
+</tr>
+<tr>
+<td><strong>protocol</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>Protocols allowed for this product</td>
+</tr>
+<tr>
+<td>protocol.<strong>name</strong></td>
+<td style="text-align:center">&quot;cbor&quot;, &quot;mqtt&quot;, &quot;onep&quot;</td>
+<td>The name of the protocol</td>
+</tr>
+<tr>
+<td>protocol.dev_mode</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Is this in dev mode</td>
+</tr>
+<tr>
+<td>protocol.<strong>auth_type</strong></td>
+<td style="text-align:center">&quot;certificate&quot;, &quot;keypair&quot;, &quot;password&quot;, &quot;secret&quot;, &quot;cik&quot;</td>
+<td>Authentication type</td>
+</tr>
+<tr>
+<td>resources</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The resources of this product</td>
+</tr>
+<tr>
+<td>description</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The description of this product</td>
+</tr>
+<tr>
+<td>provisioning</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Provisioning means creating a device identity and/or providing authentication objects to devices.</td>
+</tr>
+<tr>
+<td>provisioning.enabled</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Is provisioning enabled for this product. If it is disabled then the device can only communicate if Murano already knows about this device and it has authentication objects.</td>
+</tr>
+<tr>
+<td>provisioning.ip_whitelisting</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The whitelist IP settings</td>
+</tr>
+<tr>
+<td>provisioning.allowed</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>An array of IP addresses</td>
+</tr>
+<tr>
+<td>provisioning.enabled</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Is whitelist IPs enabled</td>
+</tr>
+<tr>
+<td>provisioning.generate_identity</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Should the server generate identity for a device of this product. If a connected device does not have a name the server can generate one.</td>
+</tr>
+<tr>
+<td>provisioning.presenter_identity</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Should the server accept identities presented by the device</td>
+</tr>
+<tr>
+<td>identity_format</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Describes the format of the identities (e.g) devices that can be added for a product. The identity format will be checked when the device communicates with murano; if it does not match the product&#39;s identity format it will be rejected. When a device is generated, the name will be generated using this format</td>
+</tr>
+<tr>
+<td>identity_format.type</td>
+<td style="text-align:center">&quot;mac:48&quot;, &quot;mac-48&quot;, &quot;mac.48&quot;, &quot;uuid&quot;, &quot;uuidv4&quot;, &quot;base10&quot;, &quot;base16&quot;, &quot;opaque&quot;</td>
+<td>The identity type that can be selected from the options below</td>
+</tr>
+<tr>
+<td>identity_format.prefix</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A prefix for the identity name</td>
+</tr>
+<tr>
+<td>identity_format.options</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Options for identity format</td>
+</tr>
+<tr>
+<td>identity_format.casing</td>
+<td style="text-align:center">&quot;lower&quot;, &quot;upper&quot;, &quot;mixed&quot;</td>
+<td>Describes whether the identity should be lower or upper case</td>
+</tr>
+<tr>
+<td>identity_format.length</td>
+<td style="text-align:center"><em>number</em></td>
+<td>The length of the identity in bytes (base10 and base16 only)</td>
+</tr>
+</tbody>
+</table>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="update">update</h4>
+<blockquote>
+<p>Updates a device</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Product ID</td>
+</tr>
+<tr>
+<td><strong>did</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device ID</td>
+</tr>
+<tr>
+<td>device</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Every physical device is represented by a device object. This will store crucial information like how the device can authenticate; what are the authentication details.</td>
+</tr>
+<tr>
+<td>device.auth</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The device authentication object</td>
+</tr>
+<tr>
+<td>device.key</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The authentication defined by type</td>
+</tr>
+<tr>
+<td>device.expire</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>When does this expire</td>
+</tr>
+<tr>
+<td>device.locked</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Is this device locked. Only not locked devices can communicate with Murano.</td>
+</tr>
+<tr>
+<td>device.devmode</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Allow streaming of low level logs</td>
+</tr>
+<tr>
+<td>device.reprovision</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Does this device need to be reprovisioned</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="device-updated-nil-">Device updated  -  <em>nil</em></h6>
+<p>Device updated</p>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="whitelist">whitelist</h4>
+<blockquote>
+<p>Add a device with a new authentication object</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pid</strong></td>
+<td style="text-align:center">^[a-zA-Z0-9_]+$</td>
+<td>Product ID</td>
+</tr>
+<tr>
+<td><strong>did</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Device ID</td>
+</tr>
+<tr>
+<td>device</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Every physical device is represented by a device object. This will store crucial information like how the device can authenticate; what are the authentication details.</td>
+</tr>
+<tr>
+<td>device.auth</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The device authentication object</td>
+</tr>
+<tr>
+<td>device.key</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The authentication defined by type</td>
+</tr>
+<tr>
+<td>device.expire</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>When does this expire</td>
+</tr>
+<tr>
+<td>device.locked</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Is this device locked. Only not locked devices can communicate with Murano.</td>
+</tr>
+<tr>
+<td>device.devmode</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Allow streaming of low level logs</td>
+</tr>
+<tr>
+<td>device.reprovision</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Does this device need to be reprovisioned</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="device-added-nil-">Device added  -  <em>nil</em></h6>
+<p>Device added</p>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<h6 id="the-error-object-object-">The error object  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>integer(int32)</em></td>
+<td>The error code for this error</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error message for this error</td>
+</tr>
+</tbody>
+</table>
+<h2 id="events">Events</h2>
+<hr>
+<h4 id="connect">connect</h4>
+<blockquote>
+<p>Device connected</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="data-object-the-data-from-the-device-">data  -  <em>object</em>  -  <em>The data from the device</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ip</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The IP address of the device</td>
+</tr>
+<tr>
+<td>event</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The name of the event</td>
+</tr>
+<tr>
+<td>domain</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The fully qualified domain name</td>
+</tr>
+<tr>
+<td>payload</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The (data_in) payload</td>
+</tr>
+<tr>
+<td>identity</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the device</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The protocol the device is using</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The timestamp</td>
+</tr>
+<tr>
+<td>connection_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the connection</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">function handle_gateway_connect (data)
+
+ ... 
+
+end
+</code></pre>
+<hr>
+<h4 id="data_in">data_in</h4>
+<blockquote>
+<p>Device data in</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="data-object-the-data-from-the-device-">data  -  <em>object</em>  -  <em>The data from the device</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ip</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The IP address of the device</td>
+</tr>
+<tr>
+<td>event</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The name of the event</td>
+</tr>
+<tr>
+<td>domain</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The fully qualified domain name</td>
+</tr>
+<tr>
+<td>payload</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The (data_in) payload</td>
+</tr>
+<tr>
+<td>identity</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the device</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The protocol the device is using</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The timestamp</td>
+</tr>
+<tr>
+<td>connection_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the connection</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">function handle_gateway_data_in (data)
+
+ ... 
+
+end
+</code></pre>
+<hr>
+<h4 id="disconnect">disconnect</h4>
+<blockquote>
+<p>Device disconnected</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="data-object-the-data-from-the-device-">data  -  <em>object</em>  -  <em>The data from the device</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ip</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The IP address of the device</td>
+</tr>
+<tr>
+<td>event</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The name of the event</td>
+</tr>
+<tr>
+<td>domain</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The fully qualified domain name</td>
+</tr>
+<tr>
+<td>payload</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The (data_in) payload</td>
+</tr>
+<tr>
+<td>identity</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the device</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The protocol the device is using</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The timestamp</td>
+</tr>
+<tr>
+<td>connection_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The ID of the connection</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">function handle_gateway_disconnect (data)
+
+ ... 
+
+end
+</code></pre>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="guide-mqtt">Guide: MQTT</h1>
+<p>In this guide, you will enable MQTT for your product. You will then activate your device and connect your activated device with the Murano MQTT endpoint.</p>
+<h1 id="requirements">Requirements</h1>
+<h2 id="hardware-setup">Hardware Setup</h2>
+<p>No hardware is required to complete this guide.</p>
+<h2 id="software-setup">Software Setup</h2>
+<p>To complete this guide, you must first download and install Python 3.5 from the <a href="https://www.python.org/">Python website</a>.</p>
+<h1 id="overview">Overview</h1>
+<p>Exosite’s MQTT offering supports bi-directional device communication with the Murano Platform using the MQTT protocol. Devices can activate with the Murano Platform, can publish device data to its resources in Murano, and can subscribe to changes made to these resources.</p>
+<p>Communication between the device and the Murano MQTT endpoint is secured by SSL and made available on port 8883. Note that Exosite uses <a href="https://en.wikipedia.org/wiki/Server_Name_Indication">SNI</a>. MQTT client libraries are required to support SNI.</p>
+<p>Anonymous access is provided only to facilitate device activation. The activation process supplies the device with the credentials necessary to authenticate in future sessions. Access control, by default, limits activated devices to publish/subscribe only to the device’s own resources. Anonymous clients, in contrast, can only publish to an activation endpoint and can only subscribe to that endpoint’s activation reply topic, which is unique to each activation request.</p>
+<p>For information about the MQTT protocol, see <a href="http://mqtt.org/">http://mqtt.org/</a>.</p>
+<h1 id="getting-started">Getting Started</h1>
+<p>MQTT <a href="https://github.com/mqtt/mqtt.github.io/wiki/libraries">client libraries</a> are readily available. Exosite requires that the library supports TLS and requires that the TLS support includes SNI. Contact Exosite if a preferred library fails either criteria. The <a href="https://github.com/eclipse/paho.mqtt.python">Eclipse Paho™ MQTT Python Client</a> is used in the examples below.</p>
+<h2 id="enable-mqtt-for-your-product">Enable MQTT for Your Product</h2>
+<p>Contact Exosite to have MQTT enabled for your product. Exosite will request your Product ID, which is available on the <em>INFO</em> tab of your product:</p>
+<p><img src="mqtt_0.png" alt="image alt text"></p>
+<h2 id="activate-your-device">Activate Your Device</h2>
+<p>Create a device if you have not already done so. </p>
+<ol>
+<li><p>Navigate to the <em>DEVICES</em> tab of your product and click the &quot;NEW DEVICE&quot; button:</p>
+<p><img src="mqtt_1.png" alt="image alt text"></p>
+</li>
+<li><p>Provide an <em>Identity</em> and, optionally, a <em>Name</em>, and click &quot;CREATE&quot;:</p>
+<p><img src="mqtt_2.png" alt="image alt text"></p>
+<p>The <em>DEVICES</em> tab will list the newly-created device and indicate its status is &quot;notactivated.&quot;</p>
+<p><img src="mqtt_3.png" alt="image alt text"></p>
+</li>
+<li><p>Install a patched version of the Eclipse Paho™ MQTT Python Client via the following command:</p>
+<p><code>$ pip install git+https://github.com/exosite/paho.mqtt.python.git@openssl_sni_support</code></p>
+</li>
+<li><p>Save the following certificate into a file called &quot;trusted.crt&quot;:</p>
+<pre><code>-----BEGIN CERTIFICATE-----
+MIIDVDCCAjygAwIBAgIDAjRWMA0GCSqGSIb3DQEBBQUAMEIxCzAJBgNVBAYTAlVT
+MRYwFAYDVQQKEw1HZW9UcnVzdCBJbmMuMRswGQYDVQQDExJHZW9UcnVzdCBHbG9i
+YWwgQ0EwHhcNMDIwNTIxMDQwMDAwWhcNMjIwNTIxMDQwMDAwWjBCMQswCQYDVQQG
+EwJVUzEWMBQGA1UEChMNR2VvVHJ1c3QgSW5jLjEbMBkGA1UEAxMSR2VvVHJ1c3Qg
+R2xvYmFsIENBMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2swYYzD9
+9BcjGlZ+W988bDjkcbd4kdS8odhM+KhDtgPpTSEHCIjaWC9mOSm9BXiLnTjoBbdq
+fnGk5sRgprDvgOSJKA+eJdbtg/OtppHHmMlCGDUUna2YRpIuT8rxh0PBFpVXLVDv
+iS2Aelet8u5fa9IAjbkU+BQVNdnARqN7csiRv8lVK83Qlz6cJmTM386DGXHKTubU
+1XupGc1V3sjs0l44U+VcT4wt/lAjNvxm5suOpDkZALeVAjmRCw7+OC7RHQWa9k0+
+bw8HHa8sHo9gOeL6NlMTOdReJivbPagUvTLrGAMoUgRx5aszPeE4uwc2hGKceeoW
+MPRfwCvocWvk+QIDAQABo1MwUTAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTA
+ephojYn7qwVkDBF9qn1luMrMTjAfBgNVHSMEGDAWgBTAephojYn7qwVkDBF9qn1l
+uMrMTjANBgkqhkiG9w0BAQUFAAOCAQEANeMpauUvXVSOKVCUn5kaFOSPeCpilKIn
+Z57QzxpeR+nBsqTP3UEaBU6bS+5Kb1VSsyShNwrrZHYqLizz/Tt1kL/6cdjHPTfS
+tQWVYrmm3ok9Nns4d0iXrKYgjy6myQzCsplFAMfOEVEiIuCl6rYVSAlk6l5PdPcF
+PseKUgzbFbS9bZvlxrFUaKnjaZC2mqUPuLk/IH2uSrW4nOQdtqvmlKXBx4Ot2/Un
+hw4EbNX/3aBd7YdStysVAq45pmp06drE57xNNB6pXE0zX5IJL4hmXXeXxx12E6nV
+5fEWCRE11azbJHFwLJhWC9kXtNHjUStedejV0NxPNO3CBWaAocvmMw==
+-----END CERTIFICATE-----
+</code></pre></li>
+<li><p>Save the following code into a file called &quot;activate.py&quot; and run it using “python activate.py”:</p>
+<pre><code>from paho.mqtt import client as mqtt
+
+host = &quot;mqtt-&quot;+input(&quot;Product ID? &quot;)+&quot;.hosted.exosite.io&quot;
+clid = input(&quot;Device Identity? &quot;)
+cert = &quot;trusted.crt&quot;
+print
+
+def on_connect(client, userdata, flags, rc):
+ client.subscribe(&quot;activate/&quot;+clid)
+ client.publish(&quot;activate&quot;, clid)
+
+def on_message(client, userdata, msg):
+ print(&quot;Activation succeeded!&quot;)
+ print(&quot;username = &quot;+clid)
+ print(&quot;password = &quot;+msg.payload.decode())
+ client.disconnect()
+
+client = mqtt.Client(client_id=clid)
+client.tls_set(cert, server_hostname=host)
+
+client.on_connect = on_connect
+client.on_message = on_message
+
+client.connect(host, 8883)
+client.loop_forever()
+</code></pre><p><strong>NOTE</strong>: The client connects anonymously using its device identity as its client ID. It immediately (on connect) subscribes to &quot;activate/<device identity>&quot; and publishes an activation request to the topic “activate” with a payload consisting only of its device identity. The “on_message” callback waits for the response and prints the message’s payload, which contains the activated device’s password.</p>
+</li>
+<li><p>Provide your product ID, device identity, and the location of your trusted certificates file (hit <Enter> to accept the listed default file or provide the appropriate location for your operating system/distribution):</p>
+<pre><code>$ python activate.py
+Product ID? x2lmj5npsktbuik9
+Device Identity? 007
+
+Activation succeeded!
+username = 007
+password = b7b34f55e948b94841820ea50868a2490632d78f
+</code></pre><p>A successful result, as shown, activates the device and prints the credentials necessary to subsequently authenticate. You can see the device has been &quot;activated&quot;:</p>
+</li>
+</ol>
+<p><img src="mqtt_4.png" alt="image alt text"></p>
+<h2 id="connect-your-activated-device">Connect Your Activated Device</h2>
+<p>Use the returned credentials to reconnect. Save the following code into a file called &quot;publish.py&quot; and run it using “python publish.py”:</p>
+<pre><code>from paho.mqtt import client as mqtt
+from time import sleep
+
+host = &quot;mqtt-&quot;+input(&quot;Product ID? &quot;)+&quot;.hosted.exosite.io&quot;
+clid = input(&quot;Device Identity? &quot;)
+pswd = input(&quot;Device password? &quot;)
+cert = &quot;trusted.crt&quot;
+print
+
+def on_connect(client, userdata, flags, rc):
+  client.subscribe(clid+&quot;/#&quot;)
+
+def on_message(client, userdata, msg):
+  print(&quot;Message received!&quot;)
+  print(&quot;topic = &quot;+msg.topic)
+  print(&quot;payload = &quot;+msg.payload.decode())
+
+client = mqtt.Client(client_id=clid)
+client.username_pw_set(clid, pswd)
+client.tls_set(cert, server_hostname=host)
+
+client.on_connect = on_connect
+client.on_message = on_message
+
+client.connect_async(host, 8883)
+client.loop_start()
+
+while True:
+  sleep(2)
+  topic = input(&quot;Topic? &quot;)
+  if topic == &#39;&#39;:
+    break
+  msg = input(&quot;Message? &quot;)
+  (result, mid) = client.publish(topic, msg)
+  if result == mqtt.MQTT_ERR_SUCCESS:
+    print(&quot;Message successfully sent!&quot;)
+  else:
+    print(&quot;Failed to send message...&quot;)
+</code></pre><p>Prompts will be similar to those used to activate. The device’s resources are represented as topics &quot;<device ID>/<resource>&quot; (e.g., “007/temperature”). The client, as part of on_connect, subscribes to all of its resources and, as part of on_message, will echo back whatever it receives. You can publish a temperature value as follows:</p>
+<pre><code>$ python publish.py
+Product ID? x2lmj5npsktbuik9
+Device Identity? 007
+Device password? b7b34f55e948b94841820ea50868a2490632d78f
+Trusted certs file (/etc/ssl/certs/ca-bundle.trust.crt)? 
+
+Topic? 007/temperature
+Message? 32
+Message successfully sent!
+Message received!
+topic = 007/temperature
+payload = 32
+</code></pre><p>The device’s resource’s value will reflect the value published by the device:</p>
+<p><img src="mqtt_5.png" alt="image alt text"></p>
+<p>Additionally, if you directly enter values in the browser, the device will also receive those changes as messages:</p>
+<p><img src="mqtt_6.png" alt="image alt text"></p>
+<p>The client will receive a message with the change:</p>
+<pre><code>Message received!
+topic = 007/temperature
+payload = 212
+</code></pre></div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="exositeready-gateway-engine-readme">ExositeReady™ Gateway Engine README</h1>
+<p>ExositeReady™ Gateway Engine (GWE) was created by Exosite to service a commonly occurring design pattern in IoT applications. In the IoT context, a &quot;gateway&quot; can be loosely defined as any device that serves as a communication broker for other devices. Gateways, in this context, often bridge the gap between an IoT platform (Exosite) and some collection of devices that do not possess the ability of Internet (HTTP/CoAP/MQTT) communications.</p>
+<h1 id="overview">Overview</h1>
+<p>It is often the case that a gateway appears as a component in many IoT applications. GWE is an out-of-the-box solution for developing and supporting custom IoT gateways for as long as hardware will allow.</p>
+<p>Internet gateways often run some flavor of Linux and, as such, have a Python environment. Leveraging this fact, GWE is a program written in Python that provides you (the developer) with the ability to develop your specific IoT business needs instead of repeatable gateway logic. Gateway software often performs the same functions because the needs are often the same.</p>
+<h1 id="key-features">Key Features</h1>
+<p>GWE was created by Exosite out of the necessity for (but not limited to) the following :</p>
+<ul>
+<li>Application Hosting</li>
+<li>OTA Application Management</li>
+<li>OS/Filesystem Metadata Collection</li>
+<li>Exosite Device API Client</li>
+<li>Bandwidth Telemetrics (Beta)</li>
+</ul>
+<h1 id="installation-configuration-and-first-start">Installation, Configuration, and First Start</h1>
+<p>GWE can be installed in several different ways. Depending on the target environment, installing via a <strong>build</strong> is preferable to installing from source. Whichever method you use, it is important to note that if using a non-built version, the <strong><strong>version</strong></strong>&#39;s from the Exosite Device API Client (<code>device-client</code>) and the <code>GatewayEngine</code> module will not be traceable to source code version in git at the time of the build. This can make debugging and root-cause analysis difficult if not impossible in field-deployed production systems.</p>
+<h2 id="from-a-release-package">From a Release Package</h2>
+<p>After downloading a release build of GWE from the <a href="/exositeready/gwe/release_packages">GWE Release Packages</a> page, follow these simple steps to copy it to your gateway and configure for use with your Murano product:</p>
+<h3 id="copy-gwe-to-gateway">Copy GWE to Gateway</h3>
+<p>Using the <code>scp</code> command, remotely copy GWE to the <code>/opt</code> directory.</p>
+<pre><code>ssh &lt;USER&gt;@&lt;GATEWAY_IP&gt; &quot;mkdir -p /opt&quot;
+scp GatewayEngine.v1-0-6.tar.gz &lt;USER&gt;@&lt;GATEWAY_IP&gt;:/opt
+</code></pre><h3 id="install-gwe-on-gateway">Install GWE on Gateway</h3>
+<p>The command, below, can be used to remotely install GWE.</p>
+<pre><code>ssh &lt;USER&gt;@&lt;GATEWAY_IP&gt; &quot;cd /opt
+   tar zxvf GatewayEngine.v1-0-6.tar.gz
+   cd gateway-engine
+   ./install.sh
+&quot;
+</code></pre><h3 id="configure-gwe-to-your-murano-product">Configure GWE to your Murano Product</h3>
+<p>When configuring GWE to your Murano product ID, you are faced with two choices with regard to determining your GWE serial number:</p>
+<ol>
+<li>Configure GWE to use a specific Internet interface (e.g., <code>eth0</code>, <code>wlan0</code>, <code>ppp0</code>, etc.) and retrieve its MAC address for use as its serial number. GWE defaults to using this MAC address in uppercase characters. </li>
+</ol>
+<pre><code>gwe --product-id &lt;MURANO_PRODUCT_ID&gt; --set-iface &lt;INET_IFACE&gt;
+</code></pre><p>   Once this command has completed, use the following command to view the resultant serial number for GWE:</p>
+<pre><code>(shell) $ gwe --gateway-cfg
+[device]
+cik = &#39;&#39;
+model = asdfiuyhj567uj
+vendor = asdfiuyhj567uj
+uuid = &#39;&#39;
+iface = en0
+</code></pre><p>   Notice that the <code>uuid</code> option is still empty. GWE will populate this field once it is started.</p>
+<ol>
+<li>Configure GWE to use a specific serial number of your choosing instead of the MAC address from option #1.</li>
+</ol>
+<pre><code>gwe --product-id &lt;MURANO_PRODUCT_ID&gt; --set-uuid &lt;SERIAL_NUMBER&gt;
+</code></pre><h2 id="first-start">First Start</h2>
+<p>Once GWE has been installed and configured, it is time for the first start. Instead of manually calling the <code>gwe</code> executable (though this is an option), it is a good idea to reboot the gateway. This is because during the GWE installation process, it configures the Linux <code>init.d</code> subsystem to start <code>supervisord</code>, which in turn is configured to start <code>gwe</code>.</p>
+<pre><code>reboot
+</code></pre><p>After reboot, you can check whether or not <code>supervisord</code> and <code>gwe</code> are running with the following command:</p>
+<pre><code>supervisorctl status
+</code></pre><p>This will print a summary of the applications installed and hosted by GWE.</p>
+<pre><code>(shell) $ supervisorctl status
+gmq                              RUNNING    pid 579, uptime 0:00:20
+gwe                              RUNNING    pid 578, uptime 0:00:20
+</code></pre><p>If you see any status for <code>gwe</code> or <code>gmq</code> other than <code>RUNNING</code> (e.g., <code>FATAL</code>, <code>BACKOFF</code>, etc.) or if you see the following error message:</p>
+<pre><code>(shell) $ supervisorctl status
+unix:///tmp/supervisord.sock refused connection
+</code></pre><p>or </p>
+<pre><code>(shell) $ supervisorctl status
+unix:///tmp/supervisord.sock no such file
+</code></pre><p>Please contact gwesupport@exosite.com with the following details:</p>
+<ul>
+<li>The hardware platform and version used.</li>
+<li>The OS and kernel version (<code>uname -a</code> output).</li>
+<li>The installation log (<code>/opt/gateway-engine/gwe_install_&lt;DATE_TIME&gt;.log</code>).</li>
+<li>The version of Python on the gateway (<code>python --version</code>)</li>
+</ul>
+<h2 id="from-source-setup-py-">From Source (setup.py)</h2>
+<p>Installing <code>GatewayEngine</code> to a development machine/laptop is a great idea for accessing some of the command line tools. To do this on a development machine, it is recommended that you create a Python Virtual Environment and install to it. To do this, you will need to navigate to the <a href="/exositeready/gwe/release_packages">GWE Release Packages</a> page, download a copy of a GWE, and execute the following:</p>
+<pre><code>mkdir gwe
+cp &lt;GWE_RELEASE&gt; gwe/
+cd gwe/
+tar zxvf &lt;GWE_RELEASE&gt;
+cd gateway-engine
+mkvirtualenv gwe --python=python2.7
+GatewayEngine/installer.py &quot;$(ls device-client.v*.tar.gz)&quot;
+python setup.py install
+</code></pre><h1 id="building-gwe">Building GWE</h1>
+<p>Distributable builds and official releases of GWE are created with the <code>jenkins.sh</code> script at the top level of this (<code>gateway-engine</code>) repository. There are several helpful arguments one can pass to the <code>jenkins.sh</code> script for various tasks like running tests, creating <code>git</code> tags, tracking <code>BUILD</code> version numbers, etc. Our Continuous Integration method of making releases is the following:</p>
+<h2 id="release-candidates">Release Candidates</h2>
+<p>A release will be made available based on the <code>integration</code> branch for testing bug fixes, new features, etc.</p>
+<pre><code>#!/usr/bin/env bash
+./jenkins.sh track_rc
+git tag # for log
+export TAG=&quot;$(./jenkins.sh tag_rc)&quot;
+echo $TAG
+echo &quot;TAG = ${TAG}&quot; &gt; TAG.file
+./jenkins.sh create_rc
+</code></pre><h2 id="distributable-releases">Distributable Releases</h2>
+<p>For our distributable releases, a similar process:</p>
+<pre><code>#!/usr/bin/env bash
+./jenkins.sh track_r
+git tag # for log
+export TAG=&quot;$(./jenkins.sh tag_r)&quot;
+echo $TAG
+echo &quot;TAG = ${TAG}&quot; &gt; TAG.file
+./jenkins.sh create_r
+</code></pre><h1 id="command-line-interface">Command Line Interface</h1>
+<p>A CLI is provided for configuring the runtime environment as well as initializing a development environment. To acquaint yourself with the CLI, install GWE on your development machine and look through the help dialog:</p>
+<pre><code>$ gwe -h
+usage: gwe [-h] [-v] [-p] [-e] [-g] [-C] [-o] [-x] [-y]
+           [-I APP_TARBALL [APP_TARBALL ...]] [-c CIK] [-m MODEL] [-r VENDOR]
+           [-P PRODUCT_ID] [-u UUID] [-i IFACE] [-l INTERVAL_SECONDS]
+           [-d {DEBUG,INFO,WARNING,ERROR,CRITICAL}] [-t UPDATE_INTERVAL]
+           [-a USER_AGENT] [-n APP_NAME] [-s APP_VERSION]
+           [--download-latest RELEASE_AREA] [-w BUILDFILE] [-z TARBALL]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         Print the current GWE version.
+  -p, --path            Print the installation path to GWE python package.
+  -e, --engine-conf     Print the contents of the Engine.config file.
+  -g, --gateway-cfg     Print the contents of the Gateway.cfg file.
+  -C, --gateway-cik     Print the GWE cik.
+  -o, --once            Do not continuously run GWE. Run once and exit.
+  -x, --create-buildfile
+                        Create buildfile.
+  -y, --build-app-tarball
+                        Build application tarball.
+  -I APP_TARBALL [APP_TARBALL ...], --install-apps APP_TARBALL [APP_TARBALL ...]
+                        Provide the path to a tarball or a list of paths to tarballs to install.
+  -c CIK, --set-cik CIK
+                        Set the GWE cik with provided value.
+  -m MODEL, --set-model MODEL
+                        Set the GWE model with provided value.
+  -r VENDOR, --set-vendor VENDOR
+                        Set the GWE vendor with provided value.
+  -P PRODUCT_ID, --set-product-id PRODUCT_ID
+                        Configure GWE with your Murano Product ID with provided value.
+  -u UUID, --set-uuid UUID
+                        Set the GWE uuid/serial-number with provided value.
+  -i IFACE, --set-iface IFACE
+                        Set the hardware interface (e.g. eth0, wlan0, ppp0, etc.)
+                        for GWE to use to get a MAC address as its 
+                        uuid/serial-number.
+  -l INTERVAL_SECONDS, --set-act-retry-interval INTERVAL_SECONDS
+                        Set activation retry interval in seconds. The activation 
+                        retry interval is the amount of time gwe waits in between 
+                        successive activation requests.
+  -d {DEBUG,INFO,WARNING,ERROR,CRITICAL}, --set-debug-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}
+                        Set the runtime logging level of GWE.
+  -t UPDATE_INTERVAL, --set-update-interval UPDATE_INTERVAL
+                        Set period (in seconds) of time between GWE check-ins.
+  -a USER_AGENT, --set-user-agent USER_AGENT
+                        Set the GWE User-Agent HTTP header.
+  -n APP_NAME, --app-name APP_NAME
+                        The name of the Custom Gateway Application. This is the NAME in NAME.v1.tar.gz.
+  -s APP_VERSION, --app-version APP_VERSION
+                        The version of the Custom Gateway Application. This is the VERSION in NAME.vVERSION.tar.gz
+  --download-latest RELEASE_AREA
+                        Download the latest release of Gateway Engine.
+
+                        Currently there are several release areas to choose from:
+
+                         * gmq-master:      The most common and popular release of 
+                                            Gateway Engine that contains the 
+                                            store-and-forward Gateway Message
+                                            Queuing (GMQ) server.
+                         * gmq-dev:         Same as gmq-master, but built from a 
+                                            development branch used for testing and 
+                                            development. Not intended for Production use.
+                         * baseline-master: This is a stripped-down version of Gateway
+                                            Engine that contains only a minimal feature-set.
+                         * baseline-dev:    Same as baseline-master, but built from a 
+                                            development branch used for testing and 
+                                            development. Not intended for Production use.
+
+                        Example usage:
+
+                            $ gwe --download-latest gmq-master
+  -w BUILDFILE, --check-buildfile BUILDFILE
+                        Checks the gwe.build file for common problems. Does not detect all problems.
+  -z TARBALL, --check-tarball TARBALL
+                        Checks GWE tarball for things like structure, optional elements.
+</code></pre><h1 id="documentation">Documentation</h1>
+<p>The documentation for <code>gateway-engine</code> can be built with the <a href="http://www.sphinx-doc.org/">Sphinx Documentation</a> tool. The <code>Makefile</code> has been modified to include the creation of a single PDF.</p>
+<p>To create the docs, simply run:</p>
+<pre><code>cd gateway-engine
+mkvirtualenv gateway-engine-sphinx
+python setup.py install
+pip install -r requirements-docs.txt
+make html
+</code></pre><p>To create a PDF file of all of the documentation, simply run:</p>
+<pre><code>make singlepdf
+</code></pre><h1 id="over-the-air-updates">Over-the-Air Updates</h1>
+<p>The primary function of GWE is to provide Over-the-Air-Updates (OTAU). Utilizing Exosite&#39;s Content Area, GWE makes updating software running on your gateway simple, reliable, and secure. </p>
+<p>Over-the-Air Updates can take many forms:</p>
+<ul>
+<li>Versioned application software upgrades</li>
+<li>Installation of new applications</li>
+<li>Retrieving the status of connected hardware</li>
+<li>Sending one-off commands to the gateway (reboot, restart app, etc.)</li>
+</ul>
+<p>The Over-the-Air Update capability of GWE is essentially limited by the capabilities of the gateways themselves.</p>
+<h1 id="process-monitoring">Process Monitoring</h1>
+<p>Software crashes. This fact causes countless hours of lost sleep for IoT developers everywhere. GWE calms this issue down by utilizing the very popular, open source project <a href="http://supervisord.org">supervisor</a>. The <code>supervisor</code> tool provides a simple interface to monitoring a gateway application&#39;s statistics (runtime, exitcode, status, etc.) as well as immediately restarting an application if it crashes. Since GWE relies on <code>supervisor</code> for these features, it comes with all of the configuration possibilities of <code>supervisor</code> for free as well.</p>
+<h1 id="statistics-reporting">Statistics Reporting</h1>
+<p>The default behavior of GWE is to report things like:</p>
+<ul>
+<li>Disk space utilization</li>
+<li>Internet interface utilization</li>
+<li>Static OS information</li>
+</ul>
+<p>As with any other Linux OS, gateways can suffer from their disk space getting filled up and GWE gives you visibility on this metric by default. Another key metric is how much data you are sending and receiving on the network. This is especially crucial for cellular gateways. GWE provides some level of statistics on bandwidth consumption. And in addition to information that always changes, GWE reports things like kernel version and build information so you can quickly and easily sort and filter a fleet of gateways based on these data.</p>
+<h1 id="exosite-apis">Exosite APIs</h1>
+<p>GWE comes with the <a href="/reference/products/device_api/http/">HTTP and Provisioning</a> implemented in Python as a globally importable module that, in essence, functions as the gateway protocol layer. This means that, if you choose to write your applications in Python, you will not have to spend time writing an Exosite interface library to make HTTP and Provisioning calls. This library is developed in a separate repository called <code>device-client</code>.</p>
+<pre><code># test_app.py
+from exo.api import ExositeAPI
+from time import sleep
+from math import *
+
+a = ExositeAPI(cik=&#39;7f091cf4b16de3fb3172c253eb35109a6992d76b&#39;)
+
+while True:
+    # each loop iteration is another point on a sinusoid
+    data = int(100 * cos(radians(time.clock()) * 100))
+    a.http_write(&#39;test&#39;,data) # send data to &#39;test&#39; alias
+    sleep(5)
+</code></pre><p>In the above code snippet, the <code>http_write()</code> function handles all of the Exosite communication and represents pages of code you no longer have to write. More information on the API library in the <code>device-client</code> project documentation.</p>
+<h1 id="hosted-applications">Hosted Applications</h1>
+<p>You can write your applications in any language you want. Exosite understands that every IoT application is different and that every situation is different. The fact that GWE is written in Python does not preclude a developer from writing the actual business application in Java, Perl, C, or even BASH. If you compile your application from C, or use interpreted languages like Python or Perl, GWE will still work with your application. This is because GWE operates at the process level. If the application runs as a process on the gateway, GWE will work with it just fine.</p>
+<h1 id="example">Example</h1>
+<p>What exactly is an application?</p>
+<p>For example, say you are a developer at a company that makes temperature sensors. The sensors report their data over Bluetooth Low Energy (BLE), so you will need an Internet gateway with a BLE radio. Now you need to write an application to run on the gateway that collects data from any number of these temperature sensors. This BLE application is what you want to develop, debug, and test. You do not want to spend your time writing an HTTP library for interacting with Exosite&#39;s OnePlatform APIs. You do not want to spend your time writing scripts that restart the temperature sensor application if it crashes, or rotating log files if they get too large. You just want to write the application that collects sensor data and reports it.</p>
+<pre><code># /usr/local/bin/temp_app.v1/temp_app.cfg
+cik = &#39;&#39;
+vendor = dubhxzv0r4e1m7vj
+model = dubhxzv0r4e1m7vj
+uuid = AF:14:B9:00:50:2C
+</code></pre><pre><code># /usr/local/bin/temp_app.v1/temp_app.py
+&quot;&quot;&quot; An example of subclassing Device. &quot;&quot;&quot;
+from exo.device import Device
+from time import sleep
+from my_BLE_LIB import get_BLE_temp
+
+PATH_TO_DEVICE_CFG = &#39;/usr/local/bin/temp_app.v1/temp_app.cfg&#39;
+
+class TempSensor(Device):
+    def __init__(self):
+        Device.__init__(
+          &#39;temp_sensor_v1&#39;,
+          PATH_TO_DEVICE_CFG
+        )
+    def report_tmp(self):
+        self.http_write(&#39;device_temp&quot;, get_BLE_temp())
+
+if __name__ == &#39;__main__&#39;:
+    d = TempSensor()
+    while not d.activated():
+        d.activate()
+    while True:
+        d.report_tmp()
+        sleep(300) # report temp to exosite every 5 minutes
+</code></pre><h1 id="updating-and-installing-applications">Updating and Installing Applications</h1>
+<p>Now that the temp sensor application is written, it is time to plug it into GWE.</p>
+<p>In order to get GWE to download and install a new application or update an existing one, it has to first be uploaded to the Exosite Content Area. For this reason, applications need to be in the form of tarballs. This gives us a single file with which we can download and parse for its name and version.</p>
+<h2 id="custom-gateway-application-assets">Custom Gateway Application Assets</h2>
+<p>In order to install your application, GWE needs it in a certain form, with certain files present. Here are the rules:</p>
+<h3 id="the-install-script">The Install Script</h3>
+<p>Create an install script called <code>install.sh</code> with </p>
+<ul>
+<li>its <code>x</code> bit set</li>
+<li>a &quot;shebang&quot; on the first line pointing the GNU SHELL</li>
+</ul>
+<p>The <code>install.sh</code> script must contain all the instructions GWE needs to install your application. These instructions are completely up to you (the developer).</p>
+<pre><code>    (bash) $ cat &lt;&lt; EOF &gt; install.sh
+#!/bin/sh
+
+INSTALL_PATH=&quot;/usr/local/bin&quot;
+
+echo &quot;Installing test_app...&quot;
+set -x
+mkdir -p ${INSTALL_PATH}
+cp test_app.py ${INSTALL_PATH}/
+set +x
+echo &quot;Installation complete.&quot;
+
+EOF
+    (bash) $ chmod +x install.sh
+    (bash) $
+</code></pre><h3 id="the-supervisor-configuration-file">The Supervisor Configuration File</h3>
+<p>Though this file is not a requirement for any custom gateway application, it is recommended for use with any long-running application. An example of when it is not used is when the &quot;app&quot; is a single command like <code>reboot</code> in the <code>install.sh</code> script or a simple maintenance script that changes configurations or uploads some debug data. For long-running applications, a file called <code>supervisor.conf</code> must be included with the app with the rules you (the developer) decide are the right rules for supervisor to manage your app. All supervisor configuration options are supported, but some defaults are imposed if they are not included in your <code>supervisor.conf</code> file. These defaults are:</p>
+<ul>
+<li>&#39;command&#39;: &#39;command&#39;</li>
+<li>&#39;stdout_logfile&#39;: &#39;/var/log/<APP_NAME>.log&#39;,</li>
+<li>&#39;redirect_stderr&#39;: &#39;true&#39;,</li>
+<li>&#39;stdout_logfile_maxbytes&#39;: &#39;200KB&#39;,</li>
+<li>&#39;stdout_logfile_backups&#39;: &#39;1&#39;,</li>
+</ul>
+<p>If your <code>supervisor.conf</code> file contains any of these defaults, your values will be used instead. These defaults are provided as a means to avoid filling up the gateway hard disk.</p>
+<h3 id="the-application-tarball">The Application Tarball</h3>
+<p>Your custom gateway application must take the form of a gzip&#39;ed tarfile with a somewhat strict naming convention. It must contain the name of the app and the version as well as the suffix <code>.tar.gz</code>.</p>
+<pre><code>(bash) $ APP_NAME=test_app
+(bash) $ VERSION=1
+(bash) $ tar zcvf ${APP_NAME}.v${VERSION}.tar.gz supervisor.conf install.sh test_app.py
+x supervisor.conf
+x install.sh
+x test_app.py
+</code></pre><h2 id="installing-a-custom-gateway-application">Installing a Custom Gateway Application</h2>
+<p>There are a couple ways to install your app onto a gateway with GWE. </p>
+<h3 id="custom-release-packaging">Custom Release Packaging</h3>
+<p>GWE release packages contain a sub-directory called <code>apps_to_install</code> that you can put your app in and then re-package for distribution to hardware vendors.</p>
+<pre><code>(bash) $ tar zxvf GatewayEngine.v1-0-6.tar.gz
+... lots of output ...
+(bash) $ cp test_app.v1.tar.gz gateway-engine/apps_to_install/
+(bash) $ tar zcvf CustomGatewayEngine.v1-0-6.tar.gz gateway-engine
+... lots of output ...
+</code></pre><p>In the repackaging step, the release package is renamed so as not to confuse the two packages—one with the custom app and one without. With the app in the <code>apps_to_install</code> directory you can distribute this new release package to hardware vendors, developers, etc. for installation on production and test gateways. Simply follow the normal GWE installation instructions and the test app will be installed during the regular installation.</p>
+<h3 id="command-line-install">Command Line Install</h3>
+<p>With GWE installed onto your gateway, you can install a custom app with the command line.</p>
+<pre><code>(bash) $ gwe --set-debug-level DEBUG --install-apps test_app.v1.tar.gz
+... lots of output ...
+</code></pre><h3 id="over-the-air-ota-install-update">Over-the-Air (OTA) Install/Update</h3>
+<p>Over-the-air (OTA) installs, though common, can be a bit more involved. It is not too terribly complicated, but several things are assumed in order for this to work so easily:</p>
+<ol>
+<li>You have a Murano account.</li>
+<li>You have a product in your Murano account with GWE&#39;s aliases populated.</li>
+<li>You have a gateway with GWE installed and configured with the product ID in step 2.</li>
+</ol>
+<p>At this point you can perform the OTA install. Take the following steps:</p>
+<ol>
+<li>Upload the app tarball to your Murano Product ID&#39;s content area.</li>
+<li>Write the install command to the GWE&#39;s product ID&#39;s <code>engine_fetch</code> alias.</li>
+</ol>
+<p>The OTA install command for the <code>test_app.v1.tar.gz</code> application is a JSON string as follows:</p>
+<pre><code>{&quot;install&quot;: [{&quot;name&quot;: &quot;test_app.v1.tar.gz&quot;}]}
+</code></pre><h4 id="upload-the-app-tarball-to-your-murano-product-id-s-content-area">Upload the App Tarball to Your Murano Product ID&#39;s Content Area</h4>
+<p>The <a href="https://github.com/exosite/MrMurano">MrMurano</a> tool was created for this and many other purposes. It is currently the only supported tool for uploading any content to a Murano Product ID&#39;s content area. To get your application tarball uploaded, follow the instructions on the <code>MrMurano</code> github page to configure the tool and then use the <code>mr content upload</code> command to upload your application tarball into the content area.</p>
+<h4 id="writing-the-install-command-to-the-engine_fetch-alias">Writing the Install Command to the <code>engine_fetch</code> Alias</h4>
+<p>Once you have uploaded your application tarball to your Product ID&#39;s content area, you can tell GWE to download and install it.</p>
+<p>There are currently two ways to write the JSON install command into your GWE Murano device:</p>
+<ol>
+<li>The Murano Device&#39;s UI.</li>
+<li>The <code>MrMurano</code> command-line tool.</li>
+</ol>
+<h5 id="murano-device-ui">Murano Device UI</h5>
+<p>Navigate the the device and write the JSON install command into the <code>engine_fetch</code> alias.</p>
+<h5 id="mrmurano-command-line-tool">MrMurano Command-line Tool</h5>
+<p>Execute the following command with <code>MrMurano</code>:</p>
+<pre><code>mr product write &lt;GWE_SERIAL_NUMBER&gt; engine_fetch &#39;{&quot;install&quot;: [{&quot;name&quot;: &quot;test_app.v1.tar.gz&quot;}]}&#39;
+</code></pre><p>Once these actions have been taken, GWE will download the app tarball from the Product ID&#39;s content area and install it. The STDOUT output from the install will be written to the Product ID&#39;s <code>fetch_status</code> alias once the install is complete.</p>
+<h3 id="murano-product-aliases">Murano Product Aliases</h3>
+<p>In order to receive status reports from <code>gwe</code> and perform OTAUs, a Murano device must exist in your Product ID with all of the following aliases defined:</p>
+<pre><code> - alias: usage_report
+   name: GatewayEngine Usage
+   format: string
+ - alias: engine_report
+   name: Engine Report
+   format: string/json
+ - alias: engine_fetch
+   name: Install Apps
+   format: string
+ - alias: device_info
+   name: Device Info
+   format: string
+ - alias: update_interval
+   name: Update Interval
+   format: string
+ - alias: fetch_status
+   name: Fetch Status
+   format: string
+</code></pre><h1 id="coda">Coda</h1>
+<p>The examples provided in this document illustrate how GWE can be used as a developer tool and framework for managing fleets of gateways in a production environment. Thank you for taking the time to read this instructional document.</p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

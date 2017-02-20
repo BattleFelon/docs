@@ -1,0 +1,610 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="guide-manage-users">Guide: Manage Users</h1>
+<p>Murano user management supports user authentication, role-based access control, and storage per user.</p>
+<h1 id="prerequisites">Prerequisites</h1>
+<h4 id="user-authentication">User Authentication</h4>
+<ul>
+<li>Basic (email &amp; password)</li>
+<li>Token based</li>
+<li>Social auth</li>
+</ul>
+<h4 id="user-permission">User Permission</h4>
+<p>User permission is based on <a href="https://en.wikipedia.org/wiki/Role-based_access_control">RBAC</a>.
+In this system, there are three concrete elements: &rsquo;role&rsquo;, &rsquo;user&rsquo;, and &rsquo;endpoint&rsquo;. According to RBAC, you can control a user&rsquo;s access to endpoint with the concept below:</p>
+<ol>
+<li>Assign endpoint to role</li>
+<li>Assign role to user</li>
+<li>User can access the endpoint of their role</li>
+</ol>
+<p><img src="../assets/user_1.png" alt="User Diagram 1"></p>
+<p>However, URL can be different in variable practically. For example, &rsquo;<em>device/1/info</em>&rsquo; and &rsquo;<em>device/2/info</em>&rsquo; are different literally but can be considered the same endpoint. You do not want to create two endpoints for such a difference. That is why the fourth element called &rsquo;parameter&rsquo; is added.</p>
+<p>&rsquo;Parameter&rsquo; represents a specific resource by name and value. It is marked as {&lt;parameter_name&gt;} in endpoint. Here, the creation of only one endpoint &rsquo;device/{rid}/info&rsquo; for &rsquo;<em>device/1/info</em>&rsquo; and &rsquo;<em>device/2/info</em>&rsquo; is needed.
+When user permission is granted, it is necessary to specify parameters for each role assignment.</p>
+<p><img src="../assets/user_2.png" alt="User Diagram 2"></p>
+<p>If you want to grant &rsquo;UserA&rsquo; access to &rsquo;<em>device/1/info</em>&rsquo;, you can:</p>
+<ol>
+<li>Create a role called &rsquo;Viewer&rsquo;.</li>
+<li>Add parameter definition &rsquo;rid&rsquo; to role &rsquo;Viewer&rsquo;, which means parameter &rsquo;rid&rsquo; is available in role &rsquo;Viewer&rsquo;.</li>
+<li>Assign endpoint &rsquo;<em>device/{rid}/info</em>&rsquo; to role &rsquo;Viewer&rsquo;.</li>
+<li>Assign role &rsquo;Viewer&rsquo; with parameter &rsquo;rid&rsquo;(name) = 1(value) to &rsquo;UserA&rsquo;.</li>
+<li>Now UserA is allowed access to &rsquo;<em>device/1/info</em>&rsquo; when you check their permission.</li>
+</ol>
+<h4 id="storage-per-user">Storage Per User</h4>
+<p>The provided storage per user stores data by key-value format. Since a user&rsquo;s properties are only email and name, you can put more individual information in storage (for example, address, birthday, etc.).</p>
+<h1 id="-span-id-head_tutorial_example-tutorial-example-in-scripting-system-span-"><span id="head_tutorial_example">Tutorial Example in Scripting System</span></h1>
+<p>Assume you are running a parking application.
+There are two major roles in your system. One: the driver wants to park their vehicle. Two: the parking lot/garage charges drivers for parking.</p>
+<p>To separate their permission, you should create at least two roles.</p>
+<h6 id="-span-id-eg_createrole-span-"><span id="eg_createRole"></span></h6>
+<pre><code class="lang-lua">-- Create role &#39;vehicle_driver&#39; for driver
+local role_vehicle_driver = {
+    [&quot;role_id&quot;] = &quot;vehicle_driver&quot;
+}
+User.createRole(role_vehicle_driver)
+
+-- Create role &#39;parking_area_manager&#39;
+local role_parking_area_manager = {
+    [&quot;role_id&quot;] = &quot;parking_area_manager&quot;
+}
+User.createRole(role_parking_area_manager)
+</code></pre>
+<p>Suppose you have two users:</p>
+<p><strong>User_Parking_Area</strong> is in role &rsquo;parking_area_manager&rsquo; and has unique ID = <strong>1</strong>.</p>
+<h6 id="-span-id-eg_createuser-span-"><span id="eg_createUser"></span></h6>
+<pre><code class="lang-lua">-- Create User_Parking_Area
+local new_user = {
+    [&quot;name&quot;] = &quot;User_Parking_Area&quot;,
+    [&quot;email&quot;] = &quot;demo_parking_area@exosite.com&quot;,
+    [&quot;password&quot;] = &quot;demo777&quot;
+}
+local activation_code = User.createUser(new_user)
+</code></pre>
+<h6 id="-span-id-eg_activateuser-span-"><span id="eg_activateUser"></span></h6>
+<pre><code class="lang-lua">-- Need to activate user after creating
+local parameters = {
+    [&quot;code&quot;] = activation_code
+}
+User.activateUser(parameters)
+</code></pre>
+<p><strong>User_Vehicle</strong> is in role &rsquo;vehicle_driver&rsquo; and has unique ID = <strong>2</strong>.</p>
+<pre><code class="lang-lua">-- Create User_Vehicle
+local new_user = {
+    [&quot;name&quot;] = &quot;User_Vehicle&quot;,
+    [&quot;email&quot;] = &quot;demo_vehicle@exosite.com&quot;,
+    [&quot;password&quot;] = &quot;demo777&quot;
+}
+local activation_code = User.createUser(new_user)
+
+-- Activate User_Vehicle
+local parameters = {
+    [&quot;code&quot;] = activation_code
+}
+User.activateUser(parameters)
+</code></pre>
+<p>In this tutorial, you will assume each driver has exactly one vehicle. This is a simplification that allows you to respect the User Management focus of this tutorial. You will represent the driver&#39;s vehicle data in a keystore record derived from the user&#39;s ID.</p>
+<h6 id="-span-span-"><span></span></h6>
+<pre><code class="lang-lua">--- Store User_Vehicle&#39;s license plate number
+local driver_id = 2 -- User ID of User_Vehicle
+parameters = {
+    [&quot;key&quot;] = &quot;Driver_&quot;..driver_id..&quot;_Vehicle_License_Plate_Number&quot;,
+    [&quot;value&quot;] = &quot;QA-7712&quot;
+}
+Keystore.set(parameters)
+
+-- Initialize User_Vehicle&#39;s parking start time
+parameters = {
+    [&quot;key&quot;] = &quot;Driver_&quot;..driver_id..&quot;_Parking_Start_Time&quot;,
+    [&quot;value&quot;] = &quot;0000-00-00 00:00:00&quot; -- current parking start time
+}
+Keystore.set(parameters)
+</code></pre>
+<h3 id="scenario-list-control">Scenario: List Control</h3>
+<p>First, support an endpoint for parking areas to manage their parking spaces. This endpoint is expected to list unique IDs of parking spaces.</p>
+<pre><code class="lang-lua">-- Create endpoint for listing parking spaces of parking area
+local list_parking_space_endpoint = {
+    [&quot;method&quot;] = &quot;GET&quot;,
+    [&quot;end_point&quot;] = &quot;list/{parkingAreaID}/parkingSpace&quot; -- This endpoint contains a parameter name &#39;parkingAreaID&#39;
+}
+User.createPermission(list_parking_space_endpoint)
+
+-- Assign endpoint to role &#39;parking_area_manager&#39;, so parking area managers can access it.
+local endpoints = {
+    [&quot;method&quot;] = &quot;GET&quot;,
+    [&quot;end_point&quot;] = &quot;list/{parkingAreaID}/parkingSpace&quot;
+}
+User.addRolePerm({[&quot;role_id&quot;] = &quot;parking_area_manager&quot;, [&quot;body&quot;] = endpoints})
+</code></pre>
+<p>To let <strong>User_Parking_Area</strong> access <em>&#39;GET list/1/parkingSpace&#39;</em>, grant <strong>User_Parking_Area</strong> permisson on &#39;parkingAreaID&#39; = 1 in role &#39;parking_area_manager&#39;.</p>
+<pre><code class="lang-lua">-- We should add parameter definition before assigning roles with new parameter name.
+local param_definitions = {
+    {
+        [&quot;name&quot;] = &quot;parkingAreaID&quot;
+    }
+}
+User.addRoleParam({[&quot;role_id&quot;] = &quot;parking_area_manager&quot;,  [&quot;body&quot;] = param_definitions})
+
+-- Grant User_Parking_Area parameter &#39;parkingAreaID&#39; = 1 in role &#39;parking_area_manager&#39;
+local roles_assigned = {
+    {
+        [&quot;role_id&quot;] = &quot;parking_area_manager&quot;,
+        [&quot;parameters&quot;] = {
+            {
+                [&quot;name&quot;] = &quot;parkingAreaID&quot;,
+                [&quot;value&quot;] = 1
+            }
+        }
+    }
+}
+User.assignUser({[&quot;id&quot;] = 1, [&quot;roles&quot;] = roles_assigned})
+</code></pre>
+<p>Now <strong>User_Parking_Area</strong> can access <em>&#39;GET list/1/parkingSpace&#39;</em>.</p>
+<p>Next, make the list returned in response.</p>
+<p>Assume there are two parking spaces in <strong>User_Parking_Area</strong>. Each parking space has a device RID. Devices can detect the status of a parking space. You can make <strong>User_Parking_Area</strong> have device RIDs by assigning roles. </p>
+<pre><code class="lang-lua">-- We should add parameter definition before assigning roles with new parameter name.
+local param_definitions = {
+    [&quot;role_id&quot;] = &quot;parking_area_manager&quot;,
+    [&quot;body&quot;] = {
+        {
+            [&quot;name&quot;] = &quot;spaceRID&quot; -- device RID
+        }
+    }
+}
+User.addRoleParam(param_definitions)
+
+-- Grant User_Parking_Area access to his parking space RIDs
+local roles_assigned = {
+    {
+        [&quot;role_id&quot;] = &quot;parking_area_manager&quot;,
+        [&quot;parameters&quot;] = {
+            {
+                [&quot;name&quot;] = &quot;spaceRID&quot;,
+                [&quot;value&quot;] = &quot;d2343hbcc1232sweee12&quot; -- first parking space RID
+             },
+             {
+                [&quot;name&quot;] = &quot;spaceRID&quot;,
+                [&quot;value&quot;] = &quot;a34feh709a234e232xd21&quot; -- second parking space RID
+             }
+        }
+    }
+}
+User.assignUser({[&quot;id&quot;] = 1, [&quot;roles&quot;] = roles_assigned})
+</code></pre>
+<p>After roles assignment, you can return a paginated list of &rsquo;spaceRID&rsquo; when <strong>User_Parking_Area</strong> accesses <em>&#39;GET list/1/parkingSpace&#39;</em>.</p>
+<h6 id="-span-id-eg_listuserroleparamvalues-span-"><span id="eg_listUserRoleParamValues"></span></h6>
+<pre><code class="lang-lua">local parameters = {
+    [&quot;id&quot;] = 1, -- User ID of User_Parking_Area
+    [&quot;role_id&quot;] = &quot;parking_area_manager&quot;,
+    [&quot;parameter_name&quot;] = &quot;spaceRID&quot;,
+    [&quot;offset&quot;] = 0, -- offset for pagination
+    [&quot;limit&quot;] = 10 -- limit for pagination
+}
+local result = User.listUserRoleParamValues(parameters)
+response.message = result.items -- return the list of RID
+</code></pre>
+<h3 id="scenario-endpoint-access-control">Scenario: Endpoint Access Control</h3>
+<p>Second, support an endpoint for drivers to look for a vacant parking space. Drivers can query a number of vacancy in every parking area while each parking area manager is restricted to their own.</p>
+<h6 id="-span-id-eg_createpermission-span-"><span id="eg_createPermission"></span></h6>
+<pre><code class="lang-lua">-- Create endpoint for querying vacant parking space
+local available_space_endpoint = {
+    [&quot;method&quot;] = &quot;GET&quot;,
+    [&quot;end_point&quot;] = &quot;query/{parkingAreaID}/availableSpace&quot; -- The endpoint contains a parameter name &#39;parkingAreaID&#39;.
+}
+User.createPermission(available_space_endpoint)
+</code></pre>
+<h6 id="-span-id-eg_addroleperm-span-"><span id="eg_addRolePerm"></span></h6>
+<pre><code class="lang-lua">-- Assign the endpoint to roles &#39;vehicle_driver&#39; and &#39;parking_area_manager&#39;, so drivers and parking area managers can access the endpoint.
+local endpoints = {
+    {
+        [&quot;method&quot;] = &quot;GET&quot;,
+        [&quot;end_point&quot;] = &quot;query/{parkingAreaID}/availableSpace&quot;
+    }
+}
+-- Let drivers access this endpoint
+User.addRolePerm({[&quot;role_id&quot;] = &quot;vehicle_driver&quot;, [&quot;body&quot;] = endpoints})
+-- Let parking area managers access this endpoint
+User.addRolePerm({[&quot;role_id&quot;] = &quot;parking_area_manager&quot;, [&quot;body&quot;] = endpoints})
+</code></pre>
+<p>To let <strong>User_Parking_Area</strong> access <em>&#39;GET query/1/availableSpace&#39;</em>, <strong>User_Parking_Area</strong> should have parameter &#39;parkingAreaID&#39; = 1 in role &#39;parking_area_manager&#39;. Since they have been assigned it before, there is no need to assign again.</p>
+<p>To let <strong>User_Vehicle</strong> access <em>&#39;GET query/\</em>/availableSpace&#39;<em>, you should grant <strong>User_Vehicle</strong> permission on &#39;parkingAreaID&#39; = </em> in role &#39;vehicle_driver&#39;.</p>
+<h6 id="-span-id-eg_addroleparam-span-"><span id="eg_addRoleParam"></span></h6>
+<pre><code class="lang-lua">-- To role &#39;vehicle_driver&#39;, parameter name &#39;parkingAreaID&#39; is new. Before assigning roles with new parameter name, you need to add parameter definition.
+local param_definitions = {
+    {
+        [&quot;name&quot;] = &quot;parkingAreaID&quot;
+    }
+}
+User.addRoleParam({[&quot;role_id&quot;] = &quot;vehicle_driver&quot;,  [&quot;body&quot;] = param_definitions})
+</code></pre>
+<h6 id="-span-id-eg_assignuser-span-"><span id="eg_assignUser"></span></h6>
+<pre><code class="lang-lua">-- Grant User_Vehicle all value of parkingAreaID in role &#39;vehicle_driver&#39;
+local roles_assigned = {
+    {
+        [&quot;role_id&quot;] = &quot;vehicle_driver&quot;,
+        [&quot;parameters&quot;] = {
+            {
+                [&quot;name&quot;] = &quot;parkingAreaID&quot;,
+                [&quot;value&quot;] = {
+                    [&quot;type&quot;] = &quot;wildcard&quot; -- this format represents all values
+                }
+            }
+        }
+    }
+}
+User.assignUser({[&quot;id&quot;] = 2, [&quot;roles&quot;] = roles_assigned})
+</code></pre>
+<p>Now you can prepare the number returned in response.</p>
+<p>You already know there are two parking spaces in <strong>User_Parking_Area</strong>. Assume that each parking area is managed by one manager. Thus, info can be stored in keystore storage with the key derived from the manager&#39;s ID.</p>
+<pre><code class="lang-lua">-- Set number of vacancy info for User_Parking_Area
+local manager_id = 1 -- User ID of User_Parking_Area
+parameters = {
+    [&quot;key&quot;] = &quot;Parking_Area_&quot;..manager_id..&quot;_Number_of_Vacancy&quot;,
+    [&quot;value&quot;] = 2 -- Assuming currently there is no vehicle parked in User_Parking_Area.
+}
+Keystore.set(parameters) -- We store value by Keystore service.
+</code></pre>
+<p>When permitted user accesses <em>&#39;GET  query/1/availableSpace&#39;</em>, you can return the number.</p>
+<pre><code class="lang-lua">-- Get number of vanacy of User_Parking_Area
+local manager_id = 1 -- User ID of User_Parking_Area
+parameters = {
+    [&quot;key&quot;] = &quot;Parking_Area_&quot;..manager_id..&quot;_Number_of_Vacancy&quot;
+}
+local number = Keystore.get(parameters)
+response.message = number
+</code></pre>
+<p>The background process of permission check when the user accesses endpoint can be replicated as follows:</p>
+<h6 id="-span-id-eg_hasuserperm-span-"><span id="eg_hasUserPerm"></span></h6>
+<pre><code class="lang-lua">-- Check if User_Vehicle can access GET query/1/availableSpace.
+local check_permission = {
+    [&quot;id&quot;] = 2, -- User ID of User_Vehicle
+    [&quot;perm_id&quot;] = &quot;GET/query/{parkingAreaID}/availableSpace&quot;, -- {method}/{end_point}
+    [&quot;parameters&quot;] = {
+        &quot;parkingAreaID::1&quot; -- Specifies value 1 for parameter &#39;parkingAreaID&#39; in endpoint
+    }
+}
+local result = User.hasUserPerm(check_permission)
+</code></pre>
+<p>Because <strong>User_Vehicle</strong> has been assigned with all values of &rsquo;parkingAreaID&rsquo; in role &rsquo;vehicle_driver&rsquo;, variable &rsquo;result&rsquo; is expected to be &rsquo;OK&rsquo;.</p>
+<pre><code class="lang-lua">-- Check if User_Parking_Area can access &#39;GET query/1/availableSpace&#39;.
+local check_param = {
+    [&quot;id&quot;] = 1, -- User ID of User_Parking_Area
+    [&quot;perm_id&quot;] = &quot;GET/query/{parkingAreaID}/availableSpace&quot;, -- {method}/{end_point}
+    [&quot;parameters&quot;] = {
+        &quot;parkingAreaID::1&quot; -- Specifies value 1 for parameter &#39;parkingAreaID&#39; in endpoint
+    }
+}
+local result = User.hasUserPerm(check_param)
+</code></pre>
+<p>Because <strong>User_Parking_Area</strong> has been assigned with &rsquo;parkingAreaID = 1&rsquo; in role &rsquo;parking_area_manager&rsquo;, variable &rsquo;result&rsquo; is expected to be &rsquo;OK&rsquo;.</p>
+<h3 id="scenario-application-of-user-storage-and-endpoint-access-control">Scenario: Application of User-storage and Endpoint-access-control</h3>
+<p>An endpoint for parking area managers to query info of a vehicle, such as parking time or license plate number, is also supported. Each parking area manager can only see info of vehicles parked in their spaces.</p>
+<pre><code class="lang-lua">-- Create endpoint &#39;GET query/{parkingAreaID}/parkingVehicle/{vehicleID}/info&#39;
+local vehicle_info_endpoint = {
+    [&quot;method&quot;] = &quot;GET&quot;,
+    [&quot;end_point&quot;] = &quot;query/{parkingAreaID}/parkingVehicle/{vehicleID}/info&quot;
+}
+User.createPermission(vehicle_info_endpoint)
+
+-- Assign endpoint to role &#39;parking_area_manager&#39;, so parking area managers can access this endpoint.
+local endpoints_assigned = {
+    {
+        [&quot;method&quot;] = &quot;GET&quot;,
+        [&quot;end_point&quot;] = &quot;query/{parkingAreaID}/parkingVehicle/{vehicleID}/info&quot; -- This endpoint contains a parameter name &#39;vehicleID&#39;
+    }
+}
+User.addRolePerm({[&quot;role_id&quot;] = &quot;parking_area_manager&quot;, [&quot;body&quot;] = endpoints_assigned})
+
+-- Add parameter definition &#39;vehicleID&#39; to role &#39;parking_area_manager&#39; for assigning role &#39;parking_area_manager&#39; with parameter &#39;vehicleID&#39;
+local param_definitions = {
+    {
+        [&quot;name&quot;] = &quot;vehicleID&quot;
+    }
+}
+User.addRoleParam({[&quot;role_id&quot;] = &quot;parking_area_manager&quot;,  [&quot;body&quot;] = param_definitions})
+</code></pre>
+<p>When <strong>User_Vehicle</strong> parks in <strong>User_Parking_Area</strong> (detected by device), <strong>User_Parking_Area</strong> should have the right to see info of <strong>User_Vehicle</strong>.</p>
+<pre><code class="lang-lua">-- Since User_Parking_Area already has &#39;parkingAreaID&#39; = 1 in role &#39;parking_area_manager&#39;, we only need to assign role &#39;parking_area_manager&#39; with extra parameter &#39;vehicleID&#39; = 2 to User_Parking_Area.
+local roles_assigned = {
+    {
+        [&quot;role_id&quot;] = &quot;parking_area_manager&quot;,
+        [&quot;parameters&quot;] = {
+            {
+                [&quot;name&quot;] = &quot;vehicleID&quot;,
+                [&quot;value&quot;] = 2 -- User ID of User_Vehicle
+            }
+        }
+    }
+}
+User.assignUser({[&quot;id&quot;] = 1, [&quot;roles&quot;] = roles_assigned})
+</code></pre>
+<h6 id="-span-id-eg_updateuserdata-span-"><span id="eg_updateUserData"></span></h6>
+<pre><code class="lang-lua">-- Add parking info for User_Vehicle
+local driver_id = 2 -- User ID of User_Vehicle
+parameters = {
+    [&quot;key&quot;] = &quot;Driver_&quot;..driver_id..&quot;_Parking_Start_Time&quot;,
+    [&quot;value&quot;] = &quot;2016-08-30 08:10:10&quot;
+}
+Keystore.set(parameters)
+</code></pre>
+<p>For info of the space <strong>User_Vehicle</strong> is parking at, you can create another parameter &#39;parkingSpaceRID&#39; to store relationship by role assignment.</p>
+<pre><code class="lang-lua">-- Create parameter definition for new parameter.
+local param_definitions = {
+    [&quot;role_id&quot;] = &quot;vehicle_driver&quot;,
+    [&quot;body&quot;] = {
+        {
+            [&quot;name&quot;] = &quot;parkingSpaceRID&quot; -- device RID of parking space
+        }
+    }
+}
+User.addRoleParam(param_definitions)
+-- User_Vehicle is parking at space &#39;d2343hbcc1232sweee1&#39;.
+local roles_assigned = {
+    {
+        [&quot;role_id&quot;] = &quot;vehicle_driver&quot;,
+        [&quot;parameters&quot;] = {
+            {
+                [&quot;name&quot;] = &quot;parkingSpaceRID&quot;,
+                [&quot;value&quot;] = &quot;d2343hbcc1232sweee1&quot; -- device RID of parking space
+            }
+        }
+    }
+}
+User.assignUser({[&quot;id&quot;] = 2, [&quot;roles&quot;] = roles_assigned})
+</code></pre>
+<p>Because parking space &rsquo;d2343hbcc1232sweee1&rsquo; is occupied, you should also update the number of vacancy of <strong>User_Parking_Area</strong>.</p>
+<pre><code class="lang-lua">-- Get current number of vacancy of User_Parking_Area
+local manager_id = 1
+parameters = {
+    [&quot;key&quot;] = &quot;Parking_Area_&quot;..manager_id..&quot;_Number_of_Vacancy&quot;
+}
+local latest_number = Keystore.get(parameters)
+
+-- Update number of vacancy to latest
+parameters = {
+    [&quot;key&quot;] = &quot;Parking_Area_&quot;..manager_id..&quot;_Number_of_Vacancy&quot;,
+    [&quot;value&quot;] = latest_number - 1 -- User_Vehicle just occupied one parking space.
+}
+Keystore.set(parameters)
+</code></pre>
+<p>Now <strong>User_Parking_Area</strong> can access <em>&#39;GET query/1/parkingVehicle/2/info&#39;</em> to get parking info of <strong>User_Vehicle</strong>.</p>
+<h6 id="-span-span-"><span></span></h6>
+<pre><code class="lang-lua">-- Get parking info of User_Vehicle
+local driver_id = 2 -- User ID of User_Vehicle
+parameters = {
+    [&quot;key&quot;] = &quot;Driver_&quot;..driver_id..&quot;_Parking_Start_Time&quot;
+}
+local parking_start_time = Keystore.get(parameters)
+
+parameters = {
+    [&quot;key&quot;] = &quot;Driver_&quot;..driver_id..&quot;_Vehicle_License_Plate_Number&quot;
+}
+local license_plate_number = Keystore.get(parameters)
+
+-- Find parking space User_Vehicle is parking at
+
+parameters = {
+    [&quot;id&quot;] = 2, -- User ID of User_Vehicle
+    [&quot;role_id&quot;] = &quot;vehicle_driver&quot;,
+    [&quot;parameter_name&quot;] = &quot;parkingSpaceRID&quot;
+}
+local values = User.listUserRoleParamValues(parameters)
+local parking_space_rid = values[1]
+
+-- response with parking info
+response.message = {
+    [&quot;parking_start_time&quot;] = parking_start_time,
+    [&quot;license_plate_number&quot;] = license_plate_number,
+    [&quot;parking_space_rid&quot;] = parking_space_rid
+}
+</code></pre>
+<p>When <strong>User_Vehicle</strong> is going to leave, <strong>User_Parking_Area</strong> can charge them according to the parking time.</p>
+<p>After <strong>User_Vehicle</strong> leaves, remove <strong>User_Vehicle</strong> from the parking list of <strong>User_Parking_Area</strong> and update relevant info.</p>
+<pre><code class="lang-lua">local roles_removed = {
+    [&quot;id&quot;] = 1, -- User ID of User_Parking_Area
+    [&quot;role_id&quot;] = &quot;parking_area_manager&quot;,
+    [&quot;parameter_name&quot;] = &quot;vehicleID&quot;,
+    [&quot;parameter_value&quot;] = 2 -- User ID of User_Vehicle
+}
+User.deassignUserParam(roles_removed)
+
+-- Also remove relationship between User_Vehicle and parking space
+local roles_removed = {
+    [&quot;id&quot;] = 2, -- User ID of User_Vehicle
+    [&quot;role_id&quot;] = &quot;vehicle_driver&quot;,
+    [&quot;parameter_name&quot;] = &quot;parkingSpaceRID&quot;,
+    [&quot;parameter_value&quot;] = &quot;d2343hbcc1232sweee1&quot;
+}
+User.deassignUserParam(roles_removed)
+
+-- Update parking info of User_Vehicle
+local driver_id = 2 -- User ID of User_Vehicle
+parameters = {
+    [&quot;key&quot;] = &quot;Driver_&quot;..driver_id..&quot;_Parking_Start_Time&quot;,
+    [&quot;value&quot;] = &quot;0000-00-00 00:00:00&quot;
+}
+Keystore.set(parameters)
+
+-- Update number of vacancy of User_Parking_Area
+local manager_id = 1
+parameters = {
+    [&quot;key&quot;] = &quot;Parking_Area_&quot;..manager_id..&quot;_Number_of_Vacancy&quot;
+}
+local latest_number = Keystore.get(parameters)
+
+parameters = {
+    [&quot;key&quot;] = &quot;Parking_Area_&quot;..manager_id..&quot;_Number_of_Vacancy&quot;,
+    [&quot;value&quot;] = latest_number + 1 -- User_Vehicle just left.
+}
+Keystore.set(parameters)
+</code></pre>
+<p><strong>User_Parking_Area</strong> cannot access <em>&#39;GET query/1/parkingVehicle/2/info&#39;</em> any longer since <strong>User_Vehicle</strong> is not in their parking list.</p>
+<pre><code class="lang-lua">-- Background process of checking if User_Parking_Area can access &#39;GET query/1/parkingVehicle/2/info&#39;.
+
+local check_permission = {
+    [&quot;id&quot;] = 1, -- User ID of User_Parking_Area
+    [&quot;perm_id&quot;] = &quot;GET/query/{parkingAreaID}/parkingVehicle/{vehicleID}/info&quot;, -- {method}/{end_point}
+    [&quot;parameters&quot;] = {
+        &quot;parkingAreaID::1&quot;, -- Specifies value 1 for parameter &#39;parkingAreaID&#39; in endpoint
+        &quot;vehicleID::2&quot; -- Specifies value 2 for parameter &#39;vehicleID&#39; in endpoint
+    }
+}
+local result = User.hasUserPerm(check_permission)
+</code></pre>
+<p>Because currently <strong>User_Parking_Area</strong> does not have parameter &rsquo;vehicleID&rsquo; = 2 in role &rsquo;parking_area_manager&rsquo;, it is expected to get result.status == 403.</p>
+<h1 id="-span-id-head_reference-reference-for-example-span-"><span id="head_reference">Reference for Example</span></h1>
+<ul>
+<li><p>RBAC</p>
+<ul>
+<li>User<ul>
+<li><a href="#eg_createUser">User.createUser()</a></li>
+<li><a href="#eg_activateUser">User.activateUser()</a></li>
+</ul>
+</li>
+<li>Role<ul>
+<li><a href="#eg_createRole">User.createRole()</a></li>
+<li><a href="#eg_caddRoleParam">User.addRoleParam()</a></li>
+</ul>
+</li>
+<li>Endpoint<ul>
+<li><a href="#eg_createPermission">User.createPermission()</a></li>
+</ul>
+</li>
+<li>Role-Endpoint Relation<ul>
+<li><a href="#eg_addRolePerm">User.addRolePerm()</a></li>
+</ul>
+</li>
+<li>Role-User Relation<ul>
+<li><a href="#eg_assignUser">User.assignUser()</a></li>
+<li><a href="#eg_deassignUserParam">User.deassignUserParam()</a></li>
+<li><a href="#eg_hasUserPerm">User.hasUserPerm()</a></li>
+<li><a href="#eg_listUserRoleParamValues">User.listUserRoleParamValues()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>User Storage</p>
+<ul>
+<li><a href="#eg_createUserData">User.createUserData()</a></li>
+<li><a href="#eg_updateUserData">User.updateUserData()</a></li>
+<li><a href="#eg_getUserData">User.getUserData()</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

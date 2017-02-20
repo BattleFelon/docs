@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="/development/exositeready/gwe/getting_started">Getting Started</a></li>
+<li><a href="/development/exositeready/gwe/product_overview">Product Overview</a> </li>
+<li><a href="/development/exositeready/gwe/release_packages">Release Packages</a></li>
+<li><a href="/development/exositeready/gwe/custom_gateway_applications">Custom Gateway Applications</a></li>
+<li><a href="/development/exositeready/gwe/otau">Over the Air Updates</a></li>
+<li><a href="/development/exositeready/gwe/solution-app">GWE Solution App</a></li>
+<li><a href="/development/exositeready/gwe/device-client">Device Client - Docs</a></li>
+<li><a href="/development/exositeready/gwe/gateway-engine">GWE - Docs</a></li>
+<li><a href="/development/exositeready/gwe/gmq">Gateway Message Queuing - Docs</a></li>
+</ul>
+<h1 id="over-the-air-updates">Over the Air Updates</h1>
+<h2 id="overview">Overview</h2>
+<p>Performing Over the Air Updates to gateways is the core function of
+ExositeReady™ Gateway Engine (GWE) and, more specifically, the <code>gwe</code> process.</p>
+<p>Over the Air Updating can be tricky. To help you understand how GWE&#39;s OTAU feature works, the diagram below was created to show
+the sequence that results in a GWE Over the Air Update.</p>
+<p><img src="/development/exositeready/gwe/otau_image.png" alt="otau"></p>
+<p>In words, this diagram states that GWE will check for the
+<code>engine_fetch</code> alias for specially formatted JSON objects that contain
+instructions for new custom gateway applications or updates to existing
+ones to be downloaded and installed. If there is nothing to download and
+install, it will sleep for the amount of seconds configured in the
+<code>update_interval</code> alias.</p>
+<p><strong>NOTE:</strong> The default value <code>update_interval</code> <code>GatewayEngine</code> uses when it
+starts for the 1st time is <code>14400</code> seconds. This comes out to 12 hours
+(twice/day). If you want to shorten this, write the amount of seconds
+you want <code>GatewayEngine</code> to sleep before it checks in again in the
+<code>update_interval</code> alias. Once it reads this new value, it will &quot;clear&quot;
+the alias (i.e., write an empty string).</p>
+<p>The <code>update_interval</code> can be changed before <code>gwe</code> ever starts with the
+following command:</p>
+<h3 id="command-gateway-">command (<em>gateway</em>)</h3>
+<pre><code>gwe --set-update-interval &lt;INTERVAL&gt;
+</code></pre><p>If this command is run while <code>gwe</code> is running, the process will
+need to be restarted in order for the change to be applied.</p>
+<h3 id="command-gateway-">command (<em>gateway</em>)</h3>
+<pre><code>supervisorctl restart gwe
+</code></pre><h3 id="a-note-on-cellular-vs-development-gateways">A Note on Cellular vs. Development Gateways</h3>
+<p>During the development of your custom gateway application, if you are
+not on a cellular network or otherwise are not concerned with network
+bandwidth usage, use a really fast <code>update_interval</code>. You can set the
+<code>update_interval</code> to as low as one second. Doing so will ensure that
+as soon as you have updates to deploy to the gateway, they will be
+installed immediately.</p>
+<h2 id="uploading-content">Uploading Content</h2>
+<p>In order for GWE to be able to download an OTAU package, it 
+must be uploaded to your GWE product&#39;s content area. To upload
+content to your Product&#39;s content area, use the following MrMurano commands:</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>mr content upload your_app.v1.2.3.tar.gz your_app.v1.2.3.tar.gz
+</code></pre><p>Verify <code>your_app.v1.2.3.tar.gz</code> was uploaded:</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>mr content list
+</code></pre><h2 id="deploy-the-otau">Deploy the OTAU</h2>
+<p>Now that your OTAU package is in the content area, it is available for 
+download by GWE. In order for your gateway to download the 
+OTAU, you must tell it to do so. Remember that GWE checks 
+every <code>update_interval</code> seconds for new OTAUs to download and if there
+aren&#39;t any specified in it&#39;s <code>engine_fetch</code> dataport it won&#39;t do anything.</p>
+<p>To deploy the OTAU <code>your_app.v1.2.3.tar.gz</code> to your gateway, you&#39;ll need
+the following:</p>
+<ul>
+<li>The serial number of the gateway, usually the MAC (e.g. 00:10:C2:9B:A8:46)
+address of the internet interface (<code>eth0</code>, <code>ppp0</code>).</li>
+<li>The filename of the OTAU content for GWE to download and install
+(e.g. <code>your_app.v1.2.3.tar.gz</code>)</li>
+</ul>
+<p>Use the following MrMurano command to deploy the <code>your_app.v1.2.3.tar.gz</code> OTAU
+to gateway with serial number <code>&lt;SERIAL_NUMBER_OF_GATEWAY&gt;</code>:</p>
+<h3 id="example-dev-machine-">example (<em>dev machine</em>)</h3>
+<pre><code>mr product device write &lt;SERIAL_NUMBER_OF_GATEWAY&gt; engine_fetch &#39;{&quot;install&quot;: [{&quot;name&quot;: &quot;your_app.v1.2.3.tar.gz&quot;}]}&#39;
+</code></pre><p>The JSON object must be formatted like this:</p>
+<pre><code>{&quot;install&quot;: [{&quot;name&quot;: &quot;&lt;APP_NAME&gt;.v&lt;VERSION&gt;.tar.gz&quot;}]}
+</code></pre><h2 id="verify-debug">Verify/Debug</h2>
+<p>One of the reasons that GWE is such a powerful developer and fleet management tool for IoT gateway systems is the OTAU feature. Once an OTAU is deployed and GWE checks in to download and install it, it &quot;clears&quot; the <code>engine_fetch</code> dataport to signify that it is now downloading and installing the OTAU package.</p>
+<p>Once the download and install is complete, it writes the STDOUT/STDERR
+of the OTAU package&#39;s <code>install.sh</code> script to the <code>engine_fetch</code> dataport.</p>
+<p>After a reasonable amount of time, you should be able to see the status
+of your OTAU deployment with the following command:</p>
+<h3 id="example-dev-machine-">example (<em>dev machine</em>)</h3>
+<pre><code>mr product device read &lt;SERIAL_NUMBER_OF_GATEWAY&gt; fetch_status
+</code></pre><h1 id="a-development-cycle">A Development Cycle</h1>
+<p>Here is a common development cycle for developing custom gateway applications
+with GWE:</p>
+<ol>
+<li><p>Create/fix custom gateway application.</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>gwe --create-buildfile
+# edit build file
+gwe --check-buildfile &lt;BUILD_FILE&gt;
+gwe --build-app &lt;BUILD_FILE&gt;
+gwe --check-tarball &lt;APP_NAME&gt;.v&lt;VERSION&gt;.tar.gz
+</code></pre><p><strong>NOTE</strong>: The <code>gwe --build-app &lt;BUILD_FILE&gt;</code> command prints the full path to  the new application tarball to STDOUT, but it runs checks on the build file and the new tarball by default. You can view the output by adding the optional debug flags on the command line:</p>
+<pre><code>gwe -d DEBUG --build-app &lt;BUILD_FILE&gt;
+</code></pre></li>
+<li><p>Upload, deploy to gateway.</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>mr content upload &lt;APP_NAME&gt;.v&lt;VERSION&gt;.tar.gz &lt;APP_NAME&gt;.v&lt;VERSION&gt;.tar.gz
+mr product device write &lt;MAC_ADDRESS&gt; engine_fetch &#39;{&quot;install&quot;: [{&quot;name&quot;: &quot;&lt;APP_NAME&gt;.v&lt;VERSION&gt;.tar.gz&quot;}]}&#39;
+</code></pre></li>
+<li><p>Check status of installation.</p>
+<h3 id="command-dev-machine-">command (<em>dev machine</em>)</h3>
+<pre><code>mr product device read &lt;MAC_ADDRESS&gt; fetch_status
+</code></pre></li>
+<li><p>Verify application behavior.</p>
+</li>
+<li>If application still isn&#39;t working right, go to Step 1.</li>
+</ol>
+<h2 id="summary-recap">Summary/Recap</h2>
+<p>The GWE Over-the-Air-Update feature is your most powerful tool
+as a developer because it uses the same installation mechanism for OTAUs
+and command-line installs. When used as the method for deploying 
+development code to your gateway, it paves the pathway for managing your
+fleet of gateways as your IoT system grows over time.</p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

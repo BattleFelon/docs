@@ -1,0 +1,364 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="email-service">Email Service</h1>
+<blockquote>
+<p>This service provides email notification by setting your SMTP relay server.<br/> If the SMTP server is omitted, the email sender is automatically set to <em>mailrelay@exosite.com</em> email address and a limited amount of email per day is allowed depending on your Murano plan.</p>
+</blockquote>
+<h3 id="operations">Operations</h3>
+<h4 id="email">Email</h4>
+<ul>
+<li><a href="#send">Email.send()</a>  - send an email</li>
+</ul>
+<h4 id="settings">Settings</h4>
+<ul>
+<li><a href="#getsettings">Email.getSettings()</a>  - get email settings</li>
+</ul>
+<h2 id="operations">Operations</h2>
+<h3 id="email">Email</h3>
+<hr>
+<h4 id="send">send</h4>
+<blockquote>
+<p>Send an email.<br/> If the <em>connection.server</em> attribute is omitted, the email sender is automatically set to <em>mailrelay@exosite.com</em> email address and a limited amount of email per day is allowed depending on your Murano plan.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The email and connection data</td>
+</tr>
+<tr>
+<td>email.cc</td>
+<td style="text-align:center">[ <em>string(email)</em> ]</td>
+<td>Carbon copy destination(s) email address(es)</td>
+</tr>
+<tr>
+<td>email.<strong>to</strong></td>
+<td style="text-align:center">[ <em>string(email)</em> ]</td>
+<td>Destination(s) email address(es)</td>
+</tr>
+<tr>
+<td>email.bcc</td>
+<td style="text-align:center">[ <em>string(email)</em> ]</td>
+<td>Blind carbon copy destination(s) email address(es)</td>
+</tr>
+<tr>
+<td>email.from</td>
+<td style="text-align:center"><em>string(email)</em></td>
+<td>Sender email address, only available when specifying an SMTP relay server with <em>connection.server</em>.<br/>Default: &quot;mailrelay@exosite.com&quot;</td>
+</tr>
+<tr>
+<td>email.html</td>
+<td style="text-align:center"><em>string(html)</em></td>
+<td>Email message in HTML format</td>
+</tr>
+<tr>
+<td>email.<strong>text</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Email message text</td>
+</tr>
+<tr>
+<td>email.<strong>subject</strong></td>
+<td style="text-align:center"><em>string</em> {..78}</td>
+<td>Email subject</td>
+</tr>
+<tr>
+<td>email.connection</td>
+<td style="text-align:center"><em>object</em></td>
+<td>An SMTP connection information to avoid daily limitation and sender email restriction. Gmail user will need to activate the &quot;lesssecureapps&quot; mode on <a href="https://support.google.com/accounts/answer/6010255">https://support.google.com/accounts/answer/6010255</a>.</td>
+</tr>
+<tr>
+<td>email.port</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The SMTP server port</td>
+</tr>
+<tr>
+<td>email.<strong>user</strong></td>
+<td style="text-align:center">^[^\s-]+$</td>
+<td>The SMTP server account</td>
+</tr>
+<tr>
+<td>email.scheme</td>
+<td style="text-align:center">&quot;smtp&quot;, &quot;smtps&quot;</td>
+<td>The SMTP server<br/>Default: &quot;smtp&quot;</td>
+</tr>
+<tr>
+<td>email.<strong>server</strong></td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The SMTP server relay URL</td>
+</tr>
+<tr>
+<td>email.<strong>password</strong></td>
+<td style="text-align:center">^[^\s-]+$</td>
+<td>The SMTP server password</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="email-transmission-details-object-">Email transmission details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accepted</td>
+<td style="text-align:center">[ <em>string(email)</em> ]</td>
+<td>List of destination emails</td>
+</tr>
+<tr>
+<td>envelope</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Email envelope details</td>
+</tr>
+<tr>
+<td>rejected</td>
+<td style="text-align:center">[ <em>string(email)</em> ]</td>
+<td>List of rejected destination emails</td>
+</tr>
+<tr>
+<td>response</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Response from smtp server</td>
+</tr>
+<tr>
+<td>messageId</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Unique message Id</td>
+</tr>
+</tbody>
+</table>
+<h6 id="daily-email-quota-reached-consider-adding-your-personal-smtp-server-or-contact-murano-team-for-upgrading-your-plan-you-can-view-your-current-email-usage-with-_getsettings_-operation-or-on-your-murano-portal-account-nil-">Daily email quota reached. Consider adding your personal SMTP server or contact Murano team for upgrading your plan. You can view your current email usage with <em>getSettings</em> operation or on your Murano portal account.  -  <em>nil</em></h6>
+<p>Daily email quota reached. Consider adding your personal SMTP server or contact Murano team for upgrading your plan. You can view your current email usage with <em>getSettings</em> operation or on your Murano portal account.</p>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local emailData = {
+  from = &quot;me@myemail.com&quot;,
+  to = {
+    &quot;destination1@email.com&quot;,
+    &quot;destination2@email.com&quot;,
+  },
+  subject = &quot;Hello&quot;,
+  text = &quot;World&quot;,
+  html = &quot;&lt;p&gt;&lt;b&gt;World&lt;/b&gt;&lt;/p&gt;&quot;,
+  connection = {
+    server = &quot;smtp.myemail.com&quot;,
+    port = 1234,
+    user = &quot;me&quot;,
+    password = &quot;mysecret&quot;
+  }
+} local result = Email.send(parameters)
+</code></pre>
+<h3 id="settings">Settings</h3>
+<hr>
+<h4 id="getsettings">getSettings</h4>
+<blockquote>
+<p>Get email settings, current usage, and quota. Detailed error is available in the service response.</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="usage-and-settings-information-for-a-given-solution-object-">Usage and settings information for a given solution  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>quota</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Email quota limitation for this solution, only if SMTP setting is not provided.</td>
+</tr>
+<tr>
+<td>quota.daily</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Daily quota, reset midnight UTC time.</td>
+</tr>
+<tr>
+<td>usage</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Current email usage for this solution.</td>
+</tr>
+<tr>
+<td>usage.daily</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Daily usage, reset midnight UTC time.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

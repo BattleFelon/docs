@@ -1,0 +1,1975 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="twilio-service-sms-call-">Twilio Service (SMS &amp; Call)</h1>
+<blockquote>
+<p>Make call and send SMS notifications with this Twilio gateway service.</p>
+</blockquote>
+<h3 id="operations">Operations</h3>
+<h4 id="calls">Calls</h4>
+<ul>
+<li><a href="#createcall">Twilio.createCall()</a>  - create call</li>
+<li><a href="#deletecall">Twilio.deleteCall()</a>  - Delete a call</li>
+<li><a href="#getcall">Twilio.getCall()</a>  - get a call</li>
+<li><a href="#listcall">Twilio.listCall()</a>  - list calls</li>
+</ul>
+<h4 id="media">Media</h4>
+<ul>
+<li><a href="#deletemedia">Twilio.deleteMedia()</a>  - Delete a media</li>
+<li><a href="#getmedia">Twilio.getMedia()</a>  - get a media</li>
+<li><a href="#listmedia">Twilio.listMedia()</a>  - list medias</li>
+</ul>
+<h4 id="messages">Messages</h4>
+<ul>
+<li><a href="#deletemessage">Twilio.deleteMessage()</a>  - Delete a message</li>
+<li><a href="#getmessage">Twilio.getMessage()</a>  - get a message</li>
+<li><a href="#listmessage">Twilio.listMessage()</a>  - list messages</li>
+<li><a href="#postmessage">Twilio.postMessage()</a>  - Send a SMS message</li>
+</ul>
+<h2 id="operations">Operations</h2>
+<h3 id="calls">Calls</h3>
+<hr>
+<h4 id="createcall">createCall</h4>
+<blockquote>
+<p>Make a phone call</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AccountSid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials login</td>
+</tr>
+<tr>
+<td><strong>AuthToken</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials password</td>
+</tr>
+<tr>
+<td>call</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The creation of a Call</td>
+</tr>
+<tr>
+<td>call.<strong>To</strong></td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>The phone number, SIP address or client identifier to call.</td>
+</tr>
+<tr>
+<td>call.Url</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The fully qualified URL that should be consulted when the call connects. Just like when you set a URL on a phone number for handling inbound calls.<br />When you initiate a call through the REST API, Twilio makes a synchronous HTTP request to the URL found in the value of the &quot;Url&quot; POST parameter,<br />in order to retrieve TwiML for handling the call. This request is identical to the request Twilio sends when receiving a phone call to one of your Twilio numbers.<br />URLs must contain a valid hostname (underscores are not permitted).<br />More information: <a href="https://www.twilio.com/docs/api/twiml">https://www.twilio.com/docs/api/twiml</a></td>
+</tr>
+<tr>
+<td>call.<strong>From</strong></td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>The phone number or client identifier to use as the caller ID. If using a phone number, it must be a Twilio number or a Verified outgoing caller ID for your account.</td>
+</tr>
+<tr>
+<td>call.Method</td>
+<td style="text-align:center">&quot;GET&quot;, &quot;PUT&quot;, &quot;POST&quot;</td>
+<td>The HTTP method Twilio should use when making its request to the above URL parameter&#39;s value.<br/>Default: &quot;POST&quot;</td>
+</tr>
+<tr>
+<td>call.Record</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Set this parameter to &quot;true&quot; to record the entirety of a phone call. The RecordingUrl will be sent to the StatusCallback URL.</td>
+</tr>
+<tr>
+<td>call.Timeout</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>The integer number of seconds that Twilio should allow the phone to ring before assuming there is no answer.</td>
+</tr>
+<tr>
+<td>call.IfMachine</td>
+<td style="text-align:center">&quot;Continue&quot;, &quot;Hangup&quot;</td>
+<td>Tell Twilio to try and determine if a machine (like voicemail) or a human has answered the call.</td>
+</tr>
+<tr>
+<td>call.SendDigits</td>
+<td style="text-align:center">^[0-9\#\*w]+$</td>
+<td>A string of keys to dial after connecting to the number, maximum of 32 digits.</td>
+</tr>
+<tr>
+<td>call.FallbackUrl</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>A URL that Twilio will request if an error occurs requesting or executing the TwiML at URL.</td>
+</tr>
+<tr>
+<td>call.ApplicationSid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The 34 character sid of the application Twilio should use to handle this phone call.</td>
+</tr>
+<tr>
+<td>call.FallbackMethod</td>
+<td style="text-align:center">&quot;GET&quot;, &quot;POST&quot;</td>
+<td>The HTTP method that Twilio should use to request the FallbackUrl.<br/>Default: &quot;POST&quot;</td>
+</tr>
+<tr>
+<td>call.StatusCallback</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>A URL that Twilio will send asynchronous webhook requests to on every call event specified in the StatusCallbackEvent parameter.</td>
+</tr>
+<tr>
+<td>call.StatusCallbackEvent</td>
+<td style="text-align:center">&quot;initiated&quot;, &quot;ringing&quot;, &quot;answered&quot;, &quot;completed&quot;</td>
+<td>The call progress events that Twilio will send webhooks on.</td>
+</tr>
+<tr>
+<td>call.StatusCallbackMethod</td>
+<td style="text-align:center">&quot;GET&quot;, &quot;PUT&quot;, &quot;POST&quot;</td>
+<td>The HTTP method Twilio should use when requesting the above URL.<br/>Default: &quot;POST&quot;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="a-call-details-object-">A Call details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>to</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>The destination phone number. Format with a &#39;+&#39; and country code e.g., +16175551212 (E.164 format).</td>
+</tr>
+<tr>
+<td>sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>A 34 character string that uniquely identifies this resource.</td>
+</tr>
+<tr>
+<td>uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URI for this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>from</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>A Twilio phone number (in E.164 format) or alphanumeric sender ID enabled for the type of message you wish to send</td>
+</tr>
+<tr>
+<td>price</td>
+<td style="text-align:center">^-?[0-9]*.?[0-9]*$</td>
+<td>The amount billed for the call, in the currency associated with the account.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center">&quot;queued&quot;, &quot;ringing&quot;, &quot;in-progress&quot;, &quot;canceled&quot;, &quot;completed&quot;, &quot;failed&quot;, &quot;busy&quot;, &quot;no-answer&quot;</td>
+<td>The status of this message.</td>
+</tr>
+<tr>
+<td>duration</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The length of the call in seconds.</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td style="text-align:center"><em>string(date-time)</em></td>
+<td>The end time of the call, given as GMT in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>direction</td>
+<td style="text-align:center">&quot;inbound&quot;, &quot;outbound-api&quot;, &quot;outbound-dial&quot;</td>
+<td>The direction of this message.</td>
+</tr>
+<tr>
+<td>price_unit</td>
+<td style="text-align:center"><em>string(ISO 4127)</em></td>
+<td>The currency in which Price is measured, in ISO 4127 format (e.g., usd, eur, jpy).</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td style="text-align:center"><em>string(date-time)</em></td>
+<td>The start time of the call, given as GMT in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>account_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The 34 character unique ID of the Messaging Service you want to associate with this Message.</td>
+</tr>
+<tr>
+<td>answered_by</td>
+<td style="text-align:center">&quot;human&quot;, &quot;machine&quot;</td>
+<td>If this call was initiated with answering machine detection.</td>
+</tr>
+<tr>
+<td>api_version</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The version of the Twilio API used to process the message.</td>
+</tr>
+<tr>
+<td>caller_name</td>
+<td style="text-align:center"><em>string</em></td>
+<td>If this call was an incoming call to a phone number with Caller ID Lookup enabled, the caller&#39;s name.</td>
+</tr>
+<tr>
+<td>date_created</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was created, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>date_updated</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was last updated, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>formatted_to</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Formatted To</td>
+</tr>
+<tr>
+<td>formatted_from</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Formatted From</td>
+</tr>
+<tr>
+<td>forwarded_from</td>
+<td style="text-align:center"><em>string</em></td>
+<td>If this call was an incoming call forwarded from another number, the forwarding phone number.</td>
+</tr>
+<tr>
+<td>parent_call_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>A 34 character string that uniquely identifies this resource.</td>
+</tr>
+<tr>
+<td>phone_number_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>If the call was inbound, this is the Sid of the IncomingPhoneNumber that received the call.</td>
+</tr>
+<tr>
+<td>subresource_uris</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The URIs for any subresources associate with this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="request-error-object-">Request error  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>(Conditional) An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em> {..700}</td>
+<td>The HTTP status code for the exception</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A more descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>(Conditional) The URL of Twilio&#39;s documentation for the error code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- you need to provide an url hosting a predefined TwiML to let twilio how to make a call
+local out = Twilio.createCall({
+  From = &quot;+16123409875&quot;,
+  To = &quot;+886912345678&quot;,
+  Url = &quot;https://markpeng-test01.apps.exosite-dev.io/twiml&quot;
+}) response.message = out
+</code></pre>
+<hr>
+<h4 id="deletecall">deleteCall</h4>
+<blockquote>
+<p>Delete a call</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AccountSid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials login</td>
+</tr>
+<tr>
+<td><strong>AuthToken</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials password</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="call-deleted-nil-">Call deleted  -  <em>nil</em></h6>
+<p>Call deleted</p>
+<h6 id="request-error-object-">Request error  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>(Conditional) An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em> {..700}</td>
+<td>The HTTP status code for the exception</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A more descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>(Conditional) The URL of Twilio&#39;s documentation for the error code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- get a list of call records local list = Twilio.listCall() local calls = list.calls
+-- get CallSid of the first call local first_call_sid = calls[1].sid
+-- use CallSid as argument to delete the record of first call local out = Twilio.deleteCall({CallSid = first_call_sid}) response.message = out
+</code></pre>
+<hr>
+<h4 id="getcall">getCall</h4>
+<blockquote>
+<p>Returns the call details</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AccountSid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials login</td>
+</tr>
+<tr>
+<td><strong>AuthToken</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials password</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="a-call-details-object-">A Call details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>to</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>The destination phone number. Format with a &#39;+&#39; and country code e.g., +16175551212 (E.164 format).</td>
+</tr>
+<tr>
+<td>sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>A 34 character string that uniquely identifies this resource.</td>
+</tr>
+<tr>
+<td>uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URI for this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>from</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>A Twilio phone number (in E.164 format) or alphanumeric sender ID enabled for the type of message you wish to send</td>
+</tr>
+<tr>
+<td>price</td>
+<td style="text-align:center">^-?[0-9]*.?[0-9]*$</td>
+<td>The amount billed for the call, in the currency associated with the account.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center">&quot;queued&quot;, &quot;ringing&quot;, &quot;in-progress&quot;, &quot;canceled&quot;, &quot;completed&quot;, &quot;failed&quot;, &quot;busy&quot;, &quot;no-answer&quot;</td>
+<td>The status of this message.</td>
+</tr>
+<tr>
+<td>duration</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The length of the call in seconds.</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td style="text-align:center"><em>string(date-time)</em></td>
+<td>The end time of the call, given as GMT in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>direction</td>
+<td style="text-align:center">&quot;inbound&quot;, &quot;outbound-api&quot;, &quot;outbound-dial&quot;</td>
+<td>The direction of this message.</td>
+</tr>
+<tr>
+<td>price_unit</td>
+<td style="text-align:center"><em>string(ISO 4127)</em></td>
+<td>The currency in which Price is measured, in ISO 4127 format (e.g., usd, eur, jpy).</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td style="text-align:center"><em>string(date-time)</em></td>
+<td>The start time of the call, given as GMT in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>account_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The 34 character unique ID of the Messaging Service you want to associate with this Message.</td>
+</tr>
+<tr>
+<td>answered_by</td>
+<td style="text-align:center">&quot;human&quot;, &quot;machine&quot;</td>
+<td>If this call was initiated with answering machine detection.</td>
+</tr>
+<tr>
+<td>api_version</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The version of the Twilio API used to process the message.</td>
+</tr>
+<tr>
+<td>caller_name</td>
+<td style="text-align:center"><em>string</em></td>
+<td>If this call was an incoming call to a phone number with Caller ID Lookup enabled, the caller&#39;s name.</td>
+</tr>
+<tr>
+<td>date_created</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was created, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>date_updated</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was last updated, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>formatted_to</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Formatted To</td>
+</tr>
+<tr>
+<td>formatted_from</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Formatted From</td>
+</tr>
+<tr>
+<td>forwarded_from</td>
+<td style="text-align:center"><em>string</em></td>
+<td>If this call was an incoming call forwarded from another number, the forwarding phone number.</td>
+</tr>
+<tr>
+<td>parent_call_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>A 34 character string that uniquely identifies this resource.</td>
+</tr>
+<tr>
+<td>phone_number_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>If the call was inbound, this is the Sid of the IncomingPhoneNumber that received the call.</td>
+</tr>
+<tr>
+<td>subresource_uris</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The URIs for any subresources associate with this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+</tbody>
+</table>
+<h6 id="request-error-object-">Request error  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>(Conditional) An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em> {..700}</td>
+<td>The HTTP status code for the exception</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A more descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>(Conditional) The URL of Twilio&#39;s documentation for the error code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- get a list of call records local list = Twilio.listCall() local calls = list.calls
+-- get CallSid of the first call local first_call_sid = calls[1].sid
+-- use CallSid as argument to get details of the call local out = Twilio.getCall({CallSid = first_call_sid}) response.message = out
+</code></pre>
+<hr>
+<h4 id="listcall">listCall</h4>
+<blockquote>
+<p>List all calls on Twilio.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AccountSid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials login</td>
+</tr>
+<tr>
+<td><strong>AuthToken</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials password</td>
+</tr>
+<tr>
+<td>PageSize</td>
+<td style="text-align:center"><em>integer</em> {..1000}</td>
+<td>How many resources to return in each list page.<br/>Default: 50</td>
+</tr>
+<tr>
+<td>From</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>Only show calls from this phone number or Client identifier.</td>
+</tr>
+<tr>
+<td>To</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>Only show calls to this phone number or Client identifier.</td>
+</tr>
+<tr>
+<td>Status</td>
+<td style="text-align:center">&quot;queued&quot;, &quot;ringing&quot;, &quot;in-progress&quot;, &quot;canceled&quot;, &quot;completed&quot;, &quot;failed&quot;, &quot;busy&quot;, &quot;no-answer&quot;</td>
+<td>Only show calls currently in this status.</td>
+</tr>
+<tr>
+<td>StartTime</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>Only show messages sent on this date (in GMT format), given as YYYY-MM-DD.</td>
+</tr>
+<tr>
+<td>ParentCallSid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>Only show calls spawned by the call with this Sid.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-call-results-object-">List call results  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>Current page URI</td>
+</tr>
+<tr>
+<td>page</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The current page number. Zero-indexed, so the first page is 0.</td>
+</tr>
+<tr>
+<td>calls</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>Call list</td>
+</tr>
+<tr>
+<td>calls[].to</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>The destination phone number. Format with a &#39;+&#39; and country code e.g., +16175551212 (E.164 format).</td>
+</tr>
+<tr>
+<td>calls[].sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>A 34 character string that uniquely identifies this resource.</td>
+</tr>
+<tr>
+<td>calls[].uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URI for this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>calls[].from</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>A Twilio phone number (in E.164 format) or alphanumeric sender ID enabled for the type of message you wish to send</td>
+</tr>
+<tr>
+<td>calls[].price</td>
+<td style="text-align:center">^-?[0-9]*.?[0-9]*$</td>
+<td>The amount billed for the call, in the currency associated with the account.</td>
+</tr>
+<tr>
+<td>calls[].status</td>
+<td style="text-align:center">&quot;queued&quot;, &quot;ringing&quot;, &quot;in-progress&quot;, &quot;canceled&quot;, &quot;completed&quot;, &quot;failed&quot;, &quot;busy&quot;, &quot;no-answer&quot;</td>
+<td>The status of this message.</td>
+</tr>
+<tr>
+<td>calls[].duration</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The length of the call in seconds.</td>
+</tr>
+<tr>
+<td>calls[].end_time</td>
+<td style="text-align:center"><em>string(date-time)</em></td>
+<td>The end time of the call, given as GMT in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>calls[].direction</td>
+<td style="text-align:center">&quot;inbound&quot;, &quot;outbound-api&quot;, &quot;outbound-dial&quot;</td>
+<td>The direction of this message.</td>
+</tr>
+<tr>
+<td>calls[].price_unit</td>
+<td style="text-align:center"><em>string(ISO 4127)</em></td>
+<td>The currency in which Price is measured, in ISO 4127 format (e.g., usd, eur, jpy).</td>
+</tr>
+<tr>
+<td>calls[].start_time</td>
+<td style="text-align:center"><em>string(date-time)</em></td>
+<td>The start time of the call, given as GMT in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>calls[].account_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The 34 character unique ID of the Messaging Service you want to associate with this Message.</td>
+</tr>
+<tr>
+<td>calls[].answered_by</td>
+<td style="text-align:center">&quot;human&quot;, &quot;machine&quot;</td>
+<td>If this call was initiated with answering machine detection.</td>
+</tr>
+<tr>
+<td>calls[].api_version</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The version of the Twilio API used to process the message.</td>
+</tr>
+<tr>
+<td>calls[].caller_name</td>
+<td style="text-align:center"><em>string</em></td>
+<td>If this call was an incoming call to a phone number with Caller ID Lookup enabled, the caller&#39;s name.</td>
+</tr>
+<tr>
+<td>calls[].date_created</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was created, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>calls[].date_updated</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was last updated, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>calls[].formatted_to</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Formatted To</td>
+</tr>
+<tr>
+<td>calls[].formatted_from</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Formatted From</td>
+</tr>
+<tr>
+<td>calls[].forwarded_from</td>
+<td style="text-align:center"><em>string</em></td>
+<td>If this call was an incoming call forwarded from another number, the forwarding phone number.</td>
+</tr>
+<tr>
+<td>calls[].parent_call_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>A 34 character string that uniquely identifies this resource.</td>
+</tr>
+<tr>
+<td>calls[].phone_number_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>If the call was inbound, this is the Sid of the IncomingPhoneNumber that received the call.</td>
+</tr>
+<tr>
+<td>calls[].subresource_uris</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The URIs for any subresources associate with this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>page_size</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Number of items in this page</td>
+</tr>
+<tr>
+<td>next_page_uri</td>
+<td style="text-align:center"><em>string,null(uri)</em></td>
+<td>Next page URI</td>
+</tr>
+<tr>
+<td>first_page_uri</td>
+<td style="text-align:center"><em>string,null(uri)</em></td>
+<td>First page URI</td>
+</tr>
+<tr>
+<td>previous_page_uri</td>
+<td style="text-align:center"><em>string,null(uri)</em></td>
+<td>Previous page URI</td>
+</tr>
+</tbody>
+</table>
+<h6 id="request-error-object-">Request error  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>(Conditional) An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em> {..700}</td>
+<td>The HTTP status code for the exception</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A more descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>(Conditional) The URL of Twilio&#39;s documentation for the error code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local out = Twilio.listCall() response.message = out
+</code></pre>
+<h3 id="media">Media</h3>
+<hr>
+<h4 id="deletemedia">deleteMedia</h4>
+<blockquote>
+<p>Delete a media</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AccountSid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials login</td>
+</tr>
+<tr>
+<td><strong>AuthToken</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials password</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="media-deleted-nil-">Media deleted  -  <em>nil</em></h6>
+<p>Media deleted</p>
+<h6 id="request-error-object-">Request error  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>(Conditional) An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em> {..700}</td>
+<td>The HTTP status code for the exception</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A more descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>(Conditional) The URL of Twilio&#39;s documentation for the error code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- delete a media from a message local out = Twilio.deleteMedia({MessageSid = &quot;xxxx&quot;, MediaSid = &quot;yyyy&quot;}) response.message = out
+</code></pre>
+<hr>
+<h4 id="getmedia">getMedia</h4>
+<blockquote>
+<p>Returns the media details</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AccountSid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials login</td>
+</tr>
+<tr>
+<td><strong>AuthToken</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials password</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="the-sms-media-in-twilio-object-">The SMS media in Twilio  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>A 34 character string that uniquely identifies this resource.</td>
+</tr>
+<tr>
+<td>uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URI for this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>parent_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The uniqe ID of the resource that created the media.</td>
+</tr>
+<tr>
+<td>account_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The 34 character unique ID of the Messaging Service you want to associate with this Media.</td>
+</tr>
+<tr>
+<td>content_type</td>
+<td style="text-align:center"><em>string(mime-type)</em></td>
+<td>The default mime-type of the media, for example image/jpeg, image/png, or image/gif</td>
+</tr>
+<tr>
+<td>date_created</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was created, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>date_updated</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was last updated, given in RFC 2822 format.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="request-error-object-">Request error  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>(Conditional) An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em> {..700}</td>
+<td>The HTTP status code for the exception</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A more descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>(Conditional) The URL of Twilio&#39;s documentation for the error code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- get a media from a message local out = Twilio.getMedia({MessageSid = &quot;xxxx&quot;, MediaSid = &quot;yyyy&quot;}) response.message = out
+</code></pre>
+<hr>
+<h4 id="listmedia">listMedia</h4>
+<blockquote>
+<p>List all SMS media on Twilio</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AccountSid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials login</td>
+</tr>
+<tr>
+<td><strong>AuthToken</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials password</td>
+</tr>
+<tr>
+<td>PageSize</td>
+<td style="text-align:center"><em>integer</em> {..1000}</td>
+<td>How many resources to return in each list page.<br/>Default: 50</td>
+</tr>
+<tr>
+<td>DateCreated</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>Only show media created on the given date.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="media-list-result-object-">Media list result  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>Current page URI</td>
+</tr>
+<tr>
+<td>page</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The current page number. Zero-indexed, so the first page is 0.</td>
+</tr>
+<tr>
+<td>page_size</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Number of items in this page</td>
+</tr>
+<tr>
+<td>media_list</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>Media list</td>
+</tr>
+<tr>
+<td>media_list[].sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>A 34 character string that uniquely identifies this resource.</td>
+</tr>
+<tr>
+<td>media_list[].uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URI for this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>media_list[].parent_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The uniqe ID of the resource that created the media.</td>
+</tr>
+<tr>
+<td>media_list[].account_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The 34 character unique ID of the Messaging Service you want to associate with this Media.</td>
+</tr>
+<tr>
+<td>media_list[].content_type</td>
+<td style="text-align:center"><em>string(mime-type)</em></td>
+<td>The default mime-type of the media, for example image/jpeg, image/png, or image/gif</td>
+</tr>
+<tr>
+<td>media_list[].date_created</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was created, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>media_list[].date_updated</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was last updated, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>next_page_uri</td>
+<td style="text-align:center"><em>string,null(uri)</em></td>
+<td>Next page URI</td>
+</tr>
+<tr>
+<td>first_page_uri</td>
+<td style="text-align:center"><em>string,null(uri)</em></td>
+<td>First page URI</td>
+</tr>
+<tr>
+<td>previous_page_uri</td>
+<td style="text-align:center"><em>string,null(uri)</em></td>
+<td>Previous page URI</td>
+</tr>
+</tbody>
+</table>
+<h6 id="request-error-object-">Request error  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>(Conditional) An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em> {..700}</td>
+<td>The HTTP status code for the exception</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A more descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>(Conditional) The URL of Twilio&#39;s documentation for the error code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- get a list of message records local list = Twilio.listMessage() local messages = list.messages
+-- get MessageSid of the first message local first_msg_sid = messages[1].sid
+-- use MessageSid as argument to get media list of the message local out = Twilio.listMedia({MessageSid = first_msg_sid}) response.message = out
+</code></pre>
+<h3 id="messages">Messages</h3>
+<hr>
+<h4 id="deletemessage">deleteMessage</h4>
+<blockquote>
+<p>Delete a message</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AccountSid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials login</td>
+</tr>
+<tr>
+<td><strong>AuthToken</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials password</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="message-deleted-nil-">Message deleted  -  <em>nil</em></h6>
+<p>Message deleted</p>
+<h6 id="request-error-object-">Request error  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>(Conditional) An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em> {..700}</td>
+<td>The HTTP status code for the exception</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A more descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>(Conditional) The URL of Twilio&#39;s documentation for the error code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- get a list of message records local list = Twilio.listMessage() local messages = list.messages
+-- get MessageSid of the first message local first_msg_sid = messages[1].sid
+-- use MessageSid as argument to delete the first message local out = Twilio.deleteMessage({MessageSid = first_msg_sid}) response.message = out
+</code></pre>
+<hr>
+<h4 id="getmessage">getMessage</h4>
+<blockquote>
+<p>Returns the message details</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AccountSid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials login</td>
+</tr>
+<tr>
+<td><strong>AuthToken</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials password</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="the-sms-message-in-twilio-object-">The SMS message in Twilio  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>to</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>The destination phone number. Format with a &#39;+&#39; and country code e.g., +16175551212 (E.164 format).</td>
+</tr>
+<tr>
+<td>sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>A 34 character string that uniquely identifies this resource.</td>
+</tr>
+<tr>
+<td>uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URI for this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>body</td>
+<td style="text-align:center"><em>string</em> {..1600}</td>
+<td>The text of the message you want to send, limited to 1600 characters.</td>
+</tr>
+<tr>
+<td>from</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>A Twilio phone number (in E.164 format) or alphanumeric sender ID enabled for the type of message you wish to send</td>
+</tr>
+<tr>
+<td>price</td>
+<td style="text-align:center">^-?[0-9]*.?[0-9]*$</td>
+<td>The amount billed for the message, in the currency associated with the account.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center">&quot;accepted&quot;, &quot;queued&quot;, &quot;sending&quot;, &quot;sent&quot;, &quot;failed&quot;, &quot;delivered&quot;, &quot;undelivered&quot;, &quot;receiving&quot;, &quot;received&quot;</td>
+<td>The status of this message.</td>
+</tr>
+<tr>
+<td>date_sent</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that the message was sent or received, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>direction</td>
+<td style="text-align:center">&quot;inbound&quot;, &quot;outbound-api&quot;, &quot;outbound-call&quot;, &quot;outbound-reply&quot;</td>
+<td>The direction of this message.</td>
+</tr>
+<tr>
+<td>num_media</td>
+<td style="text-align:center"><em>string(integer)</em></td>
+<td>This property indicates the number of media files associated with the message. Each message may send up to 10 media files.</td>
+</tr>
+<tr>
+<td>error_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error code, if any, associated with your message. If your message status is failed or undelivered, the ErrorCode can give you more information about the failure.</td>
+</tr>
+<tr>
+<td>price_unit</td>
+<td style="text-align:center"><em>string(ISO 4127)</em></td>
+<td>The currency in which Price is measured, in ISO 4127 format (e.g., usd, eur, jpy).</td>
+</tr>
+<tr>
+<td>account_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The 34 character unique ID of the Messaging Service you want to associate with this Message.</td>
+</tr>
+<tr>
+<td>api_version</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The version of the Twilio API used to process the message.</td>
+</tr>
+<tr>
+<td>date_created</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was created, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>date_updated</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was last updated, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>num_segments</td>
+<td style="text-align:center"><em>string(integer)</em></td>
+<td>This property indicates the number of segments that make up the message. If your body is too large to be sent as a single SMS message, it will be segmented and charged accordingly.</td>
+</tr>
+<tr>
+<td>error_message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The human readable description of the ErrorCode above.</td>
+</tr>
+<tr>
+<td>subresource_uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URIs for any subresources associate with this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>MessagingServiceSid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The unique ID of the Messaging Service used with the message.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="request-error-object-">Request error  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>(Conditional) An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em> {..700}</td>
+<td>The HTTP status code for the exception</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A more descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>(Conditional) The URL of Twilio&#39;s documentation for the error code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- get a list of message records local list = Twilio.listMessage() local messages = list.messages
+-- get MessageSid of the first message local first_msg_sid = messages[1].sid
+-- use MessageSid as argument to get details of the message local out = Twilio.getMessage({MessageSid = first_msg_sid}) response.message = out
+</code></pre>
+<hr>
+<h4 id="listmessage">listMessage</h4>
+<blockquote>
+<p>List all SMS messages on Twilio</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AccountSid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials login</td>
+</tr>
+<tr>
+<td><strong>AuthToken</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials password</td>
+</tr>
+<tr>
+<td>PageSize</td>
+<td style="text-align:center"><em>integer</em> {..1000}</td>
+<td>How many resources to return in each list page.<br/>Default: 50</td>
+</tr>
+<tr>
+<td>From</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>Only show messages from this phone number or alphanumeric sender ID.</td>
+</tr>
+<tr>
+<td>To</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>Only show messages to this phone number.</td>
+</tr>
+<tr>
+<td>DateSent</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>Only show messages sent on this date (in GMT format), given as YYYY-MM-DD.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="message-list-result-object-">Message list result  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>Current page URI</td>
+</tr>
+<tr>
+<td>page</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>The current page number. Zero-indexed, so the first page is 0.</td>
+</tr>
+<tr>
+<td>messages</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>Message list</td>
+</tr>
+<tr>
+<td>messages[].to</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>The destination phone number. Format with a &#39;+&#39; and country code e.g., +16175551212 (E.164 format).</td>
+</tr>
+<tr>
+<td>messages[].sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>A 34 character string that uniquely identifies this resource.</td>
+</tr>
+<tr>
+<td>messages[].uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URI for this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>messages[].body</td>
+<td style="text-align:center"><em>string</em> {..1600}</td>
+<td>The text of the message you want to send, limited to 1600 characters.</td>
+</tr>
+<tr>
+<td>messages[].from</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>A Twilio phone number (in E.164 format) or alphanumeric sender ID enabled for the type of message you wish to send</td>
+</tr>
+<tr>
+<td>messages[].price</td>
+<td style="text-align:center">^-?[0-9]*.?[0-9]*$</td>
+<td>The amount billed for the message, in the currency associated with the account.</td>
+</tr>
+<tr>
+<td>messages[].status</td>
+<td style="text-align:center">&quot;accepted&quot;, &quot;queued&quot;, &quot;sending&quot;, &quot;sent&quot;, &quot;failed&quot;, &quot;delivered&quot;, &quot;undelivered&quot;, &quot;receiving&quot;, &quot;received&quot;</td>
+<td>The status of this message.</td>
+</tr>
+<tr>
+<td>messages[].date_sent</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that the message was sent or received, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>messages[].direction</td>
+<td style="text-align:center">&quot;inbound&quot;, &quot;outbound-api&quot;, &quot;outbound-call&quot;, &quot;outbound-reply&quot;</td>
+<td>The direction of this message.</td>
+</tr>
+<tr>
+<td>messages[].num_media</td>
+<td style="text-align:center"><em>string(integer)</em></td>
+<td>This property indicates the number of media files associated with the message. Each message may send up to 10 media files.</td>
+</tr>
+<tr>
+<td>messages[].error_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error code, if any, associated with your message. If your message status is failed or undelivered, the ErrorCode can give you more information about the failure.</td>
+</tr>
+<tr>
+<td>messages[].price_unit</td>
+<td style="text-align:center"><em>string(ISO 4127)</em></td>
+<td>The currency in which Price is measured, in ISO 4127 format (e.g., usd, eur, jpy).</td>
+</tr>
+<tr>
+<td>messages[].account_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The 34 character unique ID of the Messaging Service you want to associate with this Message.</td>
+</tr>
+<tr>
+<td>messages[].api_version</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The version of the Twilio API used to process the message.</td>
+</tr>
+<tr>
+<td>messages[].date_created</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was created, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>messages[].date_updated</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was last updated, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>messages[].num_segments</td>
+<td style="text-align:center"><em>string(integer)</em></td>
+<td>This property indicates the number of segments that make up the message. If your body is too large to be sent as a single SMS message, it will be segmented and charged accordingly.</td>
+</tr>
+<tr>
+<td>messages[].error_message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The human readable description of the ErrorCode above.</td>
+</tr>
+<tr>
+<td>messages[].subresource_uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URIs for any subresources associate with this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>messages[].MessagingServiceSid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The unique ID of the Messaging Service used with the message.</td>
+</tr>
+<tr>
+<td>page_size</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Number of items in this page</td>
+</tr>
+<tr>
+<td>next_page_uri</td>
+<td style="text-align:center"><em>string,null(uri)</em></td>
+<td>Next page URI</td>
+</tr>
+<tr>
+<td>first_page_uri</td>
+<td style="text-align:center"><em>string,null(uri)</em></td>
+<td>First page URI</td>
+</tr>
+<tr>
+<td>previous_page_uri</td>
+<td style="text-align:center"><em>string,null(uri)</em></td>
+<td>Previous page URI</td>
+</tr>
+</tbody>
+</table>
+<h6 id="request-error-object-">Request error  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>(Conditional) An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em> {..700}</td>
+<td>The HTTP status code for the exception</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A more descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>(Conditional) The URL of Twilio&#39;s documentation for the error code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local out = Twilio.listMessage() response.message = out
+</code></pre>
+<hr>
+<h4 id="postmessage">postMessage</h4>
+<blockquote>
+<p>Send a SMS message</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AccountSid</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials login</td>
+</tr>
+<tr>
+<td><strong>AuthToken</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Security credentials password</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The creation of a SMS message</td>
+</tr>
+<tr>
+<td>message.<strong>To</strong></td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>The destination phone number. Format with a &quot;+&quot; and country code e.g., +16175551212 (E.164 format).</td>
+</tr>
+<tr>
+<td>message.Body</td>
+<td style="text-align:center"><em>string</em> {..1600}</td>
+<td>The text of the message you want to send, limited to 1600 characters.</td>
+</tr>
+<tr>
+<td>message.<strong>From</strong></td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>A Twilio phone number (in E.164 format) or alphanumeric sender ID enabled for the type of message you wish to send</td>
+</tr>
+<tr>
+<td>message.MaxPrice</td>
+<td style="text-align:center">^-?[0-9]*.?[0-9]*$</td>
+<td>The total maximum price up to the fourth decimal (0.0001) in US dollars acceptable for the message to be delivered.</td>
+</tr>
+<tr>
+<td>message.MediaUrl</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URL of the media you wish to send out with the message. gif , png and jpeg content is currently supported and will be formatted correctly on the recipient&#39;s device.</td>
+</tr>
+<tr>
+<td>message.ApplicationSid</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Twilio will POST MessageSid as well as MessageStatus=sent or MessageStatus=failed to the URL in the MessageStatusCallback property of this Application</td>
+</tr>
+<tr>
+<td>message.StatusCallback</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>A URL that Twilio will POST to each time your message status changes</td>
+</tr>
+<tr>
+<td>message.MessagingServiceSid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The 34 character unique ID of the Messaging Service you want to associate with this Message.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="the-sms-message-in-twilio-object-">The SMS message in Twilio  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>to</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>The destination phone number. Format with a &#39;+&#39; and country code e.g., +16175551212 (E.164 format).</td>
+</tr>
+<tr>
+<td>sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>A 34 character string that uniquely identifies this resource.</td>
+</tr>
+<tr>
+<td>uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URI for this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>body</td>
+<td style="text-align:center"><em>string</em> {..1600}</td>
+<td>The text of the message you want to send, limited to 1600 characters.</td>
+</tr>
+<tr>
+<td>from</td>
+<td style="text-align:center"><em>string(E.164)</em></td>
+<td>A Twilio phone number (in E.164 format) or alphanumeric sender ID enabled for the type of message you wish to send</td>
+</tr>
+<tr>
+<td>price</td>
+<td style="text-align:center">^-?[0-9]*.?[0-9]*$</td>
+<td>The amount billed for the message, in the currency associated with the account.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center">&quot;accepted&quot;, &quot;queued&quot;, &quot;sending&quot;, &quot;sent&quot;, &quot;failed&quot;, &quot;delivered&quot;, &quot;undelivered&quot;, &quot;receiving&quot;, &quot;received&quot;</td>
+<td>The status of this message.</td>
+</tr>
+<tr>
+<td>date_sent</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that the message was sent or received, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>direction</td>
+<td style="text-align:center">&quot;inbound&quot;, &quot;outbound-api&quot;, &quot;outbound-call&quot;, &quot;outbound-reply&quot;</td>
+<td>The direction of this message.</td>
+</tr>
+<tr>
+<td>num_media</td>
+<td style="text-align:center"><em>string(integer)</em></td>
+<td>This property indicates the number of media files associated with the message. Each message may send up to 10 media files.</td>
+</tr>
+<tr>
+<td>error_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The error code, if any, associated with your message. If your message status is failed or undelivered, the ErrorCode can give you more information about the failure.</td>
+</tr>
+<tr>
+<td>price_unit</td>
+<td style="text-align:center"><em>string(ISO 4127)</em></td>
+<td>The currency in which Price is measured, in ISO 4127 format (e.g., usd, eur, jpy).</td>
+</tr>
+<tr>
+<td>account_sid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The 34 character unique ID of the Messaging Service you want to associate with this Message.</td>
+</tr>
+<tr>
+<td>api_version</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The version of the Twilio API used to process the message.</td>
+</tr>
+<tr>
+<td>date_created</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was created, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>date_updated</td>
+<td style="text-align:center"><em>string(date)</em></td>
+<td>The date that this resource was last updated, given in RFC 2822 format.</td>
+</tr>
+<tr>
+<td>num_segments</td>
+<td style="text-align:center"><em>string(integer)</em></td>
+<td>This property indicates the number of segments that make up the message. If your body is too large to be sent as a single SMS message, it will be segmented and charged accordingly.</td>
+</tr>
+<tr>
+<td>error_message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The human readable description of the ErrorCode above.</td>
+</tr>
+<tr>
+<td>subresource_uri</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>The URIs for any subresources associate with this resource, relative to <a href="https://api.twilio.com">https://api.twilio.com</a></td>
+</tr>
+<tr>
+<td>MessagingServiceSid</td>
+<td style="text-align:center">^[0-9a-zA-Z]{34}$</td>
+<td>The unique ID of the Messaging Service used with the message.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="request-error-object-">Request error  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>(Conditional) An error code to find help for the exception.</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em> {..700}</td>
+<td>The HTTP status code for the exception</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>A more descriptive message regarding the exception.</td>
+</tr>
+<tr>
+<td>more_info</td>
+<td style="text-align:center"><em>string(uri)</em></td>
+<td>(Conditional) The URL of Twilio&#39;s documentation for the error code.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- send SMS message to a phone number
+local out = Twilio.postMessage({
+  From = &quot;+16123409875&quot;,
+  To = &quot;+886912345678&quot;,
+  Body = &quot;Something goes wrong! Please check error logs!&quot;
+}) response.message = out
+</code></pre>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

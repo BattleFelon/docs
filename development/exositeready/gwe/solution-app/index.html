@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="exositeready-gateway-engine-solution-app">ExositeReady™ Gateway Engine Solution App</h1>
+<p>This guide provides an example solution displaying all the telemetric data from ExositeReady™ Gateway Engine (GWE) as well as showing a custom gateway application: &quot;gmq-sine-demo.&quot; For additional information and resources, please refer to the GWE documentation <a href="http://docs.exosite.com/development/exositeready/gwe/">home page</a>.</p>
+<h1 id="requirements">Requirements</h1>
+<p>This guide requires the installation of GWE on your gateway hardware device. These installation instructions can be found in the <a href="http://docs.exosite.com/development/exositeready/gwe/getting_started/">GWE Getting-started Guide</a>.</p>
+<p><strong>NOTE:</strong> This is a technical tutorial. You will need some familiarity with your operating system’s terminal.</p>
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="configure-murano">Configure Murano</h2>
+<ol>
+<li><p><a href="https://exosite.com/signup/">Create a Murano account</a> or <a href="https://www.exosite.io/">log in to your existing account</a>.</p>
+</li>
+<li><p>In your browser, navigate to the <em>Products</em> tab. </p>
+<ol>
+<li>Click &quot;NEW PRODUCT.&quot; </li>
+<li>In the popup box, name your product whatever you like. </li>
+<li>Select <em>Start from scratch</em> from the <em>Choose starting point</em> drop-down menu. </li>
+<li><p>Click &quot;ADD.&quot;</p>
+<p><img src="assets/step_2.png" alt="Step 2"></p>
+</li>
+</ol>
+</li>
+<li><p>Click to open your new product and navigate to the <em>DEVICES</em> tab.</p>
+<ol>
+<li>Click &quot;NEW DEVICE.&quot; </li>
+<li>In the popup box, name your device &quot;Gateway&quot;. </li>
+<li>Use your gateway&#39;s MAC address as the <em>Identity</em>. (Example format &quot;00:08:00:4A:02:25&quot;.)</li>
+<li><p>Click &quot;CREATE.&quot;</p>
+<p><img src="assets/step_3.png" alt="Step 3"></p>
+</li>
+</ol>
+</li>
+<li><p>Refer back to the previous step to add another new device called &quot;Test Data&quot;, using &quot;12345&quot; as the <em>Identity</em>.</p>
+<p> <img src="assets/step_4.png" alt="Step 4"></p>
+</li>
+<li><p>Click to open your Test Data device. </p>
+<ol>
+<li>Click &quot;NEW RESOURCE.&quot; </li>
+<li>In the popup box, input the <em>Alias</em> as “Test” and <em>Data format</em> as <em>float</em>. </li>
+<li><p>Click &quot;CREATE.&quot;</p>
+<p><img src="assets/step_5.png" alt="Step 5"></p>
+</li>
+</ol>
+</li>
+<li><p>Add additional new resources to your &quot;Gateway&quot; device with the <em>Alias</em>es &quot;usage_report&quot;, &quot;engine_report&quot;, &quot;device_info&quot;, &quot;update_interval&quot;, &quot;engine_fetch&quot;, and &quot;fetch_status&quot;. Use <em>string</em> as the <em>Data format</em> for each.</p>
+<p> <img src="assets/step_6.png" alt="Step 6"></p>
+</li>
+<li><p>Navigate to the <em>Solutions</em> tab.</p>
+<ol>
+<li>Click &quot;NEW SOLUTION.&quot; </li>
+<li>In the popup box, name the domain whatever you like.</li>
+<li>Select <em>Start from scratch</em> from the <em>Choose starting point</em> drop-down menu.  </li>
+<li><p>Click &quot;ADD.&quot;</p>
+<p><img src="assets/step_7.png" alt="Step 7"></p>
+</li>
+</ol>
+</li>
+<li><p>Open your terminal to install the <a href="https://github.com/exosite/exosite-cli">Exosite CLI tool</a>.</p>
+<pre><code> pip install exosite
+</code></pre></li>
+<li><p>Clone the GWE Seed App repository to your machine.</p>
+<pre><code> git clone https://github.com/exosite/GWE-Seed-App
+</code></pre></li>
+<li><p>Init the Exosite program and log in using your exosite.io credentials. </p>
+<pre><code>cd GWE-Seed-App
+exosite --init
+</code></pre></li>
+<li><p>Deploy the solution.</p>
+<pre><code>exosite --deploy
+</code></pre></li>
+</ol>
+<h2 id="configure-the-gateway">Configure the Gateway</h2>
+<ol>
+<li><p>Ensure GWE has been properly installed on your gateway following the <a href="http://docs.exosite.com/development/exositeready/gwe/getting_started/">GWE Getting-started guide</a>.</p>
+</li>
+<li><p>Set the update interval to post data every minute.</p>
+<pre><code> gwe -t 60
+</code></pre></li>
+<li><p>Install the gmq-sine-demo onto the gateway using the <a href="https://github.com/exosite/gmq-sine-demo">documentation</a>. Use the device identity as the Serial when prompted (12345).</p>
+</li>
+<li><p>Navigate to your solution page and check to see the data is flowing.</p>
+</li>
+</ol>
+<p>If you encounter any issues, please contact the dedicated GWE support team at <a href="mailto:gwesupport@exosite.com">gwesupport@exosite.com</a>.</p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

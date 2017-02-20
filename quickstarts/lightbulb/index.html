@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="lightbulb-quickstart">Lightbulb Quickstart</h1>
+<p>In this quickstart, you will use a Python script to simulate a connected lightbulb. You will then create a development dashboard within Murano where you can see temperature and humidity data from the device and have the ability to remotely turn the lightbulb on and off.</p>
+<h1 id="requirements">Requirements</h1>
+<h2 id="hardware-setup">Hardware Setup</h2>
+<p>No hardware is required to complete this guide.</p>
+<h2 id="software-setup">Software Setup</h2>
+<p>To complete this guide, you must first download and install Python 2.7 from the <a href="https://www.python.org/">Python website</a>.</p>
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="create-a-product-in-murano">Create a Product in Murano</h2>
+<p>In this section, you will create a new Product in Murano.</p>
+<ol>
+<li><p>In your browser, navigate to the Murano <a href="http://exosite.io/business/products">Product tab</a>. </p>
+</li>
+<li><p>To add a Product, click &quot;NEW PRODUCT.&quot;</p>
+<p><img src="pythonsim_0.png" alt="image alt text"></p>
+</li>
+<li><p>In the <em>New Product</em> popup: </p>
+<ol>
+<li><p>Enter a name for the Product in the <em>Name</em> field. </p>
+</li>
+<li><p>Select <em>Connected lightbulb example</em> from the <em>Choose starting point</em> drop-down menu. </p>
+</li>
+<li><p>Click &quot;ADD.&quot;  </p>
+</li>
+</ol>
+<p><img src="pythonsim_1.png" alt="image alt text"></p>
+</li>
+<li><p>Once the Product has been created, navigate to the <em>DEFINITION</em> tab. </p>
+</li>
+</ol>
+<p>These are the resources your device will interact with. They were created automatically from the product template you selected in the previous step. In this example, the device will generally write data to the uptime, temperature, and humidity aliases, while watching the state alias for changes.</p>
+<p>  <img src="pythonsim_2.png" alt="image alt text"></p>
+<h2 id="add-a-device-in-murano">Add a Device in Murano</h2>
+<p>In this section, you will create and activate a device under your Product in Murano.</p>
+<ol>
+<li><p>In Murano, navigate to the <em>DEVICES</em> tab and click &quot;NEW DEVICE.&quot; </p>
+<p><img src="pythonsim_3.png" alt="image alt text"></p>
+</li>
+<li><p>In the <em>New Device</em> popup: </p>
+<ol>
+<li><p>Enter a name for the device in the <em>Name</em> field. This will only be used to help you distinguish between devices.  </p>
+</li>
+<li><p>Enter a serial number or device identifier in the <em>Identity</em> field. For the purpose of this example, you can use <code>000001</code>.</p>
+</li>
+<li><p>Click &quot;CREATE.&quot;</p>
+</li>
+</ol>
+<p><img src="pythonsim_4.png" alt="image alt text"></p>
+</li>
+<li><p>Once the device is created, you will see it in your device list with a status of &quot;notactivated.&quot;</p>
+<p><img src="pythonsim_5.png" alt="image alt text"></p>
+</li>
+</ol>
+<h2 id="run-the-python-device-simulator">Run the Python Device Simulator</h2>
+<p>In this section, you will use the Python device simulator to activate the new device you created and start simulating data. </p>
+<ol>
+<li><p>Open your OS terminal and clone the Python simulator repo by entering the commands below into the terminal window. Press <strong>Enter</strong>.</p>
+<pre><code>git clone https://github.com/exosite/murano_python_device_simulator_example.git
+</code></pre><pre><code>cd murano_python_device_simulator_example
+</code></pre></li>
+<li><p>Run the device simulator by entering the command below into the terminal window. Press <strong>Enter</strong>.</p>
+<pre><code>python murano_device_simulator.py
+</code></pre><p>If successful, the script will ask you to enter your Product ID.</p>
+<p><img src="pythonsim_a.png" alt="image alt text"></p>
+</li>
+<li><p>Paste your Product ID into the terminal and press <strong>Enter</strong>. </p>
+<p><img src="pythonsim_b.png" alt="image alt text"></p>
+<p>To find your Product ID:</p>
+<ol>
+<li><p>In Murano, navigate to the <em>Products</em> tab and select the product you just created. </p>
+</li>
+<li><p>On the <em>INFO</em> tab, locate the Product ID and copy it.</p>
+</li>
+</ol>
+<p><img src="pythonsim_8.png" alt="image alt text"></p>
+</li>
+<li><p>Press <strong>Enter</strong> again to use the default device identity (000001). This matches the identity of the device you added earlier, so it will activate correctly.</p>
+<p><strong>NOTE:</strong> If you have already added 000001 and simulated the device before, you may need to create a new device (e.g., 000002) and change the default identity on the simulator. This will activate a new device and simulate data for it.</p>
+<p>If the Python Simulator is running correctly, the script should show the device has been activated and whether the lightbulb is on or off. </p>
+<p><img src="pythonsim_c.png" alt="image alt text"></p>
+</li>
+<li><p>Back in Murano, make sure the device shows a status of &quot;activated&quot; on the <em>DEVICES</em> tab. </p>
+<p><img src="pythonsim_10.png" alt="image alt text"></p>
+</li>
+<li><p>Click the device and navigate to the <em>RESOURCES</em> tab to ensure data is showing up on the platform. </p>
+<p><img src="pythonsim_11.png" alt="image alt text"></p>
+</li>
+</ol>
+<p>Now you have a simulated device pumping data into Exosite. Keep the simulator running throughout the rest of this guide.</p>
+<h2 id="create-a-dashboard-in-murano">Create a Dashboard in Murano</h2>
+<p>In this section, you will create a dashboard to view the data from the connected lightbulb and turn it on and off remotely. </p>
+<ol>
+<li><p>From the <em>RESOURCES</em> tab for your device, open the <em>DASHBOARD</em> tab. </p>
+<p><img src="pythonsim_12.png" alt="image alt text"></p>
+</li>
+<li><p>Click &quot;ADD PANE&quot; to house the widgets you will create.</p>
+<p><img src="pythonsim_13.png" alt="image alt text"></p>
+</li>
+<li><p>In the pane that appears, click the plus sign &quot;+&quot; to add a widget.  </p>
+<p><img src="pythonsim_14.png" alt="image alt text"></p>
+</li>
+<li><p>In the <em>WIDGET</em> popup that appears, select <em>Text</em> from the <em>TYPE</em> drop-down menu and complete the remaining fields (<em>TITLE</em>: &quot;Temperature&quot;; <em>VALUE</em>: &quot;resources[&quot;temperature&quot;]&quot;; <em>UNITS</em>: &quot;F&quot;). Click &quot;SAVE.&quot;</p>
+<p><img src="temperature.png" alt="image alt text"></p>
+</li>
+<li><p>Create another pane and text widget for humidity and complete the remaining fields (<em>TITLE:</em> &quot;Humidity&quot;; <em>VALUE:</em> &quot;resources[&quot;humidity&quot;]&quot;; <em>UNITS:</em> &quot;%&quot;). Click &quot;SAVE.&quot;</p>
+<p><img src="humidity.png" alt="image alt text"></p>
+</li>
+<li><p>Add a third pane and widget. In the <em>WIDGET</em> popup that appears, select <em>Toggle Switch</em> from the <em>TYPE</em> drop-down menu and complete the remaining fields (<em>TITLE</em>: &quot;On / Off&quot;; <em>VALUE</em>: &quot;resources[&quot;state&quot;]&quot;; <em>ON VALUE</em>: &quot;1&quot;; <em>OFF VALUE</em>: &quot;0&quot;). Click &quot;SAVE&quot;.</p>
+<p><img src="toggle.png" alt="image alt text"></p>
+</li>
+<li><p>Turn the light on and off for the simulated device using the toggle switch on your dashboard. </p>
+<p><img src="pythonsim_18.png" alt="image alt text"></p>
+</li>
+</ol>
+<p>Switch to the terminal (while the simulator is running), and you will see the simulator indicates that it has received the state changes.</p>
+<p>  <img src="pythonsim_d.png" alt="image alt text"></p>
+<p>Congratulations—you just remotely turned a simulated device sensor on and off.</p>
+<p><a href="http://docs.exosite.com/quickstarts/solutions/exampleapp/">UP NEXT: CREATE A SOLUTION &gt;&gt;</a></p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="gateway-message-queuing-readme">Gateway Message Queuing README</h1>
+<p>Gateway Message Queuing (GMQ) is designed to be a local proxy for Exosite, with benefits. GMQ is a process in the ExositeReady™ Gateway Engine (GWE) product that receives HTTP requests from local (on-gateway) processes.</p>
+<h1 id="the-basics">The Basics</h1>
+<p>GMQ is designed to be a localhost <strong>store-and-forward-style</strong> HTTP server that processes incoming requests and, when a network connection cannot be made, retries them when the network becomes available. The <code>gmq</code> API contains the following subset of the <a href="/reference/products/device-api/http/">Exosite HTTP Data API</a>.</p>
+<ul>
+<li><strong>activate</strong></li>
+<li><strong>write</strong></li>
+<li><strong>record</strong></li>
+</ul>
+<p>The <code>gmq</code> server&#39;s main function is to assure that the data you give it will terminate at Exosite.</p>
+<h1 id="refactoring-existing-code-to-work-with-gmq">Refactoring Existing Code to Work with GMQ</h1>
+<p>Since the endpoints of <code>gmq</code> are the same as the Exosite HTTP Data API, all you need to do to make your application&#39;s existing <code>activate</code>, <code>write</code>, and <code>record</code> calls to Exosite use <code>gmq</code> instead is to change the hostname in the url from <code>&lt;PRODUCT_ID&gt;.m2.exosite.com</code> to <code>localhost:8090</code>.</p>
+<p>For example, take the following <code>curl</code> command that writes JSON data to Murano Product ID <strong>dubhxzv0r4e1m7vj</strong> using the HTTP Device API.</p>
+<pre><code>curl -XPOST dubhxzv0r4e1m7vj.m2.exosite.com/onep:v1/stack/alias \
+    -H &#39;X-Exosite-CIK: b08d341ac17f355eec975ab0593b93ae17dd6329&#39; \
+    -H &#39;Content-Type: application/x-www-form-urlencoded; charset=utf-8&#39; \
+    -H &#39;Content-Length: 32&#39; \
+    -d &quot;device_report={\&quot;pressure\&quot;: \&quot;63\&quot;}&quot;
+</code></pre><p>To change this to point at the <code>gmq</code> server endpoint:</p>
+<pre><code>curl -XPOST localhost:8090/onep:v1/stack/alias \
+    -H &#39;X-Exosite-CIK: b08d341ac17f355eec975ab0593b93ae17dd6329&#39; \
+    -H &#39;Content-Type: application/x-www-form-urlencoded; charset=utf-8&#39; \
+    -H &#39;Content-Length: 32&#39; \
+    -d &quot;device_report={\&quot;pressure\&quot;: \&quot;63\&quot;}&quot;
+</code></pre><p>Your application code is likely programmed to provision a client and retrieve a CIK using the client model, vendor, and serial number. The GMQ server takes care of managing provisioning and CIKs when you use the &quot;X-Exosite-VMS&quot; header instead of a CIK.</p>
+<pre><code>curl -XPOST localhost:8090/onep:v1/stack/alias \
+    -H &#39;X-Exosite-VMS: MyVendor MyModel 012345&#39; \
+    -H &#39;Content-Type: application/x-www-form-urlencoded; charset=utf-8&#39; \
+    -H &#39;Content-Length: 32&#39; \
+    -d &quot;device_report={\&quot;pressure\&quot;: \&quot;63\&quot;}&quot;
+</code></pre><p>This custom header and its use is covered in more detail in the <a href="#identity-management">Identity Management</a> and <a href="#gmq-custom-header">GMQ Custom Header</a> sections below.</p>
+<h1 id="choosing-apis">Choosing APIs</h1>
+<p>When writing your custom gateway application, there are a some considerations to take into account when choosing between the <strong>write</strong> and <strong>record</strong> APIs.</p>
+<h2 id="send-my-data-immediately">Send My Data Immediately</h2>
+<p>If you want GMQ to attempt to send data immediately, the <strong>write</strong> API is the best choice. If the request fails due to a bad network connection, then the timestamp of the <strong>write</strong> request and the request itself is queued so it can be <strong>record</strong>ed later when the connection gets reestablished. When the request is recorded to Murano, it will appear in the time-series at the time of the failed <strong>write</strong> request, not the time of the successful <strong>record</strong> request.</p>
+<h2 id="send-my-data-in-bursts-or-batches">Send My Data in Bursts or Batches</h2>
+<p>Since the behavior of the GMQ server is configurable, you can use the <strong>record</strong> API to queue all outgoing data so it can be batch uploaded according to the configured period. There are two main configuration settings to worry about when tuning GMQ for your Bursts/Batches of uploaded data:</p>
+<h3 id="batch_record_period">batch_record_period</h3>
+<p>The current <code>batch_record_period</code> setting can be viewed with the following command:</p>
+<pre><code># gmq cfg get unq batch_record_period
+10.0
+</code></pre><p>This setting controls the amount of time, in seconds, that GMQ attempts unqueue recorded data and upload it to Murano. </p>
+<h3 id="batch_qty">batch_qty</h3>
+<p>The amount of data uploaded every <code>batch_record_period</code> is controlled by another <em>unq</em> section option called <code>batch_qty</code>. The <code>batch_qty</code> setting determines the number of records to attempt to upload every <code>batch_record_period</code>.</p>
+<p>For example, if I wanted to queue sensor data every <code>5</code> seconds and then upload all queued data every <code>5</code> minutes, I would make the following configuration adjustments:</p>
+<p><code>1 request / 5 seconds * 300 seconds = 60 requests</code> </p>
+<pre><code># set batch upload/record period to 5 minutes
+gmq cfg set unq batch_record_period 300.0
+# set number of requests to send every batch_record_period
+gmq cfg set unq batch_qty 60
+</code></pre><p>Though this makes sense in a perfect network scenario, setting <code>batch_qty</code> to <code>60</code> will only ever keep up with the latest incoming dataset. A good rule of thumb is to double the amount of records to upload based on the rate of incoming data. So for the example above, a <code>batch_qty</code> of <code>120</code> would be better in case a lossy network leads to a large backlog of queued data.</p>
+<h1 id="identity-management">Identity Management</h1>
+<p>The GMQ server introduces the Vendor-Model-Serial (VMS) data structure as the fundamental unit of any given node&#39;s identity, called the VMS Client. By making a request to localhost:8090 endpoints with a VMS identity (VENDOR, MODEL, SERIAL), GMQ will automatically:</p>
+<ol>
+<li>Attempt to provision the VMS Client with Murano and retrieve its CIK.</li>
+<li>Immediately forward all &quot;write&quot; requests on to Murano.</li>
+<li>If &quot;write&quot; requests fail due to a lossy internet connection or no/invalid CIK, the request will be queued into the &quot;record&quot; database with the timestamp of the request. FUTURE: Requests that get a <code>400</code> response code from Murano will not be queued into the &quot;record&quot; db.</li>
+<li>Immediately queue all &quot;record&quot; requests into a datastore that uploads a configurable number (<code>batch_qty</code>) of requests to Murano according to a configurable frequency (``). See the <a href="https://gateway-engine.exosite.io/gmq/apidoc/modules.html#">Module Documentation</a> for information on default behavior.</li>
+</ol>
+<p>The VENDOR, MODEL, SERIAL data is an old paradigm from the Exosite One Platform product that has been replaced by the Murano Product ID paradigm. In order to use GMQ with a Murano Product, all you have to do is set the VENDOR and MODEL to the Murano Product ID.</p>
+<h1 id="gmq-custom-header">GMQ Custom Header</h1>
+<p>GMQ uses a new custom header to identify a requestor as a VMS Client.
+This new header is:</p>
+<pre><code>X-Exosite-VMS: &lt;VENDOR&gt; &lt;MODEL&gt; &lt;SERIAL&gt;
+</code></pre><p>The standard 1P authorization header, below, is supported in GMQ.</p>
+<pre><code>X-Exosite-CIK: &lt;CIK&gt;
+</code></pre><p>GMQ supports both authorization headers.</p>
+<h1 id="gmq-api-endpoints">GMQ API Endpoints</h1>
+<p>GMQ serves three main endpoints for the following procedures:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">GMQ API</th>
+<th style="text-align:center">Verb</th>
+<th>Endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>activate</strong></td>
+<td style="text-align:center">POST</td>
+<td><code>/provision/activate</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>write</strong></td>
+<td style="text-align:center">POST</td>
+<td><code>/onep:v1/stack/alias</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>record</strong></td>
+<td style="text-align:center">POST</td>
+<td><code>/onep:v1/stack/alias/&lt;alias&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>reread</strong></td>
+<td style="text-align:center">POST</td>
+<td><code>/reread</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="gmq-activate">GMQ activate</h2>
+<p><code>POST localhost:8090/provision/activate &lt;HEADERS&gt; &lt;VMS&gt;</code></p>
+<ol>
+<li>Triggers an activation request if there is no CIK associated with the VMS client.</li>
+<li>The GMQ server will respond <code>200</code> with the CIK associated with the VMS client. If GMQ has no CIK, it will respond <code>204</code> with an empty payload. GMQ will respond <code>400</code> for invalid requests.</li>
+</ol>
+<p>Example for Product ID <code>dubhxzv0r4e1m7vj</code> and serial number <code>02ab7fc89</code>:</p>
+<pre><code>curl -XPOST localhost:8090/provision/activate \
+ -H &#39;Content-Type: application/x-www-form-urlencoded; charset=utf-8&#39;\
+ -d &#39;vendor=dubhxzv0r4e1m7vj&amp;model=dubhxzv0r4e1m7vj&amp;sn=02ab7fc89&#39;
+</code></pre><h2 id="gmq-write">GMQ write</h2>
+<p><code>POST localhost:8090/onep:v1/stack/alias &lt;HEADERS&gt; &lt;DATA&gt;</code></p>
+<ol>
+<li>Forward the write request to 1P using the CIK associated with the VMS client specified by the new &quot;X-Exosite-VMS&quot; header. If GMQ has no CIK for the given VMS client in the X-Exosite-VMS header, an activation attempt will be made.</li>
+<li>The GMQ server will respond <code>204</code> with an empty payload. GMQ will respond <code>400</code> for invalid requests.</li>
+</ol>
+<p>Example for Product ID <code>dubhxzv0r4e1m7vj</code> and serial number <code>02ab7fc89</code>:</p>
+<pre><code>curl -XPOST http://localhost:8090/onep:v1/stack/alias \
+ -H &#39;X-Exosite-VMS: dubhxzv0r4e1m7vj dubhxzv0r4e1m7vj 02ab7fc89&#39; \
+ -H &#39;Content-Type: application/x-www-form-urlencoded; charset=utf-8&#39; \
+ -d &quot;device_report={\&quot;coffee_level\&quot;: 63}.&quot;
+</code></pre><h2 id="gmq-record">GMQ record</h2>
+<p><code>POST localhost:8090/onep:v1/stack/&lt;alias&gt; &lt;HEADERS&gt; &lt;DATA&gt;</code></p>
+<ol>
+<li>Append <strong>DATA</strong> to the VMS Client&#39;s database. A separate thread of execution will batch record these entries at regular intervals. Like the &quot;write&quot; method, GMQ will use the CIK associated with the VMS client specified by the new &quot;X-Exosite-VMS&quot; header. If GMQ has no CIK for the given VMS client in the X-Exosite-VMS header, an activation attempt will be made.</li>
+<li>The GMQ server will respond <code>204</code> with an empty payload. GMQ will respond <code>400</code> for invalid requests.</li>
+</ol>
+<p>Example for Product ID <code>dubhxzv0r4e1m7vj</code> and serial number <code>02ab7fc89</code>:</p>
+<pre><code>curl -XPOST http://localhost:8090/onep:v1/stack/alias/device_report \
+ -H &#39;X-Exosite-VMS: dubhxzv0r4e1m7vj dubhxzv0r4e1m7vj 02ab7fc89&#39; \
+ -H &#39;Content-Type: application/x-www-form-urlencoded; charset=utf-8&#39; \
+ -d &quot;`date +&#39;%s&#39;`=Linux &#39;date&#39; command is a good way to get a timestamp!&quot;
+</code></pre><h2 id="gmq-reread">GMQ reread</h2>
+<p><code>POST localhost:8090/reread</code></p>
+<p>Any time configuration settings are changed, the GMQ server must be notified to reread the configuration settings files and update its internal state. This can be done in two ways:</p>
+<ul>
+<li>POST directly to <code>localhost:8090/reread</code></li>
+<li>Use the command line to run <code>gmq reread</code></li>
+</ul>
+<h1 id="configuration-and-the-gmq-command-line">Configuration and the <code>gmq</code> Command Line</h1>
+<p>Any time a configuration setting is changed, the server must <a href="#gmq-reread">reread</a> its configuration files in order for the change to take effect.</p>
+<h2 id="manually-editing-configurations">Manually Editing Configurations</h2>
+<p>Configuration files, of which there are two, can be edited with your favorite editor (i.e., nano, vim, emacs, etc.).</p>
+<p>The two configuration files are <code>gmq.cfg</code> and <code>logging.cfg</code>. The paths to these files can be retrieved using the <code>--cfg-path</code> and <code>--log-cfg-path</code> command-line switches, respectively.</p>
+<h2 id="editing-configurations-on-the-command-line">Editing Configurations on the Command Line</h2>
+<p>A quick and easy way to configure GMQ after installation or during development is to use the provided command line options available.</p>
+<h3 id="examples">Examples</h3>
+<p>To view the current GMQ configuration file, try the command: <code>gmq cfg</code>.
+To view the database tuning parameters, try the command: <code>gmq cfg get db</code>.
+To view the current database debug level, try the command: <code>gmq log get logger_db</code></p>
+<h2 id="the-command-line">The Command Line</h2>
+<p>Here is the <code>gmq</code> command-line help screen.</p>
+<pre><code># gmq --help
+Gateway Message Queue (GMQ)
+
+GMQ is a localhost HTTP server for use as a general purpose
+request queue for data intended for Exosite Murano Products
+and Solutions. The primary use cases for GMQ is for lossy
+cellular and intermittent WiFi networks, but it can be used
+as a store-and-forward queue for outgoing data. 
+
+Usage:
+  gmq
+  gmq [-v|--version]
+  gmq [-g|--cfg-path]
+  gmq [-l|--log-cfg-path]
+  gmq (cfg|log) set &lt;section&gt; &lt;option&gt; &lt;value&gt;
+  gmq (cfg|log) [ get &lt;section&gt; &lt;option&gt; ]
+  gmq reread
+
+Arguments:
+  cfg     Option for adjusting real-time behavior of the gmq server.
+  log     Option for adjusting the logging behavior of the gmq server.
+
+Options:
+  -h --help                             Show this screen.
+  -v --version                          Show version.
+  -g --cfg-path                         Print the path to the gmq configuration file.
+  -l --log-cfg-path                     Print the path to the gmq logging configuration file.
+  cfg                                   Print the contents of the gmq configuration.
+  cfg get                               Print a list of the gmq configuration sections.
+  cfg get &lt;section&gt;                     Print a list of the configuration options for &lt;section&gt;.
+  cfg get &lt;section&gt; &lt;option&gt;            Print the configuration option.
+  cfg set &lt;section&gt; &lt;option&gt; &lt;value&gt;    Set the configuration option. 
+  log                                   Print the contents of the gmq logging configuration.
+  log get                               Print a list of the logging configuration sections.
+  log get &lt;section&gt;                     Print a list of the logging configuration options for &lt;section&gt;.
+  log get &lt;section&gt; &lt;option&gt;            Print the logging configuration option.
+  log set &lt;section&gt; &lt;option&gt; &lt;value&gt;    Set the logging configuration option.
+</code></pre><h1 id="installation">Installation</h1>
+<p>Installing GMQ can be done a couple of different ways. </p>
+<ol>
+<li>Use the GWE Over-the-air-Update feature.</li>
+<li>Use the GWE&#39;s installer locally/manually: <code>$ gwe --install-apps /path/to/gmq.v&lt;VERSION&gt;.tar.gz</code>.</li>
+<li>Untar the release tarball and run <code>install.sh</code> manually.</li>
+</ol>
+<p>Information on GWE installation methods and procedures can be
+found on the main <a href="/development/exositeready/gwe/">ExositeReady Gateway Engine</a> page.</p>
+<h1 id="gmq-package-and-module-documentation">GMQ Package and Module documentation</h1>
+<h2 id="packaging">Packaging</h2>
+<p>If you have a local copy of the <code>gmq</code> repository, you can build the GWE installation package by using the <code>gwe_build</code> function:</p>
+<pre><code>$ source gwe.build &amp;&amp; gwe_build
+/path/to/sandbox/gmq/gmq.v1_8d09124.tar.gz
+</code></pre><h2 id="documentation">Documentation</h2>
+<p>The documentation for GMQ is built with the Sphinx tool. The <code>Makefile</code> has been modified to include the creation of a single PDF.</p>
+<p>To create the docs, simply run:</p>
+<pre><code>$ mkvirtualenv gmq-sphinx
+$ pip install -r requirements-docs.txt
+$ make html
+</code></pre><p>To create a PDF file of all of the documentation, simply run:</p>
+<pre><code>$ make singlepdf
+</code></pre><h1 id="known-issues">Known Issues</h1>
+<h2 id="the-bug">The <code>&amp;</code> Bug</h2>
+<p>The <code>&amp;</code> character in &quot;write&quot; and &quot;record&quot; requests can cause requests to fail. This issue is known and currently being addressed by Professional Services.</p>
+<h2 id="the-off-by-one-cik-renewal-behavior">The Off-by-one CIK Renewal Behavior</h2>
+<p>If a &quot;write&quot; or &quot;record&quot; request receives a 401 (unauthorized) by GMQ from One Platform, the CIK for the associated VMS Client is flagged for reactivation. Only on successive &quot;write&quot; and &quot;record&quot; requests will the activation actually take place. FUTURE: This might be solvable by moving from a central identity db (<code>gmq.db</code>) and just tracking the CIK in the <code>&lt;VENDOR&gt;.&lt;MODEL&gt;.&lt;SERIAL&gt;.db</code>. </p>
+<h2 id="the-new-http-record-api">The New HTTP Record API</h2>
+<p>The very week that <code>GMQ</code> was released, so was the newest version of the Exosite HTTP Record API. Currently, <code>GMQ</code> uses the old version of this API and plans are underway to update to the newest version, but rest assured that the old version of the Exosite HTTP Record API is still supported and fully functional.</p>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

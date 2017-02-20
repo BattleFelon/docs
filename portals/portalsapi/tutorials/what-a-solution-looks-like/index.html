@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Portals and One Platform Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+            <li>One Platform Reference</li>
+            <li><a class="level-1" href="/portals/oneplatform">One Platform Guide</a></li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/articles/200308457" target="_blank">Provisioning Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="scripting/">Scripting Reference</a></li>
+            <li>One Platform API</li>
+            <li><a class="level-1" href="/portals/http">API - HTTP Device</a></li>
+            <li><a class="level-1" href="/portals/coap">API - CoAP Device</a></li>
+            <li><a class="level-1" href="/portals/rpc">API - Remote Procedure Call / RPC</a></li>
+            <li><a class="level-1" href="/portals/websocket">API - Websocket RPC</a></li>
+            <li><a class="level-1" href="/portals/provision">API - Provision Management</a></li>
+            <li><a class="level-1" href="https://github.com/exosite-labs" target="_blank">Libraries <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="/development/exositeready">Device Software - ExositeReady</a></li>
+            <li>Portals Reference</li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/sections/200072708">Portals User Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="https://support.exosite.com/hc/en-us/sections/200054894">Portals Admin & Config Articles <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            <li><a class="level-1" href="/portals/portalsapi">API - Portals</a></li>
+            <li><a class="level-1" href="/portals/widget">API - Custom Widgets</a></li>
+            <li>One Platform / Portals Tutorials</li>
+            <li><a class="level-1" href="/portals/introduction">Intro to One Platform Device Connectivity</a></li>
+            <li><a class="level-1" href="/portals/tutorials/get-started">Getting Started Portals</a></li>
+            <li><a class="level-1" href="/portals/tutorials/get-started-arduinoyun">Getting Started Arduino Yún</a></li>
+            <li><a class"level-1" href="/portals/videos">Portals and One Platform Videos</a></li>
+            <li>OneP/Portals Developer Tools</li>
+            <li><a class="level-0" href="https://github.com/exosite/exoline/" target="_blank">Exoline - Command Line Interface <img class="ext_link_icon" src="/assets/external_link.png" alt="(ext)"></a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano</p>
+                <li><a class="level-1" href="/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="get-started-with-portals-evaluation-app">Get Started with Portals Evaluation App</h1>
+<p>This tutorial will explain how to set up a free Portals™ account, create a hypothetical device and associated dataport, send data to that hypothetical device, and display that data in a widget on your dashboard homepage.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><p>Computer with an Internet connection</p>
+</li>
+<li><p>Active email address</p>
+</li>
+</ul>
+<p><strong>NOTE:</strong> A physical device will not be used in this tutorial and is not necessary for the completion of the procedures herein.</p>
+<h2 id="create-a-portals-account">Create a Portals Account</h2>
+<p>To begin, you will need to create a Portals account. If you already have an account, you can proceed to the &quot;Create a New Device&quot; section of this document.</p>
+<ol>
+<li>Point a web browser to Exosite’s <a href="http://portals.exosite.com/signup">Account Sign Up web page</a>.</li>
+<li>Complete the form and click Create Account.
+<img src="images/image_0.png" alt="image alt text"></li>
+<li>You will receive an email from portals.exosite.com that asks you to activate your account. Click on the appropriate link in the email to activate your account.</li>
+<li>When complete, log in to your account on the <a href="https://portals.exosite.com/login">Portals login page</a> using your email address and the password you just created.
+ <img src="images/image_1.png" alt="image alt text">
+ You should now see your Portals community account dashboard homepage.
+ <img src="images/image_2.png" alt="image alt text"></li>
+</ol>
+<p>Below are descriptions of the main features of the Portals dashboard homepage, as shown in the figure above.</p>
+<ul>
+<li><strong>Portal menu</strong> - Provides links to manage features of the devices in the selected portal.</li>
+<li><strong>Portal name</strong> - Identifies the portal you are currently viewing. Your new community account is the default portal that opens when you log in. If you have access to another user’s portals, click the arrow beside your portal name to access them.</li>
+<li><strong>Dashboard name</strong> - Identifies the dashboard you are currently viewing. Dashboards are a customizable view of a portal.</li>
+<li><strong>Main menu</strong> - Provides a top-level menu to access the home page, view your account information, or log out.</li>
+<li><strong>Widgets</strong> - Three widgets appear on the dashboard by default. The Welcome widget describes how to use your account. The Portal Data Source List widget displays a list of data sources for the default &quot;Exosite Device&quot; automatically created for you with your account; the data sources are current temperature readings from Antarctica, Minneapolis, and Taiwan. Finally, the Gauge widget displays the current temperature in Antarctica.</li>
+<li><strong>Help and feedback</strong> - Allows you to search Exosite’s knowledge base for helpful articles or contact Exosite directly for support.</li>
+</ul>
+<h2 id="create-a-new-device">Create a New Device</h2>
+<p>Now that you have a Portals account, you will create a new device in your portal. For the purposes of this tutorial, this device will be a hypothetical wind turbine to which you can write wind speed data.</p>
+<ol>
+<li>Select &quot;Devices&quot; from the Portal menu to display a list of the devices in your portal.
+ <img src="images/image_3.png" alt="image alt text"></li>
+<li>On the <em>Devices </em>page, click &quot;+ Add Device.&quot;
+ <img src="images/image_4.png" alt="image alt text"></li>
+<li>A <em>Device Setup </em>window will open. On the <em>Setup Type</em> tab, select the radio button labeled &quot;I want to create a generic device.&quot; Click Continue.
+ <img src="images/image_5.png" alt="image alt text">
+ A generic device is one that does not follow a pre-existing model; in other words, it is a device you set up from scratch. Since you want to define what data will go in the device you are creating, choose this option.
+ <strong>NOTE:</strong> Generic and unlisted devices are both private. The term &quot;unlisted&quot; here indicates that you want to add a device based on a model that is unlisted. For example, you would choose an unlisted device if you had a hardware development kit that already had a model name created on Exosite. In this case, the manufacturer would provide you with an unlisted model identifier created specifically to work with the kit’s firmware.</li>
+<li>On the <em>Device Setup</em> tab:<ol>
+<li>Ensure the <em>Device Type</em> drop-down menu is set to generic.</li>
+<li>Select your timezone from the <em>Device Timezone</em> drop-down menu.</li>
+<li>Enter a location in the <em>Device Location </em>field. The location can be anything that indicates the device’s location, but it cannot be left blank. In the example below, the location is set to office.</li>
+<li>Under the <em>Device Specific Limits </em>heading, you can restrict a device’s resource consumption. For this example, select the radio button labeled &quot;Inherit&quot; for each option, which allows the device to use as much of its parent portal’s resource limits as it needs. The “Custom” setting might be used, for example, to ensure that an SMS alert limit is shared equally among devices in a portal.</li>
+<li>Click Continue.
+<img src="images/image_6.png" alt="image alt text"></li>
+</ol>
+</li>
+<li>On the <em>Confirm</em> tab, enter a name for your device in the <em>New Device Name </em>field. Since this device will be a hypothetical wind turbine, it is named Turbine 1 in the example below. Click Submit.
+ <img src="images/image_7.png" alt="image alt text"></li>
+<li>You should see a <em>Device Successfully Created </em>message. Click the &quot;x&quot; in the window to return to your device list.
+ <img src="images/image_8.png" alt="image alt text">
+ You should now see the device you just created on the <em>Devices</em> page. To view pertinent information about the device, click on the device to open the <em>Device Information</em> window.
+ <img src="images/image_9.png" alt="image alt text"></li>
+</ol>
+<h2 id="create-a-device-dataport">Create a Device Dataport</h2>
+<p>In order to write data to the wind turbine device you just created, you first need to create a dataport to contain the data. A dataport contains a series of time-stamped points and can live inside a device or a portal.</p>
+<ol>
+<li>Select &quot;Data&quot; from the Portal menu to display a list of all the devices in your portal and their associated dataports.
+ <strong>NOTE:</strong> Portals may refer to dataports as data sources. The term dataport and data source refer to the same thing and can be used interchangeably.</li>
+<li>On the <em>Data</em> page, click &quot;+ Add Data.&quot;
+ <img src="images/image_10.png" alt="image alt text"></li>
+<li>A <em>Data Setup</em> window will open. On the <em>Origin </em>tab:<ol>
+<li>Select the radio button labeled &quot;From a Device&quot; since you are adding a dataport for the device you just created.</li>
+<li>Select the wind turbine device from the drop-down menu.</li>
+<li>Click Continue.
+<img src="images/image_11.png" alt="image alt text">
+<strong>NOTE:</strong> The other origin options are out of the scope of this tutorial, but deserve a brief explanation. Select &quot;From Existing Data&quot; to combine the data from other dataports to a device in your portal. Select “From Shared Data” to echo whatever is in a dataport; you need a share code for the other dataport to do this (this is how the default “Exosite Device” works with temperatures from Antarctica, Minneapolis, and Taiwan). Finally, select “From Public Source” if you want to search for and use data from another dataport that has been made public.</li>
+</ol>
+</li>
+<li><p>Since a wind turbine can tell you the wind speed at a given time, you will make that the first datapoint. In the <em>Configuration </em>tab:</p>
+<ol>
+<li>Enter Wind Speed in the <em>Data Source Name </em>field. This is a name that widgets can use to describe the data in this dataport to dashboard users.</li>
+<li>Select integer from the <em>Data Source Format</em> drop-down menu. This indicates the format of data (integer, float, string, binary) that will come from the device.</li>
+<li>Enter kph in the <em>Unit </em>field. This indicates the type of measurement for the data. In the example below, the wind speed will be measured in kilometers per hour.</li>
+<li>Enter windspeed in the <em>Alias </em>field. This s the name devices will use to identify this dataport when accessing Exosite’s application programming interfaces (APIs).</li>
+<li><p>Click Submit.</p>
+<p><img src="images/image_12.png" alt="image alt text"></p>
+</li>
+</ol>
+</li>
+<li><p>You should see a <em>Data Source Successfully Created</em> message. Click Quit to return to your dataport list.
+ <img src="images/image_13.png" alt="image alt text">
+ You should now see the dataport you just created on the <em>Data</em> page.
+ <img src="images/image_14.png" alt="image alt text"></p>
+</li>
+<li>Select &quot;Home&quot; from the Portal menu to return to the dashboard homepage.
+ <img src="images/image_15.png" alt="image alt text"></li>
+<li><p>You may notice that the dataport you just added is not listed in the Portal Data Source List widget; that widget has not been configured to display this dataport. Click the arrow in the corner of the widget and select Edit to add the dataport.</p>
+<p> <img src="images/image_16.png" alt="image alt text"></p>
+</li>
+<li><p>Select the checkbox for the new dataport in the <em>Data Sources</em> list. Leave the <em>Selectable</em>, <em>Set Caller</em>, and <em>Refresh Rate</em> fields at their defaults. Click Save.
+ <img src="images/image_17.png" alt="image alt text"></p>
+<p> You should now see the dataport value listed in the Portal Data Source List widget on your dashboard homepage.</p>
+<p> <img src="images/image_18.png" alt="image alt text"></p>
+</li>
+</ol>
+<h2 id="read-and-write-data">Read and Write Data</h2>
+<h3 id="use-portals">Use Portals</h3>
+<p>Now, you will add wind-speed data for the turbine using Portals.</p>
+<ol>
+<li>Select &quot;Data&quot; from the Portal menu and click the Wind Speed dataport you just created.</li>
+<li>In the <em>Data Information </em>window, you will see that the new dataport is empty. In order to write data to a device, enter a value in the <em>Data value </em>field. For this example, enter 15 and click Update.
+ <img src="images/image_19.png" alt="image alt text"></li>
+<li>You should see a <em>Data written successfully</em> message. Click the &quot;x&quot; in the upper right corner of the window to exit.
+ <img src="images/image_20.png" alt="image alt text"></li>
+<li>Select &quot;Home&quot; from the Portal menu to return to the dashboard homepage. You should now see the value you just wrote to the Wind Speed dataport in the Portal Data Source List widget.
+ <img src="images/image_21.png" alt="image alt text"></li>
+</ol>
+<p>This method of writing data from within Portals is generally only used for debugging during development.</p>
+<h3 id="use-apis">Use APIs</h3>
+<h4 id="basics-of-api-access">Basics of API Access</h4>
+<p>This section explains how to write data to Exosite from an external device using an API. Note that this process is optional and will require installing at least one program, as well as entering commands at the command prompt. If this doesn’t interest you, you can proceed to the &quot;Dashboards and Widgets&quot; section of this document.</p>
+<p>Exosite provides several APIs that allow access to data and device information from a variety of firmware platforms. In order to access an API to make calls to read and write datapoints in a device’s dataport, you must identify the device’s Client Interface Key (CIK) and alias using the steps below.</p>
+<ol>
+<li>Select &quot;Devices&quot; from the Portal menu and click on the turbine device on the <em>Device</em> page.</li>
+<li>In the <em>Device Information </em>window that appears, find the device CIK and dataport alias. In the example below, the device CIK is <em>8c295ee636ad2192f8a208245eec124274a59551</em> and the dataport alias is <em>windspeed</em>.
+ <img src="images/image_22.png" alt="image alt text">
+Now that you have the CIK and dataport alias, you can use Exosite APIs. Writing firmware to use the API from a piece of physical hardware is out of the scope of this tutorial, but the information below will discuss two ways to access these APIs from your computer’s command line.</li>
+</ol>
+<h4 id="read-and-write-with-curl">Read and Write with cURL</h4>
+<p><a href="http://curl.haxx.se/">cURL</a> is a command line tool that may be used to generate HTTP requests. Read and write commands for the Exosite API can be called with cURL.</p>
+<p><strong>Mac/UNIX/Linux:</strong> cURL is already installed on most Mac or UNIX/Linux systems. To open a command line window, press <strong>⌘ + Spacebar</strong>, type <em>terminal</em> in the Spotlight search bar, and select Terminal from the list.</p>
+<p><img src="images/image_23.png" alt="image alt text"></p>
+<p><strong>Windows:</strong> Windows users who are not already familiar with cURL may want to skip to the &quot;Read and Write with Exoline&quot; section below. However, you can download cURL by entering information about your version of Windows on the cURL Download Wizard web page. Once cURL is installed, select Start &gt; All Programs &gt; Accessories &gt; Command Prompt to access the Windows command prompt.</p>
+<p><img src="images/image_24.png" alt="image alt text"></p>
+<p>Use the command below to write a new wind speed of 11 kilometers per hour to the turbine device. <strong>NOTE:</strong> Enter the bold characters at the command line; be sure to replace YOUR_CIK_HERE with the CIK for your device.</p>
+<pre><code>$ curl http://m2.exosite.com/onep:v1/stack/alias -H &quot;X-Exosite-CIK: YOUR_CIK_HERE&quot; -H &quot;Accept: application/x-www-form-urlencoded; charset=utf-8&quot; -d &quot;windspeed=11&quot;
+</code></pre><p>Use the command below to read back the latest wind speed from the turbine device. Again, be sure to replace YOUR_CIK_HERE with the CIK for your device.</p>
+<pre><code>$ curl http://m2.exosite.com/onep:v1/stack/alias?windspeed -H &quot;X-Exosite-CIK: YOUR_CIK_HERE&quot; -H &quot;Accept: application/x-www-form-urlencoded; charset=utf-8&quot;
+windspeed=11
+</code></pre><h4 id="read-and-write-with-exoline">Read and Write with Exoline</h4>
+<p><a href="https://github.com/exosite/exoline">Exoline</a> is a command line tool that works with Exosite’s services. Exoline provides access to a wide range of APIs that are possible with cURL, but Exoline provides a less verbose syntax. Exoline supports most platforms, including Linux, Mac, and Windows. Refer to the Exoline <a href="https://github.com/exosite/exoline/blob/master/README.md#installation-">Installation Instructions</a> for additional information.</p>
+<p><strong>Mac/UNIX/Linux:</strong> To open a command line window, press <strong>⌘ + Spacebar</strong>, type <em>terminal</em> in the Spotlight search bar, and select Terminal from the list.</p>
+<p><img src="images/image_25.png" alt="image alt text"></p>
+<p><strong>Windows:</strong> To access the Windows command prompt, select Start &gt; All Programs &gt; Accessories &gt; Command Prompt.</p>
+<p><img src="images/image_26.png" alt="image alt text"></p>
+<p>Use the commands below to write and read values from the turbine device. <strong>NOTE: </strong>Enter the bold characters at the command line; be sure to replace YOUR_CIK_HERE with the CIK for your device.</p>
+<pre><code>$ exo write YOUR_CIK_HERE windspeed --value=&quot;12&quot;
+</code></pre><pre><code>$ exo read YOUR_CIK_HERE windspeed
+2014-07-03 18:14:02-05:00,12
+</code></pre><p>Use the command below to see the tree of the turbine device. Again, be sure to replace YOUR_CIK_HERE with the CIK for your device.</p>
+<pre><code>$ exo tree YOUR_CIK_HERE
+Turbine 1  client cik: 8c295ee636ad2192f8a208245eec124274a59551 (aliases: see parent)
+  └─Wind Speed  integer dataport rid: acd8c59a7428a2cbcc258c43b3ecafb8d13a95b4 (aliases: [&quot;windspeed&quot;])
+</code></pre><p>In the output above, you can see both the Turbine 1 device and Wind Speed dataport you created, as well as the hierarchical relationship between them - the dataport is &quot;inside&quot; the device. The Exosite One Platform™ stores domains, users, portals, devices, and dataports in a hierarchy, and Exoline’s <em>tree</em> command can show you those relationships.</p>
+<p>If you would like to see more of the hierarchy, visit <a href="https://portals.exosite.com/account/portals">your Portals web page</a> and use the key for your portal instead of the device CIK with the Exoline <em>tree</em> command. The <em>tree </em>command lets you explore this hierarchy, which is important for mobile and web application development in the platform.</p>
+<h2 id="customize-dashboard-and-widgets">Customize Dashboard and Widgets</h2>
+<p>Now that you have a datapoint written to the Wind Speed dataport, you can create a widget to capture that information on your dashboard homepage.</p>
+<ol>
+<li>Select &quot;Home&quot; from the Portal menu to return to the dashboard homepage.</li>
+<li>Click &quot;Add Widget&quot; to add a new widget.
+ <img src="images/image_27.png" alt="image alt text"></li>
+<li>An <em>Add widget </em>window will open. On the <em>Type</em> tab:<ol>
+<li>Select Big Number in the <em>Widget Type</em> drop-down menu; this is a widget that displays a large numeric value that is suitable for a dashboard. There are many predefined widgets to choose from. You can also select Custom Widget to develop your own.
+<img src="images/image_28.png" alt="image alt text"></li>
+<li>Enter Wind Speed in the <em>Block Title</em> field. This title will be displayed at the top of the widget on the dashboard homepage.
+<img src="images/image_29.png" alt="image alt text"></li>
+<li>Click Continue.</li>
+</ol>
+</li>
+<li><p>On the <em>Config </em>tab, you can configure many features of the widget. With the Big Number widget, you can change the size of the widget itself (measured in grid units within your dashboard; the entire dashboard is four grid units wide), the dataport to display, and the amount of data that may be configured. You can also configure the widget to refresh.</p>
+<ol>
+<li>Under the <em>Widget Size </em>heading<em>, </em>set the <em>Width</em> and <em>Height</em> to 2 grid units.</li>
+<li>Under the <em>Data Source </em>heading, select the checkbox for your dataport.</li>
+<li>Under the <em>View Data By </em>heading<em>, </em>select the radio button labeled &quot;Count.&quot; The count number indicates the number of datapoints that should be displayed by the widget. For this example, enter 1 in the field.</li>
+<li>Enter 5 seconds in the <em>Refresh Rate</em> field. This indicates how often the widget will fetch new data.</li>
+<li><p>Click Submit.</p>
+<p><img src="images/image_30.png" alt="image alt text"></p>
+</li>
+</ol>
+</li>
+<li><p>You should see a <em>Widget added successfully</em> message. Click Quit to return to your dashboard.
+ <img src="images/image_31.png" alt="image alt text"></p>
+</li>
+</ol>
+<p>Your dashboard should now look similar to the example below. By default, the new widget occupies the first empty space on the dashboard. You can use the move tool to drag the widget into a more prominent position on your dashboard.
+    <img src="images/image_32.png" alt="image alt text">
+Notice that the Big Number widget reports data using the units you specified when you set up the Wind Speed dataport. It also reloads based on the refresh timing you set. You can use cURL or Exoline to write data and the widget will automatically update the number it displays when it reloads.</p>
+<h2 id="what-s-next-">What’s Next?</h2>
+<p>You have created a free Portals community account, created a hypothetical device and associated dataport, written to that dataport from Portals, written to that dataport from outside Portals using the same API a device would use, and set up a widget to display that data.</p>
+<p>Devices in the real world often have more dataports, require some processing of their data, or must send notifications to the users of the system. You may also be ready to start writing firmware to make your product communicate with the cloud. Exosite provides support articles on each of these topics, as well as libraries and sample applications for a variety of languages and hardware platforms.</p>
+<ul>
+<li><p><a href="https://support.exosite.com/hc/en-us/articles/200513440-Scripting">Server-side processing of data using scripting</a></p>
+</li>
+<li><p><a href="https://support.exosite.com/hc/en-us/articles/200679420-Manage-Pages-Events-Alerts">Create events and alerts in Portals</a></p>
+</li>
+<li><p><a href="https://support.exosite.com/hc/en-us/articles/200095868-Device-Client-Support-Checklist">Use Exosite’s APIs from your device firmware</a></p>
+</li>
+<li><p><a href="https://support.exosite.com/hc/en-us/articles/200382634-Dashboards">Develop custom dashboards</a></p>
+</li>
+<li><p><a href="https://support.exosite.com/hc/en-us/articles/200419544-What-is-a-Whitelabel-account-">Build your own custom theme with a Whitelabel account</a></p>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

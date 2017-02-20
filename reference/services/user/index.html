@@ -1,0 +1,4302 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="user-management-service">User Management Service</h1>
+<blockquote>
+<p>A user management service, with support for configuring roles and permission.</p>
+</blockquote>
+<h3 id="operations">Operations</h3>
+<h4 id="roles">Roles</h4>
+<ul>
+<li><a href="#addroleparam">User.addRoleParam()</a> </li>
+<li><a href="#addroleperm">User.addRolePerm()</a> </li>
+<li><a href="#assignuser">User.assignUser()</a> </li>
+<li><a href="#createrole">User.createRole()</a> </li>
+<li><a href="#deassignuser">User.deassignUser()</a> </li>
+<li><a href="#deassignuserparam">User.deassignUserParam()</a> </li>
+<li><a href="#deassignuserparamname">User.deassignUserParamName()</a> </li>
+<li><a href="#deleterole">User.deleteRole()</a> </li>
+<li><a href="#deleteroleparam">User.deleteRoleParam()</a> </li>
+<li><a href="#deleteroleparamvalue">User.deleteRoleParamValue()</a> </li>
+<li><a href="#deleteroleperm">User.deleteRolePerm()</a> </li>
+<li><a href="#getrole">User.getRole()</a> </li>
+<li><a href="#hasuserroleparam">User.hasUserRoleParam()</a> </li>
+<li><a href="#listroleparamusers">User.listRoleParamUsers()</a> </li>
+<li><a href="#listroleperms">User.listRolePerms()</a> </li>
+<li><a href="#listroleusers">User.listRoleUsers()</a> </li>
+<li><a href="#listroles">User.listRoles()</a> </li>
+<li><a href="#listuserroleparamvalues">User.listUserRoleParamValues()</a> </li>
+<li><a href="#listuserroles">User.listUserRoles()</a> </li>
+</ul>
+<h4 id="socials">Socials</h4>
+<ul>
+<li><a href="#createsocial">User.createSocial()</a> </li>
+<li><a href="#deletesocial">User.deleteSocial()</a> </li>
+<li><a href="#getsocial">User.getSocial()</a> </li>
+<li><a href="#getsocialloginurl">User.getSocialLoginUrl()</a> </li>
+<li><a href="#getsocialtoken">User.getSocialToken()</a> </li>
+<li><a href="#sociallist">User.socialList()</a> </li>
+<li><a href="#socialrequest">User.socialRequest()</a> </li>
+<li><a href="#updatesocial">User.updateSocial()</a> </li>
+</ul>
+<h4 id="users">Users</h4>
+<ul>
+<li><a href="#activateuser">User.activateUser()</a> </li>
+<li><a href="#assignuser">User.assignUser()</a> </li>
+<li><a href="#createpermission">User.createPermission()</a> </li>
+<li><a href="#createuser">User.createUser()</a> </li>
+<li><a href="#createuserdata">User.createUserData()</a> </li>
+<li><a href="#deassignuser">User.deassignUser()</a> </li>
+<li><a href="#deassignuserparam">User.deassignUserParam()</a> </li>
+<li><a href="#deassignuserparamname">User.deassignUserParamName()</a> </li>
+<li><a href="#deleteperm">User.deletePerm()</a> </li>
+<li><a href="#deleteuser">User.deleteUser()</a> </li>
+<li><a href="#deleteuserdata">User.deleteUserData()</a> </li>
+<li><a href="#getcurrentuser">User.getCurrentUser()</a> </li>
+<li><a href="#getuser">User.getUser()</a> </li>
+<li><a href="#getuserdata">User.getUserData()</a> </li>
+<li><a href="#getusertoken">User.getUserToken()</a> </li>
+<li><a href="#hasuserperm">User.hasUserPerm()</a> </li>
+<li><a href="#listperms">User.listPerms()</a> </li>
+<li><a href="#listuserdata">User.listUserData()</a> </li>
+<li><a href="#listuserroleparamvalues">User.listUserRoleParamValues()</a> </li>
+<li><a href="#listuserroles">User.listUserRoles()</a> </li>
+<li><a href="#listusers">User.listUsers()</a> </li>
+<li><a href="#resetuserpassword">User.resetUserPassword()</a> </li>
+<li><a href="#updateuser">User.updateUser()</a> </li>
+<li><a href="#updateuserdata">User.updateUserData()</a> </li>
+</ul>
+<h2 id="operations">Operations</h2>
+<h3 id="roles">Roles</h3>
+<hr>
+<h4 id="addroleparam">addRoleParam</h4>
+<blockquote>
+<p>Adds parameter definition to given role.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>body</strong></td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of role parameter definition</td>
+</tr>
+<tr>
+<td>body[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="a-role-definition-object-">A role definition  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameter</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of role parameter definition</td>
+</tr>
+<tr>
+<td>parameter[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;body&quot;] = {
+    {
+      [&quot;name&quot;] = &quot;sn&quot;
+    },
+    {
+      [&quot;name&quot;] = &quot;rid&quot;
+    }
+  }
+}
+response.message = User.addRoleParam(parameters)
+</code></pre>
+<hr>
+<h4 id="addroleperm">addRolePerm</h4>
+<blockquote>
+<p>Adds permission to given role.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>body</strong></td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of Permissions</td>
+</tr>
+<tr>
+<td>body[].method</td>
+<td style="text-align:center">^[A-Z]{1,10}$</td>
+<td>Http method of the endpoint</td>
+</tr>
+<tr>
+<td>body[].end_point</td>
+<td style="text-align:center">^[A-Za-z0-9\-\/_{}]{1,150}$</td>
+<td>Endpoint path.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-permissions-object-">List of Permissions  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td style="text-align:center">^[A-Z]{1,10}$</td>
+<td>Http method of the endpoint</td>
+</tr>
+<tr>
+<td>end_point</td>
+<td style="text-align:center">^[A-Za-z0-9\-\/_{}]{1,150}$</td>
+<td>Endpoint path.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;body&quot;] = {
+    {
+      [&quot;method&quot;] = &quot;GET&quot;,
+      [&quot;end_point&quot;] = &quot;info/{sn}&quot;
+    },
+    {
+      [&quot;method&quot;] = &quot;GET&quot;,
+      [&quot;end_point&quot;] = &quot;info/{rid}&quot;
+    }
+  }
+}
+response.message = User.addRolePerm(parameters)
+</code></pre>
+<hr>
+<h4 id="assignuser">assignUser</h4>
+<blockquote>
+<p>Assigns given roles to given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>roles</strong></td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of user roles</td>
+</tr>
+<tr>
+<td>roles[].role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>roles[].parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>roles[][].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>roles[][].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-roles-object-">List of user roles  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>parameters[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters[].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;roles&quot;] = {
+    {
+      [&quot;role_id&quot;] = &quot;guest&quot;,
+      [&quot;parameters&quot;] = {
+        {
+          [&quot;name&quot;] = &quot;sn&quot;,
+          [&quot;value&quot;] = &quot;1&quot;
+        },
+        {
+          [&quot;name&quot;] = &quot;sn&quot;,
+          [&quot;value&quot;] = &quot;2&quot;
+        },
+        {
+          [&quot;name&quot;] = &quot;rid&quot;,
+          [&quot;value&quot;] = &quot;1&quot;
+        }
+      }
+    },
+    {
+      [&quot;role_id&quot;] = &quot;admin&quot;,
+      [&quot;parameters&quot;] = {
+        {
+          [&quot;name&quot;] = &quot;sn&quot;,
+          [&quot;value&quot;] = &quot;999&quot;
+        }
+      }
+    }
+  }
+}
+response.message = User.assignUser(parameters)
+</code></pre>
+<hr>
+<h4 id="createrole">createRole</h4>
+<blockquote>
+<p>Creates role.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>A role definition</td>
+</tr>
+<tr>
+<td>role.role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>role.parameter</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of role parameter definition</td>
+</tr>
+<tr>
+<td>role[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="a-role-definition-object-">A role definition  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameter</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of role parameter definition</td>
+</tr>
+<tr>
+<td>parameter[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local role = {
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;parameter&quot;] = {
+    {
+      [&quot;name&quot;] = &quot;sn&quot;
+    },
+    {
+      [&quot;name&quot;] = &quot;rid&quot;
+    }
+  }
+}
+response.message = User.createRole(role)
+</code></pre>
+<hr>
+<h4 id="deassignuser">deassignUser</h4>
+<blockquote>
+<p>Deassigns given role from given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-roles-object-">List of user roles  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>parameters[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters[].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;role_id&quot;] = &quot;guest&quot;
+}
+response.message = User.deassignUser(parameters)
+</code></pre>
+<hr>
+<h4 id="deassignuserparam">deassignUserParam</h4>
+<blockquote>
+<p>Deassigns given role with specific parameter value from given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>parameter_name</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter name</td>
+</tr>
+<tr>
+<td><strong>parameter_value</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter value</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-roles-object-">List of user roles  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>parameters[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters[].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;parameter_name&quot;] = &quot;sn&quot;,
+  [&quot;parameter_value&quot;] = &quot;1&quot;
+}
+respons.message = User.deassignUserParam(parameters)
+</code></pre>
+<hr>
+<h4 id="deassignuserparamname">deassignUserParamName</h4>
+<blockquote>
+<p>Deassigns given role with specific parameter name from given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>parameter_name</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter name</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-roles-object-">List of user roles  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>parameters[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters[].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;parameter_name&quot;] = &quot;sn&quot;
+}
+response.message = User.deassignUserParamName(parameters)
+</code></pre>
+<hr>
+<h4 id="deleterole">deleteRole</h4>
+<blockquote>
+<p>Delete given role.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="deletion-successful-nil-">Deletion successful  -  <em>nil</em></h6>
+<p>Deletion successful</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;role_id&quot;] = &quot;guest&quot;
+}
+response.message = User.deleteRole(parameters)
+</code></pre>
+<hr>
+<h4 id="deleteroleparam">deleteRoleParam</h4>
+<blockquote>
+<p>Deletes given role parameter definition.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>parameter_name</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter name</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="a-role-definition-object-">A role definition  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameter</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of role parameter definition</td>
+</tr>
+<tr>
+<td>parameter[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;parameter_name&quot;] = &quot;sn&quot;
+}
+response.message = User.deleteRoleParam(parameters)
+</code></pre>
+<hr>
+<h4 id="deleteroleparamvalue">deleteRoleParamValue</h4>
+<blockquote>
+<p>Deletes given role-parameter value.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>parameter_name</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter name</td>
+</tr>
+<tr>
+<td><strong>parameter_value</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter value</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="deletion-successful-nil-">Deletion successful  -  <em>nil</em></h6>
+<p>Deletion successful</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;parameter_name&quot;] = &quot;sn&quot;,
+  [&quot;parameter_value&quot;] = 1
+}
+response.message = User.deleteRoleParamValue(parameters)
+</code></pre>
+<hr>
+<h4 id="deleteroleperm">deleteRolePerm</h4>
+<blockquote>
+<p>Deletes permission from given role.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>perm_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>{method}/{end_point}</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-permissions-object-">List of Permissions  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td style="text-align:center">^[A-Z]{1,10}$</td>
+<td>Http method of the endpoint</td>
+</tr>
+<tr>
+<td>end_point</td>
+<td style="text-align:center">^[A-Za-z0-9\-\/_{}]{1,150}$</td>
+<td>Endpoint path.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;perm_id&quot;] = &quot;GET/info/{sn}&quot;
+}
+response.message = User.deleteRolePerm(parameters)
+</code></pre>
+<hr>
+<h4 id="getrole">getRole</h4>
+<blockquote>
+<p>Gets role by Role ID.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="a-role-definition-object-">A role definition  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameter</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of role parameter definition</td>
+</tr>
+<tr>
+<td>parameter[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;role_id&quot;] = &quot;guest&quot;
+}
+response.message = User.getRole(parameters)
+</code></pre>
+<hr>
+<h4 id="hasuserroleparam">hasUserRoleParam</h4>
+<blockquote>
+<p>Checks if given user has given role with specific parameter.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>parameter_name</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter name</td>
+</tr>
+<tr>
+<td><strong>parameter_value</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter value</td>
+</tr>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>integer</em></td>
+<td>User ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="-ok-if-user-has-role-ok-">&quot;OK&quot; if user has role  -  &quot;OK&quot;</h6>
+<p>&quot;OK&quot; if user has role</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;parameter_name&quot;] = &quot;sn&quot;,
+  [&quot;parameter_value&quot;] = &quot;1&quot;,
+  [&quot;id&quot;] = 2
+}
+response.message = User.hasUserRoleParam(parameters)
+</code></pre>
+<hr>
+<h4 id="listroleparamusers">listRoleParamUsers</h4>
+<blockquote>
+<p>Returns the list of user IDs in given role with specific parameter.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>parameter_name</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter name</td>
+</tr>
+<tr>
+<td><strong>parameter_value</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter value</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-id-integer-">List of user ID  -  [ <em>integer</em> ]</h6>
+<p>List of user ID</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;parameter_name&quot;] = &quot;sn&quot;,
+  [&quot;parameter_value&quot;] = &quot;1&quot;
+}
+response.message = User.listRoleParamUsers(parameters)
+</code></pre>
+<hr>
+<h4 id="listroleperms">listRolePerms</h4>
+<blockquote>
+<p>Returns the list of permissions in given role.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-permissions-object-">List of Permissions  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td style="text-align:center">^[A-Z]{1,10}$</td>
+<td>Http method of the endpoint</td>
+</tr>
+<tr>
+<td>end_point</td>
+<td style="text-align:center">^[A-Za-z0-9\-\/_{}]{1,150}$</td>
+<td>Endpoint path.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;role_id&quot;] = &quot;guest&quot;
+}
+response.message = User.listRolePerms(parameters)
+</code></pre>
+<hr>
+<h4 id="listroleusers">listRoleUsers</h4>
+<blockquote>
+<p>Returns the list of user IDs in given role.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-id-integer-">List of user ID  -  [ <em>integer</em> ]</h6>
+<p>List of user ID</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;role_id&quot;] = &quot;guest&quot;
+}
+response.message = User.listRoleUsers(parameters)
+</code></pre>
+<hr>
+<h4 id="listroles">listRoles</h4>
+<blockquote>
+<p>Returns the list of roles.</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-roles-object-">List of roles  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameter</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of role parameter definition</td>
+</tr>
+<tr>
+<td>parameter[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">response.message = User.listRoles()
+</code></pre>
+<hr>
+<h4 id="listuserroleparamvalues">listUserRoleParamValues</h4>
+<blockquote>
+<p>Returns the paginated list of values of given parameter name belong to given user role.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>parameter_name</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter name</td>
+</tr>
+<tr>
+<td>offset</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Pagination offset</td>
+</tr>
+<tr>
+<td>limit</td>
+<td style="text-align:center"><em>integer</em> {..100}</td>
+<td>Pagination limit<br/>Default: 100</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="operation-response-object-containing-one-page-of-user-role-parameters-object-">Operation response object containing one page of user role parameters.  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>items</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>One page list of parameters.</td>
+</tr>
+<tr>
+<td>total</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Total number of keys.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;parameter_name&quot;] = &quot;sn&quot;
+}
+response.message = User.listUserRoleParamValues(parameters)
+</code></pre>
+<hr>
+<h4 id="listuserroles">listUserRoles</h4>
+<blockquote>
+<p>Returns the list of assigned roles of given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-roles-object-">List of user roles  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>parameters[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters[].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">response.message = User.listUserRoles({[&quot;id&quot;] = 2})
+</code></pre>
+<h3 id="socials">Socials</h3>
+<hr>
+<h4 id="createsocial">createSocial</h4>
+<blockquote>
+<p>Add a Social.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>body</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>body.scope</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Specifies the level of access that the application is requesting</td>
+</tr>
+<tr>
+<td>body.consumer</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Consumer name</td>
+</tr>
+<tr>
+<td>body.redirect</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Redirect URI or Callback URL</td>
+</tr>
+<tr>
+<td>body.client_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Client Identifier</td>
+</tr>
+<tr>
+<td>body.client_secret</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Client Authentication</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="todo-object-">TODO  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scope</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Specifies the level of access that the application is requesting</td>
+</tr>
+<tr>
+<td>consumer</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Consumer name</td>
+</tr>
+<tr>
+<td>redirect</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Redirect URI or Callback URL</td>
+</tr>
+<tr>
+<td>client_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Client Identifier</td>
+</tr>
+<tr>
+<td>client_secret</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Client Authentication</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local new_social = {
+  [&quot;consumer&quot;] = &quot;Google&quot;,
+  [&quot;client_id&quot;] = &quot;173032451965-6aritviopipcqec0j4cq5sxc1519m025.apps.googleusercontent.com&quot;,
+  [&quot;client_secret&quot;] = &quot;sNa2saB31xQnQ09sUc2OOywF&quot;,
+  [&quot;scope&quot;] = {&quot;profile&quot;,&quot;email&quot;},
+  [&quot;redirect&quot;] = &quot;https://demo.apps.exosite-dev.io/social/handle/Google&quot;
+}
+response.message = User.createSocial(new_social)
+</code></pre>
+<hr>
+<h4 id="deletesocial">deleteSocial</h4>
+<blockquote>
+<p>Delete a social.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>consumer</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Consumer name</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="social-deleted-nil-">Social deleted  -  <em>nil</em></h6>
+<p>Social deleted</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;consumer&quot;] = &quot;Google&quot;
+}
+response.message = User.deleteSocial(parameters)
+</code></pre>
+<hr>
+<h4 id="getsocial">getSocial</h4>
+<blockquote>
+<p>Get social info.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>consumer</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Consumer name</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="todo-object-">TODO  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scope</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Specifies the level of access that the application is requesting</td>
+</tr>
+<tr>
+<td>consumer</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Consumer name</td>
+</tr>
+<tr>
+<td>redirect</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Redirect URI or Callback URL</td>
+</tr>
+<tr>
+<td>client_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Client Identifier</td>
+</tr>
+<tr>
+<td>client_secret</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Client Authentication</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;consumer&quot;] = &quot;Google&quot;
+}
+response.message = User.getSocial(parameters)
+</code></pre>
+<hr>
+<h4 id="getsocialloginurl">getSocialLoginUrl</h4>
+<blockquote>
+<p>Get social login URL.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>consumer</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Consumer name</td>
+</tr>
+<tr>
+<td>reqToken</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The consumer request token</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="consumer-login-url-string-">Consumer login url  -  <em>string</em></h6>
+<p>Consumer login url</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;consumer&quot;] = &quot;Google&quot;
+}
+response.headers[&quot;location&quot;] = User.getSocialLoginUrl(parameters) -- redierct to social login url response.code = 303
+</code></pre>
+<hr>
+<h4 id="getsocialtoken">getSocialToken</h4>
+<blockquote>
+<p>Get social login Token</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>consumer</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Consumer name</td>
+</tr>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The consumer return code</td>
+</tr>
+<tr>
+<td>state</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The consumer return state</td>
+</tr>
+<tr>
+<td>oauth_token</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The consumer return oauth_token</td>
+</tr>
+<tr>
+<td>oauth_verifier</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The consumer return oauth_verifier</td>
+</tr>
+<tr>
+<td>reqToken</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The consumer return reqToken</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="social-token-string-">Social token  -  <em>string</em></h6>
+<p>Social token</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;consumer&quot;] = &quot;Google&quot;,
+  [&quot;code&quot;] = &quot;7/Diur60jCjzCm14ukTdFgxow17OWxzDdj4rA6YQV1Sid&quot;,
+  [&quot;state&quot;] = &quot;56k120223c83a23b49a136725e63c717&quot;
+} -- info from Google servers for exchanging token
+response.message = User.getSocialToken(parameters)
+</code></pre>
+<hr>
+<h4 id="sociallist">socialList</h4>
+<blockquote>
+<p>Listing socials.</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-socials-object-">List of socials  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scope</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Specifies the level of access that the application is requesting</td>
+</tr>
+<tr>
+<td>consumer</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Consumer name</td>
+</tr>
+<tr>
+<td>redirect</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Redirect URI or Callback URL</td>
+</tr>
+<tr>
+<td>client_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Client Identifier</td>
+</tr>
+<tr>
+<td>client_secret</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Client Authentication</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">response.message = User.socialList()
+</code></pre>
+<hr>
+<h4 id="socialrequest">socialRequest</h4>
+<blockquote>
+<p>Request social get information</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>consumer</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Consumer name</td>
+</tr>
+<tr>
+<td><strong>token</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The consumer return code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="todo-string-">TODO  -  <em>string</em></h6>
+<p>TODO</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;consumer&quot;] = &quot;Google&quot;,
+  [&quot;token&quot;] = &quot;ZzozMzoiT0F1dGhcT0F1dGgyXFRva2VuXKN0ZE9BdXRoMlRva2VuIjo0OntzOjQ0OiIAKgBhY2Nlc3NUc2tlbiI7czo19ToieWEyOS5DaTlXQTZ1UUFCc3RYSnpmZGhDRjkyZnhaYXRvOURVMEdmTjgwTVRZSTJCbkI1MVptN1pZSjZVbm9vOXEtMktvZVEiO3M6MTU6IgCqAHJlZnJlc2hUb2tlbiI7TjtzOjEyOiIAKgBlbmRPZkxpZmUiO2k6MTQ3MzE1NDYyNztzOjE0OiIAKgBleHRyYVBhcmFtcyI7YToyOntzOjEwOiJ0b2tlbl90eXBlIjtzOjY6IkJTndILU03N2ZacVVVMTZxQlhjSGxILVI2NEVZOG9kVkNnYWM1UkdOVlI5eTA2LUNyeDdPcjlXcm10VmsyYVhMYXFkU3J5c0pqUFREWU5iX2NxM1RrTTFySThnQ1NJT3JhZmE5WHVhaXNtSHhTREtiQmN1bE41YXhCVnF0bFpKWUpUR3BLQmlaeGNGLVREQ1ZZQU5ZaVF4a0lzTjFoVHdlNF9ESzVGNWVaalozdFNzUHR6eGtvZkJBd3U0LWRLeGRWbkM3S25IdGhKLWI1ZVpMenU2aUFIdWRFdEFRckU0WGl6bTM4YkJaRkdRaGFDUVB5R3RXMlRHSTJ2UV9rZkZGbXBiMGFOUUJHTVhLdvkzcFZyR3BvYWpxZFlfZTRfdi13NUxiYXc1RVRuRWdkbmNqNUEi2391&quot;
+}
+response.message = User.socialRequest(parameters)
+</code></pre>
+<hr>
+<h4 id="updatesocial">updateSocial</h4>
+<blockquote>
+<p>Update a social definition.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>consumer</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Consumer name</td>
+</tr>
+<tr>
+<td><strong>body</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>body.scope</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Specifies the level of access that the application is requesting</td>
+</tr>
+<tr>
+<td>body.consumer</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Consumer name</td>
+</tr>
+<tr>
+<td>body.redirect</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Redirect URI or Callback URL</td>
+</tr>
+<tr>
+<td>body.client_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Client Identifier</td>
+</tr>
+<tr>
+<td>body.client_secret</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Client Authentication</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="instance-updated-nil-">Instance updated  -  <em>nil</em></h6>
+<p>Instance updated</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;consumer&quot;] = &quot;Google&quot;,
+  [&quot;scope&quot;] = {&quot;email&quot;}
+}
+response.message = User.updateSocial(parameters)
+</code></pre>
+<h3 id="users">Users</h3>
+<hr>
+<h4 id="activateuser">activateUser</h4>
+<blockquote>
+<p>Activates user by given verification code.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The verification code returned from registeration.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="-ok-if-activation-successful-ok-">&quot;OK&quot; if activation successful  -  &quot;OK&quot;</h6>
+<p>&quot;OK&quot; if activation successful</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;code&quot;] = &quot;bb48f756e9bf9326d57f63bde70c68dbda90f286&quot;
+}
+response.message = User.activateUser(parameters)
+</code></pre>
+<hr>
+<h4 id="assignuser">assignUser</h4>
+<blockquote>
+<p>Assigns given roles to given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>roles</strong></td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List of user roles</td>
+</tr>
+<tr>
+<td>roles[].role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>roles[].parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>roles[][].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>roles[][].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-roles-object-">List of user roles  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>parameters[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters[].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;roles&quot;] = {
+    {
+      [&quot;role_id&quot;] = &quot;guest&quot;,
+      [&quot;parameters&quot;] = {
+        {
+          [&quot;name&quot;] = &quot;sn&quot;,
+          [&quot;value&quot;] = &quot;1&quot;
+        },
+        {
+          [&quot;name&quot;] = &quot;sn&quot;,
+          [&quot;value&quot;] = &quot;2&quot;
+        },
+        {
+          [&quot;name&quot;] = &quot;rid&quot;,
+          [&quot;value&quot;] = &quot;1&quot;
+        }
+      }
+    },
+    {
+      [&quot;role_id&quot;] = &quot;admin&quot;,
+      [&quot;parameters&quot;] = {
+        {
+          [&quot;name&quot;] = &quot;sn&quot;,
+          [&quot;value&quot;] = &quot;999&quot;
+        }
+      }
+    }
+  }
+}
+response.message = User.assignUser(parameters)
+</code></pre>
+<hr>
+<h4 id="createpermission">createPermission</h4>
+<blockquote>
+<p>Adds permission.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>body</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>A permissions definition</td>
+</tr>
+<tr>
+<td>body.method</td>
+<td style="text-align:center">^[A-Z]{1,10}$</td>
+<td>Http method of the endpoint</td>
+</tr>
+<tr>
+<td>body.end_point</td>
+<td style="text-align:center">^[A-Za-z0-9\-\/_{}]{1,150}$</td>
+<td>Endpoint path.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="a-permissions-definition-object-">A permissions definition  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td style="text-align:center">^[A-Z]{1,10}$</td>
+<td>Http method of the endpoint</td>
+</tr>
+<tr>
+<td>end_point</td>
+<td style="text-align:center">^[A-Za-z0-9\-\/_{}]{1,150}$</td>
+<td>Endpoint path.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local permission = {
+  [&quot;method&quot;] = &quot;GET&quot;,
+  [&quot;end_point&quot;] = &quot;info/{sn}&quot;
+}
+response.message = User.createPermission(permission)
+</code></pre>
+<hr>
+<h4 id="createuser">createUser</h4>
+<blockquote>
+<p>Creates a new user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td style="text-align:center"><em>object</em></td>
+<td>User creation data</td>
+</tr>
+<tr>
+<td>user.<strong>name</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User name</td>
+</tr>
+<tr>
+<td>user.<strong>email</strong></td>
+<td style="text-align:center"><em>string(email)</em></td>
+<td>User email</td>
+</tr>
+<tr>
+<td>user.<strong>password</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User password</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="activation-code-for-the-created-user-string-">Activation code for the created user  -  <em>string</em></h6>
+<p>Activation code for the created user</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local user = {
+  [&quot;email&quot;] = &quot;guest@exosite.com&quot;,
+  [&quot;name&quot;] = &quot;guest&quot;,
+  [&quot;password&quot;] = &quot;demo7Password&quot;
+}
+response.message = User.createUser(user)
+</code></pre>
+<hr>
+<h4 id="createuserdata">createUserData</h4>
+<blockquote>
+<p>Adds key values to given user. New keys and initial values should be put as key-value pairs in parameters object. It requires at least one key-value pair.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>key_values</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>Map of key values. Both key and value should be string. Key pattern is [A-Za-z0-9-_]{1,50}.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="map-or-key-value-properties-both-key-and-value-should-be-string-key-pattern-is-a-za-z0-9-_-1-50-object-">Map or key/value properties. Both key and value should be string. Key pattern is [A-Za-z0-9-_]{1,50}  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;nickname&quot;] = &quot;Demo User&quot; -- new key &#39;nickname&#39;
+}
+response.message = User.createUserData(parameters)
+</code></pre>
+<hr>
+<h4 id="deassignuser">deassignUser</h4>
+<blockquote>
+<p>Deassigns given role from given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-roles-object-">List of user roles  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>parameters[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters[].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;role_id&quot;] = &quot;guest&quot;
+}
+response.message = User.deassignUser(parameters)
+</code></pre>
+<hr>
+<h4 id="deassignuserparam">deassignUserParam</h4>
+<blockquote>
+<p>Deassigns given role with specific parameter value from given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>parameter_name</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter name</td>
+</tr>
+<tr>
+<td><strong>parameter_value</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter value</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-roles-object-">List of user roles  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>parameters[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters[].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;parameter_name&quot;] = &quot;sn&quot;,
+  [&quot;parameter_value&quot;] = &quot;1&quot;
+}
+respons.message = User.deassignUserParam(parameters)
+</code></pre>
+<hr>
+<h4 id="deassignuserparamname">deassignUserParamName</h4>
+<blockquote>
+<p>Deassigns given role with specific parameter name from given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>parameter_name</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter name</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-roles-object-">List of user roles  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>parameters[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters[].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;parameter_name&quot;] = &quot;sn&quot;
+}
+response.message = User.deassignUserParamName(parameters)
+</code></pre>
+<hr>
+<h4 id="deleteperm">deletePerm</h4>
+<blockquote>
+<p>Deletes given permission.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>perm_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>{method}/{end_point}</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="deletion-successful-nil-">Deletion successful  -  <em>nil</em></h6>
+<p>Deletion successful</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;perm_id&quot;] = &quot;GET/info/{sn}&quot;
+}
+response.message = User.deletePerm(parameters)
+</code></pre>
+<hr>
+<h4 id="deleteuser">deleteUser</h4>
+<blockquote>
+<p>Deletes given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="deletion-successful-nil-">Deletion successful  -  <em>nil</em></h6>
+<p>Deletion successful</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2
+}
+response.message = User.deleteUser(parameters)
+</code></pre>
+<hr>
+<h4 id="deleteuserdata">deleteUserData</h4>
+<blockquote>
+<p>Deletes key values from given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>keys</strong></td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>List of keys</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="map-or-key-value-properties-both-key-and-value-should-be-string-key-pattern-is-a-za-z0-9-_-1-50-object-">Map or key/value properties. Both key and value should be string. Key pattern is [A-Za-z0-9-_]{1,50}  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;keys&quot;] = {&quot;country&quot;, &quot;nickname&quot;}
+}
+response.message = User.deleteUserData(parameters)
+</code></pre>
+<hr>
+<h4 id="getcurrentuser">getCurrentUser</h4>
+<blockquote>
+<p>Gets user by given token.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>token</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Brearer scheme token authentication defined in <a href="https://tools.ietf.org/html/rfc6750">https://tools.ietf.org/html/rfc6750</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="a-user-definition-object-">A user definition  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>User unique ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td style="text-align:center"><em>string</em></td>
+<td>User name</td>
+</tr>
+<tr>
+<td>email</td>
+<td style="text-align:center"><em>string(email)</em></td>
+<td>User email</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>User status</td>
+</tr>
+<tr>
+<td>creation_date</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Creation timestamp</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="getuser">getUser</h4>
+<blockquote>
+<p>Gets user by given User ID.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="a-user-definition-object-">A user definition  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>User unique ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td style="text-align:center"><em>string</em></td>
+<td>User name</td>
+</tr>
+<tr>
+<td>email</td>
+<td style="text-align:center"><em>string(email)</em></td>
+<td>User email</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>User status</td>
+</tr>
+<tr>
+<td>creation_date</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Creation timestamp</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">response.message = User.getUser({[&quot;id&quot;] = 2})
+</code></pre>
+<hr>
+<h4 id="getuserdata">getUserData</h4>
+<blockquote>
+<p>Returns the value of given key of given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>key</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Data key</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="the-value-of-given-user-data-key-string-">The value of given user data key.  -  <em>string</em></h6>
+<p>The value of given user data key.</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;key&quot;] = &quot;birthday&quot;
+}
+response.message = User.getUserData(parameters)
+</code></pre>
+<hr>
+<h4 id="getusertoken">getUserToken</h4>
+<blockquote>
+<p>Gets user&#39;s token by email and password.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>body</td>
+<td style="text-align:center"><em>object</em></td>
+<td>User credentials</td>
+</tr>
+<tr>
+<td>body.<strong>email</strong></td>
+<td style="text-align:center"><em>string(email)</em></td>
+<td>User email</td>
+</tr>
+<tr>
+<td>body.<strong>password</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User password</td>
+</tr>
+<tr>
+<td>body.<strong>time_to_live</strong></td>
+<td style="text-align:center"><em>integer</em> {1..}</td>
+<td>Lifetime of token in minutes<br/>Default: 480</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="user-authentication-token-string-">User authentication token  -  <em>string</em></h6>
+<p>User authentication token</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;email&quot;] = &quot;guest@exosite.com&quot;,
+  [&quot;password&quot;] = &quot;demo7Password&quot;,
+  [&quot;time_to_live&quot;] = 60  -- 1 hour
+}
+response.message = User.getUserToken(parameters)
+</code></pre>
+<hr>
+<h4 id="hasuserperm">hasUserPerm</h4>
+<blockquote>
+<p>Checks if given user has given permission. If the end_point of given permission includes variable parameters, it requires specific parameter values.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>perm_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>{method}/{end_point}</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Given specific parameter values if permission (end_point) has parameters. The syntax of each parameter value is &#39;<parameter_name>::<parameter_value>&#39;.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="returns-ok-if-user-has-permission-ok-">Returns &quot;OK&quot; if user has permission  -  &quot;OK&quot;</h6>
+<p>Returns &quot;OK&quot; if user has permission</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;perm_id&quot;] = &quot;GET/info/{sn}&quot;,
+  [&quot;parameters&quot;] = {&quot;sn::1&quot;}
+}
+response.message = User.hasUserPerm(parameters)
+</code></pre>
+<hr>
+<h4 id="listperms">listPerms</h4>
+<blockquote>
+<p>Returns the list of permissions.</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-permissions-object-">List of Permissions  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td style="text-align:center">^[A-Z]{1,10}$</td>
+<td>Http method of the endpoint</td>
+</tr>
+<tr>
+<td>end_point</td>
+<td style="text-align:center">^[A-Za-z0-9\-\/_{}]{1,150}$</td>
+<td>Endpoint path.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">response.message = User.listPerms()
+</code></pre>
+<hr>
+<h4 id="listuserdata">listUserData</h4>
+<blockquote>
+<p>Returns key values of given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="map-or-key-value-properties-both-key-and-value-should-be-string-key-pattern-is-a-za-z0-9-_-1-50-object-">Map or key/value properties. Both key and value should be string. Key pattern is [A-Za-z0-9-_]{1,50}  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2
+}
+response.message = User.listUserData(parameters)
+</code></pre>
+<hr>
+<h4 id="listuserroleparamvalues">listUserRoleParamValues</h4>
+<blockquote>
+<p>Returns the paginated list of values of given parameter name belong to given user role.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>role_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Role ID</td>
+</tr>
+<tr>
+<td><strong>parameter_name</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>Parameter name</td>
+</tr>
+<tr>
+<td>offset</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Pagination offset</td>
+</tr>
+<tr>
+<td>limit</td>
+<td style="text-align:center"><em>integer</em> {..100}</td>
+<td>Pagination limit<br/>Default: 100</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="operation-response-object-containing-one-page-of-user-role-parameters-object-">Operation response object containing one page of user role parameters.  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>items</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>One page list of parameters.</td>
+</tr>
+<tr>
+<td>total</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Total number of keys.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;role_id&quot;] = &quot;guest&quot;,
+  [&quot;parameter_name&quot;] = &quot;sn&quot;
+}
+response.message = User.listUserRoleParamValues(parameters)
+</code></pre>
+<hr>
+<h4 id="listuserroles">listUserRoles</h4>
+<blockquote>
+<p>Returns the list of assigned roles of given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-user-roles-object-">List of user roles  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>role_id</td>
+<td style="text-align:center">^[A-Za-z0-9\-_]{1,80}$</td>
+<td>Case-insensitive unique ID in roles. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center">[ <em>object</em> ]</td>
+<td>List role parameters</td>
+</tr>
+<tr>
+<td>parameters[].name</td>
+<td style="text-align:center">^[A-Za-z]{1,40}$</td>
+<td>Case-insensitive unique name in roles parameters. Keywords: me, user(s), permission(s), role(s), parameter(s), group(s), member(s)</td>
+</tr>
+<tr>
+<td>parameters[].value</td>
+<td style="text-align:center">^[A-Za-z0-9]{1,100}$</td>
+<td>Parameter value, type might be string or object.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">response.message = User.listUserRoles({[&quot;id&quot;] = 2})
+</code></pre>
+<hr>
+<h4 id="listusers">listUsers</h4>
+<blockquote>
+<p>Returns the list of users.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filter</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Filter to limit the result set. The syntax of each clause is &#39;<property_name>::like::<value>&#39;.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="list-of-users-object-">List of users  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>User unique ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td style="text-align:center"><em>string</em></td>
+<td>User name</td>
+</tr>
+<tr>
+<td>email</td>
+<td style="text-align:center"><em>string(email)</em></td>
+<td>User email</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>User status</td>
+</tr>
+<tr>
+<td>creation_date</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Creation timestamp</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  filter = {&quot;email::like::guest&quot;, &quot;name::like::guest&quot;}
+}
+response.message = User.listUsers(parameters)
+</code></pre>
+<hr>
+<h4 id="resetuserpassword">resetUserPassword</h4>
+<blockquote>
+<p>Forces password reset. When a user&#39;s password is changed, existing tokens are still valid.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>body</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>New password to be set.</td>
+</tr>
+<tr>
+<td>body.password</td>
+<td style="text-align:center">^[\S\s]{8,}$</td>
+<td>New password to be set.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="new-generated-password-object-">New generated password.  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>password</td>
+<td style="text-align:center"><em>string</em></td>
+<td>New generated password.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="resets-successfully-nil-">Resets successfully.  -  <em>nil</em></h6>
+<p>Resets successfully.</p>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;password&quot;] = &quot;newPwd777&quot;
+} response.message = User.resetUserPassword(parameters)
+</code></pre>
+<hr>
+<h4 id="updateuser">updateUser</h4>
+<blockquote>
+<p>Updates given user.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>body</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>Properties of user.</td>
+</tr>
+<tr>
+<td>body.name</td>
+<td style="text-align:center"><em>string</em></td>
+<td>User name</td>
+</tr>
+<tr>
+<td>body.status</td>
+<td style="text-align:center"><em>integer</em> {..2}</td>
+<td>User status. 0: Not Activated 1: Activated 2: Disabled</td>
+</tr>
+<tr>
+<td>body.password</td>
+<td style="text-align:center"><em>string</em></td>
+<td>User new password. When a user&#39;s password is changed, existing tokens are still valid.</td>
+</tr>
+<tr>
+<td>body.original_password</td>
+<td style="text-align:center"><em>string</em></td>
+<td>User original password. Required if updating password.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="a-user-definition-object-">A user definition  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>User unique ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td style="text-align:center"><em>string</em></td>
+<td>User name</td>
+</tr>
+<tr>
+<td>email</td>
+<td style="text-align:center"><em>string(email)</em></td>
+<td>User email</td>
+</tr>
+<tr>
+<td>status</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>User status</td>
+</tr>
+<tr>
+<td>creation_date</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>Creation timestamp</td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;name&quot;] = &quot;newName&quot;
+}
+response.message = User.updateUser(parameters)
+</code></pre>
+<hr>
+<h4 id="updateuserdata">updateUserData</h4>
+<blockquote>
+<p>Updates key values of given user. New values of existing keys should be put as key-value pairs in parameters object.  It requires at least one key-value pair.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>User ID</td>
+</tr>
+<tr>
+<td><strong>key_values</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>Map of key values. Both key and value should be string. Key pattern is [A-Za-z0-9-_]{1,50}.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="map-or-key-value-properties-both-key-and-value-should-be-string-key-pattern-is-a-za-z0-9-_-1-50-object-">Map or key/value properties. Both key and value should be string. Key pattern is [A-Za-z0-9-_]{1,50}  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h6 id="operation-error-details-object-">Operation error details  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+<tr>
+<td>status_code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">local parameters = {
+  [&quot;id&quot;] = 2,
+  [&quot;country&quot;] = &quot;United States&quot;, -- new value &#39;United States&#39; for existing key &#39;country&#39;
+  [&quot;birthday&quot;] = &quot;1992-08-07&quot; -- new value &#39;1992-08-07&#39; for existing key &#39;birthday&#39;
+}
+response.message = User.updateUserData(parameters)
+</code></pre>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="time-series-storage-service">Time Series Storage Service</h1>
+<blockquote>
+<p>A scalable timeseries storage in Murano</p>
+</blockquote>
+<h3 id="operations">Operations</h3>
+<h4 id="storage">Storage</h4>
+<ul>
+<li><a href="#deleteall">Tsdb.deleteAll()</a>  - delete all data</li>
+<li><a href="#listmetrics">Tsdb.listMetrics()</a>  - list metrics of a given solution</li>
+<li><a href="#listtags">Tsdb.listTags()</a>  - list tags of a given solution</li>
+<li><a href="#query">Tsdb.query()</a>  - query the database</li>
+<li><a href="#write">Tsdb.write()</a>  - writes data into database for a specified product device of given solution</li>
+</ul>
+<h2 id="operations">Operations</h2>
+<h3 id="storage">Storage</h3>
+<hr>
+<h4 id="deleteall">deleteAll</h4>
+<blockquote>
+<p>delete all data of a given solution</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="all-data-deleted-nil-">All data deleted  -  <em>nil</em></h6>
+<p>All data deleted</p>
+<h6 id="the-response-to-the-caller-object-">The response to the caller  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error Message in case of failure</td>
+</tr>
+<tr>
+<td>result</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Result message</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- Delete all data of a given solution
+local out = Tsdb.deleteAll()
+response.message = out
+</code></pre>
+<hr>
+<h4 id="listmetrics">listMetrics</h4>
+<blockquote>
+<p>list metrics of a given solution</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>limit</td>
+<td style="text-align:center"><em>integer</em> {..1000}</td>
+<td>Limit the number of results to return (default: maximum allowed, maximum allowed: 1000)<br/>Default: 1000</td>
+</tr>
+<tr>
+<td>next</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Optional, the cursor to get next page if still having more data</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="metrics-information-retrieved-nil-">Metrics information retrieved  -  <em>nil</em></h6>
+<p>Metrics information retrieved</p>
+<h6 id="the-response-to-the-caller-object-">The response to the caller  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error Message in case of failure</td>
+</tr>
+<tr>
+<td>result</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Result message</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- Get a list of created metrics for a given solution
+local out = Tsdb.listMetrics({limit = 10})
+response.message = out
+
+-- Use next cursor to fetch next page if found in the result of previous query
+local out = Tsdb.listMetrics({limit = 10, next = &quot;switch_2&quot;})
+response.message = out
+</code></pre>
+<hr>
+<h4 id="listtags">listTags</h4>
+<blockquote>
+<p>list tags of a given solution</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>limit</td>
+<td style="text-align:center"><em>integer</em> {..1000}</td>
+<td>Limit the number of results to return (default: maximum allowed, maximum allowed: 1000)<br/>Default: 1000</td>
+</tr>
+<tr>
+<td>next</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Optional, the cursor to get next page if still having more data</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="tags-information-retrieved-nil-">Tags information retrieved  -  <em>nil</em></h6>
+<p>Tags information retrieved</p>
+<h6 id="the-response-to-the-caller-object-">The response to the caller  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error Message in case of failure</td>
+</tr>
+<tr>
+<td>result</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Result message</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- Get a list of created tags for a given solution
+local out = Tsdb.listTags({limit = 10})
+response.message = out
+
+-- Use next cursor to fetch next page if found in the result of previous query
+local out = Tsdb.listTags({limit = 10, next = &quot;city_taipei_1_1_true&quot;})
+response.message = out
+</code></pre>
+<hr>
+<h4 id="query">query</h4>
+<blockquote>
+<p>Query data points by using any metrics and tags. Support absolute (start_time, end_time) or relative (relative_start, relative_unit) time parameters, which cannot be used at the same time. <br />
+The first element in returned data point array is always the timestamp. <br />
+You can use fill arguement to indicate the imputation of missing values. <br />
+The metric names of columns property in the response will always be in the order specified in the query, except for the timestamp column which is always the first one. <br />
+<br />
+Note that <strong>only unique timestamped data will be returned</strong>, which means if multiple data points were written with exactly the same timestamp in the response, only the last one will be kept.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>body</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>Query arguments</td>
+</tr>
+<tr>
+<td>body.fill</td>
+<td style="text-align:center"><em>integer</em>, <em>string</em></td>
+<td>Value to fill for time slots with no data points exist in merge mode.<br />Supported fill types: null, none, any integer, previous<br />Default: none</td>
+</tr>
+<tr>
+<td>body.mode</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Indicate whether to merge or split the result of each metric.<br />Supported options: merge, split<br />Default: merge</td>
+</tr>
+<tr>
+<td>body.tags</td>
+<td style="text-align:center"><em>object</em></td>
+<td>One or many tags</td>
+</tr>
+<tr>
+<td>body.epoch</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Change returned timestamp of data points to unix epoch format.<br />Supported units: u (microseconds), ms (milliseconds), s (seconds)<br />Optional, if not provided, timestamps are returned in RFC3339 UTC with microsecond precision.</td>
+</tr>
+<tr>
+<td>body.limit</td>
+<td style="text-align:center"><em>integer</em> {..1000}</td>
+<td>Limit the number of data points to return per metric (default: maximum allowed, maximum allowed: 1000)<br/>Default: 1000</td>
+</tr>
+<tr>
+<td>body.metrics</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>One or many metrics</td>
+</tr>
+<tr>
+<td>body.end_time</td>
+<td style="text-align:center"><em>integer</em>, <em>string</em></td>
+<td>Exclusive UTC ending time range to query, also accept RFC3339 UTC string.<br />Supported units: u (microseconds), ms (milliseconds), s (seconds)<br />e.g. 1472547546000000u, 1472547546000ms, 1472547546s, 1472547546, 2016-08-30T08:59:06+00:00<br />Optional, if not provided, it will use current timestamp in microseonds from server side</td>
+</tr>
+<tr>
+<td>body.order_by</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Return results in ascending or descending time order.<br />Supported options: desc, asc<br/>Default: &quot;desc&quot;</td>
+</tr>
+<tr>
+<td>body.aggregate</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>One to many aggregation functions to apply.<br />Supported functions: avg, min, max, count, sum<br />String type value can only use count function</td>
+</tr>
+<tr>
+<td>body.start_time</td>
+<td style="text-align:center"><em>integer</em>, <em>string</em></td>
+<td>Inclusive UTC starting time range to query, also accept RFC3339 UTC string.<br />Supported units: u (microseconds), ms (milliseconds), s (seconds)<br />e.g. 1472547546000000u, 1472547546000ms, 1472547546s, 1472547546, 2016-08-30T08:59:06+00:00</td>
+</tr>
+<tr>
+<td>body.relative_end</td>
+<td style="text-align:center"><em>integer</em>, <em>string</em></td>
+<td>A negative integer with time unit to indicate relative end time before now.<br />Supported units: u (microseconds), ms (milliseconds), s (seconds), m (minutes), h (hours), d (days), w (weeks)</td>
+</tr>
+<tr>
+<td>body.sampling_size</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The size of time slots used for downsampling. Must be a positive integer greater than zero.<br />Supported units: u (microseconds), ms (milliseconds), s (seconds), m (minutes), h (hours), d (days), w (weeks)<br />Optional, used together with fill arguments.</td>
+</tr>
+<tr>
+<td>body.relative_start</td>
+<td style="text-align:center"><em>integer</em>, <em>string</em></td>
+<td>A negative integer with time unit to indicate relative start time before now.<br />Supported units: u (microseconds), ms (milliseconds), s (seconds), m (minutes), h (hours), d (days), w (weeks)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="query-results-retrieved-nil-">Query results retrieved  -  <em>nil</em></h6>
+<p>Query results retrieved</p>
+<h6 id="the-response-to-the-caller-object-">The response to the caller  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error Message in case of failure</td>
+</tr>
+<tr>
+<td>result</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Result message</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- Query by Absolute Time Constraint --
+-- Get temperature and humidity data points between 2016-08-01 (inclusive) and 2016-09-01 (exclusive) from devices in Minneapolis city and US region
+local metrics = {
+  &quot;temperature&quot;,
+  &quot;swtich&quot;
+}
+local tags = {
+  region = &quot;us&quot;,
+  city = &quot;minneapolis&quot;
+}
+local out = Tsdb.query({
+  metrics = metrics,
+  tags = tags,
+  start_time = &quot;2016-08-01T00:00:00+00:00&quot;,
+  end_time = &quot;2016-09-01T00:00:00+00:00&quot;,
+  fill = &quot;null&quot;,
+  limit = 50
+})
+response.message = out
+
+-- Query by Relative Time Constraint --
+-- Get temperature data points in recent 3 hours from devices in Taipei city and Asia region (with timestamp in milliseconds format)
+local metrics = {&quot;temperature&quot;}
+local tags = {
+  region = &quot;asia&quot;,
+  city = &quot;taipei&quot;
+}
+local out = Tsdb.query({
+  metrics = metrics,
+  tags = tags,
+  relative_start = &quot;-3d&quot;,
+  epoch = &quot;ms&quot;,
+  fill = &quot;null&quot;,
+  limit = 50
+})
+response.message = out
+
+-- Query without Time Constraint --
+-- Get most recent 5 temperature and humidity data points from devices in Minneapolis city and US region
+local metrics = {
+  &quot;temperature&quot;,
+  &quot;humidity&quot;
+}
+local tags = {
+  region = &quot;us&quot;,
+  city = &quot;minneapolis&quot;
+}
+local out = Tsdb.query({
+  metrics = metrics,
+  tags = tags,
+  limit = 5
+})
+response.message = out
+
+-- Query by Downsampling --
+-- Get humidity data points in recent two days from devices in Taipei city, downsampled by 4-hours time slots
+local metrics = {
+  &quot;humidity&quot;
+}
+local tags = {
+  city = &quot;taipei&quot;
+}
+local out = Tsdb.query({
+  metrics = metrics,
+  tags = tags,
+  relative_start = &quot;-2d&quot;,
+  sampling_size = &quot;4h&quot;,
+  fill = &quot;none&quot;,
+  epoch = &quot;ms&quot;
+})
+response.message = out
+
+-- Aggregation by Downsampling --
+-- Get average and count of tire pressure data between 2016-08-15 (inclusive) and 2016-09-01 (exclusive) from devices in Minneapolis city, downsampled by 30-minutes time slots
+local metrics = {
+  &quot;tire_pressure&quot;
+}
+local tags = {
+  city = &quot;minneapolis&quot;
+}
+local aggregate = {&quot;avg&quot;, &quot;count&quot;}
+local out = Tsdb.query({
+  metrics = metrics,
+  tags = tags,
+  start_time = &quot;2016-08-01T00:00:00+00:00&quot;,
+  end_time = &quot;2016-09-01T00:00:00+00:00&quot;,
+  aggregate = aggregate,
+  sampling_size = &quot;30m&quot;,
+  fill = &quot;none&quot;
+})
+response.message = out
+</code></pre>
+<hr>
+<h4 id="write">write</h4>
+<blockquote>
+<p>Write data points to one or many metrics with an optional set of tags and a timestamp down to microsecond precision. <br />
+<br />
+Note that if multiple data points are written with exactly the same timestamp, only the last one will be kept and it overwrites the others.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>body</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>The data point to write</td>
+</tr>
+<tr>
+<td>body.ts</td>
+<td style="text-align:center"><em>integer</em>, <em>string</em></td>
+<td>Unix timestamp in microseconds used as the write time for given data point.<br />Supported units: u (microseconds), ms (milliseconds), s (seconds)<br />e.g. 1472547546000000u, 1472547546000ms, 1472547546s, 1472547546<br />Optional, if not provided, it will use the received time in microseconds from server side</td>
+</tr>
+<tr>
+<td>body.tags</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Pairs of tag and its value (only text supported)</td>
+</tr>
+<tr>
+<td>body.metrics</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>List of metrics</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="data-successfully-inserted-nil-">Data successfully inserted  -  <em>nil</em></h6>
+<p>Data successfully inserted</p>
+<h6 id="the-response-to-the-caller-object-">The response to the caller  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error Message in case of failure</td>
+</tr>
+<tr>
+<td>result</td>
+<td style="text-align:center"><em>object</em></td>
+<td>Result message</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- Write data points of metrics with tags
+-- If timestamp is not provided, it will use the received time in microseconds from server side
+local metrics = {
+  temperature = 37.2,
+  humidity = 73,
+  switch = &quot;on&quot;
+}
+local tags = {
+  pid = &quot;pzomp8vn4twklnmi&quot;,
+  identity = &quot;000001&quot;,
+  region = &quot;us&quot;,
+  city = &quot;minneapolis&quot;
+}
+local out = Tsdb.write({
+  metrics = metrics,
+  tags = tags
+})
+response.message = out
+
+-- Write data points of metrics with tags and timestamp
+local metrics = {
+  temperature = 37.2,
+  humidity = 73
+}
+local tags = {
+  identity = &quot;000002&quot;
+}
+local out = Tsdb.write({
+  metrics = metrics,
+  tags = tags,
+  ts = &quot;1476243965s&quot;
+})
+response.message = out
+</code></pre>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,1040 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="custom-api-gateway-service">Custom API Gateway Service</h1>
+<blockquote>
+<p>Custom API for communication with end-user and external-client applications using <strong>HTTPS</strong> protocol.<br/> Endpoints are configured from <a href="https://www.exosite.com/business/solutions">Murano portal</a> interface under your solution routes or from exosite-cli tools.<br/> Each request reaching your API endpoints will trigger the execution of your lua script. See the <em>request</em> event for more information.</p>
+</blockquote>
+<h3 id="operations">Operations</h3>
+<h4 id="cors">Cors</h4>
+<ul>
+<li><a href="#getcors">Webservice.getCors()</a>  - Get the API CORS</li>
+<li><a href="#setcors">Webservice.setCors()</a>  - Set the API CORS</li>
+</ul>
+<h4 id="endpoint">Endpoint</h4>
+<ul>
+<li><a href="#createendpoint">Webservice.createEndpoint()</a>  - Create endpoint</li>
+<li><a href="#deleteendpoint">Webservice.deleteEndpoint()</a>  - Delete endpoint</li>
+<li><a href="#getendpoint">Webservice.getEndpoint()</a>  - Get an endpoint</li>
+<li><a href="#getswagger">Webservice.getSwagger()</a>  - Get the Swagger schema</li>
+<li><a href="#listendpoints">Webservice.listEndpoints()</a>  - List the endpoints</li>
+<li><a href="#updateendpoint">Webservice.updateEndpoint()</a>  - Update endpoint</li>
+</ul>
+<h4 id="file">File</h4>
+<ul>
+<li><a href="#deletefile">Webservice.deleteFile()</a>  - Delete the file</li>
+<li><a href="#headfile">Webservice.headFile()</a>  - Get file head</li>
+<li><a href="#listfiles">Webservice.listFiles()</a>  - List API static files</li>
+</ul>
+<h4 id="webservice_response">Webservice_response</h4>
+<ul>
+<li><a href="#apireply">Webservice.apiReply()</a>  - Reply to API request</li>
+</ul>
+<h3 id="events">Events</h3>
+<ul>
+<li><a href="#request">request</a>  - HTTP request</li>
+</ul>
+<h2 id="operations">Operations</h2>
+<h3 id="cors">Cors</h3>
+<hr>
+<h4 id="getcors">getCors</h4>
+<blockquote>
+<p>Retrieve the API cross-origin HTTP request policy settings.</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="api-cross-origin-http-request-policy-settings-find-more-about-cors-on-a-href-https-developer-mozilla-org-en-us-docs-web-http-access_control_cors-https-developer-mozilla-org-en-us-docs-web-http-access_control_cors-a-object-">API cross-origin HTTP request policy settings. Find more about Cors on <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS</a>  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>origin</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>If set to false CORS are not activated for the API If true all domain are Allowed If array list of allowed domains</td>
+</tr>
+<tr>
+<td>headers</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Set Access-Control-Allow-Headers header value</td>
+</tr>
+<tr>
+<td>methods</td>
+<td style="text-align:center">[ &quot;GET&quot;, &quot;PUT&quot;, &quot;POST&quot;, &quot;DELETE&quot;, &quot;PATCH&quot;, &quot;WEBSOCKET&quot; ]</td>
+<td>Set Access-Control-Allow-Methods header value</td>
+</tr>
+<tr>
+<td>credentials</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Set Access-Control-Allow-Credentials header value</td>
+</tr>
+<tr>
+<td>expose_headers</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Set Access-Control-Expose-Headers header value</td>
+</tr>
+</tbody>
+</table>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="setcors">setCors</h4>
+<blockquote>
+<p>Set the API cross-origin HTTP request policy settings.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>cors</strong></td>
+<td style="text-align:center"><em>object</em></td>
+<td>API cross-origin HTTP request policy settings. Find more about Cors on <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS</a></td>
+</tr>
+<tr>
+<td>cors.origin</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>If set to false CORS are not activated for the API If true all domain are Allowed If array list of allowed domains</td>
+</tr>
+<tr>
+<td>cors.headers</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Set Access-Control-Allow-Headers header value</td>
+</tr>
+<tr>
+<td>cors.methods</td>
+<td style="text-align:center">[ &quot;GET&quot;, &quot;PUT&quot;, &quot;POST&quot;, &quot;DELETE&quot;, &quot;PATCH&quot;, &quot;WEBSOCKET&quot; ]</td>
+<td>Set Access-Control-Allow-Methods header value</td>
+</tr>
+<tr>
+<td>cors.credentials</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>Set Access-Control-Allow-Credentials header value</td>
+</tr>
+<tr>
+<td>cors.expose_headers</td>
+<td style="text-align:center">[ <em>string</em> ]</td>
+<td>Set Access-Control-Expose-Headers header value</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="cors-settings-updated-nil-">CORS settings updated  -  <em>nil</em></h6>
+<p>CORS settings updated</p>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<h3 id="endpoint">Endpoint</h3>
+<hr>
+<h4 id="createendpoint">createEndpoint</h4>
+<blockquote>
+<p>Create an API endpoint.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>endpoint</td>
+<td style="text-align:center"><em>object</em></td>
+<td>An API endpoint definition.</td>
+</tr>
+<tr>
+<td>endpoint.id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Unique Id representing this endpoint</td>
+</tr>
+<tr>
+<td>endpoint.<strong>path</strong></td>
+<td style="text-align:center">^(\/(\w+[:-]?\w*\</td>
+<td>{[a-zA-Z]+}))*\/?$</td>
+<td>Endpoint path</td>
+</tr>
+<tr>
+<td>endpoint.<strong>method</strong></td>
+<td style="text-align:center">&quot;GET&quot;, &quot;PUT&quot;, &quot;POST&quot;, &quot;DELETE&quot;, &quot;PATCH&quot;, &quot;WEBSOCKET&quot;</td>
+<td>The HTTP method supported by this endpoint route.</td>
+</tr>
+<tr>
+<td>endpoint.<strong>script</strong></td>
+<td style="text-align:center"><em>string(lua)</em></td>
+<td>Lua script executed when this endpoint recieve a request.</td>
+</tr>
+<tr>
+<td>endpoint.content_type</td>
+<td style="text-align:center">&quot;application/json&quot;, &quot;text/plain&quot;, &quot;application/x-www-form-urlencoded&quot;, &quot;application/octet-stream&quot;, &quot;multipart/form-data&quot;</td>
+<td>Mime type of the expected Http request body consumed by the endpoint<br/>Default: &quot;application/json&quot;</td>
+</tr>
+<tr>
+<td>endpoint.use_basic_auth</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>In indicates this endpoint use basic authentication check as defined by RFC2617. The user credentials are checked agains the users set in the solution User service.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="endpoint-information-object-">Endpoint information  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Endpoint Id</td>
+</tr>
+</tbody>
+</table>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="deleteendpoint">deleteEndpoint</h4>
+<blockquote>
+<p>Delete an API endpoint.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>endpoint_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The endpoint Id</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="endpoint-deleted-nil-">Endpoint deleted  -  <em>nil</em></h6>
+<p>Endpoint deleted</p>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="getendpoint">getEndpoint</h4>
+<blockquote>
+<p>Retrieve an API endpoint information.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>endpoint_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The endpoint Id</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="an-api-endpoint-definition-object-">An API endpoint definition.  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Unique Id representing this endpoint</td>
+</tr>
+<tr>
+<td><strong>path</strong></td>
+<td style="text-align:center">^(\/(\w+[:-]?\w*\</td>
+<td>{[a-zA-Z]+}))*\/?$</td>
+<td>Endpoint path</td>
+</tr>
+<tr>
+<td><strong>method</strong></td>
+<td style="text-align:center">&quot;GET&quot;, &quot;PUT&quot;, &quot;POST&quot;, &quot;DELETE&quot;, &quot;PATCH&quot;, &quot;WEBSOCKET&quot;</td>
+<td>The HTTP method supported by this endpoint route.</td>
+</tr>
+<tr>
+<td><strong>script</strong></td>
+<td style="text-align:center"><em>string(lua)</em></td>
+<td>Lua script executed when this endpoint recieve a request.</td>
+</tr>
+<tr>
+<td>content_type</td>
+<td style="text-align:center">&quot;application/json&quot;, &quot;text/plain&quot;, &quot;application/x-www-form-urlencoded&quot;, &quot;application/octet-stream&quot;, &quot;multipart/form-data&quot;</td>
+<td>Mime type of the expected Http request body consumed by the endpoint<br/>Default: &quot;application/json&quot;</td>
+</tr>
+<tr>
+<td>use_basic_auth</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>In indicates this endpoint use basic authentication check as defined by RFC2617. The user credentials are checked agains the users set in the solution User service.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="getswagger">getSwagger</h4>
+<blockquote>
+<p>Retrieve the API Swagger schema.</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="swagger-schema-as-defined-by-a-href-http-swagger-io-specification-http-swagger-io-specification-a-object-">Swagger schema as defined by <a href="http://swagger.io/specification/">http://swagger.io/specification/</a>  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="listendpoints">listEndpoints</h4>
+<blockquote>
+<p>Retrieve the list of the API endpoints.</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="endpoints-list-object-">Endpoints list.  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Unique Id representing this endpoint</td>
+</tr>
+<tr>
+<td><strong>path</strong></td>
+<td style="text-align:center">^(\/(\w+[:-]?\w*\</td>
+<td>{[a-zA-Z]+}))*\/?$</td>
+<td>Endpoint path</td>
+</tr>
+<tr>
+<td><strong>method</strong></td>
+<td style="text-align:center">&quot;GET&quot;, &quot;PUT&quot;, &quot;POST&quot;, &quot;DELETE&quot;, &quot;PATCH&quot;, &quot;WEBSOCKET&quot;</td>
+<td>The HTTP method supported by this endpoint route.</td>
+</tr>
+<tr>
+<td><strong>script</strong></td>
+<td style="text-align:center"><em>string(lua)</em></td>
+<td>Lua script executed when this endpoint recieve a request.</td>
+</tr>
+<tr>
+<td>content_type</td>
+<td style="text-align:center">&quot;application/json&quot;, &quot;text/plain&quot;, &quot;application/x-www-form-urlencoded&quot;, &quot;application/octet-stream&quot;, &quot;multipart/form-data&quot;</td>
+<td>Mime type of the expected Http request body consumed by the endpoint<br/>Default: &quot;application/json&quot;</td>
+</tr>
+<tr>
+<td>use_basic_auth</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>In indicates this endpoint use basic authentication check as defined by RFC2617. The user credentials are checked agains the users set in the solution User service.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="updateendpoint">updateEndpoint</h4>
+<blockquote>
+<p>Update an API endpoint.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>endpoint_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The endpoint Id</td>
+</tr>
+<tr>
+<td>endpoint</td>
+<td style="text-align:center"><em>object</em></td>
+<td>An API endpoint definition.</td>
+</tr>
+<tr>
+<td>endpoint.id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Unique Id representing this endpoint</td>
+</tr>
+<tr>
+<td>endpoint.<strong>path</strong></td>
+<td style="text-align:center">^(\/(\w+[:-]?\w*\</td>
+<td>{[a-zA-Z]+}))*\/?$</td>
+<td>Endpoint path</td>
+</tr>
+<tr>
+<td>endpoint.<strong>method</strong></td>
+<td style="text-align:center">&quot;GET&quot;, &quot;PUT&quot;, &quot;POST&quot;, &quot;DELETE&quot;, &quot;PATCH&quot;, &quot;WEBSOCKET&quot;</td>
+<td>The HTTP method supported by this endpoint route.</td>
+</tr>
+<tr>
+<td>endpoint.<strong>script</strong></td>
+<td style="text-align:center"><em>string(lua)</em></td>
+<td>Lua script executed when this endpoint recieve a request.</td>
+</tr>
+<tr>
+<td>endpoint.content_type</td>
+<td style="text-align:center">&quot;application/json&quot;, &quot;text/plain&quot;, &quot;application/x-www-form-urlencoded&quot;, &quot;application/octet-stream&quot;, &quot;multipart/form-data&quot;</td>
+<td>Mime type of the expected Http request body consumed by the endpoint<br/>Default: &quot;application/json&quot;</td>
+</tr>
+<tr>
+<td>endpoint.use_basic_auth</td>
+<td style="text-align:center"><em>boolean</em></td>
+<td>In indicates this endpoint use basic authentication check as defined by RFC2617. The user credentials are checked agains the users set in the solution User service.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="endpoint-updated-nil-">Endpoint updated  -  <em>nil</em></h6>
+<p>Endpoint updated</p>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<h3 id="file">File</h3>
+<hr>
+<h4 id="deletefile">deleteFile</h4>
+<blockquote>
+<p>Remove the static file.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>path</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The API path where file is located</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="files-deleted-successfully-nil-">Files deleted successfully  -  <em>nil</em></h6>
+<p>Files deleted successfully</p>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="headfile">headFile</h4>
+<blockquote>
+<p>As get the file but dont return the actual content.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>path</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The API path where file is located</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="files-accessible-nil-">Files accessible  -  <em>nil</em></h6>
+<p>Files accessible</p>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="listfiles">listFiles</h4>
+<blockquote>
+<p>Retrieve the list of static files.</p>
+</blockquote>
+<h5 id="responses">Responses</h5>
+<h6 id="files-list-object-">Files list.  -  [ <em>object</em> ]</h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td style="text-align:center"><em>string</em></td>
+<td>API path to retrieve the file</td>
+</tr>
+<tr>
+<td>checksum</td>
+<td style="text-align:center"><em>string</em></td>
+<td>File checksum</td>
+</tr>
+<tr>
+<td>mime_type</td>
+<td style="text-align:center"><em>string</em></td>
+<td>File mime type</td>
+</tr>
+</tbody>
+</table>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<h3 id="webservice_response">Webservice_response</h3>
+<hr>
+<h4 id="apireply">apiReply</h4>
+<blockquote>
+<p>Reply to a pending API HTTP request with a standard HTTP response. This operation is used after receiving a webservice <em>request</em> event.<br/> When using Murano <em>endpoint script</em>, you DO NOT need to use this operation manually as the Murano webservice router already handles it for you at the end of the endpoint script execution. <br/><br/> However, if you want to set your own endpoint routing mechanism, you can directly edit your solution webServer request <strong>eventHandler script</strong>. In such case the <em>Webservice.apiReply</em> needs to be called manually and the <em>request_id</em> and <em>service_id</em> parameters have to be provided.<br/> Important! Any <strong>endpoint script</strong> changes will reset the default routing mechanism and <strong>eventHandler script</strong> changes will be lost.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="parameters-object-object-containing-service-call-parameters-">parameters  -  <em>object</em>  -  <em>Object containing service call parameters.</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>request_id</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The request ID provided in the request data. Automatically set when using Murano <em>endpoint script</em>.</td>
+</tr>
+<tr>
+<td>response</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The request response data to reply to the client.</td>
+</tr>
+<tr>
+<td>response.<strong>code</strong></td>
+<td style="text-align:center"><em>integer</em> {..999}</td>
+<td>The HTTP response status code<br/>Default: 200</td>
+</tr>
+<tr>
+<td>response.headers</td>
+<td style="text-align:center"><em>object</em></td>
+<td>HTTP response headers</td>
+</tr>
+<tr>
+<td>response.<strong>message</strong></td>
+<td style="text-align:center"><em>string</em></td>
+<td>The HTTP response body content. From <em>endpoint scripts</em>, Lua Table are transformed to the equivalent JSON structure.</td>
+</tr>
+<tr>
+<td>(deprecated) server_ip</td>
+<td style="text-align:center"><em>string(ipv4)</em></td>
+<td>The server IP address holding the HTTP connection. Provided in request data. Automatically set when using Murano <em>endpoint script</em>.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses">Responses</h5>
+<h6 id="response-successfully-sent-nil-">Response successfully sent  -  <em>nil</em></h6>
+<p>Response successfully sent</p>
+<h6 id="error-response-object-">Error response  -  <em>object</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error code</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Error message</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- In webservice endpoint script:
+response.code = 201 response.message = {hello = &quot;world&quot;} response.headers[&quot;x-my-custom-header&quot;] = &quot;my header content&quot;
+-- In webservice eventHandler script:
+local responseData = {
+  [&quot;request_id&quot;] = request.request_id,
+  code = 201,
+  message = &quot;{\&quot;hello\&quot;:\&quot;world\&quot;}&quot;,
+  headers = { [&quot;content-type&quot;] = &quot;application/json&quot; }
+} Webservice.apiReply(responseData)
+</code></pre>
+<h2 id="events">Events</h2>
+<hr>
+<h4 id="request">request</h4>
+<blockquote>
+<p>An HTTP request has reached your custom API endpoint and triggers the webservice eventHandler script execution. This request is waiting for a response through the <em>apiReply</em> operation.<br/> All requests trigger the same eventHandler script. However, for your convenience, Murano provides out-of-the-box endpoint routing wrapper triggering <strong>endpoint scripts</strong>.<br/> So when writing an <strong>endpoint script</strong>, you simply use the <em>response</em> parameters or directly return the desired response body content. As the <em>apiReply</em> response is automatically made at the end of each endpoint scripts by the Murano routing wrapper. <br/><br/> However, if you want to set your own endpoint routing mechanism, you can directly edit your solution webServer eventHandler script. See <em>apiReply</em> operation for more information.<br/> Important! Any endpoint script changes will reset the default routing mechanism and eventHandler script changes will be lost. <br/><br/> <strong>Endpoint script default values:</strong><br/> response.code: 200 <br/> response.message: &quot;Ok&quot; <br/> response.headers[&quot;content-type&quot;] = &quot;plain/text&quot; if message is a &quot;string&quot;, &quot;application/json&quot; otherwise.</p>
+</blockquote>
+<h5 id="arguments">Arguments</h5>
+<h6 id="request-object-the-http-request-data-">request  -  <em>object</em>  -  <em>The HTTP request data</em></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uri</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The request complete URI including API domain name.</td>
+</tr>
+<tr>
+<td>body</td>
+<td style="text-align:center"><em>object</em>, <em>string</em></td>
+<td>The HTTP request json body content. JSON data will be decoded automatically in a Lua table structure. Otherwise a string is provided.</td>
+</tr>
+<tr>
+<td>route</td>
+<td style="text-align:center"><em>string</em></td>
+<td>The endpoint path, matching the custom API endpoint configuration on <a href="https://www.exosite.com/business/solutions">Murano portal</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td style="text-align:center">&quot;POST&quot;, &quot;PUT&quot;, &quot;GET&quot;, &quot;DELETE&quot;, &quot;PATCH&quot;, &quot;OPTION&quot;</td>
+<td>The HTTP method of the request, matching the custom API endpoint configuration on <a href="https://www.exosite.com/business/solutions">Murano portal</a></td>
+</tr>
+<tr>
+<td>headers</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The HTTP request headers</td>
+</tr>
+<tr>
+<td>server_ip</td>
+<td style="text-align:center"><em>string(ipv4)</em></td>
+<td>The address of the API server holding the pending HTTP request. Only for webservice <strong>eventhandler scripts</strong> when calling <em>apiReply</em> operation.</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td style="text-align:center"><em>integer</em></td>
+<td>HTTP request reception time as Unix timestamp.</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td style="text-align:center"><em>object</em></td>
+<td>The HTTP request query parameters as a Map containing both from path and query parameters.<br/> Path parameters are set on the <a href="https://www.exosite.com/business/solutions">Murano portal</a> routes by using &#39;/myendpoint/{pathParameterName}&#39;. Query parameters are dynamically set from the url parameters following the format &#39;/myendpoint?queryParameterNameOne=hello&amp;queryParameterNameTwo=world&#39;.</td>
+</tr>
+<tr>
+<td>request_id</td>
+<td style="text-align:center"><em>string</em></td>
+<td>Unique request ID use to match with the response. Only for webservice <strong>eventhandler scripts</strong> when calling <em>apiReply</em> operation.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="example">Example</h5>
+<pre><code class="lang-lua">-- In a webservice endpoint script:
+response.code = 201 response.message = {hello = &quot;world&quot;} response.headers[&quot;x-my-custom-header&quot;] = &quot;my header content&quot;
+-- Same behavior in EventHandler script:
+function handle_webservice_request (request)
+
+  local responseData = {
+    [&quot;request_id&quot;] = request.request_id,
+    code = 201,
+    message = &quot;{\&quot;hello\&quot;:\&quot;world\&quot;}&quot;,
+    headers = { [&quot;content-type&quot;] = &quot;application/json&quot; }
+  }
+  Webservice.apiReply(responseData)
+
+end
+</code></pre>
+</div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>

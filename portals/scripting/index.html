@@ -1,0 +1,1077 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Exosite Documentation</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png">
+
+    <!-- Style -->
+    <link href='/assets/theme-white/style.css' rel='stylesheet'>
+    <link href='/assets/style.css' rel='stylesheet'>
+
+    <!-- Meta -->
+    <meta content="Exosite Reference Documentation" property="og:title">
+    <meta content="Developer Documentation for Exosite" name="description">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44116002-2', 'auto');
+    ga('send', 'pageview');
+
+
+    </script>
+
+    <!-- Initializer -->
+    <script></script>
+</head>
+<body role='flatdoc' class="no-literate">
+<div class='header'>
+    <div class='left'>
+        <a href="/">
+            <img src="/assets/logo-white.png" id="logo">
+        </a>
+    </div>
+    <div class='headercenter'>
+        <a href="/">DOCUMENTATION</a>
+    </div>
+    <div class='links right'>
+        <ul>
+            <li><a class="nav_orange" href="https://exosite.com/business/signup">Sign Up For Murano</a></li>
+            <li><input id="docsearch" placeholder="Search..."></li>
+            <li><a href='https://support.exosite.com'>Support</a></li>
+            <li><a href='https://community.exosite.com' target="_blank">Developer Forum</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class='content-root'>
+    <div class='menubar'>
+        <ul class='topmenu'>
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Murano Platform</p>
+                <li><a class="level-0" href="/">Murano Overview</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Quickstarts</p>
+                <li><a class="level-0" href="/quickstarts/">Quickstarts Overview</a></li>
+                <li><a class="level-0" href="/quickstarts/lightbulb/">Lightbulb Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/manualdevice/">Manual Quickstart</a></li>
+		<li><a class="level-0" href="/quickstarts/solutions/exampleapp/">Solution Quickstart</a></li>    
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Guides</p>
+                <li><a class="level-0" href="/guides/">Guides Overview</a></li>
+                <li><a class="level-0" href="/guides/create-account/">Create an Account</a></li>
+                <li><a class="level-0" href="/guides/manage-business/">Manage Your Business</a></li>
+                <li><a class="level-0" href="/guides/create-solution/">Create a Solution</a></li>
+                <li><a class="level-0" href="/guides/create-product/">Create a Product</a></li>
+                <li><a class="level-0" href="/guides/user-management/">Manage Users</a></li>
+                <li><a class="level-0" href="/guides/keystore-service/">Record Product Metrics</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Tutorials</p>
+                <li><a class="level-0" href="/tutorials/">Tutorials Overview</a></li>
+                <li><a class="level-0" href="/tutorials/hvac-tutorial/">HVAC Reference Application</a></li>
+                <li><a class="level-0" href="/tutorials/esp8266-tutorial/">ESP8266 Thing Dev Board</a></li>
+
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">Development</p>
+                <li><a class="level-0" href="/development/tools/exosite-cli/">Exosite CLI</a></li>
+                <li><a class="level-0" href="/development/tools/exoline-cli/">Exoline CLI</a></li>
+                <li><a class="level-0" href="/development/exositeready">ExositeReady</a></li>
+            </ul>
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">API Reference</p>
+                <li><a class="level-0" href="/reference/products/device-api/http/">Device API - HTTP</a></li>
+                <li><a class="level-0" href="/reference/scripting">Solution Scripting</a></li>
+                <li><a class="level-0" href="/reference/services">Solution Services</a></li>
+            </ul>
+
+            <hr style="margin-right:20px;border-top-color: rgba(46, 147, 166, 0.16);">
+
+            <ul style="padding-bottom:0.5em;"><p style="font-size:larger;">One Platform & Portals</p>
+                <li><a class="level-1" href="/portals/">Documentation</a></li>
+            </ul>
+        </ul>
+        <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'><h1 id="lua-scripting-api">Lua Scripting API</h1>
+<p>Exosite&#39;s <a href="/oneplatform/">One Platform</a> can run Lua scripts on your behalf. These scripts have
+a rich set of capabilities and may be used to offload processing from your
+device.</p>
+<p>If you&#39;re completely new to Exosite&#39;s APIs, you may want to read the <a href="../README.md">API overview</a> first.</p>
+<h2 id="overview">Overview</h2>
+<p>Scripts are written in Lua 5.2 scripting language. For general information
+about Lua 5.2, please reference the <a href="http://www.lua.org/manual/5.2/">online Lua manual</a>.</p>
+<p>Scripts may be added to an application either using Portals, or by
+using the <a href="../portals/rpc">Remote Procedure Call API</a>. In Portals,
+scripts are added on the <a href="https://portals.exosite.com/manage/scripts">script management page</a>.</p>
+<p>To use the RPC to create a script, use the
+<a href="../portals/rpc#create-datarule">create</a> RPC
+procedures. It&#39;s also possible to use the
+<a href="https://github.com/dweaver/exoline">Exoline</a> utility to upload a script from
+the command line using the <code>script</code> Exoline command. Run this command for details:</p>
+<pre><code>$ exo script --help
+</code></pre><p>Scripts are associated with a client and may read, write, record and
+subscribe to data for any resources that client owns. For example, in Portals,
+if a script A is added to a particular device client it may access
+all of that device&#39;s datasources, but not the datasources of any other devices.
+If script B is added to a portal, it will have access to portal-level
+datasources as well as devices in that portal and their datasources.</p>
+<p>A script may also dispatch messages using transports such as HTTP, SMS, Email, and XMPP.</p>
+<h2 id="examples">Examples</h2>
+<p>Examples of One Platform Lua scripts are made available in this repository:
+<a href="https://github.com/exosite-garage/PlatformScripts">Example Platform Scripts Repository</a></p>
+<h2 id="the-script-environment">The script environment</h2>
+<p>Scripts are completely isolated from one another, each running in its own,
+secure environment, complete with access to a set of Lua tables and functions,
+as well as a set of One Platform API functions, the &#39;alias&#39; table and Global
+properties and functions.</p>
+<p>Scripts are scheduled to run with a limited number of execution ticks.
+When these ticks are consumed, the script is suspended until subsequently
+rescheduled.</p>
+<p>Scripts also have memory usage limits, which if completely consumed
+terminates the script with a &#39;not enough memory&#39; error.  Please reference the
+Lua 5.2 manual for how Lua manages memory. In particular:</p>
+<ul>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#2.5">Garbage Collection</a></p>
+</li>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#3.5">Visibility Rules</a></p>
+</li>
+</ul>
+<h3 id="lua-tables-and-functions">Lua tables and functions</h3>
+<p>The following global Lua tables and functions are available to Lua
+scripts. They operate exactly as described in the Lua 5.2 reference manual.</p>
+<ul>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#6.7"><code>bit32</code></a></p>
+</li>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#6.6"><code>math</code></a> (Note:
+  the <code>math.randomseed</code> function is not available to scripts.)</p>
+</li>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#6.4"><code>string</code></a> (Note:
+  the <code>string.dump</code> and <code>string.gsub</code> functions are not available to scripts.)</p>
+</li>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#6.5"><code>table</code></a> (Note:
+  the <code>table.sort</code> function is not available to scripts.)</p>
+</li>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#pdf-ipairs"><code>ipairs()</code></a></p>
+</li>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#pdf-next"><code>next()</code></a></p>
+</li>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#pdf-pairs"><code>pairs()</code></a></p>
+</li>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#pdf-select"><code>select()</code></a></p>
+</li>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#pdf-tonumber"><code>tonumber()</code></a></p>
+</li>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#pdf-tostring"><code>tostring()</code></a></p>
+</li>
+<li><p><a href="http://www.lua.org/manual/5.2/manual.html#pdf-type"><code>type()</code></a></p>
+</li>
+</ul>
+<h3 id="one-platform-tables">One Platform tables</h3>
+<p>The following One Platform resources and features are available to Lua scripts:</p>
+<ul>
+<li><a href="#the-alias-table"><code>alias</code></a></li>
+<li><a href="#the-dispatch-table"><code>dispatch</code></a></li>
+<li><a href="#the-manage-table"><code>manage</code></a></li>
+</ul>
+<h3 id="global-tables-functions-and-properties">Global tables, functions, and properties</h3>
+<p>The following global resources and features are available to Lua scripts:</p>
+<ul>
+<li><a href="#the-json-global-table"><code>json</code></a></li>
+<li><a href="#utilities"><code>date()</code></a></li>
+<li><a href="#utilities"><code>debug()</code></a></li>
+<li><a href="#utilities"><code>setlocale()</code></a></li>
+<li><a href="#utilities"><code>settimezone()</code></a></li>
+<li><code>now</code> holds the current UNIX timestamp. Note that <code>now</code> causes a One Platform API call behind the scenes so that it stays in step with the One Platform time. For best performance we recommend calling this at most once per iteration of a looping script. For example, if three different variables are to be initialized to the current timestamp in a row, <code>now</code> should be called once, its value stored in a local variable and subsequently used to initialize the variables.</li>
+</ul>
+<h2 id="the-alias-table">The alias table</h2>
+<p>Every script is owned by a One Platform client, and has access to that client
+and all of its resources through the <code>alias</code> table.</p>
+<ul>
+<li>The client: <code>alias[&#39;&#39;]</code></li>
+<li>The client&#39;s owned resource (by alias): <code>alias[&#39;myAlias&#39;]</code></li>
+<li>The client&#39;s owned resource (by resource ID): <code>alias[{rid = &#39;64c217b5243eeda29d4101234567890123456789&#39;}]</code></li>
+</ul>
+<p>It is a good idea to create a local reference to specific aliases used
+in the script, e.g.:</p>
+<pre><code>local room_temp = alias[&#39;room_temp&#39;]
+</code></pre><p>Each alias has properties and functions through which the script can interact
+with the aliased resource (for example to read from a dataport or write to a dataport)</p>
+<ul>
+<li><p><code>.alias</code></p>
+<p>  This sub alias table is only available if the referenced alias is a client.
+  It provides the same functionality as the global alias table but for the
+  referenced client.</p>
+</li>
+<li><p><code>.manage</code></p>
+<p>  The manage table is only available if the referenced alias is a client. For
+  the functionality provided, see <a href="#the-manage-table">The manage table</a>.</p>
+</li>
+<li><p><code>.meta</code></p>
+<p>  This provides read-only access to the <code>meta</code> field of the resource.</p>
+</li>
+<li><p><code>.name</code></p>
+<p>  This provides read-only access to the <code>name</code> field of the resource.</p>
+</li>
+<li><p><code>.status</code></p>
+<p>  Indicates the outcome of the most recent activity performed on the Alias.
+  Actions include the reading or writing of any of the Alias properties and
+  functions, excluding <code>.last</code> and <code>.status</code> itself.</p>
+<p>  The actual values this property can return are listed with each property and
+  function that can affect the value of <code>.status</code>. This property is read only.</p>
+</li>
+<li><p><code>.timestamp</code></p>
+<p>  The timestamp of the most recent datapoint written to the resource. If the
+  resource contains no datapoints, <code>.timestamp</code> will read <code>nil</code>.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Values:      timestamp :: number | nil
+
+  ------------------------------------------------------------------------------
+  Status:           &#39;ok&#39; :: string - accessing .timestamp was successful
+</code></pre><ul>
+<li><p><code>.value</code></p>
+<p>  When read, it returns the value of the most recent datapoint written to the
+  resource. If the resource contains no datapoints, <code>.value</code> will read <code>nil</code>.
+  When written, the given value gets written to the resource with the current
+  timestamp.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Values:          value :: boolean | number | string | nil
+
+  ------------------------------------------------------------------------------
+  Status:           &#39;ok&#39; :: string - accessing .value was successful
+</code></pre><ul>
+<li><p><code>.last</code></p>
+<p>  When read, it returns the timestamp returned by the most recent call to
+  <code>.wait</code> function.  When written, the current time, as the script perceives
+  it, will be changed to the given timestamp. Thus it is possible to set
+  <code>.last</code> to a point in the past and iterate through historical data using
+  <code>.wait</code>. When the script starts <code>.last</code> is initialized to the value of
+  <code>.timestamp</code>.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Values:           last :: number
+</code></pre><ul>
+<li><p><code>.wait([expire])</code></p>
+<p>  Returns the timestamp for the next unprocessed datapoint. Next being relative
+  to the timestamp held by <code>.last</code> property. If there is no datapoint available,
+  the call will block. The <code>expire</code> parameter sets the wait expiration timestamp
+  in case no datapoint becomes available. When the call returns, <code>.last</code> property
+  will be updated to the timestamp of the next unprocessed datapoint or the wait
+  expiration timestamp.</p>
+<p>  Note that the <code>expire</code> period is non deterministic. Although the One Platform
+  honors the <code>expire</code> parameter, there may be small fluctuations
+  of up to a few seconds beyond what is specified by the <code>expire</code> parameter.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:             :: nil    - no expiration
+                  expire :: number - expiration timestamp
+
+  ------------------------------------------------------------------------------
+  Returns:     timestamp :: number - timestamp of the next unprocessed datapoint
+                         :: nil    - wait expired
+
+  ------------------------------------------------------------------------------
+  Status:           &#39;ok&#39; :: string - the call has returned without expiring
+               &#39;expired&#39; :: string - the call has expired
+</code></pre><ul>
+<li><p><code>[&lt;timestamp&gt;]</code></p>
+<p>  Indexing an alias with a numerical timestamp makes it possible to read and
+  record historical data.</p>
+<p>  When read, the value of the datapoint with the given timestamp. If no value
+  exists for the given timestamp then <code>nil</code> will be returned.</p>
+<p>  When written, the given non-nil value gets recorded to the resource at the
+  given timestamp. When nil is specified, the datapoint at the given timestamp
+  will be deleted.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Values:  [&lt;timestamp&gt;] :: boolean | number | string | nil
+
+  ------------------------------------------------------------------------------
+  Status:           &#39;ok&#39; :: string - accessing [&lt;timestamp&gt;] was successful
+</code></pre><h2 id="the-manage-table">The manage table</h2>
+<pre><code>The manage table provides resource management functionality.
+
+The manage table can be referenced globally and on client type alias objects.
+When invoked globally, the functions in the table will act on behalf of the
+script owner client. When invoked on an alias object, they will act on the
+alias object owner&#39;s behalf.
+</code></pre><ul>
+<li><p><code>manage.activate(rid | {alias = &lt;alias&gt;}, type, code)</code></p>
+<p>  Given an activation code, the associated entity is activated for the
+  client specified in rid.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:        rid :: string - Client ID under which to activate the entity
+                                    Note: an earlier form of this function
+                                    allowed omitting this argument. That
+                                    form is deprecated and should no
+                                    longer be used.
+                   type :: string - &quot;client&quot; | &quot;share&quot;
+                   code :: string - Activation code
+
+  ------------------------------------------------------------------------------
+  Returns:          true :: boolean - Activation was successful
+            false, error :: boolean, string - &quot;badarg&quot; | &quot;invalid&quot; | &quot;noauth&quot;
+</code></pre><ul>
+<li><p><code>manage.create(rid | {alias = &lt;alias&gt;}, type, description)</code></p>
+<p>  Create a One Platform resource of specified Type and Description under rid.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:     rid :: string - Client ID under which to create a resource
+                                 Note: an earlier form of this function
+                                 allowed omitting this argument. That
+                                 form is deprecated and should no
+                                 longer be used.
+                type :: string - &quot;client&quot; | &quot;dataport&quot; | &quot;datarule&quot; | &quot;dispatch&quot;
+         description :: table - Description table specific to resource type.
+
+  &quot;client&quot; description ::
+    {
+      limits = {
+        client = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        dataport = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        datarule = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        disk = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        dispatch = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        email = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        email_bucket = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        http = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        http_bucket = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        share = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        sms = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        sms_bucket = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        xmpp = &lt;non_neg_integer&gt; | &quot;inherit&quot;,
+        xmpp_bucket = &lt;non_neg_integer&gt; | &quot;inherit&quot;
+      },
+      locked = true | false,
+      meta = &lt;string&gt;,
+      name = &lt;string&gt;,
+      public = true | false,
+    }
+
+  &quot;dataport&quot; description ::
+    {
+      format = &quot;binary&quot; | &quot;boolean&quot; | &quot;float&quot; | &quot;integer&quot; | &quot;string&quot;,
+      meta = &lt;string&gt;,
+      name = &lt;string&gt;,
+      preprocess = {
+        &quot;add&quot;|&quot;sub&quot;|&quot;mod&quot;|&quot;div&quot;|&quot;mul&quot;|&quot;gt&quot;|&quot;lt&quot;|&quot;eq&quot;|&quot;geq&quot;|&quot;leq&quot;|&quot;neq&quot;|&quot;value&quot; =
+        &lt;constant&gt; ,...
+      },
+      public = true | false,
+      retention = {
+        count = &lt;non_neg_integer&gt; | &quot;infinity&quot;,
+        duration = &lt;non_neg_integer&gt; | &quot;infinity&quot;
+      },
+      subscribe = &lt;rid&gt; | nil
+    }
+
+  &quot;datarule&quot; description ::
+    {
+      format = &quot;boolean&quot; | &quot;float&quot; | &quot;integer&quot; | &quot;string&quot;,
+      meta = &lt;string&gt;,
+      name = &lt;string&gt;,
+      preprocess = {
+        &quot;add&quot;|&quot;sub&quot;|&quot;mod&quot;|&quot;div&quot;|&quot;mul&quot;|&quot;gt&quot;|&quot;lt&quot;|&quot;eq&quot;|&quot;geq&quot;|&quot;leq&quot;|&quot;neq&quot;|&quot;value&quot; =
+        &lt;constant&gt; ,...
+      },
+      public = true | false,
+      retention = {
+        count = &lt;non_neg_integer&gt; | &quot;infinity&quot;,
+        duration = &lt;non_neg_integer&gt; | &quot;infinity&quot;
+      },
+      rule = {
+        simple = {
+          comparision = &quot;gt&quot; | &quot;lt&quot; | &quot;eq&quot; | &quot;geq&quot; | &quot;leq&quot; | &quot;neq&quot;,
+          constant = &lt;number&gt;,
+          repeat = true | false
+        }
+        |
+        timeout = {
+          repeat = true | false,
+          timeout = &lt;number&gt;
+        }
+        |
+        interval = {
+          comparison = &quot;gt&quot; | &quot;lt&quot; | &quot;eq&quot; | &quot;geq&quot; | &quot;leq&quot; | &quot;neq&quot;,
+          constant = &lt;number&gt;,
+          repeat = true | false,
+          timeout = &lt;number&gt;
+        }
+        |
+        duration = {
+          comparison = &quot;gt&quot; | &quot;lt&quot; | &quot;eq&quot; | &quot;geq&quot; | &quot;leq&quot; | &quot;neq&quot;,
+          constant = &lt;number&gt;,
+          repeat = true | false,
+          timeout = &lt;number&gt;
+        }
+        |
+        count = {
+          comparison = &quot;gt&quot; | &quot;lt&quot; | &quot;eq&quot; | &quot;geq&quot; | &quot;leq&quot; | &quot;neq&quot;,
+          constant = &lt;number&gt;,
+          count = &lt;number&gt;,
+          repeat = true | false,
+          timeout = &lt;number&gt;
+        }
+        |
+        script = &lt;string&gt;
+     }
+     ,subscribe = &lt;rid&gt; | nil
+    }
+
+  &quot;dispatch&quot; description ::
+    {
+      locked = true | false,
+      message = &lt;string&gt;,
+      meta = &lt;string&gt;,
+      method = &quot;email&quot; | &quot;http_get&quot; | &quot;http_post&quot; | &quot;http_put&quot; | &quot;sms&quot; | &quot;xmpp&quot;,
+      name = &lt;string&gt;,
+      preprocess = {
+        &quot;add&quot;|&quot;sub&quot;|&quot;mod&quot;|&quot;div&quot;|&quot;mul&quot;|&quot;gt&quot;|&quot;lt&quot;|&quot;eq&quot;|&quot;geq&quot;|&quot;leq&quot;|&quot;neq&quot;|&quot;value&quot; =
+        &lt;constant&gt; ,...
+      },
+      public = true | false,
+      retention = {
+        count = &lt;non_neg_integer&gt; | &quot;infinity&quot;,
+        duration = &lt;non_neg_integer&gt; | &quot;infinity&quot;
+      },
+      subject = &lt;string&gt;,
+      subscribe = &lt;rid&gt; | nil
+    }
+
+  ------------------------------------------------------------------------------
+  Returns:    true, rid :: boolean, string - Resource created, id returned.
+           false, error :: boolean, string - &quot;badarg&quot; | &quot;invalid&quot; | &quot;limit&quot; |
+                                              &quot;restricted&quot;
+</code></pre><ul>
+<li><p><code>manage.deactivate(cid | {alias = &lt;alias&gt;}, type, code | rid)</code></p>
+<p>  Given an activation code, or resource ID for shares, the associated entity is
+  deactivated for the client specified in cid.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:        cid :: string - Client ID under which to deactivate the entity
+                                    Note: an earlier form of this function
+                                    allowed omitting this argument. That
+                                    form is deprecated and should no
+                                    longer be used.
+                   type :: string - &quot;client&quot; | &quot;share&quot;
+                   code :: string - Activation code
+                   rid  :: string - Resource ID that code is associated with
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean - Deactivation was successful
+           false, error :: boolean, string - &quot;badarg&quot; | &quot;invalid&quot; | &quot;noauth&quot;
+</code></pre><ul>
+<li><p><code>manage.drop (rid | {alias = &lt;alias&gt;})</code></p>
+<p>  Drop specified resource.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:        rid :: string - Resource ID to drop
+                  alias :: string - Alias for resource ID to drop
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean - Drop was successful
+           false, error :: boolean, string - &quot;badarg&quot; | &quot;invalid&quot; | &quot;restricted&quot;
+</code></pre><ul>
+<li><p><code>manage.info (rid | {alias = &lt;alias&gt;}, options)</code></p>
+<p>  Provide creation and usage information of specified resource according to the
+  specified Options (e.g., options could specify to only return the description)</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:        rid :: string - Resource ID to query
+                  alias :: string - Alias for resource ID to query
+                options :: table - Options specifying what information to return
+
+    options - Specify one or more. Not all are valid for every resource type.
+    {
+      &quot;aliases&quot;,
+      &quot;basic&quot;,
+      &quot;counts&quot;,
+      &quot;description&quot;,
+      &quot;key&quot;,
+      &quot;shares&quot;,
+      &quot;storage&quot;,
+      &quot;subscribers&quot;,
+      &quot;tagged&quot;,
+      &quot;tags&quot;,
+      &quot;usage&quot;
+    }
+
+  ------------------------------------------------------------------------------
+  Returns:   true ,info :: boolean ,table - Requested info successful returned
+           false ,error :: boolean ,string - &quot;badarg&quot; | &quot;invalid&quot; | &quot;restricted&quot;
+
+    info table structure:
+    {
+      -- for all resource types
+      basic = {
+        created = &lt;timestamp&gt;,
+        modified = &lt;timestamp&gt;,
+        subscribers = &lt;number&gt;,
+        type = &quot;client&quot; | &quot;dataport&quot; | &quot;datarule&quot; | &quot;dispatch&quot;
+      },
+      -- see &#39;create&#39; function for details about description
+      description = &lt;description&gt;,
+      shares = {
+        {
+          activator = &lt;rid&gt;,
+          code = &lt;code_string&gt;,
+          meta = &lt;string&gt;
+        }
+        ,...
+      },
+      subscribers = {
+        {client | dataport | datarule | dispatch = {&lt;rid&gt;, ...}}, ...
+      },
+      tags = {
+        &lt;string&gt;, ...
+      },
+      -- for clients:
+      aliases = {
+        {&lt;rid&gt;, {&lt;string&gt;, ...}}, ...
+      },
+      basic = {
+        status = &quot;activated&quot; | &quot;locked&quot; | &quot;notactivated&quot; | &quot;expired&quot;
+      },
+      counts = {
+        client = &lt;number&gt;,
+        dataport = &lt;number&gt;,
+        datarule = &lt;number&gt;,
+        disk = &lt;number&gt;,
+        dispatch = &lt;number&gt;,
+        email = &lt;number&gt;,
+        http = &lt;number&gt;,
+        share = &lt;number&gt;,
+        sms = &lt;number&gt;,
+        xmpp = &lt;number&gt;
+      },
+      key = &lt;cik_string&gt;,
+      usage = {
+        client = &lt;number&gt;,
+        dataport = &lt;number&gt;,
+        datarule = &lt;number&gt;,
+        disk = &lt;number&gt;,
+        dispatch = &lt;number&gt;,
+        email = &lt;number&gt;,
+        http = &lt;number&gt;,
+        share = &lt;number&gt;,
+        sms = &lt;number&gt;,
+        xmpp = &lt;number&gt;
+      },
+      tagged = {
+        &lt;string&gt; ,...
+      },
+
+      -- for non-clients (dataport ,datarule ,dispatch)
+      storage = {
+        count = &lt;number&gt;,
+        first = &lt;timestamp&gt;,
+        last = &lt;timestamp&gt;,
+        size = &lt;number&gt;
+      },
+
+      -- for datarules (scripts only):
+      basic = {
+        status = &quot;completed&quot; | &quot;error&quot; | &quot;running&quot; | &quot;waiting&quot;,
+        activity = {{&lt;timestamp&gt; = {&lt;status&gt;, ...}}, ...}
+      },
+
+      -- for dispatches:
+      basic = {
+        status = &quot;normal&quot; | &quot;locked&quot;,
+      }
+    }
+</code></pre><ul>
+<li><p><code>manage.listing(rid | {alias = &lt;alias&gt;}, type, options)</code></p>
+<p>  List resource IDs of given type(s) under client identified by rid or alias,
+  filtered according to specified options.
+  Resource IDs qualified by all options will be returned. If no option is
+  specified, owned resources will be returned by default.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:        rid :: string - Client ID under which to list resources
+                                    Note: an earlier form of this function
+                                    allowed omitting this argument. That
+                                    form is deprecated and should no
+                                    longer be used.
+                  alias :: string - Alias for resource ID.
+                   type :: table - List of resource types.
+                options :: table - Categories of resources to return.
+
+    type - Specify one or more.
+    {
+      &quot;client&quot;,
+      &quot;dataport&quot;,
+      &quot;datarule&quot;,
+      &quot;dispatch&quot;
+    }
+
+    options - Specify none or more.
+    {
+      &quot;activated&quot;,
+      &quot;aliased&quot;,
+      &quot;owned&quot;,
+      &quot;public&quot;,
+      &quot;tagged&quot;
+    }
+
+  ------------------------------------------------------------------------------
+  Returns:   true ,list :: boolean ,table - Successful, list returned.
+           false ,error :: boolean ,string - &quot;badarg&quot; | &quot;invalid&quot; | &quot;restricted&quot;
+
+    list :: {{client | dataport | datarule | dispatch = {&lt;rid&gt; ,...}} ,...}
+</code></pre><ul>
+<li><p><code>manage.lookup(cid | {alias = &lt;alias&gt;}, type, rid | alias | code)</code></p>
+<p>  Lookup an aliased resource, a resource&#39;s owner or a shared resource under cid.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:        cid :: string - Client ID under which to lookup a resource
+                                    Note: an earlier form of this function
+                                    allowed omitting this argument. That
+                                    form is deprecated and should no
+                                    longer be used.
+                   type :: string - Lookup based on: owner, alias or code.
+                    rid :: string - Resource ID (owner lookup only).
+                  alias :: string - Alias for resource ID.
+                   code :: string - Share activation code.
+
+    type :: &quot;aliased&quot; | &quot;owner&quot; | &quot;shared&quot;
+
+  ------------------------------------------------------------------------------
+  Returns:    true ,rid :: boolean ,string - Successful, resource id returned.
+           false ,error :: boolean ,string - &quot;badarg&quot; | &quot;invalid&quot; | &quot;restricted&quot;
+</code></pre><ul>
+<li><p><code>manage.map(type, rid | {alias = &lt;alias&gt;}, mapping)</code></p>
+<p>  Give the specified ResourceID an alias or a tag.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:       type :: string - Type of mapping: alias or tag.
+                    rid :: string - Resource ID to alias or tag.
+                  alias :: string - Alias for resource ID.
+                mapping :: string - The alias or tag to map to resource ID.
+
+    type :: &quot;alias&quot; | &quot;tag&quot;
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean         - Successful, resource id mapped.
+           false, error :: boolean, string - &quot;badarg&quot; | &quot;inuse&quot; | &quot;invalid&quot; |
+                                             &quot;notfound&quot; | &quot;restricted&quot;
+</code></pre><ul>
+<li><p><code>manage.revoke(type, code)</code></p>
+<p>  Given an activation code, the associated entity is revoked after which the
+  activation code can no longer be used.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:       type :: string - Type of code: client or share
+                   code :: string - Activation code
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean         - Successful, code revoked.
+           false, error :: boolean, string - &quot;badarg&quot; | &quot;invalid&quot; | &quot;noauth&quot;
+</code></pre><ul>
+<li><p><code>manage.share(rid | {alias = &lt;alias&gt;}, options)</code></p>
+<p>  Generates a share code for the given resource ID.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:        rid :: string - Resource ID to be shared.
+                  alias :: string - Alias for resource ID.
+                options :: table  - Share options.
+
+    options
+    {
+      meta = &lt;string&gt;
+    }
+
+  ------------------------------------------------------------------------------
+  Returns:   true, code :: boolean, string - Successful, share code returned.
+           false, error :: boolean, string - &quot;badarg&quot; | &quot;invalid&quot; | &quot;limit&quot; |
+                                             &quot;restricted&quot;
+</code></pre><ul>
+<li><p><code>manage.tag(rid | {alias = &lt;alias&gt;}, action, name)</code></p>
+<p>  Add or remove tag.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments        rid  :: string - Resource ID to be tagged.
+                action  :: string - can be &#39;add&#39; or &#39;remove&#39;.
+                  name  :: string - The name of the tag
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean         - Successful, resource id tagged or
+                                             tag removed.
+           false, error :: boolean, string - &quot;badarg&quot;
+</code></pre><ul>
+<li><p><code>manage.unmap(rid | {alias = &lt;alias&gt;}, type, mapping)</code></p>
+<p>  Remove the specified type of mapping under client identified by rid or alias.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:        rid :: string - Client ID under which to unmap the mapping
+                                    Note: an earlier form of this function
+                                    allowed omitting this argument. That
+                                    form is deprecated and should no
+                                    longer be used.
+                   type :: string - Type of mapping: alias only.
+                mapping :: string - The mapped string to be removed.
+
+    type :: &quot;alias&quot;
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean         - Successful, resource id mapped.
+           false, error :: boolean, string - &quot;badarg&quot;
+</code></pre><ul>
+<li><p><code>manage.update(rid | {alias = &lt;alias&gt;}, description)</code></p>
+<p>  Updates the description of specified resource. See &#39;create&#39; for description
+  parameter content, however that content may be restricted as described below:</p>
+<p>  Client resource limits must not be lowered below current use level.  Resources must
+  be dropped prior to lowering the limits. For daily limits, those may be
+  lowered at any point and take immediate affect.</p>
+<p>  Dataport and datarule formats must not be changed.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:        rid :: string - Resource ID to be shared.
+                  alias :: string - Alias for resource ID.
+            description :: table - Description table specific to resource type.
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean         - Successful, resource updated.
+           false, error :: boolean, string - &quot;badarg&quot; | &quot;invalid&quot; | &quot;limit&quot; |
+                                             &quot;restricted&quot;
+</code></pre><ul>
+<li><p><code>manage.usage(rid | {alias = &lt;alias&gt;}, metric, starttime, endtime)</code></p>
+<p>  Returns Metric usage between StartTime and EndTime by client and subhierarchy.</p>
+<p>  The Metric parameter either specifies a consumable or an entity, depending on
+  which, the returned value is computed as follows:</p>
+<pre><code>  * for consumables: the sum of the consumable used during the given window
+  * for entities: the sum of the number of entities used in one second for
+    each second in the given window.
+</code></pre></li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:        rid :: string - Resource ID for which to query usage.
+                  alias :: string - Alias for resource ID.
+                 metric :: string - Usage metric to query.
+              starttime :: number - Start of time window to query.
+                endtime :: number - End of time window to query.
+
+    metric :: &quot;client&quot; | &quot;dataport&quot; | &quot;datarule&quot; | &quot;dispatch&quot; | &quot;share&quot;
+            | &quot;email&quot; | &quot;http&quot; | &quot;sms&quot; | &quot;xmpp&quot;
+
+  ------------------------------------------------------------------------------
+  Returns:  true, value :: boolean, number - Successful, usage value returned.
+           false, error :: boolean, string - &quot;badarg&quot; | &quot;invalid&quot; | &quot;restricted&quot;
+</code></pre><h2 id="the-json-global-table">The JSON global table</h2>
+<p>Supports the encoding to and decoding from JSON format as specified at:
+<a href="http://www.json.org/">http://www.json.org/</a></p>
+<ul>
+<li><p><code>json.array(table)</code></p>
+<p>  Initializes a Lua table to represent a JSON array.  A JSON array is
+  represented as a Lua table having a sequence <code>{1..N}</code>, such that the
+  only keys in the table are the numerical set <code>{1..N}</code>.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:       table :: table  - the Lua table to be initialized as array
+
+  ------------------------------------------------------------------------------
+  Returns:         array :: table       - Lua table initialized as &#39;array&#39;
+          nil, error_msg :: nil ,string - error if table could not be
+                                          initialized as a JSON-compliant array
+</code></pre><ul>
+<li><p><code>json.decode(json_string)</code></p>
+<p>  Decodes the provided JSON encoded string.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments: json_string :: string - valid JSON encoded string
+
+  ------------------------------------------------------------------------------
+  Returns: decoded_value :: string | number | table | true | false | json.null
+          nil, error_msg :: nil, string - error description encountered during
+                                          decode
+</code></pre><ul>
+<li><p><code>json.encode(value)</code></p>
+<p>  Encodes the provided native Lua value as a JSON string.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:       value :: string | number | table | true | false | json.null
+
+  ------------------------------------------------------------------------------
+  Returns:  encoded_json :: string      - successfully encoded JSON string
+          nil, error_msg :: nil, string - error description encountered during
+                                          encode
+</code></pre><ul>
+<li><p><code>json.null</code></p>
+<p>  Represents the JSON &#39;null&#39; constant, use it when constructing Lua tables.</p>
+</li>
+<li><p><code>json.object(table)</code></p>
+<p>  Initializes a Lua table to represent a JSON object.  A JSON Object is
+  represented as a Lua table having only keys of string type.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:       table :: table - the Lua table to be initialized as object
+
+  ------------------------------------------------------------------------------
+  Returns:        object :: table       - Lua table initialized as &#39;object&#39;
+          nil, error_msg :: nil, string - error if table could not be
+                                          initialized as a JSON-compliant object
+</code></pre><ul>
+<li><p><code>json.type(value)</code></p>
+<p>  Returns the JSON specific type of the supplied value.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:       value :: string | number | table | true | false | json.null
+                            Lua value to check its type.
+
+  ------------------------------------------------------------------------------
+  Returns:          type :: string - &quot;array&quot; | &quot;object&quot; | &quot;string&quot; | &quot;number&quot; |
+                                     &quot;boolean&quot; | &quot;null&quot;
+                     nil :: nil    - the type of value is not a valid JSON type
+</code></pre><h2 id="the-dispatch-table">The dispatch table</h2>
+<p>The One Platform supports sending messages to external recipients over several
+transports as &#39;dispatches&#39; which are available via the &#39;dispatch&#39; table.</p>
+<p>The dispatch table can be referenced globally and on client type alias
+objects. When invoked globally, the functions in the table operate on behalf
+of the script owner client. When invoked through a client alias object, they
+will operate on behalf of that client.</p>
+<ul>
+<li><code>dispatch.email(address, subject, message, type)</code></li>
+</ul>
+<p>Sends an email <code>message</code> to <code>address</code> with <code>subject</code> line. <code>type</code> is optional
+and specifies the email <code>Content-Type</code> header, and defaults to:</p>
+<pre><code>    &quot;text/plain; charset=UTF-8&quot;
+</code></pre><pre><code>  ------------------------------------------------------------------------------
+  Arguments:    address :: string - valid email address
+                subject :: string - email subject line text
+                message :: string - text message
+                   type :: string - (optional) message content type
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean         - email was successfully sent
+          false, reason :: boolean, string - email was not successfully sent
+</code></pre><ul>
+<li><p><code>dispatch.headline(address, subject, message)</code></p>
+<p>  Sends an xmpp headline <code>message</code> to <code>address</code> with <code>subject</code> line.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:    address :: string - valid email address
+                subject :: string - headline subject line text
+                message :: string - text message
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean         - headline was successfully sent
+          false, reason :: boolean, string - headline was not successfully sent
+</code></pre><ul>
+<li><p><code>dispatch.http(url, method, body, contenttype, headers, timeout)</code></p>
+<p>  Makes a HTTP <code>method</code> request on the specified url with the given <code>body</code> of
+  <code>contenttype</code>.  Optional request-specific <code>headers</code> and <code>timeout</code> may be set.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:        url :: string - fully formed url - eg &quot;http://example.com/&quot;
+                 method :: string - request method, &quot;post&quot; | &quot;put&quot; | &quot;get&quot;
+                   body :: string | nil - text message, if &#39;method&#39; is &quot;get&quot;,
+                           &#39;body&#39; should be nil or it will be ignored. when
+                           &#39;method&#39; is other than &quot;get&quot;, &#39;body&#39; must not be nil.
+            contenttype :: string | nil - &#39;Content-Type&#39; header value, if
+                           &#39;method&#39; is &quot;get&quot;, &#39;contenttype&#39; should be nil or it
+                           will be ignored. when &#39;method&#39; is other than &quot;get&quot;,
+                           &#39;contenttype&#39; must not be nil.
+                headers :: table | nil  - custom header table or nil
+                           e.g. {&#39;custom_1&#39;=&quot;value_1&quot;,&#39;custom_2&#39;=&#39;value_2&#39;}
+                timeout :: number | nil - number of miliseconds before
+                           the request times out or nil.
+
+  ------------------------------------------------------------------------------
+  Returns: true, result :: boolean, table  - request was successfully made
+          false, reason :: boolean, string - request was not successfully made
+
+    result
+    {
+      status = &lt;number&gt;,
+      headers = {&lt;header&gt; = &lt;string&gt; ,...},
+      body = &lt;string&gt;
+    }
+</code></pre><ul>
+<li><p><code>dispatch.sms(number, message)</code></p>
+<p>  Sends an sms <code>message</code> to phone <code>number</code>. Phone number must include country
+  code.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:     number :: string - phone number, including country code
+                message :: string - text message
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean         - sms was successfully sent
+          false, reason :: boolean, string - sms was not successfully sent
+</code></pre><p>Note: Currently <code>true</code> is always returned. This function does not wait for delivery becuase SMS can take several minutes or more to be delivered. There is currently no way to verify that a message has been delivered.</p>
+<ul>
+<li><p><code>dispatch.tweet(auth, message)</code></p>
+<p>  Sends a <code>message</code> on behalf of the authenticated twitter user application.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:       auth :: table  - authentication table (see below)
+                message :: string - text message
+
+  The &#39;auth&#39; table has four fields:
+
+     oauth_consumer_key :: string - Consumer Key
+  oauth_consumer_secret :: string - Consumer Secret
+            oauth_token :: string - Token
+     oauth_token_secret :: string - Token Secret
+
+  Authentication with www.twitter.com requires that a user have a twitter.com
+  account and, under their user account, a twitter application, on behalf of
+  which, the One Platform script will be able to send tweets. Follow the process
+  described on www.twitter.com to set up an account and an application for your
+  account. Then, under the new application&#39;s settings, obtain the above four
+  values.
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean         - tweet was successfully sent
+          false, reason :: boolean, string - tweet was not successfully sent
+
+  twitter.com rejects subsequent, identical tweets. This can result in failure
+  reason &quot;undelivered&quot;.
+</code></pre><h2 id="utilities">Utilities</h2>
+<p>The scripting system has access to utilities functions in the global scope.</p>
+<ul>
+<li><p><code>date()</code>, <code>date(format)</code>, <code>date(format, time)</code></p>
+<p>  Returns the current or supplied time, formatted as specified. Non-specifier
+  characters are copied verbatim to the returned string.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:     format :: string - &#39;*t&#39; or strftime-compliant format specifier
+                                    See http://linux.die.net/man/3/strftime
+                                    If omitted, defaults to &#39;%c&#39;.
+                   time :: number - UNIX time value to be formatted
+                                    If omitted, defaults to current UTC time.
+
+  ------------------------------------------------------------------------------
+  Returns:         date :: string - formatted date and/or time string
+                   date :: table  - if format was specified as &#39;*t&#39;, the Lua
+                                    table with the following number fields:
+                                     .sec   - seconds              (0-59)
+                                     .min   - minutes              (0-59)
+                                     .hour  - hours                (0-23)
+                                     .day   - day of month         (1-31)
+                                     .month - month                (1-12)
+                                     .year  - year
+                                     .wday  - weekday              (Sun=1-7)
+                                     .yday  - days since January 1 (1-366)
+
+    nil, &quot;badspecifier&quot; :: nil, string - if invalid format specifier was given
+</code></pre><ul>
+<li><p><code>debug(message)</code></p>
+<p>  Writes the given message to the calling script&#39;s datastack. It prepends the
+  message with the line number from which it was called.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:     essage :: string - debug message
+
+  ------------------------------------------------------------------------------
+  Returns:         nil
+</code></pre><ul>
+<li><code>setlocale(locale)</code></li>
+</ul>
+<p>Locale controls formatting and internationalization of various outputs. In the
+One Platform scripting environment, these are the <code>date</code> function and some of
+the built in Lua functions, such as <code>tonumber</code>.</p>
+<p>By default, scripts use the en_US.utf8 locale. Scripts can switch to another
+locale by calling this function and specifying the new locale. The new locale
+remains in effect until a subsequent invocation of this function.</p>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments:     locale :: string - the name of the locale
+
+    Supported are the &#39;C&#39; and &#39;POSIX&#39; locales and the &lt;language&gt;_&lt;country&gt;.utf8
+    locales as follows:
+
+    aa_DJ, af_ZA, an_ES, ar_AE, ar_BH, ar_DZ, ar_EG, ar_IQ, ar_JO, ar_KW, ar_LB,
+    ar_LY, ar_MA, ar_OM, ar_QA, ar_SA, ar_SD, ar_SY, ar_TN, ar_YE, as_IN, az_AZ,
+    be_BY, bg_BG, br_FR, bs_BA, ca_AD, ca_ES, ca_FR, ca_IT, cs_CZ, cy_GB, da_DK,
+    de_AT, de_BE, de_CH, de_DE, de_LI, de_LU, el_CY, el_GR, en_AU, en_BW, en_CA,
+    en_DK, en_GB, en_HK, en_IE, en_NZ, en_PH, en_SG, en_US, en_ZA, en_ZW, es_AR,
+    es_BO, es_CL, es_CO, es_CR, es_DO, es_EC, es_ES, es_GT, es_HN, es_MX, es_NI,
+    es_PA, es_PE, es_PR, es_PY, es_SV, es_US, es_UY, es_VE, et_EE, eu_ES, eu_FR,
+    fi_FI, fo_FO, fr_BE, fr_CA, fr_CH, fr_FR, fr_LU, ga_IE, gd_GB, gl_ES, gv_GB,
+    he_IL, hr_HR, hu_HU, id_ID, is_IS, it_CH, it_IT, iw_IL, ja_JP, ka_GE, kk_KZ,
+    kl_GL, ko_KR, ku_TR, kw_GB, lg_UG, lt_LT, lv_LV, mg_MG, mi_NZ, mk_MK, ms_MY,
+    mt_MT, nb_NO, nl_BE, nl_NL, nn_NO, oc_FR, om_KE, pl_PL, pt_BR, pt_PT, ro_RO,
+    ru_RU, ru_UA, sk_SK, sl_SI, so_DJ, so_KE, so_SO, sq_AL, st_ZA, sv_FI, sv_SE,
+    tg_TJ, th_TH, tl_PH, tr_CY, tr_TR, tt_RU, uk_UA, uz_UZ, wa_BE, xh_ZA, yi_US,
+    zh_CN, zh_HK, zh_SG, zh_TW, zu_ZA
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean - new locale was successfully set
+                  false :: boolean - locale was not successfully set
+</code></pre><ul>
+<li><p><code>settimezone(timezone)</code></p>
+<p>  The timezone set for the script affects the output of the <code>date</code> function.</p>
+<p>  By default, scripts use the UTC timezone. Scripts can call this function to
+  switch to a different timezone. The new timezone setting will remain in effect
+  until a subsequent invocation of this function.</p>
+</li>
+</ul>
+<pre><code>  ------------------------------------------------------------------------------
+  Arguments: timezone :: string - the name of timezone
+
+    For a list of available time zones, reference &#39;List&#39; table in the following
+    article: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+    For the argument to this function, use the timezone name values found in the
+    TZ* column of that table.
+
+  ------------------------------------------------------------------------------
+  Returns:         true :: boolean - the new timezone was successfully set
+                  false :: boolean - the new timezone was not successfully set
+</code></pre></div>
+</div>
+
+<div id="markdown" style="display:none;">
+
+</div>
+
+<!-- Custom -->
+<script src='/assets/main.js'></script>
+
+</body>
+</html>
